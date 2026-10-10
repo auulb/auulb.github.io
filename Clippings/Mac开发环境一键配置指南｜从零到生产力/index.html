@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Mac开发环境一键配置指南｜从零到生产力</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">Mac开发环境一键配置指南｜从零到生产力</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<p><a href="https://www.zhihu.com/column/c_1982067831853036046" target="_blank" class="external-link">收录于 · 技术急诊室：从线上故障到架构实战</a></p>
+<p>35 人赞同了该文章</p>
+<p>新Mac到手， <a href="https://zhida.zhihu.com/search?content_id=267206080&amp;content_type=Article&amp;match_order=1&amp;q=%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3OTE4MTY3NzksInEiOiLnjq_looPphY3nva4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNjcyMDYwODAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9._V3vmTUV46Ovod57r5WrIk1Uzk32rUiUhCnouxoVfS8&amp;zhida_source=entity" target="_blank" class="external-link">环境配置</a> 是个大工程。</p>
+<p>这篇整理了我的配置流程和脚本，争取2小时搞定所有开发环境。</p>
+<hr>
+<h2 id="一、系统设置" tabindex="-1">一、系统设置</h2>
+<p>先调整一些系统设置，提升效率。</p>
+<h3 id="1-1" tabindex="-1">1.1 终端执行</h3>
+<pre><code># 显示隐藏文件
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Dock自动隐藏，减少延迟
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.3
+
+# 关闭.DS_Store生成（网络驱动器）
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# 加快键盘重复速度
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# 重启Finder和Dock生效
+killall Finder
+killall Dock
+</code></pre>
+<h3 id="1-2" tabindex="-1">1.2 手动设置</h3>
+<ul>
+<li><strong>触控板：</strong> 系统设置 → 触控板 → 轻点来点按 ✅</li>
+<li><strong>三指拖拽：</strong> 辅助功能 → 指针控制 → 触控板选项 → 拖移样式</li>
+<li><strong>键盘：</strong> <a href="https://zhida.zhihu.com/search?content_id=267206080&amp;content_type=Article&amp;match_order=1&amp;q=%E4%BF%AE%E9%A5%B0%E9%94%AE&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3OTE4MTY3NzksInEiOiLkv67ppbDplK4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNjcyMDYwODAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.Ymep2lhk5i3YAMqm75kecnhtwdiE8yBL-sugarmAK9U&amp;zhida_source=entity" target="_blank" class="external-link">修饰键</a> → Caps Lock改成Control（程序员必备）</li>
+</ul>
+<hr>
+<h2 id="homebrew" tabindex="-1">二、Homebrew</h2>
+<p>Mac的包管理器，必装。</p>
+<h3 id="2-1" tabindex="-1">2.1 安装</h3>
+<pre><code># 官方源（可能慢）
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+
+# 国内镜像（推荐）
+/bin/bash -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;
+</code></pre>
+<h3 id="2-2" tabindex="-1">2.2 配置环境变量</h3>
+<pre><code># M芯片Mac
+echo 'eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;' &gt;&gt; ~/.zprofile
+eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;
+
+# Intel Mac
+echo 'eval &quot;$(/usr/local/bin/brew shellenv)&quot;' &gt;&gt; ~/.zprofile
+</code></pre>
+<h3 id="2-3" tabindex="-1">2.3 换源（可选）</h3>
+<pre><code># 中科大源
+export HOMEBREW_BREW_GIT_REMOTE=&quot;https://mirrors.ustc.edu.cn/brew.git&quot;
+export HOMEBREW_CORE_GIT_REMOTE=&quot;https://mirrors.ustc.edu.cn/homebrew-core.git&quot;
+export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-bottles&quot;
+</code></pre>
+<hr>
+<h2 id="三、命令行工具" tabindex="-1">三、命令行工具</h2>
+<h3 id="3-1" tabindex="-1">3.1 一键安装</h3>
+<pre><code># 基础工具
+brew install git wget curl tree htop jq
+
+# 开发工具
+brew install vim neovim tmux fzf ripgrep fd bat
+
+# 现代替代品
+brew install eza        # 替代ls
+brew install zoxide     # 替代cd
+brew install tldr       # 替代man
+</code></pre>
+<h3 id="3-2-git" tabindex="-1">3.2 Git配置</h3>
+<pre><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your@email.com&quot;
+
+# 常用别名
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.lg &quot;log --oneline --graph --all&quot;
+
+# 生成SSH密钥
+ssh-keygen -t ed25519 -C &quot;your@email.com&quot;
+cat ~/.ssh/id_ed25519.pub
+# 复制到GitHub/GitLab
+</code></pre>
+<hr>
+<h2 id="四、终端美化" tabindex="-1">四、终端美化</h2>
+<h3 id="4-1-oh-my-zsh" tabindex="-1">4.1 安装Oh My Zsh</h3>
+<pre><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre>
+<h3 id="4-2" tabindex="-1">4.2 安装插件</h3>
+<pre><code># 自动补全
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# 语法高亮
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+</code></pre>
+<h3 id="4-3-zshrc" tabindex="-1">4.3 配置.zshrc</h3>
+<pre><code># 编辑配置
+vim ~/.zshrc
+
+# 修改主题（推荐）
+ZSH_THEME=&quot;agnoster&quot;
+
+# 启用插件
+plugins=(
+    git
+    docker
+    kubectl
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+# 常用别名
+alias ll=&quot;eza -la&quot;
+alias cat=&quot;bat&quot;
+alias find=&quot;fd&quot;
+alias grep=&quot;rg&quot;
+
+# 生效
+source ~/.zshrc
+</code></pre>
+<h3 id="4-4-powerlevel10k" tabindex="-1">4.4 安装Powerlevel10k（可选）</h3>
+<p>更炫的主题：</p>
+<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# .zshrc里改主题
+ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;
+
+# 重启终端，按提示配置
+</code></pre>
+<hr>
+<h2 id="五、开发语言环境" tabindex="-1">五、开发语言环境</h2>
+<h3 id="5-1-node-js-nvm" tabindex="-1">5.1 Node.js（nvm）</h3>
+<pre><code># 安装nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# 重启终端
+source ~/.zshrc
+
+# 安装Node
+nvm install --lts
+nvm use --lts
+
+# 换源
+npm config set registry https://registry.npmmirror.com
+
+# 常用全局包
+npm install -g pnpm yarn typescript ts-node
+</code></pre>
+<h3 id="5-2-python-pyenv" tabindex="-1">5.2 Python（pyenv）</h3>
+<pre><code># 安装pyenv
+brew install pyenv pyenv-virtualenv
+
+# 配置.zshrc
+echo 'eval &quot;$(pyenv init -)&quot;' &gt;&gt; ~/.zshrc
+echo 'eval &quot;$(pyenv virtualenv-init -)&quot;' &gt;&gt; ~/.zshrc
+source ~/.zshrc
+
+# 安装Python
+pyenv install 3.11.0
+pyenv global 3.11.0
+
+# 换源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<h3 id="5-3-java-jenv" tabindex="-1">5.3 Java（jenv）</h3>
+<pre><code># 安装jenv
+brew install jenv
+
+# 配置.zshrc
+echo 'eval &quot;$(jenv init -)&quot;' &gt;&gt; ~/.zshrc
+source ~/.zshrc
+
+# 安装JDK
+brew install openjdk@11 openjdk@17
+
+# 添加到jenv
+jenv add /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home
+jenv add /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+
+# 设置默认版本
+jenv global 17
+</code></pre>
+<h3 id="5-4-go" tabindex="-1">5.4 Go</h3>
+<pre><code>brew install go
+
+# 配置环境变量
+echo 'export GOPATH=$HOME/go' &gt;&gt; ~/.zshrc
+echo 'export PATH=$PATH:$GOPATH/bin' &gt;&gt; ~/.zshrc
+
+# 换源
+go env -w GOPROXY=https://goproxy.cn,direct
+</code></pre>
+<h3 id="5-5-rust" tabindex="-1">5.5 Rust</h3>
+<pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+</code></pre>
+<hr>
+<h2 id="docker" tabindex="-1">六、Docker</h2>
+<pre><code># 安装Docker Desktop（官网下载）
+# 或者用brew
+brew install --cask docker
+
+# 启动Docker Desktop
+
+# 验证
+docker --version
+docker-compose --version
+
+# 换源（Docker Desktop设置里）
+# Registry mirrors: https://mirror.ccs.tencentyun.com
+</code></pre>
+<hr>
+<h2 id="七、数据库客户端" tabindex="-1">七、数据库客户端</h2>
+<pre><code># MySQL客户端
+brew install mysql-client
+
+# PostgreSQL客户端
+brew install libpq
+echo 'export PATH=&quot;/opt/homebrew/opt/libpq/bin:$PATH&quot;' &gt;&gt; ~/.zshrc
+
+# Redis客户端
+brew install redis
+
+# GUI工具（推荐）
+brew install --cask dbeaver-community  # 免费，支持多数据库
+brew install --cask tableplus          # 付费，颜值高
+</code></pre>
+<hr>
+<h2 id="ide" tabindex="-1">八、编辑器/IDE</h2>
+<h3 id="8-1-vs-code" tabindex="-1">8.1 VS Code</h3>
+<pre><code>brew install --cask visual-studio-code
+
+# 命令行启动
+# VS Code里：Cmd+Shift+P → Shell Command: Install 'code' command
+
+# 常用插件
+code --install-extension ms-python.python
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension esbenp.prettier-vscode
+code --install-extension eamodio.gitlens
+code --install-extension ms-azuretools.vscode-docker
+</code></pre>
+<h3 id="8-2-jet-brains" tabindex="-1">8.2 JetBrains全家桶</h3>
+<pre><code>brew install --cask intellij-idea
+brew install --cask pycharm
+brew install --cask webstorm
+brew install --cask goland
+</code></pre>
+<hr>
+<h2 id="九、其他工具" tabindex="-1">九、其他工具</h2>
+<h3 id="9-1" tabindex="-1">9.1 效率工具</h3>
+<pre><code># 快捷启动
+brew install --cask raycast      # 替代Spotlight
+
+# 窗口管理
+brew install --cask rectangle    # 免费
+
+# 剪贴板
+brew install --cask maccy        # 免费
+
+# 截图
+brew install --cask snipaste
+</code></pre>
+<h3 id="9-2" tabindex="-1">9.2 开发辅助</h3>
+<pre><code># API调试
+brew install --cask postman
+brew install --cask insomnia     # 替代品，更轻量
+
+# 抓包
+brew install --cask charles
+brew install --cask proxyman     # 替代品，M芯片原生
+
+# SSH管理
+brew install --cask termius
+</code></pre>
+<h3 id="9-3" tabindex="-1">9.3 远程连接</h3>
+<pre><code># 远程桌面
+brew install --cask microsoft-remote-desktop
+
+# 虚拟机
+brew install --cask vmware-fusion
+</code></pre>
+<hr>
+<h2 id="十、一键配置脚本" tabindex="-1">十、一键配置脚本</h2>
+<p>把上面的命令整合成一个脚本：</p>
+<pre><code>#!/bin/bash
+# mac_setup.sh - Mac开发环境一键配置
+
+set -e
+
+echo &quot;🚀 开始配置Mac开发环境...&quot;
+
+# ========== Homebrew ==========
+echo &quot;📦 安装Homebrew...&quot;
+if ! command -v brew &amp;&gt; /dev/null; then
+    /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+    eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;
+fi
+
+# ========== 命令行工具 ==========
+echo &quot;🔧 安装命令行工具...&quot;
+brew install git wget curl tree htop jq
+brew install vim neovim tmux fzf ripgrep fd bat eza zoxide
+
+# ========== Oh My Zsh ==========
+echo &quot;💻 安装Oh My Zsh...&quot;
+if [ ! -d &quot;$HOME/.oh-my-zsh&quot; ]; then
+    sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot; &quot;&quot; --unattended
+fi
+
+# 插件
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 2&gt;/dev/null || true
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 2&gt;/dev/null || true
+
+# ========== 开发语言 ==========
+echo &quot;🐍 安装Python环境...&quot;
+brew install pyenv pyenv-virtualenv
+
+echo &quot;📗 安装Node环境...&quot;
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+echo &quot;☕ 安装Java环境...&quot;
+brew install openjdk@17 jenv
+
+echo &quot;🐹 安装Go环境...&quot;
+brew install go
+
+# ========== Docker ==========
+echo &quot;🐳 安装Docker...&quot;
+brew install --cask docker
+
+# ========== 编辑器 ==========
+echo &quot;📝 安装VS Code...&quot;
+brew install --cask visual-studio-code
+
+# ========== 效率工具 ==========
+echo &quot;⚡ 安装效率工具...&quot;
+brew install --cask raycast rectangle maccy
+
+# ========== 配置 ==========
+echo &quot;⚙️ 配置系统...&quot;
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.dock autohide -bool true
+killall Finder
+killall Dock
+
+echo &quot;✅ 配置完成！请重启终端。&quot;
+</code></pre>
+<p>保存为 <code>mac_setup.sh</code> ，执行：</p>
+<pre><code>chmod +x mac_setup.sh
+./mac_setup.sh
+</code></pre>
+<hr>
+<h2 id="十一、远程开发" tabindex="-1">十一、远程开发</h2>
+<p>如果你需要连接 <a href="https://zhida.zhihu.com/search?content_id=267206080&amp;content_type=Article&amp;match_order=1&amp;q=%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3OTE4MTY3NzksInEiOiLov5znqIvmnI3liqHlmagiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNjcyMDYwODAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.GN90X4sdKhHVCiAQTbf8ro82F0OGk0JyH-s8qy047e0&amp;zhida_source=entity" target="_blank" class="external-link">远程服务器</a> 开发，推荐：</p>
+<h3 id="11-1-vs-code-remote" tabindex="-1">11.1 VS Code Remote</h3>
+<p>安装Remote-SSH插件，直接在远程服务器上开发。</p>
+<h3 id="11-2" tabindex="-1">11.2 远程服务器连接</h3>
+<p>如果服务器在公司内网，可以用组网工具打通：</p>
+<pre><code># 本地Mac和公司服务器组网后
+# 直接用虚拟IP连接
+ssh root@192.168.188.10
+
+# VS Code Remote也可以用
+</code></pre>
+<p>我用的 <a href="https://zhida.zhihu.com/search?content_id=267206080&amp;content_type=Article&amp;match_order=1&amp;q=%E6%98%9F%E7%A9%BA%E7%BB%84%E7%BD%91&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3OTE4MTY3NzksInEiOiLmmJ_nqbrnu4TnvZEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNjcyMDYwODAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.7OZCXRA1bnuJ7_rZ_KhfmgqQJwmp30HQYkH93GyhNjg&amp;zhida_source=entity" target="_blank" class="external-link">星空组网</a> ，把Mac和公司的开发服务器组到一个网络，在家也能直接SSH连，不用开VPN。</p>
+<hr>
+<h2 id="十二、备份配置" tabindex="-1">十二、备份配置</h2>
+<p>配置好环境后，建议备份：</p>
+<h3 id="12-1-homebrew" tabindex="-1">12.1 Homebrew</h3>
+<pre><code># 导出已安装的包列表
+brew bundle dump --file=~/Brewfile
+
+# 恢复
+brew bundle --file=~/Brewfile
+</code></pre>
+<h3 id="12-2-dotfiles" tabindex="-1">12.2 dotfiles</h3>
+<pre><code># 备份配置文件
+mkdir -p ~/dotfiles
+cp ~/.zshrc ~/dotfiles/
+cp ~/.gitconfig ~/dotfiles/
+cp ~/.vimrc ~/dotfiles/
+
+# 传到GitHub
+cd ~/dotfiles
+git init
+git add .
+git commit -m &quot;backup dotfiles&quot;
+git remote add origin git@github.com:username/dotfiles.git
+git push -u origin main
+</code></pre>
+<hr>
+<h2 id="总结" tabindex="-1">总结</h2>
+<p>Mac开发环境配置清单：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>包管理</td>
+<td>Homebrew</td>
+</tr>
+<tr>
+<td>终端</td>
+<td>Oh My Zsh + Powerlevel10k</td>
+</tr>
+<tr>
+<td>版本管理</td>
+<td>nvm/pyenv/jenv</td>
+</tr>
+<tr>
+<td>容器</td>
+<td>Docker Desktop</td>
+</tr>
+<tr>
+<td>编辑器</td>
+<td>VS Code / JetBrains</td>
+</tr>
+<tr>
+<td>效率</td>
+<td><a href="https://zhida.zhihu.com/search?content_id=267206080&amp;content_type=Article&amp;match_order=1&amp;q=Raycast&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3OTE4MTY3NzksInEiOiJSYXljYXN0IiwiemhpZGFfc291cmNlIjoiZW50aXR5IiwiY29udGVudF9pZCI6MjY3MjA2MDgwLCJjb250ZW50X3R5cGUiOiJBcnRpY2xlIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ._xyZ7ABOa_GhJCOrsrGZSTdf6wirbNi2Dv88l2ge8qE&amp;zhida_source=entity" target="_blank" class="external-link">Raycast</a> / Rectangle / <a href="https://zhida.zhihu.com/search?content_id=267206080&amp;content_type=Article&amp;match_order=1&amp;q=Maccy&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3OTE4MTY3NzksInEiOiJNYWNjeSIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjI2NzIwNjA4MCwiY29udGVudF90eXBlIjoiQXJ0aWNsZSIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0._nAGJ8k65WfbBjdOv8gx0SoH2UcgYwfjZ4kcrMwRTLg&amp;zhida_source=entity" target="_blank" class="external-link">Maccy</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>用一键脚本的话，2小时内可以搞定全部环境。</p>
+<p>有问题评论区交流~</p>
+<p>发布于 2025-12-04 15:29・北京</p>
+<p>赞同 35</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#一、系统设置">一、系统设置</a>
+<ol>
+<li><a href="#1-1">1.1 终端执行</a>
+</li>
+<li><a href="#1-2">1.2 手动设置</a>
+</li>
+</ol>
+</li>
+<li><a href="#homebrew">二、Homebrew</a>
+<ol>
+<li><a href="#2-1">2.1 安装</a>
+</li>
+<li><a href="#2-2">2.2 配置环境变量</a>
+</li>
+<li><a href="#2-3">2.3 换源（可选）</a>
+</li>
+</ol>
+</li>
+<li><a href="#三、命令行工具">三、命令行工具</a>
+<ol>
+<li><a href="#3-1">3.1 一键安装</a>
+</li>
+<li><a href="#3-2-git">3.2 Git配置</a>
+</li>
+</ol>
+</li>
+<li><a href="#四、终端美化">四、终端美化</a>
+<ol>
+<li><a href="#4-1-oh-my-zsh">4.1 安装Oh My Zsh</a>
+</li>
+<li><a href="#4-2">4.2 安装插件</a>
+</li>
+<li><a href="#4-3-zshrc">4.3 配置.zshrc</a>
+</li>
+<li><a href="#4-4-powerlevel10k">4.4 安装Powerlevel10k（可选）</a>
+</li>
+</ol>
+</li>
+<li><a href="#五、开发语言环境">五、开发语言环境</a>
+<ol>
+<li><a href="#5-1-node-js-nvm">5.1 Node.js（nvm）</a>
+</li>
+<li><a href="#5-2-python-pyenv">5.2 Python（pyenv）</a>
+</li>
+<li><a href="#5-3-java-jenv">5.3 Java（jenv）</a>
+</li>
+<li><a href="#5-4-go">5.4 Go</a>
+</li>
+<li><a href="#5-5-rust">5.5 Rust</a>
+</li>
+</ol>
+</li>
+<li><a href="#docker">六、Docker</a>
+</li>
+<li><a href="#七、数据库客户端">七、数据库客户端</a>
+</li>
+<li><a href="#ide">八、编辑器/IDE</a>
+<ol>
+<li><a href="#8-1-vs-code">8.1 VS Code</a>
+</li>
+<li><a href="#8-2-jet-brains">8.2 JetBrains全家桶</a>
+</li>
+</ol>
+</li>
+<li><a href="#九、其他工具">九、其他工具</a>
+<ol>
+<li><a href="#9-1">9.1 效率工具</a>
+</li>
+<li><a href="#9-2">9.2 开发辅助</a>
+</li>
+<li><a href="#9-3">9.3 远程连接</a>
+</li>
+</ol>
+</li>
+<li><a href="#十、一键配置脚本">十、一键配置脚本</a>
+</li>
+<li><a href="#十一、远程开发">十一、远程开发</a>
+<ol>
+<li><a href="#11-1-vs-code-remote">11.1 VS Code Remote</a>
+</li>
+<li><a href="#11-2">11.2 远程服务器连接</a>
+</li>
+</ol>
+</li>
+<li><a href="#十二、备份配置">十二、备份配置</a>
+<ol>
+<li><a href="#12-1-homebrew">12.1 Homebrew</a>
+</li>
+<li><a href="#12-2-dotfiles">12.2 dotfiles</a>
+</li>
+</ol>
+</li>
+<li><a href="#总结">总结</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
