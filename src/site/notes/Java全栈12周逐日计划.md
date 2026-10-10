@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Java全栈12周逐日计划/","title":"Java 全栈 12 周逐日计划（每天 6 小时）","tags":["学习计划","逐日任务","Java","全栈"],"dg-note-properties":{"title":"Java 全栈 12 周逐日计划（每天 6 小时）","created":"2026-10-09","tags":["学习计划","逐日任务","Java","全栈"],"status":"进行中","总周期":"12 周（84 天）","每日投入":"6 小时（每周 6 天，第 7 天复盘机动）"}}
+{"dg-publish":true,"permalink":"/Java全栈12周逐日计划/","title":"Java 全栈 12 周逐日计划（每天 6 小时）","tags":["学习计划","逐日任务","Java","全栈","gardenEntry"],"dg-note-properties":{"title":"Java 全栈 12 周逐日计划（每天 6 小时）","created":"2026-10-09","tags":["学习计划","逐日任务","Java","全栈","gardenEntry"],"status":"进行中","总周期":"12 周（84 天）","每日投入":"6 小时（每周 6 天，第 7 天复盘机动）"}}
 ---
 
 
