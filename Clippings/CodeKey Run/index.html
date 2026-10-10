@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>javaplan</title>
+<title>CodeKey Run</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -49,7 +49,7 @@
 <span class="foldername">all</span>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
@@ -66,7 +66,7 @@
 <span class="foldername">Clippings</span>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
@@ -88,14 +88,67 @@
 </div>
 <main class="content cm-s-obsidian">
 <header>
-<h1 data-note-icon="">javaplan</h1>
+<h1 data-note-icon="">CodeKey Run</h1>
 <div class="header-meta">
 <div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
 </div>
 </div>
 </header>
-<p>hi<br>
-asdfasdf</p>
+<h2 id="jet-brains" tabindex="-1">JetBrains 产品与插件</h2>
+<p>JetBrains Product</p>
+<h2 id="all-jetbrains-s-product-or-plugin" tabindex="-1">All Jetbrains's Product Or Plugin</h2>
+<p>JetBrains Product</p>
+<h2 id="intelli-j-idea" tabindex="-1">IntelliJ IDEA</h2>
+<p>JetBrains Product</p>
+<h2 id="py-charm" tabindex="-1">PyCharm</h2>
+<p>JetBrains Product</p>
+<h2 id="php-storm" tabindex="-1">PhpStorm</h2>
+<p>JetBrains Product</p>
+<h2 id="go-land" tabindex="-1">GoLand</h2>
+<p>JetBrains Product</p>
+<h2 id="rider" tabindex="-1">Rider</h2>
+<p>JetBrains Product</p>
+<h2 id="c-lion" tabindex="-1">CLion</h2>
+<p>JetBrains Product</p>
+<h2 id="rust-rover" tabindex="-1">RustRover</h2>
+<p>JetBrains Product</p>
+<h2 id="web-storm" tabindex="-1">WebStorm</h2>
+<p>JetBrains Product</p>
+<h2 id="ruby-mine" tabindex="-1">RubyMine</h2>
+<p>JetBrains Product</p>
+<h2 id="data-grip" tabindex="-1">DataGrip</h2>
+<p>JetBrains Product</p>
+<h2 id="data-spell" tabindex="-1">DataSpell</h2>
+<p>JetBrains Product</p>
+<h2 id="app-code" tabindex="-1">AppCode</h2>
+<p>JetBrains Product</p>
+<h2 id="dot-memory" tabindex="-1">dotMemory</h2>
+<p>JetBrains Plugin</p>
+<h2 id="log" tabindex="-1">.log</h2>
+<p>JetBrains Plugin</p>
+<h2 id="actionate" tabindex="-1">Actionate</h2>
+<p>JetBrains Plugin</p>
+<h2 id="aem-ide" tabindex="-1">AEM IDE</h2>
+<p>JetBrains Plugin</p>
+<h2 id="aem-repository-tools" tabindex="-1">AEM Repository Tools</h2>
+<p>JetBrains Plugin</p>
+<h2 id="aem-support" tabindex="-1">AEM Support</h2>
+<p>JetBrains Plugin</p>
+<h2 id="ai-code-eye" tabindex="-1">AI CodeEye</h2>
+<p>JetBrains Plugin</p>
+<h2 id="ai-coding" tabindex="-1">AI Coding</h2>
+<p>JetBrains Plugin</p>
+<h2 id="ai-commit" tabindex="-1">AICommit</h2>
+<p>JetBrains Plugin</p>
+<h2 id="all-icons-pack" tabindex="-1">All Icons Pack</h2>
+<p>JetBrains Plugin</p>
+<h2 id="android-antidecompiler" tabindex="-1">Android Antidecompiler</h2>
+<p>JetBrains Plugin</p>
+<h2 id="an-note" tabindex="-1">AnNote</h2>
+<p>JetBrains Plugin</p>
 </main>
 <aside>
 <div class="sidebar">
@@ -126,6 +179,71 @@ asdfasdf</p>
 <div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
 <div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
 <span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#jet-brains">JetBrains 产品与插件</a>
+</li>
+<li><a href="#all-jetbrains-s-product-or-plugin">All Jetbrains's Product Or Plugin</a>
+</li>
+<li><a href="#intelli-j-idea">IntelliJ IDEA</a>
+</li>
+<li><a href="#py-charm">PyCharm</a>
+</li>
+<li><a href="#php-storm">PhpStorm</a>
+</li>
+<li><a href="#go-land">GoLand</a>
+</li>
+<li><a href="#rider">Rider</a>
+</li>
+<li><a href="#c-lion">CLion</a>
+</li>
+<li><a href="#rust-rover">RustRover</a>
+</li>
+<li><a href="#web-storm">WebStorm</a>
+</li>
+<li><a href="#ruby-mine">RubyMine</a>
+</li>
+<li><a href="#data-grip">DataGrip</a>
+</li>
+<li><a href="#data-spell">DataSpell</a>
+</li>
+<li><a href="#app-code">AppCode</a>
+</li>
+<li><a href="#dot-memory">dotMemory</a>
+</li>
+<li><a href="#log">.log</a>
+</li>
+<li><a href="#actionate">Actionate</a>
+</li>
+<li><a href="#aem-ide">AEM IDE</a>
+</li>
+<li><a href="#aem-repository-tools">AEM Repository Tools</a>
+</li>
+<li><a href="#aem-support">AEM Support</a>
+</li>
+<li><a href="#ai-code-eye">AI CodeEye</a>
+</li>
+<li><a href="#ai-coding">AI Coding</a>
+</li>
+<li><a href="#ai-commit">AICommit</a>
+</li>
+<li><a href="#all-icons-pack">All Icons Pack</a>
+</li>
+<li><a href="#android-antidecompiler">Android Antidecompiler</a>
+</li>
+<li><a href="#an-note">AnNote</a>
+</li>
+</ol>
+</nav>
 </div>
 </div>
 <div class="backlinks">
