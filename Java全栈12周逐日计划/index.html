@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Java 全栈 12 周逐日计划（每天 6 小时）</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">jwjblog</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">jwjblog</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">Java 全栈 12 周逐日计划（每天 6 小时）</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#学习计划
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#逐日任务
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#Java
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#全栈
+</a>
+</div>
+</div>
+</header>
+<h1 id="java-12" tabindex="-1">Java 全栈 12 周逐日计划</h1>
+<div class="callout" data-callout="tip"><div class="callout-title"><div class="callout-title-inner"> 配套阅读<br></div></div>
+<div class="callout-content">
+<p>
+路线总纲见 <a class="internal-link is-unresolved" href="/404" target="">你好</a>（阶段划分、项目阶梯、资源清单、方法论）。</p>
+</div></div>
+<h2 id="你的起点与节奏" tabindex="-1">你的起点与节奏</h2>
+<ul>
+<li><strong>起点</strong>：零基础，但做过小项目 → 有直觉、缺体系 → <strong>第 1–2 周可压缩</strong>（见文末「弹性调整」）</li>
+<li><strong>投入</strong>：每天 6 小时 × 每周 6 天 = <strong>36 小时/周</strong>，12 周 ≈ 430 小时</li>
+<li><strong>强度说明</strong>：这是「脱产级」强度，足够从零走到<strong>能独立交付一个上线项目</strong>的初级/中级水平</li>
+</ul>
+<h3 id="6" tabindex="-1">每日 6 小时时间块模板</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>时段</th>
+<th>时长</th>
+<th>内容</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>块 1</td>
+<td>2.0 h</td>
+<td>理论学习（文档/视频）</td>
+<td>只学当天任务，不贪多</td>
+</tr>
+<tr>
+<td>块 2</td>
+<td>3.0 h</td>
+<td>动手写代码</td>
+<td>不写代码的学习不算学习</td>
+</tr>
+<tr>
+<td>块 3</td>
+<td>0.5 h</td>
+<td>LeetCode 算法</td>
+<td>每天 1–2 题，写复杂度分析</td>
+</tr>
+<tr>
+<td>块 4</td>
+<td>0.5 h</td>
+<td>笔记 + Git 提交</td>
+<td><strong>每天必须有一次 commit</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout" data-callout="warning"><div class="callout-title"><div class="callout-title-inner"> 三条铁律</div></div>
+<div class="callout-content">
+<p>
+</p><ol>
+<li><strong>不出三天不换教程</strong>：选一套就跟到底，禁绝&quot;教程收集癖&quot;</li>
+<li><strong>当天代码当天提交</strong>：GitHub 绿格子是你最好的进度条</li>
+<li><strong>卡住超过 1 小时就记录并绕过</strong>：写进「卡点清单」，周末集中解决</li>
+</ol>
+<p></p></div></div>
+<hr>
+<h2 id="进度打卡表" tabindex="-1">进度打卡表</h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 第 1 周：Java 基础语法 + 环境搭建</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> 第 2 周：集合 + 异常 + 泛型 + IO</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> 第 3 周：Stream + Maven + <strong>P0 项目</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> 第 4 周：JVM + 并发入门</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> 第 5 周：并发进阶 + <strong>P1 手写线程池/RPC</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 第 6 周：MySQL + 网络基础</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 第 7 周：Spring Boot 入门</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> 第 8 周：持久层 + API 规范</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 第 9 周：Redis + 鉴权 + <strong>P2 后端项目</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> 第 10 周：前端基础（HTML/CSS/JS/TS/Vue）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 第 11 周：Vue 进阶 + 联调 + <strong>P3 全栈系统</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> 第 12 周：Docker + Nginx + CI/CD + <strong>P4 上线</strong></label></li>
+</ul>
+<hr>
+<h2 id="1-java-0" tabindex="-1">第 1 周 ｜ Java 基础语法与环境（阶段 0）</h2>
+<p><strong>周目标</strong>：搭好全部工具链，掌握 Java 语法主干，建立每日节奏。<br>
+<strong>算法主题</strong>：数组、字符串、哈希表</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>安装 JDK 17/21 + IntelliJ IDEA + Git + Maven；配置环境变量；跑通 Hello World；注册 GitHub，把代码推上去</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>变量与数据类型、运算符、流程控制（if/switch/for/while/break/continue）；练习：九九乘法表、猜数字游戏、手写冒泡排序</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>数组（一维/二维）、方法定义与重载、可变参数、递归；练习：数组去重、二分查找、斐波那契</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>String / StringBuilder / String.format；练习：字符串统计、回文判断、大小写与去空格处理</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>面向对象入门：类与对象、构造器、封装、this、static、包与访问修饰符</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>继承、多态、抽象类、接口、Object 的 equals/hashCode/toString；练习：写一个「学生管理系统」控制台版</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：整理笔记、LeetCode 2 题、把「学生管理系统」重构一遍</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：能在 IDEA 里独立新建项目并推到 GitHub；能说清重载与重写的区别。</p>
+<hr>
+<h2 id="2-io-0" tabindex="-1">第 2 周 ｜ 集合 · 异常 · 泛型 · IO（阶段 0）</h2>
+<p><strong>周目标</strong>：吃透集合框架与异常处理，这是面试第一高频区。<br>
+<strong>算法主题</strong>：双指针、哈希计数</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Collection 体系概览；ArrayList vs LinkedList（底层数组、扩容 1.5 倍、随机访问与增删的复杂度）</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>HashSet / TreeSet；<strong>HashMap 底层</strong>（数组+链表+红黑树、hash 扰动、扩容、为何线程不安全）</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>异常体系（Error/Exception、受检与非受检）、try-catch-finally、自定义异常、try-with-resources</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>泛型（泛型类/方法、通配符、类型擦除）、包装类与自动装箱、枚举、java.time 日期 API</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>IO 流：字节流/字符流、缓冲流、转换流、序列化；File 操作；NIO 简介</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>综合练习：读取日志文件 → 词频统计 → 输出格式化报表（这是 P0 的雏形）</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：手写 HashMap 简易版（put/get/扩容）；LeetCode 2 题</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：能画出 HashMap 结构图并解释扩容过程；能独立写出词频统计程序。</p>
+<hr>
+<h2 id="3-lambda-stream-maven-p0-0" tabindex="-1">第 3 周 ｜ Lambda + Stream + Maven + P0 项目（阶段 0 收官）</h2>
+<p><strong>周目标</strong>：掌握现代 Java 写法与工程化工具，产出<strong>第一个可展示项目</strong>。<br>
+<strong>算法主题</strong>：排序、递归、简单动态规划</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Lambda 表达式、函数式接口（Function/Consumer/Supplier/Predicate）、方法引用</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Stream API：filter / map / sorted / reduce / collect / groupingBy，手写 10 个实战案例</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>Maven：坐标、依赖作用域与传递、生命周期、插件；多模块工程结构简介</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>JUnit 5 单元测试入门（@Test、断言、@BeforeEach）；日志 SLF4J + Logback 配置</td>
+</tr>
+<tr>
+<td>D5</td>
+<td><strong>P0 项目开发</strong>：需求拆解 → 设计接口 → JSON 数据读取与解析（Jackson）+ 数据模型定义</td>
+</tr>
+<tr>
+<td>D6</td>
+<td><strong>P0 项目开发</strong>：统计逻辑（分组、排序、Top N）+ 命令行参数 + 报表输出（控制台/Markdown）</td>
+</tr>
+<tr>
+<td>D7</td>
+<td><strong>P0 项目收尾</strong>：异常处理、单元测试、README、Git 提交；对照阶段 0 检查清单</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收（P0 交付物）</strong>：Maven 构建通过、有测试、有 README、GitHub 仓库可运行。<br>
+<strong>里程碑 🏁</strong>：阶段 0 完成。</p>
+<hr>
+<h2 id="4-jvm-1" tabindex="-1">第 4 周 ｜ JVM + 并发入门（阶段 1）</h2>
+<p><strong>周目标</strong>：建立 JVM 与并发的底层认知，这是区分「会写」与「懂」的分水岭。<br>
+<strong>算法主题</strong>：链表、栈与队列</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>JVM 内存结构：堆、虚拟机栈、本地方法栈、程序计数器、方法区/元空间；对象创建全过程</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>垃圾回收：引用计数 vs 可达性分析、四种引用、GC 算法（标记清除/复制/标记整理）、分代模型</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>常见垃圾收集器（Serial / Parallel / CMS / G1 / ZGC 概念）、常见 JVM 参数、jps/jstat/jmap/jstack 实操</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>类加载机制：加载-验证-准备-解析-初始化、双亲委派、打破双亲委派的场景</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>线程基础：Thread / Runnable / Callable、线程生命周期、sleep / join / interrupt / setDaemon</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>线程安全：JMM、可见性与有序性、synchronized 原理（对象头/锁升级）、volatile 语义</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：画一张 JVM 内存结构图 + 写一篇笔记；LeetCode 2 题</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：能解释 <code>i++</code> 在多线程下为何不安全；能说出 volatile 解决了什么、没解决什么。</p>
+<hr>
+<h2 id="5-p1-1" tabindex="-1">第 5 周 ｜ 并发进阶 + P1 项目（阶段 1 收官）</h2>
+<p><strong>周目标</strong>：真正会用并发，手写出线程池。<br>
+<strong>算法主题</strong>：二叉树遍历、递归</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>CAS 与原子类（AtomicInteger 原理、ABA 问题）、Unsafe 简介</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>AQS 原理、ReentrantLock、ReadWriteLock、Condition；synchronized 与 Lock 对比</td>
+</tr>
+<tr>
+<td>D3</td>
+<td><strong>线程池原理</strong>：ThreadPoolExecutor 七大参数、任务提交与执行流程、四种拒绝策略、Executors 的坑</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>阻塞队列（ArrayBlockingQueue / LinkedBlockingQueue）、ConcurrentHashMap 原理</td>
+</tr>
+<tr>
+<td>D5</td>
+<td><strong>P1 开发</strong>：手写简易线程池（核心/最大线程数、队列、拒绝策略）并与 JDK 线程池压测对比</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>并发工具类（CountDownLatch / CyclicBarrier / Semaphore）、CompletableFuture 异步编排；完成 P1</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：阶段 1 检查清单；LeetCode 2 题</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收（P1 交付物）</strong>：线程池代码 + 一篇《线程池原理与手写实现》笔记 + 压测数据。<br>
+<strong>里程碑 🏁</strong>：阶段 1 完成。</p>
+<hr>
+<h2 id="6-my-sql-2" tabindex="-1">第 6 周 ｜ MySQL + 网络基础（阶段 2 前置）</h2>
+<p><strong>周目标</strong>：数据库和网络是后端的底座，必须打牢。<br>
+<strong>算法主题</strong>：双指针、滑动窗口</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>MySQL 安装与连接、建库建表、CRUD、数据类型选择、字符集与排序规则</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>复杂查询：多表 join、group by / having、子查询、union；<strong>索引原理（B+ 树）</strong>、联合索引与最左前缀</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>事务：ACID、四种隔离级别与脏读/不可重复读/幻读、MVCC、行锁表锁；Explain 分析慢 SQL</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>JDBC 全流程手写一遍（Connection/PreparedStatement/ResultSet）、SQL 注入与预编译、连接池 HikariCP</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>网络基础：TCP/IP 分层、三次握手四次挥手、HTTP 请求响应报文、常见状态码、Cookie/Session</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>实战：用 JDBC 把 P0 的数据落库，写查询与聚合统计（为后端项目打基础）</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：写《MySQL 索引与事务》笔记；LeetCode 2 题</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：能给任意一条 SQL 说出它走没走索引、为什么。</p>
+<hr>
+<h2 id="7-spring-boot-2" tabindex="-1">第 7 周 ｜ Spring Boot 入门（阶段 2）</h2>
+<p><strong>周目标</strong>：理解 Spring 的核心思想，能独立搭建并跑通一个 Web 服务。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Spring 核心：IoC/DI 思想、Bean 的定义与注入方式、作用域、生命周期</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>AOP：切面、通知、切点表达式、动态代理（JDK vs CGLIB）；实战：统一日志切面</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>Spring Boot 3 项目搭建（<a href="http://start.spring.io" target="_blank" class="external-link">start.spring.io</a>）、自动配置原理、jar 启动、yml 配置与多环境 Profile</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>分层架构：Controller / Service / Mapper 各层职责；DTO、VO、Entity 的区分</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>编写第一个 REST 接口：@RestController、@GetMapping/@PostMapping、参数绑定（@RequestParam/@PathVariable/@RequestBody）</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>统一响应体封装、全局异常处理（@RestControllerAdvice）、跨域配置、拦截器与过滤器</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：写《Spring IoC 与 AOP 到底解决了什么》笔记</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：能自己讲清&quot;一个请求进来，Spring 是如何找到并调用你的方法的&quot;。</p>
+<hr>
+<h2 id="8-api-2" tabindex="-1">第 8 周 ｜ 持久层 + API 规范（阶段 2）</h2>
+<p><strong>周目标</strong>：把「采集管理平台」的数据层与接口层做出来。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>MyBatis-Plus 集成：CRUD、条件构造器 QueryWrapper、常用注解</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>分页插件、逻辑删除、字段自动填充、乐观锁 @Version</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>表设计实战：为「GitHub 数据采集管理平台」设计表（用户、采集任务、仓库数据、标签、操作日志），写建表 SQL</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>参数校验（@Valid + 自定义校验）、全局参数异常处理、Swagger / OpenAPI（springdoc）接口文档</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>多表关联查询、自定义 XML/注解 SQL、DTO↔VO 转换（BeanUtils/MapStruct）</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>完成三类接口：用户管理、采集任务管理、数据查询与统计聚合</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：用 AI 或自己 review 一遍代码，重构坏味道</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：接口文档可访问且能直接在 Swagger 上调试通过。</p>
+<hr>
+<h2 id="9-redis-p2-2" tabindex="-1">第 9 周 ｜ Redis + 鉴权 + P2 收官（阶段 2）</h2>
+<p><strong>周目标</strong>：补齐缓存与安全，交付完整的后端服务。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Redis 数据结构与常用命令（String/Hash/List/Set/ZSet）、Spring Data Redis 集成、序列化配置</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>缓存实战（@Cacheable）、缓存穿透/击穿/雪崩的产生与解决方案、缓存与数据库一致性</td>
+</tr>
+<tr>
+<td>D3</td>
+<td><strong>JWT 鉴权全流程</strong>：登录 → 签发 token → 拦截器校验 → 刷新；RBAC 权限模型设计；BCrypt 密码加密</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>Spring 事务：传播行为、隔离级别、失效场景（自调用、非 public、异常被吞）；Redis 分布式锁实现与踩坑</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>单元测试（Mockito）+ 集成测试（MockMvc）；接口自测与边界用例</td>
+</tr>
+<tr>
+<td>D6</td>
+<td><strong>P2 收尾</strong>：接口文档、README、Postman 集合、本地全流程演示、Git 提交</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：阶段 2 检查清单</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收（P2 交付物）</strong>：可运行的完整后端服务（鉴权 + 缓存 + 文档 + 测试）。<br>
+<strong>里程碑 🏁</strong>：阶段 2 完成 —— 此时你已经是「能做后端」的人。</p>
+<hr>
+<h2 id="10-3" tabindex="-1">第 10 周 ｜ 前端基础（阶段 3）</h2>
+<p><strong>周目标</strong>：打通前端基础，能看懂并写出页面。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>HTML5 常用标签与语义化、表单元素、meta 与 SEO 基础</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>CSS：选择器与优先级、盒模型、CSS3 变量；<strong>Flex 布局</strong>专项练习</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>CSS Grid、定位、过渡动画、响应式（媒体查询）；手写一个静态个人主页</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>JavaScript 基础：变量与作用域、函数、对象、数组常用方法（map/filter/reduce）、DOM 操作与事件</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>JS 进阶：ES6+（解构、模板字符串、扩展运算符）、<strong>Promise 与 async/await</strong>、fetch/axios、模块化 import/export</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>TypeScript：基础类型、interface/type、泛型、联合类型、枚举；把我们前端的工具函数改成 TS</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>复盘：写《JS 事件循环与 Promise》笔记；LeetCode 2 题</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收</strong>：能独立用 HTML+CSS+JS 写一个带交互的表单页面。</p>
+<hr>
+<h2 id="11-vue-3-p3-3" tabindex="-1">第 11 周 ｜ Vue 3 进阶 + 前后端联调 → P3（阶段 3）</h2>
+<p><strong>周目标</strong>：用 Vue 3 把后端 API 做成交互式系统。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Vue 3 基础：模板语法、指令（v-if/v-for/v-model）、响应式（ref/reactive）、计算属性与侦听器</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>组件化：组件通信（props / emit / provide-inject）、插槽、生命周期</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>Vue Router（路由配置、动态路由、路由守卫做登录拦截）、Pinia 状态管理</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>Element Plus UI 库；Axios 二次封装（统一 baseURL、请求/响应拦截器、自动注入 token、错误提示）</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>页面开发①：登录页 + 主布局（侧边栏/顶栏）+ 权限路由</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>页面开发②：数据看板（<strong>ECharts</strong> 折线/柱状/饼图对接统计接口）+ 列表页/详情页/表单增删改查</td>
+</tr>
+<tr>
+<td>D7</td>
+<td><strong>P3 收尾</strong>：前后端联调、处理跨域、<code>npm run build</code> 打包、更新 README</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收（P3 交付物）</strong>：前后端分离的完整可视化系统，本地端到端跑通。<br>
+<strong>里程碑 🏁</strong>：阶段 3 完成 —— 你已经是「全栈」了。</p>
+<hr>
+<h2 id="12-p4-4" tabindex="-1">第 12 周 ｜ 容器化 + 部署上线 → P4（阶段 4）</h2>
+<p><strong>周目标</strong>：把项目真正搬到公网，形成可写进简历的交付能力。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>云服务器购买与基础操作（SSH、用户与权限、常用命令、防火墙与安全组）、安装 JDK 与 Nginx</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Docker 基础：镜像与容器、常用命令、Dockerfile 编写（多阶段构建减小体积）</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>docker-compose 编排：MySQL + Redis + 后端 + 前端一键启动，数据卷持久化</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>Nginx：反向代理后端接口、托管前端静态资源、gzip 压缩、<strong>HTTPS 证书配置</strong></td>
+</tr>
+<tr>
+<td>D5</td>
+<td><strong>GitHub Actions CI/CD</strong>：push 触发 → 构建 → 测试 → 构建镜像 → 部署到服务器（复用你论文的技术栈）</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>JMeter 压测接口、定位慢 SQL 与瓶颈、优化后对比数据；上线验收</td>
+</tr>
+<tr>
+<td>D7</td>
+<td><strong>P4 收尾</strong>：写《从零到上线：部署踩坑全记录》；12 周总结复盘</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>验收（P4 交付物）</strong>：域名 + HTTPS 可访问的线上系统 + 一条自动部署流水线。<br>
+<strong>里程碑 🏁</strong>：阶段 4 完成 —— 你具备了「独立交付」的完整闭环。</p>
+<hr>
+<h2 id="13-5-6" tabindex="-1">第 13 周以后（进入阶段 5 / 6）</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>方向</th>
+<th>内容</th>
+<th>建议周期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构进阶</td>
+<td>消息队列（RabbitMQ/Kafka）、Spring Cloud（Nacos + Gateway + OpenFeign）、Sentinel 限流熔断、分布式事务</td>
+<td>3–4 周</td>
+</tr>
+<tr>
+<td>差异化技能</td>
+<td>爬虫（Playwright）、JS 逆向（调试与加密参数定位）、RPA（影刀）</td>
+<td>持续并行</td>
+</tr>
+<tr>
+<td>论文协同</td>
+<td>用上面所学把论文系统工程化升级（见 <a class="internal-link is-unresolved" href="/404" target="">你好</a> 第六节）</td>
+<td>与论文进度合流</td>
+</tr>
+<tr>
+<td>求职准备</td>
+<td>简历打磨、项目讲解话术、八股文系统梳理（Java 基础/并发/JVM/MySQL/Redis/网络/Spring）</td>
+<td>面试前 4 周</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="弹性调整规则" tabindex="-1">弹性调整规则</h2>
+<div class="callout" data-callout="note"><div class="callout-title"><div class="callout-title-inner"> 关于「零基础但做过小项目」<br></div></div>
+<div class="callout-content">
+<p>
+第 1–2 周的部分内容你可能有直觉。<strong>建议先做一次自测</strong>：能否答出「HashMap 为什么线程不安全」「重载和重写的区别」。若两题都流畅，第 1–2 周可压缩到 <strong>5–6 天</strong>，把省下的时间投到 P0 项目或直接提前进入第 3 周。</p>
+</div></div>
+<p><strong>进度落后怎么办</strong></p>
+<ol>
+<li><strong>不要补债</strong>：落后就按原计划往前，把没完成的项挪进周日的机动时间</li>
+<li><strong>优先级排序</strong>：<code>项目产出</code> &gt; <code>框架使用</code> &gt; <code>底层原理</code> &gt; <code>算法刷题</code></li>
+<li><strong>进度低于 60% 就降级</strong>：把 12 周拉长到 14–16 周，别硬撑导致放弃</li>
+</ol>
+<p><strong>学不动了怎么办</strong></p>
+<ul>
+<li>换「产出」而不是换「课程」：去写代码、去 commit</li>
+<li>每个周末必须有一次「跑起来」的成就感（哪怕是修一个 bug）</li>
+<li>允许每周有 1 天完全不碰代码</li>
+</ul>
+<hr>
+<h2 id="code-n-md-code" tabindex="-1">每周笔记模板（新建 <code>学习/第N周.md</code>）</h2>
+<pre><code>## 本周主题
+## 三个能讲清楚的知识点
+   1.
+   2.
+   3.
+## 本周代码产出（commit 链接）
+## 卡点与解决
+## 自评分（1-10）与下周调整
+</code></pre>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#java-12">Java 全栈 12 周逐日计划</a>
+<ol>
+<li><a href="#你的起点与节奏">你的起点与节奏</a>
+<ol>
+<li><a href="#6">每日 6 小时时间块模板</a>
+</li>
+</ol>
+</li>
+<li><a href="#进度打卡表">进度打卡表</a>
+</li>
+<li><a href="#1-java-0">第 1 周 ｜ Java 基础语法与环境（阶段 0）</a>
+</li>
+<li><a href="#2-io-0">第 2 周 ｜ 集合 · 异常 · 泛型 · IO（阶段 0）</a>
+</li>
+<li><a href="#3-lambda-stream-maven-p0-0">第 3 周 ｜ Lambda + Stream + Maven + P0 项目（阶段 0 收官）</a>
+</li>
+<li><a href="#4-jvm-1">第 4 周 ｜ JVM + 并发入门（阶段 1）</a>
+</li>
+<li><a href="#5-p1-1">第 5 周 ｜ 并发进阶 + P1 项目（阶段 1 收官）</a>
+</li>
+<li><a href="#6-my-sql-2">第 6 周 ｜ MySQL + 网络基础（阶段 2 前置）</a>
+</li>
+<li><a href="#7-spring-boot-2">第 7 周 ｜ Spring Boot 入门（阶段 2）</a>
+</li>
+<li><a href="#8-api-2">第 8 周 ｜ 持久层 + API 规范（阶段 2）</a>
+</li>
+<li><a href="#9-redis-p2-2">第 9 周 ｜ Redis + 鉴权 + P2 收官（阶段 2）</a>
+</li>
+<li><a href="#10-3">第 10 周 ｜ 前端基础（阶段 3）</a>
+</li>
+<li><a href="#11-vue-3-p3-3">第 11 周 ｜ Vue 3 进阶 + 前后端联调 → P3（阶段 3）</a>
+</li>
+<li><a href="#12-p4-4">第 12 周 ｜ 容器化 + 部署上线 → P4（阶段 4）</a>
+</li>
+<li><a href="#13-5-6">第 13 周以后（进入阶段 5 / 6）</a>
+</li>
+<li><a href="#弹性调整规则">弹性调整规则</a>
+</li>
+<li><a href="#code-n-md-code">每周笔记模板（新建 学习/第N周.md）</a>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
