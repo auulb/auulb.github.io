@@ -1,0 +1,1801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>day03</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">day03</h1>
+<div class="header-meta">
+<div class="header-tags">
+</div>
+</div>
+</header>
+<h1 id="day-03-v3" tabindex="-1">Day 03 · V3：用户管理、借阅归还与真实数据</h1>
+<blockquote>
+<p>目标用时 6 小时。今天把系统<strong>补完</strong>：管理员能管理用户了，读者能借书还书了，图书数据换成真实的豆瓣 Top 250，最后打包成能发出去的 jar。</p>
+<p>今天有一个<strong>真实的设计问题</strong>等着你——不是练习，是当初做这个项目时真的撞上的坑。</p>
+</blockquote>
+<hr>
+<h2 id="0-v2" tabindex="-1">0. 昨天的 V2 检查 + 今天的目标</h2>
+<pre><code class="language-bash">./mvnw -q compile &amp;&amp; ls data/users.json data/books.json
+</code></pre>
+<p>确认两个数据文件都在。</p>
+<blockquote>
+<p>📌 <strong>Day 2 打卡</strong>：今天日期 ______，现在你理解&quot;认证和授权是两件事&quot;了吗？用一句话说说。</p>
+</blockquote>
+<h3 id="今天的两个缺口" tabindex="-1">今天的两个缺口</h3>
+<p><strong>缺口一：没法加人。</strong><br>
+<code>admin</code> 和 <code>reader</code> 是硬编码在 <code>DataInitializer</code> 里的。想加第三个用户，你得手改 <code>data/users.json</code>——<strong>而且密码得是 BCrypt 哈希，你根本算不出来</strong>。所以必须有个界面来创建用户，让系统替你把密码加密。</p>
+<p><strong>缺口二：&quot;读者&quot;这个角色名不副实。</strong><br>
+读者的权限是&quot;只能看，不能改&quot;。但这不叫读者，这叫<strong>游客</strong>。真正的读者应该能<strong>借书</strong>、<strong>还书</strong>。</p>
+<h3 id="今天的时间表" tabindex="-1">今天的时间表</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00–00:15</td>
+<td>回顾 + 明确目标</td>
+<td></td>
+</tr>
+<tr>
+<td>00:15–01:15</td>
+<td>用户管理后端（Form / Service / Controller）</td>
+<td>能创建用户了</td>
+</tr>
+<tr>
+<td>01:15–02:15</td>
+<td>用户管理页面 + 权限收紧 + 自测</td>
+<td>✅ 用户 CRUD 可用</td>
+</tr>
+<tr>
+<td>02:15–02:30</td>
+<td>☕ 休息</td>
+<td></td>
+</tr>
+<tr>
+<td>02:30–03:30</td>
+<td><strong>借阅 / 归还</strong></td>
+<td>✅ 读者名副其实</td>
+</tr>
+<tr>
+<td>03:30–04:30</td>
+<td><strong>豆瓣 Top 250 种子数据 + ISBN 改造</strong></td>
+<td>真实数据</td>
+</tr>
+<tr>
+<td>04:30–04:45</td>
+<td>☕ 休息</td>
+<td></td>
+</tr>
+<tr>
+<td>04:45–05:15</td>
+<td>打包 + README</td>
+<td>可发布的 jar</td>
+</tr>
+<tr>
+<td>05:15–06:00</td>
+<td>三天总验收 + 总复盘</td>
+<td>V3 完成 ✅</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="1-60" tabindex="-1">1. 用户管理：后端（60 分钟）</h2>
+<h3 id="1-1-code-user-form-code-code-user-code" tabindex="-1">1.1 为什么需要一个 <code>UserForm</code> 而不是直接用 <code>User</code></h3>
+<p><strong>因为界面需要的字段和存储需要的字段不一样。</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th><code>User</code>（存 JSON）</th>
+<th><code>UserForm</code>（接表单）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>password</td>
+<td>BCrypt <strong>哈希</strong></td>
+<td>用户输入的<strong>明文</strong></td>
+</tr>
+<tr>
+<td>编辑时</td>
+<td>永远是哈希</td>
+<td><strong>可以留空</strong>，表示&quot;不修改密码&quot;</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果直接用 <code>User</code> 接表单，就会出现两个尴尬：</p>
+<ol>
+<li>编辑页面得把<strong>密码哈希</strong>渲染到输入框里——既没意义（用户不可能编辑哈希），又<strong>泄露</strong>（哈希落到浏览器里了）。</li>
+<li>密码留空时无法区分&quot;用户想清空密码&quot;和&quot;用户不想改密码&quot;。</li>
+</ol>
+<p>所以：<strong>表单用一个单独的 DTO（数据传输对象）</strong>，控制器负责在 <code>UserForm</code> 和 <code>User</code> 之间转换。</p>
+<blockquote>
+<p>🔎 这个模式叫 <strong>DTO（Data Transfer Object）</strong>。Day 1 我们图省事，<code>Book</code> 既当模型又当表单对象——因为两者字段完全一样。<strong>一旦两者开始分叉（就像用户和密码），就该拆开。</strong> 这是个很实用的判断标准。</p>
+</blockquote>
+<h3 id="1-2-code-user-form-code" tabindex="-1">1.2 新建 <code>UserForm</code></h3>
+<p>新建 <code>src/main/java/com/library/web/dto/UserForm.java</code>：</p>
+<pre><code class="language-java">package com.library.web.dto;
+
+import com.library.model.Role;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+/**
+ * 新增 / 编辑用户的表单对象。
+ *
+ * &lt;p&gt;密码为明文输入：新增时必填，编辑时留空表示「不修改原密码」。
+ */
+public class UserForm {
+
+    private Long id;
+
+    @NotBlank(message = &quot;用户名不能为空&quot;)
+    @Size(min = 3, max = 50, message = &quot;用户名长度需在 3~50 之间&quot;)
+    private String username;
+
+    /**
+     * 允许为空（编辑时表示不修改），非空时长度须为 6~100。
+     * 这里用正则而不是 @Size，因为 @Size 会把空串判为长度不足而报错。
+     */
+    @Pattern(regexp = &quot;^$|^.{6,100}$&quot;, message = &quot;密码长度需在 6~100 之间&quot;)
+    private String password;
+
+    @NotBlank(message = &quot;姓名不能为空&quot;)
+    @Size(max = 50, message = &quot;姓名不能超过 50 个字符&quot;)
+    private String fullName;
+
+    @NotNull(message = &quot;请选择角色&quot;)
+    private Role role;
+
+    /** id 为空说明是新增。 */
+    public boolean isNew() {
+        return id == null;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+}
+</code></pre>
+<p><strong>重点看密码字段那个正则：</strong></p>
+<pre><code class="language-java">@Pattern(regexp = &quot;^$|^.{6,100}$&quot;, message = &quot;密码长度需在 6~100 之间&quot;)
+</code></pre>
+<p><strong>为什么不直接写 <code>@Size(min = 6, max = 100)</code>？</strong></p>
+<p>因为 <code>@Size</code> 对空串 <code>&quot;&quot;</code> 会判定为&quot;长度为 0，不满足 min=6&quot;，<strong>报错</strong>。但我们<strong>需要空串合法</strong>（编辑时不改密码）。</p>
+<p>用正则 <code>^$|^.{6,100}$</code> 的含义是：「<strong>要么是空串，要么是 6~100 个字符</strong>」——正好表达了这个&quot;允许留空，但填了就得够长&quot;的规则。</p>
+<blockquote>
+<p>🔎 这是 JSR-303 校验里一个经典的小绕路。记住这个技巧：<strong>&quot;可以留空，但非空时要满足条件&quot;</strong>——用 <code>@Pattern</code> 写 <code>^$|...</code>，或者干脆在控制器里手动判断（下面 <code>UserController.create</code> 就是这么处理&quot;新增时密码必填&quot;的）。</p>
+</blockquote>
+<p><code>isNew()</code> 这个便捷方法后面要在控制器和模板里用。</p>
+<h3 id="1-3-code-user-repository-code" tabindex="-1">1.3 <code>UserRepository</code> 补两个方法</h3>
+<p>打开 <code>src/main/java/com/library/repository/UserRepository.java</code>：</p>
+<p><strong>先在 import 区加上：</strong></p>
+<pre><code class="language-java">import com.library.model.Role;
+</code></pre>
+<p><strong>然后在 <code>deleteById</code> 方法后面，<code>nextId</code> 之前插入这两个方法：</strong></p>
+<pre><code class="language-java">    /** 用户名是否已被占用；{@code excludeId} 用于编辑时排除自身。 */
+    public boolean existsByUsername(String username, Long excludeId) {
+        if (username == null || username.isBlank()) {
+            return false;
+        }
+        return readAll().stream().anyMatch(user -&gt;
+                username.equalsIgnoreCase(user.getUsername())
+                        &amp;&amp; !(excludeId != null &amp;&amp; excludeId.equals(user.getId())));
+    }
+
+    /** 当前管理员账号数量，用于「不能删掉最后一个管理员」的校验。 */
+    public long countAdmins() {
+        return readAll().stream().filter(user -&gt; user.getRole() == Role.ADMIN).count();
+    }
+</code></pre>
+<p><strong><code>existsByUsername(username, excludeId)</code> 的 <code>excludeId</code> 是干嘛的？</strong></p>
+<p>编辑用户时，&quot;用户名不能重复&quot;这条规则<strong>不该把用户自己算进去</strong>——你打开张三的编辑页，什么都不改直接保存，<code>existsByUsername(&quot;zhangsan&quot;)</code> 会查出张三自己，然后报&quot;用户名已被占用&quot;，<strong>荒谬</strong>。</p>
+<p>所以编辑时传自己的 id 进来排除掉。这个 <code>excludeId</code> 参数在 Day 1 的 <code>BookRepository.existsByIsbn</code> 里也出现过——<strong>同一个模式</strong>。</p>
+<p><strong><code>countAdmins()</code></strong> 是给&quot;不能删掉最后一个管理员&quot;用的（下面 <code>UserService.delete</code> 会用到）。没有这个保护，管理员可能把所有管理员都删光，<strong>然后谁也进不来了</strong>——系统直接锁死。</p>
+<h3 id="1-4-code-user-service-code" tabindex="-1">1.4 新建 <code>UserService</code></h3>
+<p>新建 <code>src/main/java/com/library/service/UserService.java</code>：</p>
+<pre><code class="language-java">package com.library.service;
+
+import com.library.model.Role;
+import com.library.model.User;
+import com.library.repository.UserRepository;
+import com.library.web.dto.UserForm;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * 用户业务逻辑：增删改查。密码统一用 BCrypt 哈希后存储。
+ */
+@Service
+public class UserService {
+
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    public List&lt;User&gt; findAll() {
+        return userRepository.findAll();
+    }
+
+    public User get(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -&gt; new NotFoundException(&quot;用户不存在（id=&quot; + id + &quot;）&quot;));
+    }
+
+    public User create(UserForm form) {
+        if (userRepository.existsByUsername(form.getUsername(), null)) {
+            throw new BusinessException(&quot;username&quot;, &quot;用户名「&quot; + form.getUsername() + &quot;」已被占用&quot;);
+        }
+        User user = new User();
+        user.setUsername(form.getUsername().trim());
+        user.setFullName(form.getFullName().trim());
+        user.setRole(form.getRole());
+        user.setPassword(passwordEncoder.encode(form.getPassword()));
+        return userRepository.save(user);
+    }
+
+    /** 更新用户；{@code form.password} 留空表示保留原密码。 */
+    public User update(Long id, UserForm form) {
+        User existing = get(id);
+        if (userRepository.existsByUsername(form.getUsername(), id)) {
+            throw new BusinessException(&quot;username&quot;, &quot;用户名「&quot; + form.getUsername() + &quot;」已被占用&quot;);
+        }
+        existing.setUsername(form.getUsername().trim());
+        existing.setFullName(form.getFullName().trim());
+        existing.setRole(form.getRole());
+        if (form.getPassword() != null &amp;&amp; !form.getPassword().isBlank()) {
+            existing.setPassword(passwordEncoder.encode(form.getPassword()));
+        }
+        return userRepository.save(existing);
+    }
+
+    /**
+     * 删除用户。禁止删除当前登录账号，也禁止删掉最后一个管理员，
+     * 以免把自己锁在系统外。
+     */
+    public void delete(Long id, String currentUsername) {
+        User target = get(id);
+        if (target.getUsername().equalsIgnoreCase(currentUsername)) {
+            throw new BusinessException(&quot;不能删除当前登录的账号&quot;);
+        }
+        if (target.getRole() == Role.ADMIN &amp;&amp; userRepository.countAdmins() &lt;= 1) {
+            throw new BusinessException(&quot;系统至少需要保留一名管理员&quot;);
+        }
+        userRepository.deleteById(id);
+    }
+
+    public List&lt;User&gt; search(String keyword) {
+        List&lt;User&gt; all = userRepository.findAll();
+        if (keyword == null || keyword.isBlank()) {
+            return all;
+        }
+        String needle = keyword.trim().toLowerCase();
+        return all.stream()
+                .filter(user -&gt; contains(user.getUsername(), needle) || contains(user.getFullName(), needle))
+                .toList();
+    }
+
+    public long count() {
+        return userRepository.findAll().size();
+    }
+
+    private boolean contains(String value, String needle) {
+        return value != null &amp;&amp; value.toLowerCase().contains(needle);
+    }
+}
+</code></pre>
+<p><strong>四个关键点：</strong></p>
+<p><strong>① <code>update</code> 里那个 <code>if</code>：</strong></p>
+<pre><code class="language-java">if (form.getPassword() != null &amp;&amp; !form.getPassword().isBlank()) {
+    existing.setPassword(passwordEncoder.encode(form.getPassword()));
+}
+</code></pre>
+<p><strong>留空 = 不动密码。这就是 Day 2 说的&quot;为什么要单独的 UserForm&quot;的答案。</strong> 如果直接用 <code>User</code> 接表单，这里就得写&quot;如果密码是哈希格式就不改&quot;这种荒谬判断。</p>
+<p>注意这里用的是<strong>同一个 <code>existing</code> 对象</strong>（先 <code>get(id)</code> 拿到），只改变化的字段。密码没填时，<code>existing</code> 里原来的哈希<strong>原封不动</strong>。</p>
+<p><strong>② <code>create</code> 里 <code>passwordEncoder.encode(...)</code></strong> —— 明文在这里被加密。<strong>这是整个系统唯一把明文密码变成哈希的地方</strong>（另一处是 Day 2 的 <code>DataInitializer</code>）。</p>
+<p><strong>③ <code>delete</code> 的两道防线：</strong></p>
+<pre><code class="language-java">if (target.getUsername().equalsIgnoreCase(currentUsername)) {
+    throw new BusinessException(&quot;不能删除当前登录的账号&quot;);
+}
+if (target.getRole() == Role.ADMIN &amp;&amp; userRepository.countAdmins() &lt;= 1) {
+    throw new BusinessException(&quot;系统至少需要保留一名管理员&quot;);
+}
+</code></pre>
+<p><strong>第一道</strong>：不能自杀——否则你刚删完自己，会话就失效了。<br>
+<strong>第二道</strong>：不能删掉最后一个管理员——否则系统再也没人能管理了。注意条件是 <code>countAdmins() &lt;= 1</code>：如果<strong>当前就只剩一个管理员</strong>，而这个管理员正是要被删的那个，就拒绝。</p>
+<blockquote>
+<p>🔎 这类叫<strong>不变量（invariant）保护</strong>——&quot;系统里必须永远至少有一个管理员&quot;。业务规则写在 Service 里，无论从哪个入口删除都会生效。</p>
+</blockquote>
+<p><strong>④ <code>delete</code> 为什么要传 <code>currentUsername</code>？</strong> 因为 Service 层<strong>不该知道 HTTP 会话</strong>（那样就耦合到 Web 层了）。所以由 Controller 从 <code>Authentication</code> 里取出当前用户名，<strong>作为参数传进来</strong>。这是个重要的分层意识。</p>
+<h3 id="1-5-code-user-controller-code" tabindex="-1">1.5 新建 <code>UserController</code></h3>
+<p>新建 <code>src/main/java/com/library/web/UserController.java</code>：</p>
+<pre><code class="language-java">package com.library.web;
+
+import com.library.model.Role;
+import com.library.model.User;
+import com.library.service.BusinessException;
+import com.library.service.NotFoundException;
+import com.library.service.UserService;
+import com.library.web.dto.UserForm;
+import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+/**
+ * 用户管理：增删改查。整块仅管理员可访问。
+ */
+@Controller
+@RequestMapping(&quot;/users&quot;)
+@PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+public class UserController {
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    /** 模板中下拉框用的角色选项。 */
+    @ModelAttribute(&quot;allRoles&quot;)
+    public Role[] allRoles() {
+        return Role.values();
+    }
+
+    @GetMapping
+    public String list(@RequestParam(required = false) String keyword, Model model) {
+        model.addAttribute(&quot;users&quot;, userService.search(keyword));
+        model.addAttribute(&quot;keyword&quot;, keyword);
+        return &quot;users/list&quot;;
+    }
+
+    @GetMapping(&quot;/new&quot;)
+    public String createForm(Model model) {
+        UserForm form = new UserForm();
+        form.setRole(Role.READER);
+        model.addAttribute(&quot;userForm&quot;, form);
+        model.addAttribute(&quot;editing&quot;, false);
+        return &quot;users/form&quot;;
+    }
+
+    @PostMapping
+    public String create(@Valid @ModelAttribute(&quot;userForm&quot;) UserForm form,
+                         BindingResult binding,
+                         Model model,
+                         RedirectAttributes redirect) {
+        if (form.isNew() &amp;&amp; (form.getPassword() == null || form.getPassword().isBlank())) {
+            binding.rejectValue(&quot;password&quot;, &quot;required&quot;, &quot;新增用户时必须设置初始密码&quot;);
+        }
+        if (binding.hasErrors()) {
+            model.addAttribute(&quot;editing&quot;, false);
+            return &quot;users/form&quot;;
+        }
+        try {
+            userService.create(form);
+        } catch (BusinessException e) {
+            reject(binding, e);
+            model.addAttribute(&quot;editing&quot;, false);
+            return &quot;users/form&quot;;
+        }
+        redirect.addFlashAttribute(&quot;message&quot;, &quot;已新增用户「&quot; + form.getUsername() + &quot;」&quot;);
+        return &quot;redirect:/users&quot;;
+    }
+
+    @GetMapping(&quot;/{id}/edit&quot;)
+    public String editForm(@PathVariable Long id, Model model) {
+        User user = userService.get(id);
+        UserForm form = new UserForm();
+        form.setId(user.getId());
+        form.setUsername(user.getUsername());
+        form.setFullName(user.getFullName());
+        form.setRole(user.getRole());
+        model.addAttribute(&quot;userForm&quot;, form);
+        model.addAttribute(&quot;editing&quot;, true);
+        return &quot;users/form&quot;;
+    }
+
+    @PostMapping(&quot;/{id}&quot;)
+    public String update(@PathVariable Long id,
+                         @Valid @ModelAttribute(&quot;userForm&quot;) UserForm form,
+                         BindingResult binding,
+                         Model model,
+                         RedirectAttributes redirect) {
+        if (binding.hasErrors()) {
+            model.addAttribute(&quot;editing&quot;, true);
+            return &quot;users/form&quot;;
+        }
+        try {
+            userService.update(id, form);
+        } catch (BusinessException e) {
+            reject(binding, e);
+            model.addAttribute(&quot;editing&quot;, true);
+            return &quot;users/form&quot;;
+        }
+        redirect.addFlashAttribute(&quot;message&quot;, &quot;已更新用户「&quot; + form.getUsername() + &quot;」&quot;);
+        return &quot;redirect:/users&quot;;
+    }
+
+    @PostMapping(&quot;/{id}/delete&quot;)
+    public String delete(@PathVariable Long id,
+                         Authentication authentication,
+                         RedirectAttributes redirect) {
+        try {
+            userService.delete(id, authentication.getName());
+            redirect.addFlashAttribute(&quot;message&quot;, &quot;已删除该用户&quot;);
+        } catch (NotFoundException | BusinessException e) {
+            redirect.addFlashAttribute(&quot;error&quot;, e.getMessage());
+        }
+        return &quot;redirect:/users&quot;;
+    }
+
+    private void reject(BindingResult binding, BusinessException e) {
+        if (e.getField() != null &amp;&amp; binding.getFieldError(e.getField()) == null) {
+            binding.rejectValue(e.getField(), &quot;business&quot;, e.getMessage());
+        } else {
+            binding.reject(&quot;business&quot;, e.getMessage());
+        }
+    }
+}
+</code></pre>
+<p><strong>五个新东西：</strong></p>
+<p><strong>① 类级别的 <code>@PreAuthorize(&quot;hasRole('ADMIN')&quot;)</code>：</strong></p>
+<pre><code class="language-java">@Controller
+@RequestMapping(&quot;/users&quot;)
+@PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+public class UserController {
+</code></pre>
+<p>注解打在<strong>类</strong>上，表示<strong>这个类里所有方法</strong>都要求管理员。比每个方法贴一遍干净得多。</p>
+<p><strong>② <code>@ModelAttribute(&quot;allRoles&quot;)</code> 方法：</strong></p>
+<pre><code class="language-java">@ModelAttribute(&quot;allRoles&quot;)
+public Role[] allRoles() {
+    return Role.values();
+}
+</code></pre>
+<p>这个方法会在<strong>本控制器每次请求前</strong>自动执行，往 Model 里放一个 <code>allRoles</code>。模板里的角色下拉框直接遍历它——<strong>这样加新角色时，下拉框自动就有了，不用改模板</strong>。</p>
+<p><strong>③ <code>create</code> 里的手动校验：</strong></p>
+<pre><code class="language-java">if (form.isNew() &amp;&amp; (form.getPassword() == null || form.getPassword().isBlank())) {
+    binding.rejectValue(&quot;password&quot;, &quot;required&quot;, &quot;新增用户时必须设置初始密码&quot;);
+}
+</code></pre>
+<p><code>UserForm.password</code> 的校验规则是&quot;可以留空&quot;。但<strong>新增</strong>时留空是不行的——因为新用户没密码就登不进去。这条规则&quot;依赖上下文&quot;（新增 vs 编辑），注解表达不了，所以在控制器里手动判断。</p>
+<p><code>binding.rejectValue(...)</code> 把错误挂到 <code>password</code> 字段上，模板里就能显示出来。<strong>注意这是&quot;手动往 BindingResult 里塞错误&quot;的标准做法。</strong></p>
+<p><strong>④ <code>editForm</code> 里的对象转换：</strong></p>
+<pre><code class="language-java">User user = userService.get(id);
+UserForm form = new UserForm();
+form.setId(user.getId());
+form.setUsername(user.getUsername());
+form.setFullName(user.getFullName());
+form.setRole(user.getRole());
+// 注意：没有 setPassword！
+</code></pre>
+<p><strong>故意不设密码。</strong> 表单里密码框留空，用户看到的是空白 + &quot;（留空表示不修改）&quot;。<strong>哈希永远不会离开服务器。</strong></p>
+<p><strong>⑤ <code>delete</code> 提取当前用户：</strong></p>
+<pre><code class="language-java">public String delete(@PathVariable Long id, Authentication authentication, ...) {
+    userService.delete(id, authentication.getName());
+</code></pre>
+<p><code>Authentication</code> 由 Spring Security 注入，<code>getName()</code> 就是当前登录的用户名。</p>
+<p><strong>⑥ 注意 <code>delete</code> 的异常处理方式和别处不一样：</strong></p>
+<pre><code class="language-java">try {
+    userService.delete(id, authentication.getName());
+    redirect.addFlashAttribute(&quot;message&quot;, &quot;已删除该用户&quot;);
+} catch (NotFoundException | BusinessException e) {
+    redirect.addFlashAttribute(&quot;error&quot;, e.getMessage());
+}
+return &quot;redirect:/users&quot;;
+</code></pre>
+<p>删除失败（比如&quot;不能删除当前登录的账号&quot;）时<strong>不返回表单页</strong>——因为删除请求没有对应的表单。所以改成把错误放进 flash 属性，重定向回列表页，用顶部的<strong>红色提示条</strong>显示。</p>
+<p>这是 <code>reject()</code> 之外的第二套错误处理方式，<strong>按场景选</strong>：</p>
+<ul>
+<li><strong>有表单的场景</strong> → 回填表单 + 字段级错误（<code>reject</code>）</li>
+<li><strong>没有表单的场景</strong> → 重定向 + 顶部提示条（flash 属性）</li>
+</ul>
+<h3 id="✅ 验证" tabindex="-1">✅ 验证</h3>
+<pre><code class="language-bash">./mvnw -q compile
+</code></pre>
+<hr>
+<h2 id="2-60" tabindex="-1">2. 用户管理：页面与权限（60 分钟）</h2>
+<h3 id="2-1" tabindex="-1">2.1 用户列表页</h3>
+<p>新建 <code>src/main/resources/templates/users/list.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head th:replace=&quot;~{fragments/layout :: head('用户管理')}&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;nav th:replace=&quot;~{fragments/layout :: navbar}&quot;&gt;&lt;/nav&gt;
+
+&lt;main class=&quot;container&quot;&gt;
+    &lt;div class=&quot;page-header&quot;&gt;
+        &lt;h1&gt;用户管理&lt;/h1&gt;
+        &lt;a class=&quot;btn btn-primary&quot; th:href=&quot;@{/users/new}&quot;&gt;+ 新增用户&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;alert alert-success&quot; th:if=&quot;${message}&quot; th:text=&quot;${message}&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;alert alert-error&quot; th:if=&quot;${error}&quot; th:text=&quot;${error}&quot;&gt;&lt;/div&gt;
+
+    &lt;form class=&quot;search-bar&quot; method=&quot;get&quot; th:action=&quot;@{/users}&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;keyword&quot; th:value=&quot;${keyword}&quot; placeholder=&quot;搜索用户名 / 姓名&quot;&gt;
+        &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;搜索&lt;/button&gt;
+        &lt;a class=&quot;btn btn-ghost&quot; th:if=&quot;${keyword != null and !keyword.isBlank()}&quot; th:href=&quot;@{/users}&quot;&gt;清除&lt;/a&gt;
+    &lt;/form&gt;
+
+    &lt;div class=&quot;table-wrap&quot;&gt;
+        &lt;table class=&quot;table&quot;&gt;
+            &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;ID&lt;/th&gt;
+                &lt;th&gt;用户名&lt;/th&gt;
+                &lt;th&gt;姓名&lt;/th&gt;
+                &lt;th&gt;角色&lt;/th&gt;
+                &lt;th class=&quot;actions-col&quot;&gt;操作&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+            &lt;tr th:if=&quot;${users.isEmpty()}&quot;&gt;
+                &lt;td colspan=&quot;5&quot; class=&quot;empty&quot;&gt;没有匹配的用户&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr th:each=&quot;user : ${users}&quot;&gt;
+                &lt;td th:text=&quot;${user.id}&quot;&gt;1&lt;/td&gt;
+                &lt;td th:text=&quot;${user.username}&quot;&gt;用户名&lt;/td&gt;
+                &lt;td th:text=&quot;${user.fullName}&quot;&gt;姓名&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;span class=&quot;tag&quot; th:classappend=&quot;${user.role.name() == 'ADMIN'} ? 'tag-admin' : 'tag-reader'&quot;
+                          th:text=&quot;${user.role.label}&quot;&gt;角色&lt;/span&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;actions&quot;&gt;
+                    &lt;a class=&quot;btn btn-small btn-ghost&quot; th:href=&quot;@{/users/{id}/edit(id=${user.id})}&quot;&gt;编辑&lt;/a&gt;
+                    &lt;form th:action=&quot;@{/users/{id}/delete(id=${user.id})}&quot; method=&quot;post&quot;
+                          onsubmit=&quot;return confirm('确定删除该用户吗？此操作不可撤销。');&quot;&gt;
+                        &lt;button class=&quot;btn btn-small btn-danger&quot; type=&quot;submit&quot;&gt;删除&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>结构和 <code>books/list.html</code> 几乎一样——<strong>这就是把布局抽成片段的好处</strong>，新页面照抄改改就行。</p>
+<p><strong>唯一的新东西是角色标签的着色：</strong></p>
+<pre><code class="language-html">&lt;span class=&quot;tag&quot; th:classappend=&quot;${user.role.name() == 'ADMIN'} ? 'tag-admin' : 'tag-reader'&quot;
+      th:text=&quot;${user.role.label}&quot;&gt;角色&lt;/span&gt;
+</code></pre>
+<ul>
+<li><code>user.role.name()</code> → 枚举的英文名 <code>&quot;ADMIN&quot;</code></li>
+<li><code>user.role.label</code> → 中文名 <code>&quot;管理员&quot;</code>（调的是 <code>Role.getLabel()</code>）</li>
+<li><code>th:classappend</code> → 管理员用蓝色标签，读者用灰色</li>
+</ul>
+<p><strong>⚠️ 这里刻意没有显示密码！</strong> 列表页连哈希都不显示。养成习惯：<strong>密码字段永远不出现在任何界面上</strong>。</p>
+<h3 id="2-2" tabindex="-1">2.2 用户表单页</h3>
+<p>新建 <code>src/main/resources/templates/users/form.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head th:replace=&quot;~{fragments/layout :: head('用户编辑')}&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;nav th:replace=&quot;~{fragments/layout :: navbar}&quot;&gt;&lt;/nav&gt;
+
+&lt;main class=&quot;container narrow&quot;&gt;
+    &lt;div class=&quot;page-header&quot;&gt;
+        &lt;h1 th:text=&quot;${editing} ? '编辑用户' : '新增用户'&quot;&gt;用户&lt;/h1&gt;
+        &lt;a class=&quot;btn btn-ghost&quot; th:href=&quot;@{/users}&quot;&gt;返回列表&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;form class=&quot;card form&quot; method=&quot;post&quot; th:object=&quot;${userForm}&quot;
+          th:action=&quot;${editing} ? @{/users/{id}(id=${userForm.id})} : @{/users}&quot;&gt;
+
+        &lt;div class=&quot;alert alert-error&quot; th:if=&quot;${#fields.hasGlobalErrors()}&quot;&gt;
+            &lt;div th:each=&quot;err : ${#fields.globalErrors()}&quot; th:text=&quot;${err}&quot;&gt;错误&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;label&gt;
+            &lt;span&gt;用户名 *&lt;/span&gt;
+            &lt;input type=&quot;text&quot; th:field=&quot;*{username}&quot; autofocus autocomplete=&quot;off&quot;&gt;
+            &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('username')}&quot; th:errors=&quot;*{username}&quot;&gt;&lt;/small&gt;
+        &lt;/label&gt;
+
+        &lt;label&gt;
+            &lt;span&gt;密码 &lt;span th:text=&quot;${editing} ? '（留空表示不修改）' : '*'&quot;&gt;*&lt;/span&gt;&lt;/span&gt;
+            &lt;input type=&quot;password&quot; th:field=&quot;*{password}&quot; autocomplete=&quot;new-password&quot;&gt;
+            &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('password')}&quot; th:errors=&quot;*{password}&quot;&gt;&lt;/small&gt;
+        &lt;/label&gt;
+
+        &lt;label&gt;
+            &lt;span&gt;姓名 *&lt;/span&gt;
+            &lt;input type=&quot;text&quot; th:field=&quot;*{fullName}&quot;&gt;
+            &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('fullName')}&quot; th:errors=&quot;*{fullName}&quot;&gt;&lt;/small&gt;
+        &lt;/label&gt;
+
+        &lt;label&gt;
+            &lt;span&gt;角色 *&lt;/span&gt;
+            &lt;select th:field=&quot;*{role}&quot;&gt;
+                &lt;option th:each=&quot;r : ${allRoles}&quot; th:value=&quot;${r}&quot; th:text=&quot;${r.label}&quot;&gt;角色&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('role')}&quot; th:errors=&quot;*{role}&quot;&gt;&lt;/small&gt;
+        &lt;/label&gt;
+
+        &lt;div class=&quot;form-actions&quot;&gt;
+            &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;保存&lt;/button&gt;
+            &lt;a class=&quot;btn btn-ghost&quot; th:href=&quot;@{/users}&quot;&gt;取消&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>三个细节：</strong></p>
+<ol>
+<li>
+<p><strong>密码标签是动态的</strong>：</p>
+<pre><code class="language-html">&lt;span&gt;密码 &lt;span th:text=&quot;${editing} ? '（留空表示不修改）' : '*'&quot;&gt;*&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<p>编辑时提示&quot;留空表示不修改&quot;，新增时显示必填星号。<strong>同一行代码，两种语义。</strong></p>
+</li>
+<li>
+<p><strong><code>autocomplete=&quot;new-password&quot;</code></strong> —— 告诉浏览器这是<strong>新密码</strong>，不要自动填充。如果写成 <code>current-password</code>，浏览器会把你登录用的密码填进去，<strong>然后保存后就把那个用户的密码改成你的了</strong>。这是个真实的坑。</p>
+</li>
+<li>
+<p><strong>角色下拉框</strong>：</p>
+<pre><code class="language-html">&lt;select th:field=&quot;*{role}&quot;&gt;
+    &lt;option th:each=&quot;r : ${allRoles}&quot; th:value=&quot;${r}&quot; th:text=&quot;${r.label}&quot;&gt;角色&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<p>数据来自控制器里的 <code>@ModelAttribute(&quot;allRoles&quot;)</code>。<code>th:field=&quot;*{role}&quot;</code> 会自动选中当前值（编辑时选中的是用户原来的角色）。</p>
+</li>
+</ol>
+<h3 id="2-3-url" tabindex="-1">2.3 加一层 URL 防护</h3>
+<p>打开 <code>src/main/java/com/library/security/SecurityConfig.java</code>，在 <code>authorizeHttpRequests</code> 里<strong>插入一行</strong>：</p>
+<pre><code class="language-java">                .authorizeHttpRequests(auth -&gt; auth
+                        .requestMatchers(&quot;/css/**&quot;, &quot;/js/**&quot;, &quot;/favicon.ico&quot;).permitAll()
+                        .requestMatchers(&quot;/login&quot;).permitAll()
+                        .requestMatchers(&quot;/users/**&quot;).hasRole(&quot;ADMIN&quot;)      // ← 新增
+                        .anyRequest().authenticated())
+</code></pre>
+<p><strong>为什么既要在 Controller 上写 <code>@PreAuthorize</code>，又要在这里配一遍？</strong></p>
+<p>因为两者防的是不同的东西：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th><code>SecurityConfig</code> 的 URL 规则</th>
+<th><code>@PreAuthorize</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>拦截时机</td>
+<td><strong>进入 Controller 之前</strong>（过滤器层）</td>
+<td>进入方法时（AOP 层）</td>
+</tr>
+<tr>
+<td>效果</td>
+<td>未授权直接 403，<strong>Controller 代码根本不执行</strong></td>
+<td>同理，但晚一步</td>
+</tr>
+<tr>
+<td>覆盖范围</td>
+<td>按路径，不关心具体是哪个方法</td>
+<td>精确到方法</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>双重保险</strong>：URL 规则挡住整片区域（想加个 <code>/users/export</code> 导出接口，自动就在保护范围内，不用记得加注解）；方法注解挡住单个接口。</p>
+<blockquote>
+<p>🔎 反过来看 Day 2 的 <code>BookController</code>：它的路径是 <code>/books</code>，但<strong>读</strong>要开放、<strong>写</strong>要管理员。URL 级没法表达这种&quot;同一个路径下区分方法&quot;的规则，所以那里只用 <code>@PreAuthorize</code>。<strong>两个工具，按需选择。</strong></p>
+</blockquote>
+<h3 id="2-4-and-quot-and-quot" tabindex="-1">2.4 导航栏加&quot;用户管理&quot;入口</h3>
+<p>打开 <code>src/main/resources/templates/fragments/layout.html</code>，在导航链接里<strong>加一行</strong>：</p>
+<pre><code class="language-html">        &lt;div class=&quot;nav-links&quot; th:if=&quot;${currentUser != null}&quot;&gt;
+            &lt;a th:href=&quot;@{/}&quot;&gt;首页&lt;/a&gt;
+            &lt;a th:href=&quot;@{/books}&quot;&gt;图书&lt;/a&gt;
+            &lt;a th:if=&quot;${currentUser.admin}&quot; th:href=&quot;@{/users}&quot;&gt;用户管理&lt;/a&gt;
+        &lt;/div&gt;
+</code></pre>
+<p><code>th:if=&quot;${currentUser.admin}&quot;</code> 让读者<strong>看不到</strong>这个入口。</p>
+<h3 id="2-5-and-quot-and-quot" tabindex="-1">2.5 首页加&quot;系统用户&quot;卡片</h3>
+<p>打开 <code>src/main/java/com/library/web/HomeController.java</code>：</p>
+<p><strong>加 import：</strong></p>
+<pre><code class="language-java">import com.library.service.UserService;
+</code></pre>
+<p><strong>改构造器：</strong></p>
+<pre><code class="language-java">    private final BookService bookService;
+    private final UserService userService;
+
+    public HomeController(BookService bookService, UserService userService) {
+        this.bookService = bookService;
+        this.userService = userService;
+    }
+</code></pre>
+<p><strong>在 <code>dashboard</code> 方法末尾、<code>return &quot;dashboard&quot;;</code> 之前加入：</strong></p>
+<pre><code class="language-java">        // 用户总数只对管理员可见
+        if (principal != null &amp;&amp; principal.isAdmin()) {
+            model.addAttribute(&quot;userCount&quot;, userService.count());
+        }
+</code></pre>
+<p>打开 <code>src/main/resources/templates/dashboard.html</code>，在统计卡片区<strong>末尾加一张卡片</strong>：</p>
+<pre><code class="language-html">        &lt;div class=&quot;stat-card&quot; th:if=&quot;${userCount != null}&quot;&gt;
+            &lt;span class=&quot;stat-value&quot; th:text=&quot;${userCount}&quot;&gt;0&lt;/span&gt;
+            &lt;span class=&quot;stat-label&quot;&gt;系统用户&lt;/span&gt;
+        &lt;/div&gt;
+</code></pre>
+<p><strong>注意这是&quot;条件性属性&quot;</strong>：管理员才往 Model 里放 <code>userCount</code>，读者根本拿不到；模板里 <code>th:if=&quot;${userCount != null}&quot;</code> 决定渲不渲染。<strong>读者连&quot;系统有几个用户&quot;这个信息都不该知道。</strong></p>
+<h3 id="✅ 验证-1" tabindex="-1">✅ 验证</h3>
+<p><strong>重启</strong>（改了 Java 代码），用 <code>admin</code> 登录：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 导航栏出现「用户管理」</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> <code>/users</code> 看到 admin 和 reader 两个用户，角色标签颜色不同（管理员蓝、读者灰）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> 搜索 <code>zhang</code> → 匹配到读者的姓名&quot;张三&quot;</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> 新增用户：<code>lisi / lisi123456 / 李四 / 读者</code> → 保存成功，列表里多一行</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> <strong>用 <code>lisi</code> / <code>lisi123456</code> 登录 → 成功</strong> ← <strong>这条最重要，证明密码加密链路是通的</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 删除 <code>lisi</code> → 成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> <strong>尝试删除 <code>admin</code>（当前登录账号）→ 提示「不能删除当前登录的账号」</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> 编辑 <code>reader</code>，密码<strong>留空</strong>，只改姓名 → 保存 → <strong>确认 reader 还能用原密码 <code>reader123</code> 登录</strong>（证明留空确实没改密码）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 用 <code>reader</code> 登录 → 导航栏<strong>没有</strong>「用户管理」→ 手动访问 <code>/users</code> → <strong>403</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> 首页：管理员看到 5 张卡片，读者只看到 4 张</label></li>
+</ul>
+<hr>
+<h2 id="3-60" tabindex="-1">3. 借阅与归还（60 分钟）</h2>
+<h3 id="3-1-and-quot-and-quot" tabindex="-1">3.1 先想清楚&quot;借阅&quot;到底改变了什么</h3>
+<p>我们的 <code>Book</code> 有两个数字：</p>
+<ul>
+<li><code>totalCopies</code>：<strong>总册数</strong>，比如图书馆买了 3 本《三体》</li>
+<li><code>availableCopies</code>：<strong>可借册数</strong>，现在书架上还剩几本</li>
+</ul>
+<p><strong>借出一本 = 可借数 −1。还回一本 = 可借数 +1。</strong> <code>totalCopies</code> 永远不变。</p>
+<p>派生出来的 <code>borrowedCopies = totalCopies − availableCopies</code>，Day 1 就用 <code>@JsonIgnore</code> 标好了。</p>
+<p><strong>就这么简单。</strong> 这个项目<strong>不记录</strong>&quot;谁借了哪本书&quot;——没有借阅历史表。这是有意的简化，README 里也写明了。想要完整借阅记录，需要再建一个 <code>BorrowRecord</code> 模型，那是下一步的事。</p>
+<h3 id="3-2-code-book-repository-code" tabindex="-1">3.2 <code>BookRepository</code> 加一个原子操作</h3>
+<p><strong>⚠️ 先想一个问题：为什么不能这样写？</strong></p>
+<pre><code class="language-java">// ❌ 错误示范
+Book book = bookRepository.findById(id).get();
+if (book.getAvailableCopies() &gt; 0) {
+    book.setAvailableCopies(book.getAvailableCopies() - 1);
+    bookRepository.save(book);
+}
+</code></pre>
+<p><strong>看起来完全正确。问题在并发。</strong></p>
+<p>想象两个用户<strong>同时</strong>点了《三体》的&quot;借阅&quot;。最后一本了，<code>availableCopies = 1</code>。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>时刻</th>
+<th>用户 A</th>
+<th>用户 B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>读到 availableCopies = 1</td>
+<td></td>
+</tr>
+<tr>
+<td>T2</td>
+<td></td>
+<td>读到 availableCopies = 1</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>判断 1 &gt; 0 ✅</td>
+<td></td>
+</tr>
+<tr>
+<td>T4</td>
+<td></td>
+<td>判断 1 &gt; 0 ✅</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>设为 0，保存</td>
+<td></td>
+</tr>
+<tr>
+<td>T6</td>
+<td></td>
+<td>设为 0，保存</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>两个人都借成功了，但书只有一本。</strong> 这叫<strong>丢失更新（lost update）</strong>。现实中&quot;借阅按钮被点了两下&quot;就能触发。</p>
+<p><strong>根因</strong>：<code>读 → 判断 → 写</code> 这三步<strong>不是一个整体</strong>，中间被别人插了队。</p>
+<p><strong>解法</strong>：把这三步塞进 <code>JsonFileStore.update()</code> 的<strong>写锁</strong>里，变成不可分割的<strong>原子操作</strong>。</p>
+<p>打开 <code>src/main/java/com/library/repository/BookRepository.java</code>，在 <code>save</code> 之后、<code>deleteById</code> 之前插入：</p>
+<pre><code class="language-java">    /**
+     * 原子地把可借册数增减 {@code delta}（借出为负、归还为正）。
+     * 若结果越界（小于 0 或超过总册数）或图书不存在则不做改动并返回 false。
+     */
+    public boolean adjustAvailable(Long id, int delta) {
+        if (id == null) {
+            return false;
+        }
+        return update(items -&gt; items.stream()
+                .filter(book -&gt; id.equals(book.getId()))
+                .findFirst()
+                .map(book -&gt; {
+                    int total = book.getTotalCopies() == null ? 0 : book.getTotalCopies();
+                    int current = book.getAvailableCopies() == null ? 0 : book.getAvailableCopies();
+                    int next = current + delta;
+                    if (next &lt; 0 || next &gt; total) {
+                        return false;
+                    }
+                    book.setAvailableCopies(next);
+                    return true;
+                })
+                .orElse(false));
+    }
+</code></pre>
+<p><strong>为什么这样就安全了？</strong></p>
+<p>因为整段逻辑跑在 <code>update(...)</code> 的<strong>写锁</strong>里。<code>ReentrantReadWriteLock</code> 的写锁是<strong>互斥</strong>的——用户 B 必须等用户 A 完全做完（包括写回文件）才能进来。<strong>在上面的表格里，B 的 T2 会被阻塞，直到 A 的 T6 完成。等 B 读到数据时，<code>availableCopies</code> 已经是 0 了，判断失败，借阅被正确拒绝。</strong></p>
+<blockquote>
+<p>🔎 <strong>这就是 Day 1 那个 <code>update(Function)</code> 设计真正的价值。</strong> 当时你可能觉得&quot;为什么要搞个函数传进去&quot;，现在明白了：<strong>它是&quot;原子性地修改数据&quot;的标准入口</strong>。所有 <code>读-改-写</code> 都必须走它。</p>
+</blockquote>
+<p><strong>再看 <code>next &lt; 0 || next &gt; total</code> 这个边界检查：</strong></p>
+<ul>
+<li><code>next &lt; 0</code>：借出时最后一本已经被借走了 → 拒绝</li>
+<li><code>next &gt; total</code>：归还时已经满了 → 拒绝（防止归还操作把可借数刷成 5，超过总册数 3）</li>
+</ul>
+<p><strong>两个越界都在同一个原子操作里拦下</strong>，不会出现&quot;检查通过但写入时状态变了&quot;的问题。</p>
+<p><strong>返回 <code>boolean</code> 而不是抛异常</strong>：仓储层不该关心&quot;失败了要怎么通知用户&quot;，那是 Service 的事。</p>
+<h3 id="3-3-code-book-service-code" tabindex="-1">3.3 <code>BookService</code> 加借还方法</h3>
+<p>打开 <code>src/main/java/com/library/service/BookService.java</code>，在 <code>delete</code> 方法之后插入：</p>
+<pre><code class="language-java">    /** 借出一本，可借册数减 1。 */
+    public void borrow(Long id) {
+        get(id);
+        if (!bookRepository.adjustAvailable(id, -1)) {
+            throw new BusinessException(&quot;该图书已全部借出，暂无可借副本&quot;);
+        }
+    }
+
+    /** 归还一本，可借册数加 1。 */
+    public void giveBack(Long id) {
+        get(id);
+        if (!bookRepository.adjustAvailable(id, 1)) {
+            throw new BusinessException(&quot;归还失败：可借册数已达总册数&quot;);
+        }
+    }
+</code></pre>
+<p><strong><code>get(id)</code> 是干什么的？</strong> 先确认书存在，不存在就抛 <code>NotFoundException</code>（404）。<strong>不然一本不存在的书会得到&quot;已全部借出&quot;这种莫名其妙的提示。</strong></p>
+<p>方法名 <code>giveBack</code> 而不是 <code>return</code>——因为 <code>return</code> 是 Java 关键字，不能当方法名。</p>
+<h3 id="3-4-code-book-controller-code" tabindex="-1">3.4 <code>BookController</code> 加两个接口</h3>
+<p>打开 <code>src/main/java/com/library/web/BookController.java</code>，在 <code>delete</code> 之后插入：</p>
+<pre><code class="language-java">    @PostMapping(&quot;/{id}/borrow&quot;)
+    public String borrow(@PathVariable Long id, RedirectAttributes redirect) {
+        try {
+            bookService.borrow(id);
+            redirect.addFlashAttribute(&quot;message&quot;, &quot;借阅成功&quot;);
+        } catch (BusinessException e) {
+            redirect.addFlashAttribute(&quot;error&quot;, e.getMessage());
+        }
+        return &quot;redirect:/books&quot;;
+    }
+
+    @PostMapping(&quot;/{id}/return&quot;)
+    public String giveBack(@PathVariable Long id, RedirectAttributes redirect) {
+        try {
+            bookService.giveBack(id);
+            redirect.addFlashAttribute(&quot;message&quot;, &quot;归还成功&quot;);
+        } catch (BusinessException e) {
+            redirect.addFlashAttribute(&quot;error&quot;, e.getMessage());
+        }
+        return &quot;redirect:/books&quot;;
+    }
+</code></pre>
+<p><strong>注意：这两个方法没有 <code>@PreAuthorize</code>。</strong> 因为读者也要能借书——<strong>这正是&quot;读者&quot;这个角色的意义</strong>。</p>
+<p>成功和失败都<strong>重定向回列表</strong>，只是往不同的 flash 属性里放消息（<code>message</code> 绿色 / <code>error</code> 红色）。</p>
+<h3 id="3-5" tabindex="-1">3.5 列表页加按钮</h3>
+<p>打开 <code>src/main/resources/templates/books/list.html</code>，把「操作」列的 <code>&lt;td class=&quot;actions&quot;&gt;</code> 整个替换成：</p>
+<pre><code class="language-html">                &lt;td class=&quot;actions&quot;&gt;
+                    &lt;form th:if=&quot;${book.availableCopies != null and book.availableCopies &gt; 0}&quot;
+                          th:action=&quot;@{/books/{id}/borrow(id=${book.id})}&quot; method=&quot;post&quot;&gt;
+                        &lt;button class=&quot;btn btn-small&quot; type=&quot;submit&quot;&gt;借阅&lt;/button&gt;
+                    &lt;/form&gt;
+                    &lt;form th:if=&quot;${book.borrowedCopies &gt; 0}&quot;
+                          th:action=&quot;@{/books/{id}/return(id=${book.id})}&quot; method=&quot;post&quot;&gt;
+                        &lt;button class=&quot;btn btn-small btn-ghost&quot; type=&quot;submit&quot;&gt;归还&lt;/button&gt;
+                    &lt;/form&gt;
+                    &lt;a class=&quot;btn btn-small btn-ghost&quot; th:if=&quot;${currentUser.admin}&quot;
+                       th:href=&quot;@{/books/{id}/edit(id=${book.id})}&quot;&gt;编辑&lt;/a&gt;
+                    &lt;form th:if=&quot;${currentUser.admin}&quot;
+                          th:action=&quot;@{/books/{id}/delete(id=${book.id})}&quot; method=&quot;post&quot;
+                          onsubmit=&quot;return confirm('确定删除这本书吗？此操作不可撤销。');&quot;&gt;
+                        &lt;button class=&quot;btn btn-small btn-danger&quot; type=&quot;submit&quot;&gt;删除&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/td&gt;
+</code></pre>
+<p><strong>两个按钮是&quot;条件显示&quot;的，这个细节很重要：</strong></p>
+<ul>
+<li><strong>「借阅」</strong>：只在 <code>availableCopies &gt; 0</code> 时出现。全借出去了就不显示——<strong>用户不会看到一个点了必然失败的按钮</strong>。</li>
+<li><strong>「归还」</strong>：只在 <code>borrowedCopies &gt; 0</code> 时出现。一本没借出去时，归还按钮没意义。</li>
+</ul>
+<blockquote>
+<p>🔎 <strong>这是好的界面设计原则：不要让用户点必然失败的按钮。</strong> 但注意——<strong>这只是体验优化</strong>。忘了吗？用户可以直接 POST。所以 Service 层的 <code>adjustAvailable</code> 边界检查<strong>才是真正的防线</strong>，两者缺一不可。</p>
+<p>你可以自己在浏览器里验证这点：借光一本书后，按钮消失了；但如果用 curl 直接 POST，依然会被正确拒绝。</p>
+</blockquote>
+<p><strong>权限对比一目了然：</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>按钮</th>
+<th>谁能看到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>借阅 / 归还</td>
+<td><strong>所有人</strong>（管理员 + 读者）</td>
+</tr>
+<tr>
+<td>编辑 / 删除</td>
+<td><strong>只有管理员</strong>（<code>th:if=&quot;${currentUser.admin}&quot;</code>）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="✅ 验证-2" tabindex="-1">✅ 验证</h3>
+<p><strong>重启</strong>，用 <code>reader</code> 登录，找一本书（比如《活着》总册数 5）：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 可借数 5，「借阅」和「归还」按钮都在？—— <strong>不对，「归还」不该在！</strong> 因为 <code>borrowedCopies = 0</code>。确认页面上<strong>只有「借阅」</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> 点一次「借阅」→ 绿色提示「借阅成功」，可借数变 <strong>4</strong>，已借出变 <strong>1</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> 现在**「归还」按钮出现了**</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> 点「归还」→ 可借数回到 5，<strong>「归还」按钮又消失了</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_14" disabled="true"><label for="cbx_14"> 连点借阅，直到可借数为 0 → <strong>「借阅」按钮消失</strong>，可借数显示为红色徽章</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> 这时再用 curl 强行借：</label><pre><code class="language-bash"># 先登录拿 cookie（把 &lt;id&gt; 换成那本书的 id）
+curl -s -c /tmp/c.txt -b /tmp/c.txt http://localhost:8080/login &gt; /tmp/p.html
+TOKEN=$(grep -o 'name=&quot;_csrf&quot; value=&quot;[^&quot;]*&quot;' /tmp/p.html | head -1 | sed 's/.*value=&quot;//;s/&quot;//')
+curl -s -c /tmp/c.txt -b /tmp/c.txt -d &quot;username=reader&amp;password=reader123&amp;_csrf=$TOKEN&quot; http://localhost:8080/login -o /dev/null
+TOKEN=$(curl -s -c /tmp/c.txt -b /tmp/c.txt http://localhost:8080/books | grep -o 'name=&quot;_csrf&quot; value=&quot;[^&quot;]*&quot;' | head -1 | sed 's/.*value=&quot;//;s/&quot;//')
+curl -s -c /tmp/c.txt -b /tmp/c.txt -d &quot;_csrf=$TOKEN&quot; http://localhost:8080/books/1/borrow -o /dev/null -w &quot;%{http_code}\n&quot;
+</code></pre>
+<strong>应该被拒绝</strong>（列表页出现红色提示「该图书已全部借出」），可借数<strong>仍然是 0</strong>。<strong>这就是原子操作在起作用。</strong></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_16" disabled="true"><label for="cbx_16"> 首页的「已借出」数字<strong>跟着变了</strong>（它由 <code>totalCopies - availableCopies</code> 算出）</label></li>
+</ul>
+<hr>
+<h2 id="4-top-250-60" tabindex="-1">4. 豆瓣 Top 250：一个真实的设计问题（60 分钟）</h2>
+<h3 id="4-1" tabindex="-1">4.1 先看问题</h3>
+<p>我们要把系统里的书换成<strong>豆瓣图书 Top 250</strong>——一份真实、体面的数据，比手敲几本《三体》有意思得多。</p>
+<p>数据我已经准备好了：<code>hi-backup/src/main/resources/seed/books.json</code>（Day 1 备份的那个）。先看一眼：</p>
+<pre><code class="language-bash">head -5 ../hi-backup/src/main/resources/seed/books.json
+</code></pre>
+<pre><code class="language-json">[
+  { &quot;title&quot;: &quot;红楼梦&quot;, &quot;author&quot;: &quot;[清] 曹雪芹&quot;, &quot;category&quot;: &quot;文学&quot;, &quot;totalCopies&quot;: 8 },
+  { &quot;title&quot;: &quot;活着&quot;, &quot;author&quot;: &quot;余华&quot;, &quot;category&quot;: &quot;小说&quot;, &quot;totalCopies&quot;: 8 },
+  ...
+</code></pre>
+<p><strong>现在盯着这个结构，找出问题。</strong></p>
+<p>...看到了吗？<strong>这些条目里没有 <code>isbn</code>。</strong></p>
+<p>而我们的 <code>Book</code>：</p>
+<pre><code class="language-java">@NotBlank(message = &quot;ISBN 不能为空&quot;)     // ← 必填!
+@Size(max = 32, message = &quot;ISBN 不能超过 32 个字符&quot;)
+private String isbn;
+</code></pre>
+<p><strong>冲突了。</strong> 如果我们直接把这份数据塞进去，250 本书会因为&quot;ISBN 不能为空&quot;全部被拒绝——<strong>一本都存不进去</strong>。</p>
+<h3 id="4-2" tabindex="-1">4.2 三个选项，怎么选？</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>做法</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. 给 250 本书补 ISBN</strong></td>
+<td>一本本去豆瓣查</td>
+<td>250 次查询；豆瓣<strong>没有</strong>批量 ISBN 接口；很多书有多个版本、多个 ISBN；<strong>几小时都做不完，还不准</strong></td>
+</tr>
+<tr>
+<td><strong>B. 放弃这份数据</strong></td>
+<td>继续用手敲的书</td>
+<td>失去了真实数据，练习也就没意思了</td>
+</tr>
+<tr>
+<td><strong>C. 把 ISBN 改成选填</strong></td>
+<td>改一行注解</td>
+<td>需要想清楚&quot;唯一性校验&quot;怎么办</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>这就是真实的工程决策。</strong> 不是&quot;哪个技术上最优&quot;，而是&quot;在时间和准确性约束下哪个值得做&quot;。</p>
+<p>当初做这个项目时选的是 <strong>C</strong>。理由：</p>
+<ul>
+<li><strong>ISBN 本质上不是&quot;每本书都必须有的属性&quot;。</strong> 图书馆里还有古籍、内部资料、没有 ISBN 的引进版——<strong>现实中的书目本来就允许没有 ISBN</strong>。</li>
+<li>原来的&quot;必填&quot;，是我们<strong>假设</strong>错了，不是数据有问题。</li>
+</ul>
+<p><strong>这个认知很重要</strong>：当数据和模型打架时，先问一句&quot;<strong>是不是我模型建错了</strong>&quot;，而不是急着去修改数据迁就模型。</p>
+<h3 id="4-3" tabindex="-1">4.3 动手改</h3>
+<p><strong>① <code>Book.isbn</code> 去掉 <code>@NotBlank</code></strong></p>
+<p>打开 <code>src/main/java/com/library/model/Book.java</code>，把 ISBN 字段改成：</p>
+<pre><code class="language-java">    /**
+     * ISBN 选填：豆瓣图书等来源的书目不一定带 ISBN，留空时不影响保存与搜索。
+     * 非空时仍参与唯一性校验。
+     */
+    @Size(max = 32, message = &quot;ISBN 不能超过 32 个字符&quot;)
+    private String isbn;
+</code></pre>
+<p><strong>只删掉了 <code>@NotBlank</code> 那一行。</strong> <code>@Size</code> 保留——填了还是不能超过 32 字符。</p>
+<blockquote>
+<p>⚠️ <code>@NotBlank</code> 的 import 还不能删，因为 <code>title</code> 和 <code>author</code> 还在用它。</p>
+</blockquote>
+<p><strong>② 唯一性校验要改吗？——不用，先去看看</strong></p>
+<p>这是<strong>关键一步，别急着改代码</strong>。打开 <code>src/main/java/com/library/repository/BookRepository.java</code>，看 <code>existsByIsbn</code>：</p>
+<pre><code class="language-java">public boolean existsByIsbn(String isbn, Long excludeId) {
+    if (isbn == null || isbn.isBlank()) {     // ← 看这里
+        return false;
+    }
+    ...
+}
+</code></pre>
+<p><strong>第一行就短路返回 <code>false</code> 了！</strong> 意思是&quot;空 ISBN 永远不算重复&quot;。</p>
+<p><strong>所以 <code>BookService.validate()</code> 一行都不用改。</strong> 结果就是：</p>
+<ul>
+<li>250 本没有 ISBN 的书<strong>能共存</strong>（不会互相判重）</li>
+<li>但如果有人填了 ISBN，<strong>依然</strong>会和别的书查重</li>
+</ul>
+<p><strong>这个 <code>if (isbn == null || isbn.isBlank()) return false;</code> 是当初写 <code>existsByIsbn</code> 时就顺手加的边界保护。</strong> 当时不知道会有&quot;没有 ISBN 的书&quot;，只是觉得&quot;空值不该参与查重&quot;。<strong>这就是防御性编程的回报</strong>——今天的改动只需要一行。</p>
+<blockquote>
+<p>🔎 反过来想：如果当初 <code>existsByIsbn</code> 直接 <code>isbn.equalsIgnoreCase(...)</code>，今天就 <code>NullPointerException</code> 了。<strong>写代码时多想一步边界情况，未来的你会感谢现在的你。</strong></p>
+</blockquote>
+<p><strong>③ 界面上标记&quot;选填&quot;</strong></p>
+<p>打开 <code>src/main/resources/templates/books/form.html</code>，把 ISBN 那一段改成：</p>
+<pre><code class="language-html">            &lt;label&gt;
+                &lt;span&gt;ISBN（选填）&lt;/span&gt;
+                &lt;input type=&quot;text&quot; th:field=&quot;*{isbn}&quot; placeholder=&quot;可留空&quot;&gt;
+                &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('isbn')}&quot; th:errors=&quot;*{isbn}&quot;&gt;&lt;/small&gt;
+            &lt;/label&gt;
+</code></pre>
+<p><strong>④ 列表页留空时显示占位符</strong></p>
+<p>打开 <code>src/main/resources/templates/books/list.html</code>，把 ISBN 那一格改成：</p>
+<pre><code class="language-html">                &lt;td th:text=&quot;${#strings.isEmpty(book.isbn) ? '—' : book.isbn}&quot;&gt;ISBN&lt;/td&gt;
+</code></pre>
+<p><code>#strings.isEmpty(...)</code> 是 Thymeleaf 内置工具：<code>null</code> 或空串都算空。空的时候显示一个破折号 <code>—</code>，而不是刺眼的空白。</p>
+<h3 id="4-4" tabindex="-1">4.4 让种子数据自动导入</h3>
+<p>现在数据文件有了、模型也改好了。<strong>缺的是&quot;怎么把它读进来&quot;。</strong></p>
+<p>回忆 Day 2 的 <code>DataInitializer</code>——它只种了用户。现在给它加上种图书。</p>
+<p>打开 <code>src/main/java/com/library/service/DataInitializer.java</code>，<strong>整个文件替换</strong>成：</p>
+<pre><code class="language-java">package com.library.service;
+
+import com.library.model.Book;
+import com.library.model.Role;
+import com.library.model.User;
+import com.library.repository.BookRepository;
+import com.library.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UncheckedIOException;
+import java.util.List;
+
+/**
+ * 首次启动时写入默认账号与图书种子数据。已有数据时不做任何事。
+ *
+ * &lt;p&gt;图书种子来自 classpath 下的 {@code seed/books.json}（豆瓣图书 Top 250 快照），
+ * 每条只需 {@code title/author/category/totalCopies}，ISBN 选填。
+ */
+@Component
+public class DataInitializer implements ApplicationRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
+
+    /** 种子图书资源路径。 */
+    private static final String SEED_BOOKS_RESOURCE = &quot;seed/books.json&quot;;
+
+    /** 种子条目未指定册数时使用的默认值。 */
+    private static final int DEFAULT_COPIES = 5;
+
+    private final UserRepository userRepository;
+    private final BookRepository bookRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final ObjectMapper mapper;
+
+    public DataInitializer(UserRepository userRepository,
+                           BookRepository bookRepository,
+                           PasswordEncoder passwordEncoder,
+                           ObjectMapper mapper) {
+        this.userRepository = userRepository;
+        this.bookRepository = bookRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.mapper = mapper;
+    }
+
+    @Override
+    public void run(ApplicationArguments args) {
+        seedUsers();
+        seedBooks();
+    }
+
+    private void seedUsers() {
+        if (!userRepository.findAll().isEmpty()) {
+            return;
+        }
+        userRepository.save(new User(&quot;admin&quot;, passwordEncoder.encode(&quot;admin123&quot;), &quot;系统管理员&quot;, Role.ADMIN));
+        userRepository.save(new User(&quot;reader&quot;, passwordEncoder.encode(&quot;reader123&quot;), &quot;张三&quot;, Role.READER));
+        log.info(&quot;已初始化默认账号：admin / admin123（管理员）、reader / reader123（读者）&quot;);
+    }
+
+    private void seedBooks() {
+        if (!bookRepository.findAll().isEmpty()) {
+            return;
+        }
+        List&lt;SeedBook&gt; seeds = loadSeedBooks();
+        for (SeedBook seed : seeds) {
+            int copies = seed.totalCopies() == null ? DEFAULT_COPIES : seed.totalCopies();
+            bookRepository.save(new Book(seed.title(), seed.author(), seed.isbn(), seed.category(), copies));
+        }
+        log.info(&quot;已从 {} 初始化 {} 本图书&quot;, SEED_BOOKS_RESOURCE, seeds.size());
+    }
+
+    private List&lt;SeedBook&gt; loadSeedBooks() {
+        ClassPathResource resource = new ClassPathResource(SEED_BOOKS_RESOURCE);
+        if (!resource.exists()) {
+            log.warn(&quot;未找到种子图书文件 {}，跳过图书初始化&quot;, SEED_BOOKS_RESOURCE);
+            return List.of();
+        }
+        try (InputStream in = resource.getInputStream()) {
+            List&lt;SeedBook&gt; seeds = mapper.readValue(in, mapper.getTypeFactory()
+                    .constructCollectionType(List.class, SeedBook.class));
+            return seeds == null ? List.of() : seeds;
+        } catch (IOException e) {
+            throw new UncheckedIOException(&quot;读取种子图书文件失败: &quot; + SEED_BOOKS_RESOURCE, e);
+        } catch (JacksonException e) {
+            throw new IllegalStateException(&quot;解析种子图书文件失败: &quot; + SEED_BOOKS_RESOURCE, e);
+        }
+    }
+
+    /** 种子文件中的图书条目。ISBN 选填。 */
+    private record SeedBook(String title, String author, String isbn, String category, Integer totalCopies) {
+    }
+}
+</code></pre>
+<h4 id="逐块解读" tabindex="-1">逐块解读</h4>
+<p><strong>① 为什么用 <code>ClassPathResource</code> 而不是 <code>new File(&quot;...&quot;)</code>？</strong></p>
+<pre><code class="language-java">ClassPathResource resource = new ClassPathResource(SEED_BOOKS_RESOURCE);
+</code></pre>
+<p><code>ClassPathResource</code> 从 <strong>classpath</strong> 读文件。<code>src/main/resources/</code> 下的东西在编译后会被复制到 classpath 根目录。</p>
+<p><strong>关键差别</strong>：打成 jar 之后，<code>src/main/resources/...</code> 这个路径<strong>根本不存在</strong>了——文件被封在 jar 内部。<strong>用 <code>new File()</code> 在 IDE 里能跑，打包后必崩。</strong> <code>ClassPathResource</code> 两种情况下都能工作，因为它走的是<strong>类加载器</strong>，认的是 jar 内部的资源。</p>
+<blockquote>
+<p>🔎 <strong>这类&quot;本地能跑、打包就崩&quot;的 bug 特别难查</strong>，因为你测试时用的是 IDE。<strong>记住这个规则：凡是读随程序打包的文件，一律用 <code>ClassPathResource</code> / <code>getResourceAsStream</code>。</strong></p>
+</blockquote>
+<p><strong>② 为什么用 <code>SeedBook</code> 这个 private record 而不是直接用 <code>Book</code>？</strong></p>
+<pre><code class="language-java">private record SeedBook(String title, String author, String isbn, String category, Integer totalCopies) {
+}
+</code></pre>
+<p>因为<strong>种子文件的形状和 <code>Book</code> 不一样</strong>：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th><code>Book</code></th>
+<th><code>SeedBook</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字段</td>
+<td>id, title, author, isbn, category, totalCopies, availableCopies</td>
+<td>只有 title/author/isbn/category/totalCopies</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>完整实体</td>
+<td>只描述&quot;要造一本什么样的书&quot;</td>
+</tr>
+</tbody>
+</table></div>
+<p>种子文件里<strong>没有</strong> <code>availableCopies</code>（新书当然全部可借，由 <code>Book</code> 的构造器自动设为 = totalCopies）。<strong>用一个专门的 record 描述&quot;输入的形状&quot;，比硬塞进实体、盼着字段对上要清晰得多。</strong></p>
+<p>而且 <code>record</code> 在这里<strong>完美</strong>：它就是个纯数据的、不可变的载体，没有行为。Jackson 3 <strong>原生支持 record 反序列化</strong>（通过构造器），不用写任何注解。</p>
+<p><strong>③ 异常处理的两种类型：</strong></p>
+<pre><code class="language-java">} catch (IOException e) {
+    throw new UncheckedIOException(&quot;读取种子图书文件失败: &quot; + SEED_BOOKS_RESOURCE, e);
+} catch (JacksonException e) {
+    throw new IllegalStateException(&quot;解析种子图书文件失败: &quot; + SEED_BOOKS_RESOURCE, e);
+}
+</code></pre>
+<ul>
+<li><code>IOException</code> 是<strong>受检异常</strong>（读文件可能失败），包成 <code>UncheckedIOException</code> 抛出去——这个场景下没法优雅恢复，直接让启动失败并给出清晰信息。</li>
+<li><code>JacksonException</code> 是<strong>非受检的</strong>（Jackson 3 的特性，Day 1 讲过）。<strong>它不是 <code>IOException</code> 的子类</strong>，所以要单独 catch——顺序无所谓，因为两者没有继承关系。</li>
+</ul>
+<p><strong>④ 幂等保护照旧：</strong></p>
+<pre><code class="language-java">if (!bookRepository.findAll().isEmpty()) {
+    return;
+}
+</code></pre>
+<p>已有图书就跳过。<strong>所以你手动加的书不会被 250 本种子覆盖。</strong></p>
+<h3 id="4-5" tabindex="-1">4.5 放文件、清数据、启动</h3>
+<p><strong>① 把种子文件放进去：</strong></p>
+<pre><code class="language-bash">mkdir -p src/main/resources/seed
+cp ../hi-backup/src/main/resources/seed/books.json src/main/resources/seed/books.json
+python3 -c &quot;import json;d=json.load(open('src/main/resources/seed/books.json'));print('条目数:',len(d))&quot;
+</code></pre>
+<p>应该输出 <strong>条目数: 250</strong>。</p>
+<p><strong>② 清掉旧的图书数据</strong>（因为 <code>seedBooks()</code> 有幂等保护，不清的话不会导入）：</p>
+<pre><code class="language-bash">rm -f data/books.json
+</code></pre>
+<blockquote>
+<p>⚠️ <strong><code>data/users.json</code> 千万不要删</strong>——那里面有你今天新建的用户。只删 <code>books.json</code>。</p>
+</blockquote>
+<p><strong>③ 重启：</strong></p>
+<pre><code class="language-bash">./mvnw spring-boot:run
+</code></pre>
+<p>日志里应该出现：</p>
+<pre><code>已从 seed/books.json 初始化 250 本图书
+</code></pre>
+<h3 id="✅ 验证-3" tabindex="-1">✅ 验证</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_17" disabled="true"><label for="cbx_17"> <code>python3 -c &quot;import json;d=json.load(open('data/books.json'));print(len(d))&quot;</code> → <strong>250</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_18" disabled="true"><label for="cbx_18"> 图书列表一页能看到 250 行，ISBN 列<strong>全部显示 <code>—</code></strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_19" disabled="true"><label for="cbx_19"> 搜索 <code>科幻</code> → 应该有一批（约 13 本）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_20" disabled="true"><label for="cbx_20"> 搜索 <code>余华</code> → 三本左右（作者的其它作品）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_21" disabled="true"><label for="cbx_21"> 搜索 <code>三体</code> → 命中《三体全集》</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_22" disabled="true"><label for="cbx_22"> 新增一本书，<strong>ISBN 留空</strong> → <strong>能保存成功</strong> ✅（证明 ISBN 真的变成选填了）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_23" disabled="true"><label for="cbx_23"> 新增一本书，ISBN 填 <code>ABC123</code>，再加一本也填 <code>ABC123</code> → <strong>第二本被拒绝</strong>（唯一性校验依然有效）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_24" disabled="true"><label for="cbx_24"> 首页统计：<strong>250 图书种类</strong>，总册数约 <strong>1200</strong></label></li>
+</ul>
+<hr>
+<h2 id="5-30" tabindex="-1">5. 打包与收尾（30 分钟）</h2>
+<h3 id="5-1-jar" tabindex="-1">5.1 打包成可执行 jar</h3>
+<pre><code class="language-bash">./mvnw -B -q clean package
+ls -lh target/hi-1.0.0.jar
+</code></pre>
+<p><code>spring-boot-maven-plugin</code> 打的包是**&quot;胖 jar&quot;（fat jar）<strong>——把 Spring、Tomcat、你的代码</strong>全部打进去**，一个文件就能跑。这是 Spring Boot 最实用的特性之一。</p>
+<p><strong>跑起来：</strong></p>
+<pre><code class="language-bash">java -jar target/hi-1.0.0.jar
+</code></pre>
+<p>不需要 Maven、不需要 Tomcat，<strong>只要有 JDK 就能运行</strong>。这就是交付形态。</p>
+<blockquote>
+<p>🔎 <strong>注意 <code>clean</code></strong>：它会删掉 <code>target/</code> 重新构建。养成习惯——<strong>打包前先 <code>clean</code></strong>，避免残留的旧 class 文件混进包里。（<code>target/</code> 已经被 <code>.gitignore</code> 忽略了。）</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>一个必须知道的坑</strong>：<code>data/</code> 目录是**相对于&quot;启动目录&quot;**创建的。在项目根目录 <code>java -jar target/hi-1.0.0.jar</code>，数据就在 <code>项目根/data/</code>。如果你 <code>cd target &amp;&amp; java -jar hi-1.0.0.jar</code>，数据就会跑到 <code>target/data/</code> 去——<strong>看起来像是&quot;数据全没了&quot;</strong>。想换位置就改 <code>application.yml</code> 里的 <code>library.data-dir</code>，或者用绝对路径。</p>
+</blockquote>
+<h3 id="5-2-readme" tabindex="-1">5.2 更新 README</h3>
+<p>打开 <code>README.md</code>，检查这几处是否和现在的代码一致：</p>
+<ul>
+<li>默认账号（<code>admin</code> / <code>admin123</code>、<code>reader</code> / <code>reader123</code>）</li>
+<li>首次启动会导入 <code>seed/books.json</code> 的 250 本书</li>
+<li>校验规则那条改成：<strong>ISBN 选填</strong>，填了才做唯一性校验；可借册数不得超过总册数</li>
+<li>重置说明：停掉应用、删掉 <code>data/</code> 目录再启动</li>
+</ul>
+<p><strong>这一步的意义</strong>：你三天后回来看，README 是你唯一的&quot;说明书&quot;。<strong>写清楚&quot;怎么跑&quot;和&quot;有哪些坑&quot;，比写漂亮的功能列表重要。</strong></p>
+<hr>
+<h2 id="6" tabindex="-1">6. 三天总验收</h2>
+<p><strong>完全重置，走一遍完整流程。</strong> 这一步必须做——它验证的是一个<strong>新人拿到这个项目能不能跑通</strong>。</p>
+<pre><code class="language-bash"># 1. 停掉所有运行中的实例
+lsof -ti:8080 | xargs kill -9 2&gt;/dev/null
+
+# 2. 回到零状态
+rm -rf data/
+
+# 3. 干净构建
+./mvnw -B -q clean package
+
+# 4. 用 jar 启动（不是 mvnw，验证打包产物）
+java -jar target/hi-1.0.0.jar
+</code></pre>
+<p>日志应该同时出现：</p>
+<pre><code>已初始化默认账号：admin / admin123（管理员）、reader / reader123（读者）
+已从 seed/books.json 初始化 250 本图书
+</code></pre>
+<p><strong>然后逐条走：</strong></p>
+<p><strong>A. 匿名</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_25" disabled="true"><label for="cbx_25"> 访问 <code>http://localhost:8080</code> → 跳转 <code>/login</code></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_26" disabled="true"><label for="cbx_26"> 直接访问 <code>/books</code> → 跳转 <code>/login</code></label></li>
+</ul>
+<p><strong>B. 管理员</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_27" disabled="true"><label for="cbx_27"> <code>admin</code> / <code>admin123</code> 登录</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_28" disabled="true"><label for="cbx_28"> 首页：250 图书种类 / ~1200 总册数 / 系统用户卡片显示 <strong>3</strong>（admin、reader、可能还有你昨天建的）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_29" disabled="true"><label for="cbx_29"> 导航栏：首页 / 图书 / <strong>用户管理</strong> / 退出</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_30" disabled="true"><label for="cbx_30"> 图书列表 250 行，ISBN 全是 <code>—</code></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_31" disabled="true"><label for="cbx_31"> 新增一本无 ISBN 的书 → 成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_32" disabled="true"><label for="cbx_32"> 编辑它 → 改成有 ISBN → 成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_33" disabled="true"><label for="cbx_33"> 删除它 → 成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_34" disabled="true"><label for="cbx_34"> 借阅一本 → 可借数 −1</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_35" disabled="true"><label for="cbx_35"> 归还 → 回到原值</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_36" disabled="true"><label for="cbx_36"> 用户管理：新增用户 <code>test01 / test123456 / 测试员 / 读者</code> → 成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_37" disabled="true"><label for="cbx_37"> 用 <code>test01</code> / <code>test123456</code> 登录 → <strong>成功</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_38" disabled="true"><label for="cbx_38"> 删除 <code>admin</code> → <strong>拒绝</strong>（当前登录账号）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_39" disabled="true"><label for="cbx_39"> 删除 <code>test01</code> → 成功</label></li>
+</ul>
+<p><strong>C. 读者</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_40" disabled="true"><label for="cbx_40"> <code>reader</code> / <code>reader123</code> 登录</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_41" disabled="true"><label for="cbx_41"> 导航栏<strong>没有</strong>「用户管理」</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_42" disabled="true"><label for="cbx_42"> 手敲 <code>/users</code> → <strong>403</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_43" disabled="true"><label for="cbx_43"> 手敲 <code>/books/new</code> → <strong>403</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_44" disabled="true"><label for="cbx_44"> 图书列表能看，但「操作」列<strong>只有借阅/归还，没有编辑/删除</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_45" disabled="true"><label for="cbx_45"> 借阅 → 成功；归还 → 成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_46" disabled="true"><label for="cbx_46"> 首页<strong>只有 4 张卡片</strong>（没有&quot;系统用户&quot;）</label></li>
+</ul>
+<p><strong>D. 持久化</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_47" disabled="true"><label for="cbx_47"> <code>Ctrl+C</code> 停掉</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_48" disabled="true"><label for="cbx_48"> <code>java -jar target/hi-1.0.0.jar</code> 重新启动</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_49" disabled="true"><label for="cbx_49"> 用刚才新建的 <code>test01</code> 登录（如果没删）→ <strong>成功</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_50" disabled="true"><label for="cbx_50"> 图书数据、借阅状态<strong>全部保留</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_51" disabled="true"><label for="cbx_51"> 这次启动<strong>不再打印</strong>&quot;已初始化&quot;，因为数据已存在（<strong>幂等生效</strong>）</label></li>
+</ul>
+<p><strong>全部通过 = V3 完成 = 整个项目完成</strong> 🎉</p>
+<hr>
+<h2 id="7" tabindex="-1">7. 常见坑速查</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>原因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>删掉 <code>data/</code> 后种子没导入</td>
+<td>文件不存在 / 路径不对</td>
+<td>确认 <code>src/main/resources/seed/books.json</code> 存在，且名字大小写一致</td>
+</tr>
+<tr>
+<td>种子文件在 IDE 里能读、打包后报错</td>
+<td>用了 <code>new File()</code></td>
+<td>改用 <code>ClassPathResource</code></td>
+</tr>
+<tr>
+<td>250 本书导入失败，报&quot;ISBN 不能为空&quot;</td>
+<td><code>@NotBlank</code> 没删掉</td>
+<td>检查 <code>Book.isbn</code> 上只剩 <code>@Size</code></td>
+</tr>
+<tr>
+<td>加了 250 本书后 ISBN 查重总是失败</td>
+<td><code>existsByIsbn</code> 的空值短路被删了</td>
+<td>确认开头有 <code>if (isbn == null || isbn.isBlank()) return false;</code></td>
+</tr>
+<tr>
+<td>编译报 <code>找不到符号: record</code></td>
+<td>Java 版本低于 16</td>
+<td>确认 <code>pom.xml</code> 里 <code>&lt;java.version&gt;27&lt;/java.version&gt;</code></td>
+</tr>
+<tr>
+<td>借阅按钮点了没反应/数字不变</td>
+<td><code>adjustAvailable</code> 没走 <code>update()</code></td>
+<td>确认整个逻辑包在 <code>update(items -&gt; ...)</code> 里</td>
+</tr>
+<tr>
+<td>归还后可借数超过总册数</td>
+<td>少了 <code>next &gt; total</code> 检查</td>
+<td>补上边界判断</td>
+</tr>
+<tr>
+<td>用户密码改了但登录不上</td>
+<td>编辑时密码留空被当成了&quot;空密码&quot;</td>
+<td>确认 <code>UserService.update</code> 里有 <code>!isBlank()</code> 判断</td>
+</tr>
+<tr>
+<td>页面报 500，日志是 <code>NullPointerException</code></td>
+<td>某个 Model 属性没有，模板却直接取值</td>
+<td>检查控制器有没有 <code>addAttribute</code></td>
+</tr>
+<tr>
+<td><code>java -jar</code> 启动后数据&quot;消失&quot;</td>
+<td>启动目录不同，<code>data/</code> 建在了别处</td>
+<td>在项目根目录启动，或配置绝对路径</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="8" tabindex="-1">8. 三天总复盘</h2>
+<p>这是最重要的部分。<strong>合上所有代码</strong>，试着回答：</p>
+<h3 id="架构" tabindex="-1">架构</h3>
+<ol>
+<li><strong>画出这个系统的分层图</strong>：浏览器 → ? → ? → ? → JSON 文件。每一层负责什么？</li>
+<li><strong>为什么要有 Service 层？</strong> Controller 直接调 Repository 会怎样？（提示：ISBN 校验、借阅边界检查放哪？如果将来加一个 REST API，这些规则要不要重写？）</li>
+<li><strong><code>JsonFileStore&lt;T&gt;</code> 泛型基类带来了什么？</strong> 如果不用它，<code>BookRepository</code> 和 <code>UserRepository</code> 会有多少重复代码？</li>
+</ol>
+<h3 id="关键决策" tabindex="-1">关键决策</h3>
+<ol start="4">
+<li><strong><code>update(Function)</code> 为什么要传函数，而不是提供 <code>read()</code> + <code>write()</code> 两个方法？</strong> 用你 Day 3 学到的&quot;丢失更新&quot;例子回答。</li>
+<li><strong>ISBN 从必填改成选填</strong>——这个决定里，哪个部分最值钱？（提示：不是&quot;删一行注解&quot;，而是&quot;<strong>先去看 <code>existsByIsbn</code> 会不会炸</strong>&quot;）</li>
+<li><strong><code>@PreAuthorize</code> 和 <code>th:if</code> 的分工是什么？</strong> 如果只能保留一个，保留哪个？为什么？</li>
+</ol>
+<h3 id="安全" tabindex="-1">安全</h3>
+<ol start="7">
+<li>列出这个系统里<strong>所有</strong>和密码有关的地方，说明每一处明文/哈希的状态。</li>
+<li><strong>CSRF 保护挡的是什么攻击？</strong> 为什么 <code>th:action</code> 就能解决？</li>
+<li>如果让你把这个系统部署到公网，<strong>至少还要做哪 5 件事</strong>？（提示：HTTPS、默认密码、日志、限流、备份……）</li>
+</ol>
+<h3 id="反思" tabindex="-1">反思</h3>
+<ol start="10">
+<li><strong>这三天里，哪一处改动最小但收益最大？</strong>（候选：<code>@PreAuthorize</code> 加 5 行、ISBN 删 1 行、<code>CurrentUser</code> 一个 record）</li>
+<li><strong>哪一处是&quot;当时顺手写的、今天救了命&quot;的？</strong>（提示：<code>existsByIsbn</code> 的第一行）</li>
+<li><strong>如果重来一次，你会怎么改 Day 1 的设计？</strong></li>
+</ol>
+<h3 id="🛠 继续做下去" tabindex="-1">🛠 继续做下去</h3>
+<p>项目到这儿功能齐了，但离&quot;能上线&quot;还远。按难度排序：</p>
+<ol>
+<li><strong>借阅记录</strong>：新建 <code>BorrowRecord</code>（谁、哪本书、什么时候借的、还没还），列表页显示&quot;你借了 3 本&quot;。<strong>这是最自然的下一步</strong>，你会第一次遇到&quot;模型之间有关联&quot;。</li>
+<li><strong>分页</strong>：250 本书一页显示确实太多了。</li>
+<li><strong>改密码功能</strong>：让用户自己改密码，需要&quot;输入旧密码验证&quot;。</li>
+<li><strong>写测试</strong>：<code>src/test/java</code> 还是空的。从 <code>BookService</code> 的借还逻辑开始写单元测试——<strong>尤其是并发那条</strong>，用多线程测试 <code>adjustAvailable</code> 绝不越界。</li>
+<li><strong>换成真数据库</strong>：把 <code>JsonFileStore</code> 换成 Spring Data JPA + SQLite/H2。<strong>你会发现改动被限制在 repository 层</strong>——这就是分层的回报。</li>
+<li><strong>导出 / 导入</strong>：管理员导出所有图书为 CSV。</li>
+</ol>
+<hr>
+<h2 id="9" tabindex="-1">9. 恭喜</h2>
+<p>三天前你面对的是一个 <code>src/Main.java</code> 的空工程。现在你有的东西：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>框架</strong></td>
+<td>Spring Boot 4 + Spring MVC + Thymeleaf + Spring Security</td>
+</tr>
+<tr>
+<td><strong>功能</strong></td>
+<td>登录认证、角色授权、图书 CRUD、用户 CRUD、借阅归还、种子数据</td>
+</tr>
+<tr>
+<td><strong>数据</strong></td>
+<td>JSON 文件持久化，带读写锁与原子更新</td>
+</tr>
+<tr>
+<td><strong>安全</strong></td>
+<td>BCrypt 密码、CSRF 防护、三层权限控制、越界防护</td>
+</tr>
+<tr>
+<td><strong>工程</strong></td>
+<td>Maven Wrapper、可执行 jar、分层架构、DTO 模式</td>
+</tr>
+<tr>
+<td><strong>数据</strong></td>
+<td>豆瓣 Top 250 真实书目</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>比这些更重要的是你建立的几个判断力：</strong></p>
+<ul>
+<li>看到&quot;数据和模型打架&quot;，先问<strong>是不是模型错了</strong></li>
+<li>看到 <code>读-判断-写</code>，先问<strong>并发下会不会错</strong></li>
+<li>看到&quot;前端隐藏了&quot;，先问<strong>绕过界面还能不能用</strong></li>
+<li>看到要改一处，先问<strong>为什么只需要改这一处</strong></li>
+</ul>
+<p>第四个问题的答案是<strong>分层</strong>。这就是这三天最核心的东西——<strong>不是记住了多少注解，而是知道改动应该落在哪一层。</strong></p>
+<p><strong>下一步建议</strong>：挑上面&quot;继续做下去&quot;里的第 1 条（借阅记录）动手。它足够小（半天能做完），又足够新（第一次处理模型关联），是巩固这三天的好方式。</p>
+<hr>
+<p><strong>V3 打卡：</strong> 当 <code>java -jar target/hi-1.0.0.jar</code> 跑起来、250 本书出现在页面上时，写下今天的日期 ______。</p>
+<p>三天完成。🎓</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#day-03-v3">Day 03 · V3：用户管理、借阅归还与真实数据</a>
+<ol>
+<li><a href="#0-v2">0. 昨天的 V2 检查 + 今天的目标</a>
+<ol>
+<li><a href="#今天的两个缺口">今天的两个缺口</a>
+</li>
+<li><a href="#今天的时间表">今天的时间表</a>
+</li>
+</ol>
+</li>
+<li><a href="#1-60">1. 用户管理：后端（60 分钟）</a>
+<ol>
+<li><a href="#1-1-code-user-form-code-code-user-code">1.1 为什么需要一个 UserForm 而不是直接用 User</a>
+</li>
+<li><a href="#1-2-code-user-form-code">1.2 新建 UserForm</a>
+</li>
+<li><a href="#1-3-code-user-repository-code">1.3 UserRepository 补两个方法</a>
+</li>
+<li><a href="#1-4-code-user-service-code">1.4 新建 UserService</a>
+</li>
+<li><a href="#1-5-code-user-controller-code">1.5 新建 UserController</a>
+</li>
+<li><a href="#✅ 验证">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#2-60">2. 用户管理：页面与权限（60 分钟）</a>
+<ol>
+<li><a href="#2-1">2.1 用户列表页</a>
+</li>
+<li><a href="#2-2">2.2 用户表单页</a>
+</li>
+<li><a href="#2-3-url">2.3 加一层 URL 防护</a>
+</li>
+<li><a href="#2-4-and-quot-and-quot">2.4 导航栏加"用户管理"入口</a>
+</li>
+<li><a href="#2-5-and-quot-and-quot">2.5 首页加"系统用户"卡片</a>
+</li>
+<li><a href="#✅ 验证-1">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#3-60">3. 借阅与归还（60 分钟）</a>
+<ol>
+<li><a href="#3-1-and-quot-and-quot">3.1 先想清楚"借阅"到底改变了什么</a>
+</li>
+<li><a href="#3-2-code-book-repository-code">3.2 BookRepository 加一个原子操作</a>
+</li>
+<li><a href="#3-3-code-book-service-code">3.3 BookService 加借还方法</a>
+</li>
+<li><a href="#3-4-code-book-controller-code">3.4 BookController 加两个接口</a>
+</li>
+<li><a href="#3-5">3.5 列表页加按钮</a>
+</li>
+<li><a href="#✅ 验证-2">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#4-top-250-60">4. 豆瓣 Top 250：一个真实的设计问题（60 分钟）</a>
+<ol>
+<li><a href="#4-1">4.1 先看问题</a>
+</li>
+<li><a href="#4-2">4.2 三个选项，怎么选？</a>
+</li>
+<li><a href="#4-3">4.3 动手改</a>
+</li>
+<li><a href="#4-4">4.4 让种子数据自动导入</a>
+<ol>
+<li><a href="#逐块解读">逐块解读</a>
+</li>
+</ol>
+</li>
+<li><a href="#4-5">4.5 放文件、清数据、启动</a>
+</li>
+<li><a href="#✅ 验证-3">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#5-30">5. 打包与收尾（30 分钟）</a>
+<ol>
+<li><a href="#5-1-jar">5.1 打包成可执行 jar</a>
+</li>
+<li><a href="#5-2-readme">5.2 更新 README</a>
+</li>
+</ol>
+</li>
+<li><a href="#6">6. 三天总验收</a>
+</li>
+<li><a href="#7">7. 常见坑速查</a>
+</li>
+<li><a href="#8">8. 三天总复盘</a>
+<ol>
+<li><a href="#架构">架构</a>
+</li>
+<li><a href="#关键决策">关键决策</a>
+</li>
+<li><a href="#安全">安全</a>
+</li>
+<li><a href="#反思">反思</a>
+</li>
+<li><a href="#🛠 继续做下去">🛠 继续做下去</a>
+</li>
+</ol>
+</li>
+<li><a href="#9">9. 恭喜</a>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>

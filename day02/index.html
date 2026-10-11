@@ -1,0 +1,1411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>day02</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">day02</h1>
+<div class="header-meta">
+<div class="header-tags">
+</div>
+</div>
+</header>
+<h1 id="day-02-v2" tabindex="-1">Day 02 · V2：登录、角色与权限</h1>
+<blockquote>
+<p>目标用时 6 小时。今天你会给 V1 装上<strong>身份</strong>：登录页、用户模型、BCrypt 密码、管理员 / 读者两种角色，以及「谁才能改书」的权限控制。</p>
+<p>今天结束你会体会到一件事：<strong>因为 Day 1 分了层，加权限只需要改很少的地方。</strong></p>
+</blockquote>
+<hr>
+<h2 id="0-v1" tabindex="-1">0. 昨天的 V1 检查</h2>
+<p>先确认 Day 1 是通的：</p>
+<pre><code class="language-bash">./mvnw -q compile &amp;&amp; ls data/books.json
+</code></pre>
+<p><code>data/books.json</code> 应该有你昨天加的书。<strong>如果昨天删光了书也没关系</strong>，今天不影响。</p>
+<blockquote>
+<p>📌 <strong>Day 1 打卡</strong>（给自己留一句）：今天日期 ______，昨天最有收获的一点是 ______________________。</p>
+</blockquote>
+<hr>
+<h2 id="1" tabindex="-1">1. 今天的时间表</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00–00:30</td>
+<td>加入 Security 依赖，观察「神奇的默认登录页」</td>
+<td>理解认证 vs 授权</td>
+</tr>
+<tr>
+<td>00:30–01:10</td>
+<td><code>User</code> / <code>Role</code> 模型 + <code>UserRepository</code></td>
+<td>用户能存进 JSON 了</td>
+</tr>
+<tr>
+<td>01:10–02:10</td>
+<td>密码加密、<code>UserDetailsService</code>、<code>SecurityConfig</code></td>
+<td>能用自己的用户登录</td>
+</tr>
+<tr>
+<td>02:10–02:25</td>
+<td>☕ 休息</td>
+<td></td>
+</tr>
+<tr>
+<td>02:25–03:10</td>
+<td><code>DataInitializer</code> 造两个默认账号 + 跑通登录</td>
+<td>✅ 登录成功</td>
+</tr>
+<tr>
+<td>03:10–04:00</td>
+<td>登录页 + 首页概览</td>
+<td>好看的界面</td>
+</tr>
+<tr>
+<td>04:00–04:15</td>
+<td>☕ 休息</td>
+<td></td>
+</tr>
+<tr>
+<td>04:15–05:15</td>
+<td><strong>权限控制</strong>：<code>@PreAuthorize</code> + 模板按角色隐藏菜单</td>
+<td>读者改不了书</td>
+</tr>
+<tr>
+<td>05:15–06:00</td>
+<td>自测两套流程 + 复盘</td>
+<td>V2 完成 ✅</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="2-spring-security-30" tabindex="-1">2. 引入 Spring Security：先看一个神奇现象（30 分钟）</h2>
+<h3 id="2-1" tabindex="-1">2.1 加依赖</h3>
+<p>打开 <code>pom.xml</code>，在 <code>spring-boot-starter-validation</code> 那一段<strong>后面</strong>插入：</p>
+<pre><code class="language-xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<p>然后重启：</p>
+<pre><code class="language-bash">./mvnw spring-boot:run
+</code></pre>
+<h3 id="2-2" tabindex="-1">2.2 观察</h3>
+<p>打开 <a href="http://localhost:8080" target="_blank" class="external-link">http://localhost:8080</a> —— 昨天还好好的应用，<strong>现在跳到了一个登录页</strong>，样式很朴素，标题写着 &quot;Please sign in&quot;。</p>
+<p>更神奇的是，<strong>控制台日志里多了这么一行</strong>：</p>
+<pre><code>Using generated security password: 8e557245-73e2-418c-9682-6db5f78444b0
+</code></pre>
+<p>（每次启动密码都不一样）</p>
+<p>用用户名 <code>user</code> + 上面这个密码，<strong>能登录进去</strong>，然后就能正常用你的图书系统了。</p>
+<h3 id="2-3" tabindex="-1">2.3 这是怎么回事？</h3>
+<p><strong>你只加了一个依赖，一行配置都没写，登录功能就出现了。</strong> 这就是 Spring Boot 的&quot;约定优于配置&quot;——它检测到 classpath 上有 Spring Security，就自动装了一套<strong>默认安全配置</strong>：</p>
+<ul>
+<li>所有请求都需要登录</li>
+<li>自动生成一个用户 <code>user</code>，密码随机打印在日志里</li>
+<li>提供一个默认登录页</li>
+</ul>
+<p><strong>方便，但不能用于生产</strong>。因为①用户只能是那个随机的 <code>user</code> ②密码重启就变 ③拿不到密码就没法登录。所以我们要<strong>接管</strong>这套配置，用自己的用户体系。</p>
+<h3 id="2-4" tabindex="-1">2.4 两个必须先分清的概念</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>认证 (Authentication)</th>
+<th>授权 (Authorization)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>回答的问题</td>
+<td><strong>你是谁？</strong></td>
+<td><strong>你能干什么？</strong></td>
+</tr>
+<tr>
+<td>对应的功能</td>
+<td>登录、密码校验</td>
+<td>角色、权限判断</td>
+</tr>
+<tr>
+<td>今天的实现</td>
+<td><code>UserDetailsService</code> + <code>PasswordEncoder</code></td>
+<td><code>Role</code> + <code>@PreAuthorize</code> + <code>SecurityFilterChain</code></td>
+</tr>
+<tr>
+<td>失败的表现</td>
+<td>跳回登录页</td>
+<td><strong>403 Forbidden</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>顺序不能颠倒</strong>：先认证（登录），才能授权（判断你能不能删书）。</p>
+<blockquote>
+<p>🛑 先把程序 <code>Ctrl+C</code> 停掉。下面开始接管配置。</p>
+</blockquote>
+<hr>
+<h2 id="3-40" tabindex="-1">3. 用户模型与仓储（40 分钟）</h2>
+<h3 id="3-1-code-role-code" tabindex="-1">3.1 角色枚举 <code>Role</code></h3>
+<p>新建 <code>src/main/java/com/library/model/Role.java</code>：</p>
+<pre><code class="language-java">package com.library.model;
+
+/**
+ * 用户角色。Spring Security 中映射为 ROLE_ADMIN / ROLE_READER。
+ */
+public enum Role {
+
+    ADMIN(&quot;管理员&quot;),
+    READER(&quot;读者&quot;);
+
+    private final String label;
+
+    Role(String label) {
+        this.label = label;
+    }
+
+    /** 中文显示名，供页面展示。 */
+    public String getLabel() {
+        return label;
+    }
+}
+</code></pre>
+<p><strong>为什么用枚举而不是字符串？</strong> 因为字符串写错了编译器不报错——<code>&quot;ADMID&quot;</code> 要等到运行时才发现。枚举写错<strong>编译不通过</strong>。而且这里顺手给每个枚举值挂了个中文名，页面直接 <code>role.label</code> 就能取到。</p>
+<h3 id="3-2-code-user-code" tabindex="-1">3.2 用户模型 <code>User</code></h3>
+<p>新建 <code>src/main/java/com/library/model/User.java</code>：</p>
+<pre><code class="language-java">package com.library.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * 系统用户。password 字段存放 BCrypt 哈希，不存明文。
+ */
+public class User {
+
+    private Long id;
+
+    private String username;
+
+    /** BCrypt 密码哈希。 */
+    private String password;
+
+    private String fullName;
+
+    private Role role;
+
+    public User() {
+    }
+
+    public User(String username, String password, String fullName, Role role) {
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.role = role;
+    }
+
+    /** 派生值，不写入 JSON。 */
+    @JsonIgnore
+    public boolean isAdmin() {
+        return role == Role.ADMIN;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+}
+</code></pre>
+<p>和 <code>Book</code> 一样，<code>@JsonIgnore</code> 保护派生字段 <code>isAdmin()</code>（由 <code>role</code> 算出来的，不存 JSON）。</p>
+<h3 id="3-3-code-user-repository-code" tabindex="-1">3.3 <code>UserRepository</code></h3>
+<p>新建 <code>src/main/java/com/library/repository/UserRepository.java</code>：</p>
+<pre><code class="language-java">package com.library.repository;
+
+import tools.jackson.databind.ObjectMapper;
+import com.library.config.LibraryProperties;
+import com.library.model.User;
+import org.springframework.stereotype.Repository;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+/**
+ * 用户仓储，数据落在 {@code data/users.json}。
+ */
+@Repository
+public class UserRepository extends JsonFileStore&lt;User&gt; {
+
+    public UserRepository(ObjectMapper mapper, LibraryProperties properties) {
+        super(mapper, properties.dataDirPath(), &quot;users.json&quot;, User.class);
+    }
+
+    public List&lt;User&gt; findAll() {
+        return readAll().stream()
+                .sortedgetId, Comparator.nullsLast(Comparator.naturalOrder()))
+                .toList();
+    }
+
+    public Optional&lt;User&gt; findById(Long id) {
+        if (id == null) {
+            return Optional.empty();
+        }
+        return readAll().stream().filter(user -&gt; id.equals(user.getId())).findFirst();
+    }
+
+    public Optional&lt;User&gt; findByUsername(String username) {
+        if (username == null || username.isBlank()) {
+            return Optional.empty();
+        }
+        return readAll().stream()
+                .filter(user -&gt; username.equalsIgnoreCase(user.getUsername()))
+                .findFirst();
+    }
+
+    /** 新增（id 为 null）或更新（id 已存在）一个用户，返回保存后的对象。 */
+    public User save(User user) {
+        return update(items -&gt; {
+            if (user.getId() == null) {
+                user.setId(nextId(items));
+                items.add(user);
+                return user;
+            }
+            for (int i = 0; i &lt; items.size(); i++) {
+                if (user.getId().equals(items.get(i).getId())) {
+                    items.set(i, user);
+                    return user;
+                }
+            }
+            items.add(user);
+            return user;
+        });
+    }
+
+    public boolean deleteById(Long id) {
+        return update(items -&gt; items.removeIf(user -&gt; id != null &amp;&amp; id.equals(user.getId())));
+    }
+
+    private Long nextId(List&lt;User&gt; items) {
+        return items.stream()
+                .mapgetId
+                .filternonNull
+                .maxcompareTo
+                .orElse(0L) + 1;
+    }
+}
+</code></pre>
+<p><strong>注意到什么了吗？</strong> 这个类和 <code>BookRepository</code> <strong>结构几乎一模一样</strong>——<code>findAll</code> / <code>findById</code> / <code>save</code> / <code>deleteById</code> / <code>nextId</code> 全都对得上，只是类型从 <code>Book</code> 变成 <code>User</code>，多了一个 <code>findByUsername</code>。</p>
+<p><strong>这就是 Day 1 的 <code>JsonFileStore&lt;T&gt;</code> 的价值。</strong> 如果当初把读写逻辑直接写在 <code>BookRepository</code> 里，今天就得把那段代码再抄一遍（然后在改 bug 时改两处、漏一处）。<strong>抽象公共部分，是这个项目里最值得学的一个决定。</strong></p>
+<blockquote>
+<p>🔎 <code>findByUsername</code> 用 <code>equalsIgnoreCase</code> 做<strong>忽略大小写</strong>的匹配——登录时输 <code>Admin</code> 也能进。而 <code>Book</code> 的 ISBN 查重也用忽略大小写。这是个有意的设计：用户不该因为大小写被挡在外面。</p>
+</blockquote>
+<h3 id="✅ 验证" tabindex="-1">✅ 验证</h3>
+<pre><code class="language-bash">./mvnw -q compile
+</code></pre>
+<hr>
+<h2 id="4-60" tabindex="-1">4. 接管认证：密码 + 用户加载（60 分钟）</h2>
+<h3 id="4-1" tabindex="-1">4.1 为什么密码绝对不能存明文</h3>
+<p>想象一下 <code>data/users.json</code> 长这样：</p>
+<pre><code class="language-json">[ { &quot;username&quot;: &quot;admin&quot;, &quot;password&quot;: &quot;admin123&quot;, ... } ]
+</code></pre>
+<p><strong>这是灾难性的</strong>。数据库泄露、员工误发文件、服务器被入侵——任何一个环节，所有人的密码就直接暴露了。而且很多人多个网站用同一个密码，一个库泄露会连累一堆账号。</p>
+<p><strong>正确做法：哈希（hash）。</strong> 存的是密码经过单向函数计算出的乱码：</p>
+<pre><code>&quot;admin123&quot;  →  $2a$10$N9qo8uLOickgx2ZMRZoMye...  （存这个）
+</code></pre>
+<p>哈希的两个关键性质：</p>
+<ol>
+<li><strong>单向</strong>——从 <code>$2a$10$...</code> 反推不出 <code>admin123</code>。</li>
+<li><strong>验证方式不同</strong>——登录时不&quot;解密&quot;，而是把用户刚输入的密码<strong>用同样的算法算一遍</strong>，比较两个哈希是否一致。</li>
+</ol>
+<p><strong>BCrypt 是专门为密码设计的哈希算法</strong>，额外做了两件事：</p>
+<ul>
+<li><strong>加盐 (salt)</strong>：同样的密码，每次哈希结果都不同（盐是随机插进去的）。所以两个人密码都是 <code>123456</code>，存出来的是两串完全不同的乱码。这挡住了&quot;彩虹表&quot;攻击。</li>
+<li><strong>故意慢</strong>：BCrypt 计算一次要几十毫秒。对正常登录毫无影响，但让暴力破解的成本变得极高。</li>
+</ul>
+<p>Spring Security 提供了现成的 <code>BCryptPasswordEncoder</code>，<strong>我们只需要声明它是 Bean</strong>。</p>
+<h3 id="4-2-code-library-user-principal-code" tabindex="-1">4.2 <code>LibraryUserPrincipal</code></h3>
+<p><strong>问题</strong>：Spring Security 需要知道&quot;当前登录的是谁&quot;，它内部的接口是 <code>UserDetails</code>。我们的 <code>User</code> 类没有实现它——而且<strong>我们也不想让持久化模型去实现框架接口</strong>（那就把模型和框架绑死了）。</p>
+<p><strong>做法</strong>：写一个适配类，把 <code>User</code> 包一层。</p>
+<p>新建 <code>src/main/java/com/library/security/LibraryUserPrincipal.java</code>：</p>
+<pre><code class="language-java">package com.library.security;
+
+import com.library.model.Role;
+import com.library.model.User;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
+
+/**
+ * Spring Security 的登录主体，额外携带用户 id、姓名与角色，方便页面直接取用。
+ */
+public class LibraryUserPrincipal implements UserDetails {
+
+    private final Long id;
+    private final String username;
+    private final String password;
+    private final String fullName;
+    private final Role role;
+
+    public LibraryUserPrincipal(User user) {
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.fullName = user.getFullName();
+        this.role = user.getRole();
+    }
+
+    @Override
+    public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(&quot;ROLE_&quot; + role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public boolean isAdmin() {
+        return role == Role.ADMIN;
+    }
+}
+</code></pre>
+<p><strong>关键在 <code>getAuthorities()</code>：</strong></p>
+<pre><code class="language-java">new SimpleGrantedAuthority(&quot;ROLE_&quot; + role.name())
+</code></pre>
+<p><code>role.name()</code> 是枚举的英文名（<code>ADMIN</code> / <code>READER</code>），前面拼上 <code>ROLE_</code>，得到 <code>ROLE_ADMIN</code> / <code>ROLE_READER</code>。</p>
+<blockquote>
+<p>⚠️ <strong><code>ROLE_</code> 前缀是必须的</strong>，这是 Spring Security 的约定。后面写 <code>hasRole(&quot;ADMIN&quot;)</code> 时它会自动补上前缀去比对；你如果在这里写成 <code>&quot;ADMIN&quot;</code>，权限判断就会永远失败，而且<strong>报错不明显</strong>——只会表现为 403。这是新手最容易卡住的地方之一。</p>
+</blockquote>
+<p>另外那四个 <code>isXxx()</code> 方法都返回 <code>true</code>，意思是&quot;账号没过期、没锁定、凭证没过期、已启用&quot;。这个演示项目用不到这些功能，但<strong>接口要求必须实现</strong>。这也是为什么我们要写适配类——把这些样板代码挡在 <code>User</code> 之外。</p>
+<p><strong>类里额外加的 <code>getId()</code> / <code>getFullName()</code> / <code>getRole()</code> / <code>isAdmin()</code></strong> 是给页面用的（比如导航栏显示&quot;张三 · 读者&quot;）。<code>UserDetails</code> 接口本身不要求这些。</p>
+<h3 id="4-3-code-library-user-details-service-code" tabindex="-1">4.3 <code>LibraryUserDetailsService</code></h3>
+<p>新建 <code>src/main/java/com/library/security/LibraryUserDetailsService.java</code>：</p>
+<pre><code class="language-java">package com.library.security;
+
+import com.library.repository.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+/**
+ * 从 users.json 加载登录用户。
+ */
+@Service
+public class LibraryUserDetailsService implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    public LibraryUserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username)
+                .mapnew
+                .orElseThrow(() -&gt; new UsernameNotFoundException(&quot;用户名或密码错误&quot;));
+    }
+}
+</code></pre>
+<p><strong>这就是&quot;告诉 Spring Security 去哪儿找用户&quot;的地方。</strong></p>
+<p><code>UserDetailsService</code> 是 Spring Security 定义的接口，只有<strong>一个方法</strong>：<code>loadUserByUsername(String)</code>。登录时它会调用你这边的实现去拿用户。你实现了它，就完成了&quot;接管&quot;。</p>
+<p>注意 <code>.mapnew</code> —— 找到的 <code>User</code> 被包成 <code>LibraryUserPrincipal</code> 返回。找不到就抛 <code>UsernameNotFoundException</code>。</p>
+<blockquote>
+<p>🔎 <strong>为什么要抛&quot;用户名或密码错误&quot;而不是&quot;用户不存在&quot;？</strong></p>
+<p>这是<strong>安全习惯</strong>。如果提示&quot;用户不存在&quot;，攻击者就能用登录页<strong>枚举出系统里有哪些用户名</strong>（试 <code>admin</code> → &quot;用户不存在&quot;，试 <code>zhangsan</code> → &quot;密码错误&quot;，就知道 <code>zhangsan</code> 是真实用户）。统一提示让攻击者两眼一抹黑。</p>
+<p>Spring Security 后来也会把 <code>UsernameNotFoundException</code> 转成统一的失败，但<strong>养成这个习惯</strong>没坏处。</p>
+</blockquote>
+<h3 id="4-4-code-security-config-code" tabindex="-1">4.4 <code>SecurityConfig</code></h3>
+<p>这是今天的核心配置。</p>
+<p>新建 <code>src/main/java/com/library/security/SecurityConfig.java</code>：</p>
+<pre><code class="language-java">package com.library.security;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+/**
+ * 登录与鉴权配置。
+ *
+ * &lt;ul&gt;
+ *   &lt;li&gt;{@code /login}、静态资源放行；&lt;/li&gt;
+ *   &lt;li&gt;其余页面登录后即可访问，图书写操作另由 {@code @PreAuthorize} 限制为管理员。&lt;/li&gt;
+ * &lt;/ul&gt;
+ */
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity
+public class SecurityConfig {
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(auth -&gt; auth
+                        .requestMatchers(&quot;/css/**&quot;, &quot;/js/**&quot;, &quot;/favicon.ico&quot;).permitAll()
+                        .requestMatchers(&quot;/login&quot;).permitAll()
+                        .anyRequest().authenticated())
+                .formLogin(form -&gt; form
+                        .loginPage(&quot;/login&quot;)
+                        .defaultSuccessUrl(&quot;/&quot;, true)
+                        .failureUrl(&quot;/login?error&quot;)
+                        .permitAll())
+                .logout(logout -&gt; logout
+                        .logoutUrl(&quot;/logout&quot;)
+                        .logoutSuccessUrl(&quot;/login?logout&quot;)
+                        .permitAll());
+        return http.build();
+    }
+}
+</code></pre>
+<h4 id="逐块解读" tabindex="-1">逐块解读</h4>
+<p><strong>类上的三个注解：</strong></p>
+<ul>
+<li><code>@Configuration</code> —— 这是一个配置类，里面用 <code>@Bean</code> 声明的东西会进 Spring 容器。</li>
+<li><code>@EnableWebSecurity</code> —— 开启 Spring Security 的 Web 支持。</li>
+<li><code>@EnableMethodSecurity</code> —— <strong>开启方法级权限控制</strong>。没有它，<code>@PreAuthorize</code> <strong>完全不起作用而且没有报错</strong>——你写在 Controller 上的注解会被直接忽略。这是第二个超常见的坑。</li>
+</ul>
+<p><strong><code>passwordEncoder()</code> Bean：</strong></p>
+<pre><code class="language-java">@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+</code></pre>
+<p>声明完之后，全局任何地方注入 <code>PasswordEncoder</code> 拿到的都是这个 BCrypt 实现。</p>
+<p><strong>为什么返回类型写 <code>PasswordEncoder</code>（接口）而不是 <code>BCryptPasswordEncoder</code>（实现类）？</strong> 因为使用方只关心&quot;能加密、能校验&quot;这个契约，不关心具体算法。<strong>将来要换成 Argon2，只改这一行，其他代码一行不动。</strong> 这就是&quot;面向接口编程&quot;的实际好处。</p>
+<p><strong><code>securityFilterChain(...)</code> Bean —— 一行一行看：</strong></p>
+<pre><code class="language-java">http
+    .authorizeHttpRequests(auth -&gt; auth
+        .requestMatchers(&quot;/css/**&quot;, &quot;/js/**&quot;, &quot;/favicon.ico&quot;).permitAll()   // ①
+        .requestMatchers(&quot;/login&quot;).permitAll()                              // ②
+        .anyRequest().authenticated())                                      // ③
+</code></pre>
+<ul>
+<li>① 静态资源放行。<strong>没有这一条，你的 CSS 也要登录才能加载</strong>，页面会完全没有样式——而且不会报错，只是&quot;变丑了&quot;。经典坑。</li>
+<li>② 登录页本身当然要能匿名访问。</li>
+<li>③ <strong>兜底规则，必须放最后</strong>。<code>anyRequest()</code> 匹配所有请求，而 Spring Security 的规则是<strong>从上往下第一个匹配的生效</strong>。所以具体规则写前面，笼统的写后面。</li>
+</ul>
+<pre><code class="language-java">    .formLogin(form -&gt; form
+        .loginPage(&quot;/login&quot;)              // 用我们自己的登录页（而不是默认的）
+        .defaultSuccessUrl(&quot;/&quot;, true)     // 登录成功去首页
+        .failureUrl(&quot;/login?error&quot;)       // 失败回登录页并带上 ?error
+        .permitAll())
+</code></pre>
+<blockquote>
+<p>🔎 <code>defaultSuccessUrl(&quot;/&quot;, true)</code> 的第二个参数 <code>true</code> 是 <strong>alwaysUse</strong>：无论用户之前想访问哪个页面，登录成功后<strong>总是</strong>去首页。不传（或传 false）的话，Spring 会记住&quot;用户本来是去 /books 的，被拦下来了&quot;，登录后把他送回 <code>/books</code>——对某些场景更好，但这里我们想要行为可预期。</p>
+</blockquote>
+<pre><code class="language-java">    .logout(logout -&gt; logout
+        .logoutUrl(&quot;/logout&quot;)             // POST /logout 触发退出
+        .logoutSuccessUrl(&quot;/login?logout&quot;)// 退出后回登录页
+        .permitAll());
+</code></pre>
+<p>注意 <code>logoutUrl</code> 是 <strong>POST</strong> 的。Day 1 的导航栏里我们用的是 <code>&lt;form method=&quot;post&quot;&gt;</code> 提交到 <code>/logout</code>——正好对上。（用 GET 触发登出是不安全的：一张 <code>&lt;img src=&quot;/logout&quot;&gt;</code> 就能把用户踢下线。）</p>
+<h4 id="csrf-90" tabindex="-1">🚨 CSRF：一个 90% 的人会踩的坑</h4>
+<p>Spring Security <strong>默认开启 CSRF 保护</strong>。它会给每个会话生成一个随机 token，<strong>任何 POST / PUT / DELETE 请求都必须带上这个 token</strong>，否则返回 <strong>403</strong>。</p>
+<p>那 Day 1 写的那些 <code>&lt;form method=&quot;post&quot;&gt;</code> 为什么今天还能用？</p>
+<p><strong>因为 Thymeleaf 在你用了 <code>th:action</code> 的时候，会自动往表单里塞一个隐藏的 token 字段。</strong></p>
+<pre><code class="language-html">&lt;form method=&quot;post&quot; th:action=&quot;@{/books}&quot;&gt;   &lt;!-- ✅ 自动获得 CSRF token --&gt;
+&lt;form method=&quot;post&quot; action=&quot;/books&quot;&gt;          &lt;!-- ❌ 没有 token，提交必 403 --&gt;
+</code></pre>
+<p><strong>记住这条规则</strong>：只要项目里有 Spring Security，表单就必须用 <code>th:action</code>，<strong>不要</strong>用普通 <code>action</code>。Day 1 的代码恰好写对了——这不是巧合，是当时就该有的习惯。</p>
+<blockquote>
+<p>❌ <strong>报错长这样</strong>：点保存后跳到 <code>Whitelabel Error Page</code>，HTTP 状态 <strong>403 Forbidden</strong>。<br>
+✅ <strong>修复</strong>：把那个表单的 <code>action=</code> 改成 <code>th:action=</code>。</p>
+</blockquote>
+<h3 id="4-5" tabindex="-1">4.5 登录页</h3>
+<p>新建 <code>src/main/resources/templates/login.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;登录 · 图书馆管理系统&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; th:href=&quot;@{/css/style.css}&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;login-page&quot;&gt;
+
+&lt;main class=&quot;login-card&quot;&gt;
+    &lt;h1&gt;📚 图书馆管理系统&lt;/h1&gt;
+    &lt;p class=&quot;muted&quot;&gt;请登录后使用&lt;/p&gt;
+
+    &lt;div class=&quot;alert alert-error&quot; th:if=&quot;${param.error}&quot;&gt;用户名或密码错误&lt;/div&gt;
+    &lt;div class=&quot;alert alert-success&quot; th:if=&quot;${param.logout}&quot;&gt;您已安全退出&lt;/div&gt;
+
+    &lt;form th:action=&quot;@{/login}&quot; method=&quot;post&quot; class=&quot;form&quot;&gt;
+        &lt;label&gt;
+            &lt;span&gt;用户名&lt;/span&gt;
+            &lt;input type=&quot;text&quot; name=&quot;username&quot; autofocus autocomplete=&quot;username&quot; required&gt;
+        &lt;/label&gt;
+        &lt;label&gt;
+            &lt;span&gt;密码&lt;/span&gt;
+            &lt;input type=&quot;password&quot; name=&quot;password&quot; autocomplete=&quot;current-password&quot; required&gt;
+        &lt;/label&gt;
+        &lt;button class=&quot;btn btn-primary btn-block&quot; type=&quot;submit&quot;&gt;登录&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;div class=&quot;login-hint&quot;&gt;
+        &lt;p&gt;默认账号：&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;管理员 — &lt;code&gt;admin / admin123&lt;/code&gt;&lt;/li&gt;
+            &lt;li&gt;读者 — &lt;code&gt;reader / reader123&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>三个细节，都不是随便写的：</strong></p>
+<ol>
+<li><strong>输入框的 <code>name</code> 必须是 <code>username</code> 和 <code>password</code></strong>。这是 Spring Security 表单登录的<strong>约定字段名</strong>，改了就得额外配置。所以这里<strong>不能</strong>用 <code>th:field</code>（那会用对象属性名）——必须老老实实写 <code>name=&quot;username&quot;</code>。</li>
+<li><strong><code>th:if=&quot;${param.error}&quot;</code></strong> —— <code>param</code> 是 Thymeleaf 内置对象，取 URL 查询参数。因为 <code>SecurityConfig</code> 里配的是 <code>failureUrl(&quot;/login?error&quot;)</code>，登录失败时 URL 带 <code>?error</code>，这里就显示错误提示。<code>?logout</code> 同理。
+<blockquote>
+<p>注意这个页面<strong>没有</strong>用 <code>fragments/layout</code>，因为它不需要导航栏（用户还没登录呢）。</p>
+</blockquote>
+</li>
+<li><strong><code>autocomplete=&quot;current-password&quot;</code></strong> —— 告诉浏览器（和密码管理器）这是&quot;已有密码&quot;，可以自动填充。新建密码的表单则应该用 <code>new-password</code>。这是个小细节，但用起来体验差别很大。</li>
+</ol>
+<h3 id="✅ 验证（还差一点）" tabindex="-1">✅ 验证（还差一点）</h3>
+<p>现在编译能过，但<strong>还登不进去</strong>——因为 <code>data/users.json</code> 里一个用户都没有，<code>userRepository.findByUsername()</code> 永远找不到人。下一步解决。</p>
+<hr>
+<h2 id="5-45" tabindex="-1">5. 造出第一批用户（45 分钟）</h2>
+<h3 id="5-1" tabindex="-1">5.1 问题</h3>
+<p>我们需要 <code>data/users.json</code> 里有用户，但密码必须是 <strong>BCrypt 哈希</strong>——你我都没法手算。而且现在还没有用户管理界面（那是 Day 3）。</p>
+<h3 id="5-2" tabindex="-1">5.2 做法：启动时自动写入种子数据</h3>
+<p>新建 <code>src/main/java/com/library/service/DataInitializer.java</code>：</p>
+<pre><code class="language-java">package com.library.service;
+
+import com.library.model.Role;
+import com.library.model.User;
+import com.library.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
+/**
+ * 首次启动时写入默认账号。已有数据时不做任何事。
+ */
+@Component
+public class DataInitializer implements ApplicationRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
+
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public DataInitializer(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public void run(ApplicationArguments args) {
+        seedUsers();
+    }
+
+    private void seedUsers() {
+        if (!userRepository.findAll().isEmpty()) {
+            return;
+        }
+        userRepository.save(new User(&quot;admin&quot;, passwordEncoder.encode(&quot;admin123&quot;), &quot;系统管理员&quot;, Role.ADMIN));
+        userRepository.save(new User(&quot;reader&quot;, passwordEncoder.encode(&quot;reader123&quot;), &quot;张三&quot;, Role.READER));
+        log.info(&quot;已初始化默认账号：admin / admin123（管理员）、reader / reader123（读者）&quot;);
+    }
+}
+</code></pre>
+<p><strong>理解这个类：</strong></p>
+<ul>
+<li><strong><code>ApplicationRunner</code></strong> 是 Spring Boot 的接口。实现它，<code>run()</code> 方法会在<strong>应用完全启动之后</strong>自动执行一次。用它做初始化最合适——比 <code>@PostConstruct</code> 好，因为那时所有 Bean 都已就绪。</li>
+<li><strong><code>if (!userRepository.findAll().isEmpty()) return;</code></strong> —— <strong>幂等保护</strong>。第二次启动时数据已经存在，直接返回，<strong>绝不会覆盖你改过的密码</strong>。这一行是这段代码里最重要的部分。</li>
+<li><strong><code>passwordEncoder.encode(&quot;admin123&quot;)</code></strong> —— 明文在这里被转成 BCrypt 哈希<strong>才</strong>存进文件。<strong>明文只在这行代码里出现，从不落盘。</strong></li>
+</ul>
+<h3 id="5-3" tabindex="-1">5.3 跑起来，第一次登录</h3>
+<pre><code class="language-bash">./mvnw spring-boot:run
+</code></pre>
+<p>日志里应该看到：</p>
+<pre><code>已初始化默认账号：admin / admin123（管理员）、reader / reader123（读者）
+</code></pre>
+<p>检查一下文件：</p>
+<pre><code class="language-bash">cat data/users.json
+</code></pre>
+<p><strong>你应该看到密码是一长串 <code>$2a$10$...</code> 的乱码，而不是 <code>admin123</code>。</strong> 这是今天最重要的验证——<strong>如果看到明文，说明哪里写错了，立刻停下来检查。</strong></p>
+<p>现在浏览器打开 <a href="http://localhost:8080" target="_blank" class="external-link">http://localhost:8080</a>，用 <code>admin</code> / <code>admin123</code> 登录。<strong>应该能进去，看到图书列表。</strong></p>
+<p>再试试：</p>
+<ul>
+<li>故意输错密码 → 回到登录页，顶部红色提示「用户名或密码错误」</li>
+<li>用户名输 <code>ADMIN</code>（大写）→ <strong>也能登录</strong>（因为 <code>findByUsername</code> 用了 <code>equalsIgnoreCase</code>）</li>
+</ul>
+<h3 id="v2" tabindex="-1">✅ 里程碑：V2 的认证部分完成</h3>
+<p>到这里，<strong>认证（你是谁）已经打通</strong>。授权（你能干什么）还差一半——现在读者也能删书。下一节解决。</p>
+<hr>
+<h2 id="6-50" tabindex="-1">6. 首页概览（50 分钟）</h2>
+<p>现在登录后直接跳到图书列表，有点单调。做一个真正的概览页。</p>
+<h3 id="6-1-code-home-controller-code" tabindex="-1">6.1 改写 <code>HomeController</code></h3>
+<p>打开 <code>src/main/java/com/library/web/HomeController.java</code>，<strong>整个替换</strong>成：</p>
+<pre><code class="language-java">package com.library.web;
+
+import com.library.model.Book;
+import com.library.security.LibraryUserPrincipal;
+import com.library.service.BookService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
+/**
+ * 登录页与首页概览。
+ */
+@Controller
+public class HomeController {
+
+    private final BookService bookService;
+
+    public HomeController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @GetMapping(&quot;/login&quot;)
+    public String login() {
+        return &quot;login&quot;;
+    }
+
+    @GetMapping(&quot;/&quot;)
+    public String dashboard(Model model, @AuthenticationPrincipal LibraryUserPrincipal principal) {
+        List&lt;Book&gt; books = bookService.findAll();
+
+        int totalCopies = books.streamgetTotalCopies).sum(;
+        int availableCopies = books.streamgetAvailableCopies).sum(;
+
+        model.addAttribute(&quot;bookTitles&quot;, books.size());
+        model.addAttribute(&quot;totalCopies&quot;, totalCopies);
+        model.addAttribute(&quot;availableCopies&quot;, availableCopies);
+        model.addAttribute(&quot;borrowedCopies&quot;, totalCopies - availableCopies);
+
+        return &quot;dashboard&quot;;
+    }
+}
+</code></pre>
+<p><strong>新东西：<code>@AuthenticationPrincipal</code></strong></p>
+<pre><code class="language-java">public String dashboard(Model model, @AuthenticationPrincipal LibraryUserPrincipal principal)
+</code></pre>
+<p>这个注解<strong>把当前登录用户直接注入方法参数</strong>。Spring Security 会从会话里取出登录主体，转成你指定的类型。</p>
+<p><strong>为什么能转成 <code>LibraryUserPrincipal</code>？</strong> 因为 <code>LibraryUserDetailsService</code> 返回的就是它——<strong>闭环</strong>：你加载谁，这里就拿到谁。</p>
+<p>拿到 <code>principal</code> 之后，模板里就能用 <code>currentUser</code>（下一步讲怎么传过去）。如果不用这个注解，也可以从 <code>SecurityContextHolder.getContext().getAuthentication()</code> 里拿，但<strong>参数注入干净得多</strong>。</p>
+<p><code>@GetMapping(&quot;/login&quot;)</code> 只是渲染登录页。注意 Spring Security 的登录<strong>提交</strong>（POST /login）是由框架处理的，不需要我们写——我们只负责&quot;显示&quot;这个页面。</p>
+<blockquote>
+<p>🔎 <code>books.streamgetTotalCopies).sum()</code> —— 把每本书的 <code>totalCopies</code> 变成 <code>int</code> 流再求和。用 <code>mapToInt</code> 而不是 <code>map</code>，是为了得到 <code>IntStream</code>（有现成的 <code>sum(</code>）。</p>
+</blockquote>
+<h3 id="6-2" tabindex="-1">6.2 首页模板</h3>
+<p>新建 <code>src/main/resources/templates/dashboard.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head th:replace=&quot;~{fragments/layout :: head('首页')}&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;nav th:replace=&quot;~{fragments/layout :: navbar}&quot;&gt;&lt;/nav&gt;
+
+&lt;main class=&quot;container&quot;&gt;
+    &lt;div class=&quot;page-header&quot;&gt;
+        &lt;h1&gt;
+            你好，&lt;span th:text=&quot;${currentUser.fullName}&quot;&gt;用户&lt;/span&gt; 👋
+        &lt;/h1&gt;
+        &lt;span class=&quot;tag&quot; th:text=&quot;${currentUser.roleLabel}&quot;&gt;角色&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;stat-grid&quot;&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;span class=&quot;stat-value&quot; th:text=&quot;${bookTitles}&quot;&gt;0&lt;/span&gt;
+            &lt;span class=&quot;stat-label&quot;&gt;图书种类&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;span class=&quot;stat-value&quot; th:text=&quot;${totalCopies}&quot;&gt;0&lt;/span&gt;
+            &lt;span class=&quot;stat-label&quot;&gt;总册数&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;span class=&quot;stat-value&quot; th:text=&quot;${availableCopies}&quot;&gt;0&lt;/span&gt;
+            &lt;span class=&quot;stat-label&quot;&gt;可借册数&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;span class=&quot;stat-value&quot; th:text=&quot;${borrowedCopies}&quot;&gt;0&lt;/span&gt;
+            &lt;span class=&quot;stat-label&quot;&gt;已借出&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;h2&gt;可以做什么&lt;/h2&gt;
+        &lt;ul class=&quot;action-list&quot;&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{/books}&quot;&gt;浏览图书目录&lt;/a&gt;&lt;/li&gt;
+            &lt;li th:if=&quot;${currentUser.admin}&quot;&gt;&lt;a th:href=&quot;@{/books/new}&quot;&gt;新增一本图书&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p class=&quot;muted&quot; th:unless=&quot;${currentUser.admin}&quot;&gt;
+            你是读者，可以浏览图书；图书的增删改由管理员完成。
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>注意 <code>th:if=&quot;${currentUser.admin}&quot;</code> —— 读者看不到&quot;新增一本图书&quot;这条。<strong>但这个模板还不能工作</strong>，因为 <code>currentUser</code> 还没人提供。下一步。</p>
+<h3 id="6-3-code-current-user-code-code-global-model-advice-code" tabindex="-1">6.3 <code>CurrentUser</code> + <code>GlobalModelAdvice</code></h3>
+<p><strong>问题</strong>：几乎每个页面都需要&quot;当前用户&quot;（导航栏要显示姓名和角色）。难道每个 Controller 方法都写一遍 <code>model.addAttribute(&quot;currentUser&quot;, ...)</code>？</p>
+<p><strong>不用。</strong> Spring MVC 有 <code>@ControllerAdvice</code> —— 它里面的 <code>@ModelAttribute</code> 方法会<strong>对每个 Controller 的每个请求都执行一次</strong>，自动往 Model 里塞数据。</p>
+<p>先建一个给模板用的视图对象。新建 <code>src/main/java/com/library/web/CurrentUser.java</code>：</p>
+<pre><code class="language-java">package com.library.web;
+
+import com.library.security.LibraryUserPrincipal;
+
+/**
+ * 供模板使用的当前登录用户视图对象。
+ */
+public record CurrentUser(Long id, String username, String fullName, String roleLabel, boolean admin) {
+
+    public static CurrentUser of(LibraryUserPrincipal principal) {
+        return new CurrentUser(
+                principal.getId(),
+                principal.getUsername(),
+                principal.getFullName(),
+                principal.getRole().getLabel(),
+                principal.isAdmin());
+    }
+}
+</code></pre>
+<p><strong>为什么不让模板直接用 <code>LibraryUserPrincipal</code>？</strong> 因为那是<strong>安全框架的类型</strong>，包含 <code>password</code> 哈希等敏感字段。把它整个丢进模板，就等于给每个 HTML 页面开了个后门（万一哪个模板写出 <code>${principal.password}</code> 就泄露了）。<strong><code>CurrentUser</code> 是一道防火墙：只暴露页面真正需要的东西。</strong></p>
+<blockquote>
+<p>🔎 这里用了 <code>record</code>——Java 16+ 的语法糖。一行就得到一个不可变类，自动生成构造器、<code>getter</code>（叫 <code>id()</code> 不是 <code>getId()</code>）、<code>equals</code>、<code>hashCode</code>、<code>toString</code>。<strong>只有数据、没有行为的类，就该用 record。</strong></p>
+<p>Thymeleaf 访问 record 组件用 <code>${currentUser.fullName}</code> 就行——它能识别 record 的访问器。</p>
+</blockquote>
+<p>新建 <code>src/main/java/com/library/web/GlobalModelAdvice.java</code>：</p>
+<pre><code class="language-java">package com.library.web;
+
+import com.library.security.LibraryUserPrincipal;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+/**
+ * 把当前登录用户注入所有模板，供导航栏显示用户名/角色与菜单权限判断。
+ */
+@ControllerAdvice
+public class GlobalModelAdvice {
+
+    @ModelAttribute(&quot;currentUser&quot;)
+    public CurrentUser currentUser(Authentication authentication) {
+        if (authentication != null &amp;&amp; authentication.getPrincipal() instanceof LibraryUserPrincipal principal) {
+            return CurrentUser.of(principal);
+        }
+        return null;
+    }
+}
+</code></pre>
+<p><strong>三个点：</strong></p>
+<ol>
+<li><code>@ControllerAdvice</code> + <code>@ModelAttribute(&quot;currentUser&quot;)</code> = <strong>所有页面的 Model 里都有一个 <code>currentUser</code></strong>。没有写一行重复代码。</li>
+<li>参数 <code>Authentication</code> 由 Spring Security 自动注入，代表当前认证状态。<strong>未登录时它是 <code>null</code></strong>（比如访问登录页），所以要判空。</li>
+<li><code>instanceof LibraryUserPrincipal principal</code> 是 <strong>Java 16+ 的模式匹配</strong>：既判断类型，又顺便完成强转和变量声明，比老写法 <code>(LibraryUserPrincipal) auth.getPrincipal()</code> 安全得多。</li>
+</ol>
+<p><strong>为什么返回 <code>null</code> 而不是抛异常？</strong> 因为登录页、CSS 等<strong>匿名可访问</strong>的请求也会经过这里，那时确实没有用户。返回 <code>null</code>，模板里用 <code>th:if=&quot;${currentUser != null}&quot;</code> 判断即可。</p>
+<h3 id="6-4" tabindex="-1">6.4 更新导航栏</h3>
+<p>打开 <code>src/main/resources/templates/fragments/layout.html</code>，把 <code>&lt;nav&gt;</code> 换成：</p>
+<pre><code class="language-html">&lt;nav class=&quot;navbar&quot; th:fragment=&quot;navbar&quot;&gt;
+    &lt;div class=&quot;navbar-inner&quot;&gt;
+        &lt;a class=&quot;brand&quot; th:href=&quot;@{/}&quot;&gt;📚 图书馆管理系统&lt;/a&gt;
+
+        &lt;div class=&quot;nav-links&quot; th:if=&quot;${currentUser != null}&quot;&gt;
+            &lt;a th:href=&quot;@{/}&quot;&gt;首页&lt;/a&gt;
+            &lt;a th:href=&quot;@{/books}&quot;&gt;图书&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;nav-user&quot; th:if=&quot;${currentUser != null}&quot;&gt;
+            &lt;span class=&quot;tag&quot; th:text=&quot;${currentUser.roleLabel}&quot;&gt;角色&lt;/span&gt;
+            &lt;span class=&quot;nav-name&quot; th:text=&quot;${currentUser.fullName}&quot;&gt;姓名&lt;/span&gt;
+            &lt;form th:action=&quot;@{/logout}&quot; method=&quot;post&quot;&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;link-btn&quot;&gt;退出&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+<p><code>&lt;head&gt;</code> 片段不用动。</p>
+<p><strong>注意 <code>th:if=&quot;${currentUser != null}&quot;</code></strong> —— 未登录时（登录页虽然没用这个片段，但其他匿名可访问的页面会），导航栏的用户区域不渲染，不会因为 <code>currentUser</code> 是 <code>null</code> 而报错。</p>
+<h3 id="✅ 验证-1" tabindex="-1">✅ 验证</h3>
+<p>重启（这次要 <code>Ctrl+C</code> 再 <code>./mvnw spring-boot:run</code>，因为改了 Java 代码）。</p>
+<p>登录 <code>admin</code> / <code>admin123</code>：</p>
+<ul>
+<li>首页显示「你好，系统管理员 👋」+ 4 个统计卡片</li>
+<li>导航栏右侧显示「管理员 系统管理员 [退出]」</li>
+<li>点「退出」→ 回到登录页，顶部绿色提示「您已安全退出」</li>
+</ul>
+<p>再登录 <code>reader</code> / <code>reader123</code>：</p>
+<ul>
+<li>首页显示「你好，张三 👋」</li>
+<li>卡片数量一样（图书数据是共享的）</li>
+<li><strong>「可以做什么」里没有&quot;新增一本图书&quot;</strong></li>
+<li>导航栏右侧显示「读者 张三」</li>
+</ul>
+<p><strong>但注意：现在读者如果直接访问 <code>http://localhost:8080/books/new</code>，照样能打开新增表单！</strong> 因为&quot;隐藏按钮&quot;只是<strong>界面上的礼貌</strong>，不是安全。下一步才是真正的权限控制。</p>
+<blockquote>
+<p>⚠️ <strong>一定要建立这个认知</strong>：前端隐藏 ≠ 有权限。用户可以直接敲 URL，也可以改 <code>curl</code> 请求。<strong>所有权限判断必须在服务端做。</strong> 模板里的 <code>th:if</code> 只是&quot;别让用户看到用不了的按钮&quot;，<strong>永远不能当作安全措施</strong>。</p>
+</blockquote>
+<hr>
+<h2 id="7-60" tabindex="-1">7. 真正的权限控制（60 分钟）</h2>
+<h3 id="7-1" tabindex="-1">7.1 三条线一起收紧</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>层</th>
+<th>手段</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>URL 级</strong></td>
+<td><code>SecurityConfig</code> 里 <code>.requestMatchers(...).hasRole(...)</code></td>
+<td>挡住整个路径（如 <code>/users/**</code>）</td>
+</tr>
+<tr>
+<td><strong>方法级</strong></td>
+<td>Controller 方法上 <code>@PreAuthorize(&quot;hasRole('ADMIN')&quot;)</code></td>
+<td>挡住单个接口</td>
+</tr>
+<tr>
+<td><strong>视图级</strong></td>
+<td>模板里 <code>th:if=&quot;${currentUser.admin}&quot;</code></td>
+<td>隐藏按钮（<strong>仅仅是体验</strong>）</td>
+</tr>
+</tbody>
+</table></div>
+<p>前两个是<strong>真安全</strong>，第三个是<strong>好体验</strong>。三层配合，缺一不可。</p>
+<h3 id="7-2" tabindex="-1">7.2 给图书写操作加方法级权限</h3>
+<p>打开 <code>src/main/java/com/library/web/BookController.java</code>，加 import：</p>
+<pre><code class="language-java">import org.springframework.security.access.prepost.PreAuthorize;
+</code></pre>
+<p>然后<strong>在这 5 个方法上</strong>加注解：</p>
+<pre><code class="language-java">    @GetMapping(&quot;/new&quot;)
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    public String createForm(Model model) { ... }
+
+    @PostMapping
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    public String create(...) { ... }
+
+    @GetMapping(&quot;/{id}/edit&quot;)
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    public String editForm(@PathVariable Long id, Model model) { ... }
+
+    @PostMapping(&quot;/{id}&quot;)
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    public String update(...) { ... }
+
+    @PostMapping(&quot;/{id}/delete&quot;)
+    @PreAuthorize(&quot;hasRole('ADMIN')&quot;)
+    public String delete(@PathVariable Long id, RedirectAttributes redirect) { ... }
+</code></pre>
+<p><strong><code>list()</code> 方法（<code>@GetMapping</code>）不加</strong> —— 读者要能看图书列表。</p>
+<p><strong>看清楚这有多简洁</strong>：<code>BookService</code>、<code>BookRepository</code>、<code>Book</code> 模型，<strong>一行都没改</strong>。因为 Day 1 的 <code>@RequestMapping(&quot;/books&quot;)</code> 按资源划分了路径，加权限只需要在方法上贴标签。</p>
+<blockquote>
+<p>🔎 <strong><code>hasRole('ADMIN')</code> 里的 <code>ADMIN</code> 不带 <code>ROLE_</code> 前缀</strong>——<code>hasRole</code> 会自动补。而如果写 <code>hasAuthority(...)</code>，就得写全 <code>ROLE_ADMIN</code>。这两个混用是高频错误来源。</p>
+</blockquote>
+<h3 id="7-3" tabindex="-1">7.3 读者看不到编辑/删除按钮</h3>
+<p>打开 <code>src/main/resources/templates/books/list.html</code>，找到「操作」那一列，把里面改成：</p>
+<pre><code class="language-html">                &lt;td class=&quot;actions&quot;&gt;
+                    &lt;a class=&quot;btn btn-small btn-ghost&quot; th:if=&quot;${currentUser.admin}&quot;
+                       th:href=&quot;@{/books/{id}/edit(id=${book.id})}&quot;&gt;编辑&lt;/a&gt;
+                    &lt;form th:if=&quot;${currentUser.admin}&quot;
+                          th:action=&quot;@{/books/{id}/delete(id=${book.id})}&quot; method=&quot;post&quot;
+                          onsubmit=&quot;return confirm('确定删除这本书吗？此操作不可撤销。');&quot;&gt;
+                        &lt;button class=&quot;btn btn-small btn-danger&quot; type=&quot;submit&quot;&gt;删除&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/td&gt;
+</code></pre>
+<p>同时，把页头那个「新增图书」也加上权限判断：</p>
+<pre><code class="language-html">        &lt;a class=&quot;btn btn-primary&quot; th:if=&quot;${currentUser.admin}&quot; th:href=&quot;@{/books/new}&quot;&gt;+ 新增图书&lt;/a&gt;
+</code></pre>
+<p><strong>改动只有两处 <code>th:if</code>。</strong> 读者打开列表页，&quot;操作&quot;列是<strong>空的</strong>（不是灰按钮，是根本不渲染）。</p>
+<h3 id="✅ 验证：核心部分" tabindex="-1">✅ 验证：核心部分</h3>
+<p><strong>重启</strong>，然后做这两组对照试验。</p>
+<p><strong>A. 用读者账号 <code>reader</code> / <code>reader123</code>：</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 图书列表能打开，能看到所有书</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> 页头<strong>没有</strong>「+ 新增图书」按钮</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> 每一行的「操作」列<strong>是空的</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> 直接访问 <code>http://localhost:8080/books/new</code> → <strong>403 Forbidden</strong> ← <strong>这条是关键</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> 首页「可以做什么」里只有&quot;浏览图书目录&quot;</label></li>
+</ul>
+<p><strong>B. 用管理员账号 <code>admin</code> / <code>admin123</code>：</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 一切照旧：能新增、编辑、删除</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 首页多一条&quot;新增一本图书&quot;</label></li>
+</ul>
+<p><strong>C. 顺手验证 CSRF（可选，很有意思）：</strong></p>
+<p>用 curl 模拟一个<strong>不带 token</strong> 的删除请求：</p>
+<pre><code class="language-bash">curl -s -o /dev/null -w &quot;%{http_code}\n&quot; -X POST http://localhost:8080/books/1/delete
+</code></pre>
+<p>应该输出 <strong>403</strong> —— 因为没登录、没 CSRF token。这就是 Spring Security 在替你挡刀。</p>
+<hr>
+<h2 id="8" tabindex="-1">8. 自测清单</h2>
+<p>完整走一遍，<strong>两套账号都要试</strong>：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> <code>./mvnw -q clean package</code> 打包成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 启动后日志出现「已初始化默认账号」，且<strong>只有第一次出现</strong>（第二次启动不再打印）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> <code>cat data/users.json</code>，密码是 <code>$2a$10$...</code> 哈希，<strong>不是明文</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 未登录访问 <code>/books</code> → 跳转到 <code>/login</code></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> 密码输错 → 回登录页 + 红色提示</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> <code>admin</code> / <code>admin123</code> 登录成功</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> <code>ADMIN</code> / <code>admin123</code>（大写用户名）<strong>也能</strong>登录</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_14" disabled="true"><label for="cbx_14"> 首页显示姓名、角色、4 个统计数字</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> 导航栏显示「角色 + 姓名 + 退出」</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_16" disabled="true"><label for="cbx_16"> 退出后回登录页 + 绿色提示；此时再访问 <code>/books</code> → <strong>又跳回登录页</strong>（会话已失效）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_17" disabled="true"><label for="cbx_17"> 读者：看不到新增/编辑/删除按钮；直接敲 <code>/books/new</code> 得到 403</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_18" disabled="true"><label for="cbx_18"> 管理员：增删改查全部正常</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_19" disabled="true"><label for="cbx_19"> <strong>重启应用后，用 admin 登录仍然有效</strong>（用户数据持久化 ✅）</label></li>
+</ul>
+<p>全过 = <strong>V2 完成</strong> 🎉</p>
+<hr>
+<h2 id="9" tabindex="-1">9. 常见坑速查</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>原因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提交表单 403 Forbidden</td>
+<td>表单用了 <code>action=</code> 而不是 <code>th:action=</code>，没有 CSRF token</td>
+<td>改成 <code>th:action</code></td>
+</tr>
+<tr>
+<td>登录后仍 403 / 权限永远不通过</td>
+<td><code>ROLE_</code> 前缀问题</td>
+<td><code>getAuthorities()</code> 里写 <code>&quot;ROLE_&quot; + role.name()</code>；<code>@PreAuthorize</code> 用 <code>hasRole('ADMIN')</code>（不带前缀）</td>
+</tr>
+<tr>
+<td><code>@PreAuthorize</code> 完全不起作用，也不报错</td>
+<td>忘了 <code>@EnableMethodSecurity</code></td>
+<td>加在 <code>SecurityConfig</code> 类上</td>
+</tr>
+<tr>
+<td>CSS 不生效，页面没样式</td>
+<td><code>/css/**</code> 没放行，样式被拦截</td>
+<td><code>permitAll()</code> 里加上 <code>/css/**</code></td>
+</tr>
+<tr>
+<td>登录后无限重定向到 <code>/login</code></td>
+<td><code>@GetMapping(&quot;/login&quot;)</code> 没写，或路径和 <code>loginPage()</code> 对不上</td>
+<td>确认 <code>HomeController</code> 里有 <code>/login</code>，且 <code>SecurityConfig</code> 里 <code>loginPage(&quot;/login&quot;)</code> 一致</td>
+</tr>
+<tr>
+<td>报 <code>There is no PasswordEncoder mapped for the id &quot;null&quot;</code></td>
+<td>注入的 <code>PasswordEncoder</code> 不是 BCrypt</td>
+<td>确认 <code>passwordEncoder()</code> Bean 存在且返回 <code>BCryptPasswordEncoder</code></td>
+</tr>
+<tr>
+<td>启动报 <code>A component required a bean of type 'PasswordEncoder'</code></td>
+<td>忘了声明 Bean</td>
+<td>检查 <code>SecurityConfig</code> 里的 <code>@Bean</code></td>
+</tr>
+<tr>
+<td>页面报 <code>currentUser</code> 为 null 的错</td>
+<td>用了 <code>${currentUser.xxx}</code> 但没判空</td>
+<td>模板里加 <code>th:if=&quot;${currentUser != null}&quot;</code></td>
+</tr>
+<tr>
+<td>重启后密码没变但用户没更新</td>
+<td><code>DataInitializer</code> 的幂等保护生效了（<strong>这是正确行为</strong>）</td>
+<td>想重来就删掉 <code>data/users.json</code> 再启动</td>
+</tr>
+<tr>
+<td><code>hasRole</code> 判断一直失败</td>
+<td><code>Role</code> 枚举名和注解里写的不一致</td>
+<td><code>Role.ADMIN</code> ↔ <code>hasRole('ADMIN')</code> 必须完全对上</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="10-30" tabindex="-1">10. 复盘（30 分钟）</h2>
+<ol>
+<li><strong>认证和授权的区别是什么？</strong> 分别对应今天哪些代码？</li>
+<li><code>LibraryUserPrincipal</code> 这个类<strong>存在的意义</strong>是什么？直接把 <code>User</code> 拿去实现 <code>UserDetails</code> 有什么坏处？</li>
+<li><code>CurrentUser</code> 这个 record 是多余的转发吗？<strong>如果去掉它、模板直接用 principal，会有什么风险？</strong></li>
+<li><strong>为什么&quot;前端隐藏按钮&quot;不算安全措施？</strong> 用自己的话解释攻击者会怎么绕过。</li>
+<li>BCrypt 的&quot;加盐&quot;解决了什么问题？&quot;故意慢&quot;又解决了什么问题？</li>
+<li><code>DataInitializer</code> 里 <code>if (!userRepository.findAll().isEmpty()) return;</code> 这一行，<strong>删掉会怎样？</strong></li>
+<li><strong>为什么给 <code>BookController</code> 加权限，<code>BookService</code> 和 <code>BookRepository</code> 一行都不用改？</strong> 这说明了 Day 1 的哪个设计决定是对的？</li>
+</ol>
+<h3 id="🛠 动手改一改" tabindex="-1">🛠 动手改一改</h3>
+<ol>
+<li><strong>加第三种角色</strong>（比如 <code>LIBRARIAN</code> 图书管理员）：只能改书，不能碰用户。想想 <code>Role</code> 枚举、<code>@PreAuthorize</code> 要改哪儿。</li>
+<li><strong>做个&quot;记住我&quot;</strong>：Spring Security 有现成的 <code>rememberMe()</code>，查文档加上。</li>
+<li><strong>登录失败计数</strong>：同一个账号连错 5 次锁定 10 分钟。想想这个状态该存在哪（内存？文件？）。</li>
+<li><strong>换个提示语</strong>：把登录失败的&quot;用户名或密码错误&quot;改得更友好，但<strong>别泄露是用户名错还是密码错</strong>。</li>
+</ol>
+<hr>
+<h2 id="11" tabindex="-1">11. 明天预告</h2>
+<p>现在的系统有两个明显的缺口：</p>
+<ol>
+<li><strong>没法加人</strong>。<code>admin</code> 和 <code>reader</code> 是硬编码在 <code>DataInitializer</code> 里的。要加第三个用户，你得手改 JSON 文件——而密码还得是 BCrypt 哈希，<strong>你根本算不出来</strong>。</li>
+<li><strong>读者和普通访客没区别</strong>。说好的&quot;读者能借书&quot;呢？现在读者除了看列表什么都干不了。</li>
+</ol>
+<p>Day 3 我们会：</p>
+<ul>
+<li>做一个完整的<strong>用户管理</strong>界面（增删改查 + 分配角色），密码在那里被正确地加密</li>
+<li>实现<strong>借阅 / 归还</strong>，让&quot;读者&quot;这个角色真正有意义</li>
+<li>把图书数据换成 <strong>豆瓣 Top 250</strong>——<strong>并在这里遇到一个真实的设计问题</strong>：这 250 本书没有 ISBN，而我们的 ISBN 是必填的。看看怎么处理</li>
+<li>打包成可执行 jar，写完 README</li>
+</ul>
+<p>最后一天，我们会把整个系统<strong>串起来</strong>。</p>
+<hr>
+<p><strong>V2 打卡：</strong> 当读者账号成功被 403 拦在 <code>/books/new</code> 外面时，写下今天的日期 ______。明天见 👋</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#day-02-v2">Day 02 · V2：登录、角色与权限</a>
+<ol>
+<li><a href="#0-v1">0. 昨天的 V1 检查</a>
+</li>
+<li><a href="#1">1. 今天的时间表</a>
+</li>
+<li><a href="#2-spring-security-30">2. 引入 Spring Security：先看一个神奇现象（30 分钟）</a>
+<ol>
+<li><a href="#2-1">2.1 加依赖</a>
+</li>
+<li><a href="#2-2">2.2 观察</a>
+</li>
+<li><a href="#2-3">2.3 这是怎么回事？</a>
+</li>
+<li><a href="#2-4">2.4 两个必须先分清的概念</a>
+</li>
+</ol>
+</li>
+<li><a href="#3-40">3. 用户模型与仓储（40 分钟）</a>
+<ol>
+<li><a href="#3-1-code-role-code">3.1 角色枚举 Role</a>
+</li>
+<li><a href="#3-2-code-user-code">3.2 用户模型 User</a>
+</li>
+<li><a href="#3-3-code-user-repository-code">3.3 UserRepository</a>
+</li>
+<li><a href="#✅ 验证">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#4-60">4. 接管认证：密码 + 用户加载（60 分钟）</a>
+<ol>
+<li><a href="#4-1">4.1 为什么密码绝对不能存明文</a>
+</li>
+<li><a href="#4-2-code-library-user-principal-code">4.2 LibraryUserPrincipal</a>
+</li>
+<li><a href="#4-3-code-library-user-details-service-code">4.3 LibraryUserDetailsService</a>
+</li>
+<li><a href="#4-4-code-security-config-code">4.4 SecurityConfig</a>
+<ol>
+<li><a href="#逐块解读">逐块解读</a>
+</li>
+<li><a href="#csrf-90">🚨 CSRF：一个 90% 的人会踩的坑</a>
+</li>
+</ol>
+</li>
+<li><a href="#4-5">4.5 登录页</a>
+</li>
+<li><a href="#✅ 验证（还差一点）">✅ 验证（还差一点）</a>
+</li>
+</ol>
+</li>
+<li><a href="#5-45">5. 造出第一批用户（45 分钟）</a>
+<ol>
+<li><a href="#5-1">5.1 问题</a>
+</li>
+<li><a href="#5-2">5.2 做法：启动时自动写入种子数据</a>
+</li>
+<li><a href="#5-3">5.3 跑起来，第一次登录</a>
+</li>
+<li><a href="#v2">✅ 里程碑：V2 的认证部分完成</a>
+</li>
+</ol>
+</li>
+<li><a href="#6-50">6. 首页概览（50 分钟）</a>
+<ol>
+<li><a href="#6-1-code-home-controller-code">6.1 改写 HomeController</a>
+</li>
+<li><a href="#6-2">6.2 首页模板</a>
+</li>
+<li><a href="#6-3-code-current-user-code-code-global-model-advice-code">6.3 CurrentUser + GlobalModelAdvice</a>
+</li>
+<li><a href="#6-4">6.4 更新导航栏</a>
+</li>
+<li><a href="#✅ 验证-1">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#7-60">7. 真正的权限控制（60 分钟）</a>
+<ol>
+<li><a href="#7-1">7.1 三条线一起收紧</a>
+</li>
+<li><a href="#7-2">7.2 给图书写操作加方法级权限</a>
+</li>
+<li><a href="#7-3">7.3 读者看不到编辑/删除按钮</a>
+</li>
+<li><a href="#✅ 验证：核心部分">✅ 验证：核心部分</a>
+</li>
+</ol>
+</li>
+<li><a href="#8">8. 自测清单</a>
+</li>
+<li><a href="#9">9. 常见坑速查</a>
+</li>
+<li><a href="#10-30">10. 复盘（30 分钟）</a>
+<ol>
+<li><a href="#🛠 动手改一改">🛠 动手改一改</a>
+</li>
+</ol>
+</li>
+<li><a href="#11">11. 明天预告</a>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card"><i icon-name="link"></i><a href="/day01/" data-note-icon="" class="backlink">day01</a>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
