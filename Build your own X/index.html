@@ -41,23 +41,6 @@
 </a>
 <div class="folder" x-data="{isOpen: true}">
 <div x-show="isOpen" style="display:none" class="">
-<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
-<div class="foldername-wrapper align-icon">
-<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
-<i x-show="!isOpen" icon-name="chevron-right"></i>
-<span class="foldername">all</span>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
-</div>
-</div>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="">
 <div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
 <div class="foldername-wrapper align-icon">
 <i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
@@ -81,15 +64,7 @@
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science通往计算机科学免费自学之路/">computer-science通往计算机科学免费自学之路 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
 <div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes/">CS-Notes技术面试 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes技术面试/">CyC2018/CS-Notes: :books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计 </a>
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
@@ -109,18 +84,6 @@
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境/">Mac开发环境 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days Python100天从新手到大师/">jackfrued/Python-100-Days: Python - 100天从新手到大师 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
 <div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days/">Python-100-Days </a>
 </div>
 </div>
@@ -129,15 +92,7 @@
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer学习如何设计大型系统/">system-design-primer学习如何设计大型系统 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
 <div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统/">学习如何设计大型系统 </a>
-</div>
-</div>
-<div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统system-design-primer/">学习如何设计大型系统system-design-primer </a>
 </div>
 </div>
 </div>
