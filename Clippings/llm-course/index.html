@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>llm-course</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-claude-skills/">awesome-claude-skills </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science/">computer-science </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science通往计算机科学免费自学之路/">computer-science通往计算机科学免费自学之路 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes/">CS-Notes技术面试 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes技术面试/">CyC2018/CS-Notes: :books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">developer-roadmap </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">free-programming-books </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">JavaGuide </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/llm-course/">llm-course </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境/">Mac开发环境 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days Python100天从新手到大师/">jackfrued/Python-100-Days: Python - 100天从新手到大师 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days/">Python-100-Days </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer/">system-design-primer </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer学习如何设计大型系统/">system-design-primer学习如何设计大型系统 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统/">学习如何设计大型系统 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统system-design-primer/">学习如何设计大型系统system-design-primer </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('test')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">test</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">llm-course</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<p>The LLM course is divided into three parts:<br>
+法学硕士课程分为三个部分：</p>
+<ol>
+<li>🧩 <strong>LLM Fundamentals</strong> is optional and covers fundamental knowledge about mathematics, Python, and neural networks.<br>
+🧩 <strong>LLM 基础课程</strong> 为选修课，涵盖数学、Python 和神经网络方面的基础知识。</li>
+<li>🧑🔬 <strong>The LLM Scientist</strong> focuses on building the best possible LLMs using the latest techniques.<br>
+🧑🔬 <strong>LLM 科学家</strong> 致力于运用最新技术构建最佳的 LLM。</li>
+<li>👷 <strong>The LLM Engineer</strong> focuses on creating LLM-based applications and deploying them.<br>
+👷 <strong>LLM 工程师</strong> 专注于创建基于 LLM 的应用程序并进行部署。</li>
+</ol>
+<div class="callout" data-callout="note"><div class="callout-title"><div class="callout-title-inner"> Note<br></div></div>
+<div class="callout-content">
+<p>
+Based on this course, I co-wrote the <a href="https://packt.link/a/9781836200079" target="_blank" class="external-link">LLM Engineer's Handbook</a>, a hands-on book that covers an end-to-end LLM application from design to deployment. The LLM course will always stay free, but you can support my work by purchasing this book.<br>
+基于这门课程，我与人合著了 <a href="https://packt.link/a/9781836200079" target="_blank" class="external-link">《LLM 工程师手册》</a> ，这是一本实战指南，涵盖了从设计到部署的端到端 LLM 应用开发流程。LLM 课程将始终免费，但您可以通过购买本书来支持我的工作。</p>
+</div></div>
+<p>For a more comprehensive version of this course, check out the <a href="https://deepwiki.com/mlabonne/llm-course/" target="_blank" class="external-link">DeepWiki</a>.<br>
+想要了解更全面的课程内容，请查看 <a href="https://deepwiki.com/mlabonne/llm-course/" target="_blank" class="external-link">DeepWiki</a> 。</p>
+<h2 id="notebooks" tabindex="-1">📝 Notebooks📝 笔记本</h2>
+<p>A list of notebooks and articles I wrote about LLMs.<br>
+我撰写的关于法学硕士（LLM）的笔记和文章列表。</p>
+<p>Toggle section (optional)<br>
+切换部分（可选）</p>
+<h3 id="tools" tabindex="-1">Tools</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Notebook</th>
+<th>Description</th>
+<th>Notebook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🧐 <a href="https://github.com/mlabonne/llm-autoeval" target="_blank" class="external-link">LLM AutoEval</a></td>
+<td>Automatically evaluate your LLMs using RunPod</td>
+<td></td>
+</tr>
+<tr>
+<td>🥱 LazyMergekit</td>
+<td>Easily merge models using MergeKit in one click.</td>
+<td></td>
+</tr>
+<tr>
+<td>🦎 LazyAxolotl</td>
+<td>Fine-tune models in the cloud using Axolotl in one click.</td>
+<td></td>
+</tr>
+<tr>
+<td>⚡ AutoQuant</td>
+<td>Quantize LLMs in GGUF, GPTQ, EXL2, AWQ, and HQQ formats in one click.</td>
+<td></td>
+</tr>
+<tr>
+<td>🌳 Model Family Tree</td>
+<td>Visualize the family tree of merged models.</td>
+<td></td>
+</tr>
+<tr>
+<td>🚀 ZeroSpace</td>
+<td>Automatically create a Gradio chat interface using a free ZeroGPU.</td>
+<td></td>
+</tr>
+<tr>
+<td>✂️ AutoAbliteration</td>
+<td>Automatically abliteration models with custom datasets.</td>
+<td></td>
+</tr>
+<tr>
+<td>🧼 AutoDedup</td>
+<td>Automatically deduplicate datasets using the Rensa library.</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="fine-tuning" tabindex="-1">Fine-tuning</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Notebook</th>
+<th>Description</th>
+<th>Article</th>
+<th>Notebook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fine-tune Llama 3.1 with Unsloth</td>
+<td>Ultra-efficient supervised fine-tuning in Google Colab.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/2024-07-29_Finetune_Llama31.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Fine-tune Llama 3 with ORPO</td>
+<td>Cheaper and faster fine-tuning in a single stage with ORPO.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/2024-04-19_Fine_tune_Llama_3_with_ORPO.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Fine-tune Mistral-7b with DPO</td>
+<td>Boost the performance of supervised fine-tuned models with DPO.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/Fine_tune_Mistral_7b_with_DPO.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Fine-tune Mistral-7b with QLoRA</td>
+<td>Supervised fine-tune Mistral-7b in a free-tier Google Colab with TRL.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fine-tune CodeLlama using Axolotl</td>
+<td>End-to-end guide to the state-of-the-art tool for fine-tuning.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/A_Beginners_Guide_to_LLM_Finetuning.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Fine-tune Llama 2 with QLoRA</td>
+<td>Step-by-step guide to supervised fine-tune Llama 2 in Google Colab.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/Fine_Tune_Your_Own_Llama_2_Model_in_a_Colab_Notebook.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="quantization" tabindex="-1">Quantization</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Notebook</th>
+<th>Description</th>
+<th>Article</th>
+<th>Notebook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Introduction to Quantization</td>
+<td>Large language model optimization using 8-bit quantization.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/Introduction_to_Weight_Quantization.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>4-bit Quantization using GPTQ</td>
+<td>Quantize your own open-source LLMs to run them on consumer hardware.</td>
+<td><a href="https://mlabonne.github.io/blog/4bit_quantization/" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Quantization with GGUF and llama.cpp</td>
+<td>Quantize Llama 2 models with llama.cpp and upload GGUF versions to the HF Hub.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/Quantize_Llama_2_models_using_ggml.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>ExLlamaV2: The Fastest Library to Run LLMs</td>
+<td>Quantize and run EXL2 models and upload them to the HF Hub.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/ExLlamaV2_The_Fastest_Library_to_Run%C2%A0LLMs.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="other" tabindex="-1">Other</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Notebook</th>
+<th>Description</th>
+<th>Article</th>
+<th>Notebook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merge LLMs with MergeKit</td>
+<td>Create your own models easily, no GPU required!</td>
+<td><a href="https://mlabonne.github.io/blog/posts/2024-01-08_Merge_LLMs_with_mergekit%20copy.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Create MoEs with MergeKit</td>
+<td>Combine multiple experts into a single frankenMoE</td>
+<td><a href="https://mlabonne.github.io/blog/posts/2024-03-28_Create_Mixture_of_Experts_with_MergeKit.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Uncensor any LLM with abliteration</td>
+<td>Fine-tuning without retraining</td>
+<td><a href="https://mlabonne.github.io/blog/posts/2024-06-04_Uncensor_any_LLM_with_abliteration.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Improve ChatGPT with Knowledge Graphs</td>
+<td>Augment ChatGPT's answers with knowledge graphs.</td>
+<td><a href="https://mlabonne.github.io/blog/posts/Article_Improve_ChatGPT_with_Knowledge_Graphs.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Decoding Strategies in Large Language Models</td>
+<td>A guide to text generation from beam search to nucleus sampling</td>
+<td><a href="https://mlabonne.github.io/blog/posts/2022-06-07-Decoding_strategies.html" target="_blank" class="external-link">Article</a></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="llm-fundamentals" tabindex="-1">🧩 LLM Fundamentals🧩 法学硕士基础知识</h2>
+<p>This section introduces essential knowledge about mathematics, Python, and neural networks. You might not want to start here but refer to it as needed.<br>
+本节介绍数学、Python 和神经网络方面的基础知识。您可能不需要从这里开始学习，但可以根据需要参考本节内容。</p>
+<p>Toggle section (optional)<br>
+切换部分（可选）</p>
+<p><a href="https://github.com/mlabonne/llm-course/blob/main/img/roadmap_fundamentals.png" target="_blank" class="external-link"><img src="https://github.com/mlabonne/llm-course/raw/main/img/roadmap_fundamentals.png" alt=""></a></p>
+<h3 id="1-mathematics-for-machine-learning" tabindex="-1">1. Mathematics for Machine Learning</h3>
+<p>Before mastering machine learning, it is important to understand the fundamental mathematical concepts that power these algorithms.</p>
+<ul>
+<li><strong>Linear Algebra</strong>: This is crucial for understanding many algorithms, especially those used in deep learning. Key concepts include vectors, matrices, determinants, eigenvalues and eigenvectors, vector spaces, and linear transformations.</li>
+<li><strong>Calculus</strong>: Many machine learning algorithms involve the optimization of continuous functions, which requires an understanding of derivatives, integrals, limits, and series. Multivariable calculus and the concept of gradients are also important.</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Probability and Statistics</strong>: These are crucial for understanding how models learn from data and make predictions.<br>
+Key concepts include probability theory, random variables, probability distributions, expectations, variance, covariance, correlation, hypothesis testing, confidence intervals, maximum likelihood estimation, and Bayesian inference.</li>
+</ul>
+<hr>
+<p>📚 Resources:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=fNk_zzaMoSs&amp;list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank" class="external-link">3Blue1Brown - The Essence of Linear Algebra</a>: Series of videos that give a geometric intuition to these concepts.</li>
+<li><a href="https://www.youtube.com/watch?v=qBigTkBLU6g&amp;list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9" target="_blank" class="external-link">StatQuest with Josh Starmer - Statistics Fundamentals</a>: Offers simple and clear explanations for many statistical concepts.</li>
+<li><a href="https://seeing-theory.brown.edu/" target="_blank" class="external-link">Seeing Theory</a>: A visual introduction to probability and statistics from Brown University.</li>
+<li><a href="https://immersivemath.com/ila/learnmore.html" target="_blank" class="external-link">Immersive Linear Algebra</a>: Another visual interpretation of linear algebra.</li>
+<li><a href="https://www.khanacademy.org/math/linear-algebra" target="_blank" class="external-link">Khan Academy - Linear Algebra</a>: Great for beginners as it explains the concepts in a very intuitive way.</li>
+<li><a href="https://www.khanacademy.org/math/calculus-1" target="_blank" class="external-link">Khan Academy - Calculus</a>: An interactive course that covers all the basics of calculus.</li>
+<li><a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" class="external-link">Khan Academy - Probability and Statistics</a>: Delivers the material in an easy-to-understand format.</li>
+</ul>
+<hr>
+<h3 id="2-python-for-machine-learning" tabindex="-1">2. Python for Machine Learning</h3>
+<p>Python is a powerful and flexible programming language that's particularly good for machine learning, thanks to its readability, consistency, and robust ecosystem of data science libraries.</p>
+<ul>
+<li><strong>Python Basics</strong>: Python programming requires a good understanding of the basic syntax, data types, error handling, and object-oriented programming.</li>
+<li><strong>Data Science Libraries</strong>: It includes familiarity with NumPy for numerical operations, Pandas for data manipulation and analysis, Matplotlib and Seaborn for data visualization.</li>
+<li><strong>Data Preprocessing</strong>: This involves feature scaling and normalization, handling missing data, outlier detection, categorical data encoding, and splitting data into training, validation, and test sets.</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Machine Learning Libraries</strong>: Proficiency with Scikit-learn, a library providing a wide selection of supervised and unsupervised learning algorithms, is vital.<br>
+Understanding how to implement algorithms like linear regression, logistic regression, decision trees, random forests, k-nearest neighbors (K-NN), and K-means clustering is important.<br>
+Dimensionality reduction techniques like PCA and t-SNE are also helpful for visualizing high-dimensional data.</li>
+</ul>
+<hr>
+<p>📚 Resources:</p>
+<ul>
+<li><a href="https://realpython.com/" target="_blank" class="external-link">Real Python</a>: A comprehensive resource with articles and tutorials for both beginner and advanced Python concepts.</li>
+<li><a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank" class="external-link">freeCodeCamp - Learn Python</a>: Long video that provides a full introduction into all of the core concepts in Python.</li>
+<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank" class="external-link">Python Data Science Handbook</a>: Free digital book that is a great resource for learning pandas, NumPy, Matplotlib, and Seaborn.</li>
+<li><a href="https://youtu.be/i_LwzRVP7bg" target="_blank" class="external-link">freeCodeCamp - Machine Learning for Everybody</a>: Practical introduction to different machine learning algorithms for beginners.</li>
+<li><a href="https://www.udacity.com/course/intro-to-machine-learning--ud120" target="_blank" class="external-link">Udacity - Intro to Machine Learning</a>: Free course that covers PCA and several other machine learning concepts.</li>
+</ul>
+<hr>
+<h3 id="3-neural-networks" tabindex="-1">3. Neural Networks</h3>
+<p>Neural networks are a fundamental part of many machine learning models, particularly in the realm of deep learning. To utilize them effectively, a comprehensive understanding of their design and mechanics is essential.</p>
+<ul>
+<li><strong>Fundamentals</strong>: This includes understanding the structure of a neural network, such as layers, weights, biases, and activation functions (sigmoid, tanh, ReLU, etc.)</li>
+<li><strong>Training and Optimization</strong>: Familiarize yourself with backpropagation and different types of loss functions, like Mean Squared Error (MSE) and Cross-Entropy. Understand various optimization algorithms like Gradient Descent, Stochastic Gradient Descent, RMSprop, and Adam.</li>
+<li><strong>Overfitting</strong>: Understand the concept of overfitting (where a model performs well on training data but poorly on unseen data) and learn various regularization techniques (dropout, L1/L2 regularization, early stopping, data augmentation) to prevent it.</li>
+<li><strong>Implement a Multilayer Perceptron (MLP)</strong>: Build an MLP, also known as a fully connected network, using PyTorch.</li>
+</ul>
+<p>📚 Resources:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank" class="external-link">3Blue1Brown - But what is a Neural Network?</a>: This video gives an intuitive explanation of neural networks and their inner workings.</li>
+<li><a href="https://www.youtube.com/watch?v=VyWAvY2CF9c" target="_blank" class="external-link">freeCodeCamp - Deep Learning Crash Course</a>: This video efficiently introduces all the most important concepts in deep learning.</li>
+<li><a href="https://course.fast.ai/" target="_blank" class="external-link">Fast.ai - Practical Deep Learning</a>: Free course designed for people with coding experience who want to learn about deep learning.</li>
+<li><a href="https://www.youtube.com/playlist?list=PLqnslRFeH2UrcDBWF5mfPGpqQDSta6VK4" target="_blank" class="external-link">Patrick Loeber - PyTorch Tutorials</a>: Series of videos for complete beginners to learn about PyTorch.</li>
+</ul>
+<hr>
+<h3 id="4-natural-language-processing-nlp" tabindex="-1">4. Natural Language Processing (NLP)</h3>
+<hr>
+<p>NLP is a fascinating branch of artificial intelligence that bridges the gap between human language and machine understanding.<br>
+From simple text processing to understanding linguistic nuances, NLP plays a crucial role in many applications like translation, sentiment analysis, chatbots, and much more.</p>
+<hr>
+<ul>
+<li><strong>Text Preprocessing</strong>: Learn various text preprocessing steps like tokenization (splitting text into words or sentences), stemming (reducing words to their root form), lemmatization (similar to stemming but considers the context), stop word removal, etc.</li>
+<li><strong>Feature Extraction Techniques</strong>: Become familiar with techniques to convert text data into a format that can be understood by machine learning algorithms. Key methods include Bag-of-words (BoW), Term Frequency-Inverse Document Frequency (TF-IDF), and n-grams.</li>
+<li><strong>Word Embeddings</strong>: Word embeddings are a type of word representation that allows words with similar meanings to have similar representations. Key methods include Word2Vec, GloVe, and FastText.</li>
+<li><strong>Recurrent Neural Networks (RNNs)</strong>: Understand the working of RNNs, a type of neural network designed to work with sequence data. Explore LSTMs and GRUs, two RNN variants that are capable of learning long-term dependencies.</li>
+</ul>
+<p>📚 Resources:</p>
+<ul>
+<li><a href="https://lena-voita.github.io/nlp_course/word_embeddings.html" target="_blank" class="external-link">Lena Voita - Word Embeddings</a>: Beginner-friendly course about concepts related to word embeddings.</li>
+<li><a href="https://realpython.com/natural-language-processing-spacy-python/" target="_blank" class="external-link">RealPython - NLP with spaCy in Python</a>: Exhaustive guide about the spaCy library for NLP tasks in Python.</li>
+<li><a href="https://www.kaggle.com/learn-guide/natural-language-processing" target="_blank" class="external-link">Kaggle - NLP Guide</a>: A few notebooks and resources for a hands-on explanation of NLP in Python.</li>
+<li><a href="https://jalammar.github.io/illustrated-word2vec/" target="_blank" class="external-link">Jay Alammar - The Illustration Word2Vec</a>: A good reference to understand the famous Word2Vec architecture.</li>
+<li><a href="https://jaketae.github.io/study/pytorch-rnn/" target="_blank" class="external-link">Jake Tae - PyTorch RNN from Scratch</a>: Practical and simple implementation of RNN, LSTM, and GRU models in PyTorch.</li>
+<li><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" class="external-link">colah's blog - Understanding LSTM Networks</a>: A more theoretical article about the LSTM network.</li>
+</ul>
+<h2 id="the-llm-scientist" tabindex="-1">🧑🔬 The LLM Scientist🧑🔬 法学硕士科学家</h2>
+<p>This section of the course focuses on learning how to build the best possible LLMs using the latest techniques.<br>
+本课程的这一部分重点学习如何使用最新技术构建最佳的 LLM（学习领导力模型）。</p>
+<p><a href="https://github.com/mlabonne/llm-course/blob/main/img/roadmap_scientist.png" target="_blank" class="external-link"><img src="https://github.com/mlabonne/llm-course/raw/main/img/roadmap_scientist.png" alt=""></a></p>
+<h3 id="1-the-llm-architecture1-llm" tabindex="-1">1. The LLM Architecture1. LLM 架构</h3>
+<p>An in-depth knowledge of the Transformer architecture is not required, but it's important to understand the main steps of modern LLMs: converting text into numbers through tokenization, processing these tokens through layers including attention mechanisms, and finally generating new text through various sampling strategies.<br>
+无需深入了解 Transformer 架构，但了解现代 LLM 的主要步骤很重要：通过分词将文本转换为数字，通过包括注意力机制在内的层处理这些标记，最后通过各种采样策略生成新文本。</p>
+<ul>
+<li><strong>Architectural overview</strong>: Understand the evolution from encoder-decoder Transformers to decoder-only architectures like GPT, which form the basis of modern LLMs. Focus on how these models process and generate text at a high level.<br>
+<strong>架构概述</strong> ：了解从编码器-解码器架构（如 Transformer）到仅解码器架构（如 GPT）的演变过程，这些架构构成了现代语言模型的基础。重点关注这些模型如何处理和生成文本。</li>
+<li><strong>Tokenization</strong>: Learn the principles of tokenization - how text is converted into numerical representations that LLMs can process. Explore different tokenization strategies and their impact on model performance and output quality.<br>
+<strong>分词</strong> ：学习分词原理——如何将文本转换为语言学习模型（LLM）可以处理的数值表示。探索不同的分词策略及其对模型性能和输出质量的影响。</li>
+<li><strong>Attention mechanisms</strong>: Master the core concepts of attention mechanisms, particularly self-attention and its variants. Understand how these mechanisms enable LLMs to process long-range dependencies and maintain context throughout sequences.<br>
+<strong>注意力机制</strong> ：掌握注意力机制的核心概念，特别是自我注意力及其变体。理解这些机制如何使逻辑学习模型（LLM）能够处理长程依赖关系并在整个序列中保持上下文关联。</li>
+<li><strong>Sampling techniques</strong>: Explore various text generation approaches and their tradeoffs. Compare deterministic methods like greedy search and beam search with probabilistic approaches like temperature sampling and nucleus sampling.<br>
+<strong>采样技术</strong> ：探索各种文本生成方法及其优缺点。比较确定性方法（如贪婪搜索和束搜索）与概率性方法（如温度采样和原子核采样）。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=wjZofJX0v4M" target="_blank" class="external-link">Visual intro to Transformers</a> by 3Blue1Brown: Visual introduction to Transformers for complete beginners.<br>
+3Blue1Brown 制作的 <a href="https://www.youtube.com/watch?v=wjZofJX0v4M" target="_blank" class="external-link">《变形金刚》视觉入门</a> ：面向完全初学者的《变形金刚》视觉入门。</li>
+<li><a href="https://bbycroft.net/llm" target="_blank" class="external-link">LLM Visualization</a> by Brendan Bycroft: Interactive 3D visualization of LLM internals.<br>
+Brendan Bycroft 的 <a href="https://bbycroft.net/llm" target="_blank" class="external-link">LLM 可视化</a> ：LLM 内部结构的交互式 3D 可视化。</li>
+<li><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" class="external-link">nanoGPT</a> by Andrej Karpathy: A 2h-long YouTube video to reimplement GPT from scratch (for programmers). He also made a video about <a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" class="external-link">tokenization</a>.<br>
+Andrej Karpathy 的 <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" class="external-link">nanoGPT</a> ：一段长达 2 小时的 YouTube 视频，讲解如何从零开始重新实现 GPT（面向程序员）。他还制作了一段关于 <a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" class="external-link">分词的</a> 视频。</li>
+<li><a href="https://lilianweng.github.io/posts/2018-06-24-attention/" target="_blank" class="external-link">Attention? Attention!</a> by Lilian Weng: Historical overview to introduce the need for attention mechanisms.<br>
+<a href="https://lilianweng.github.io/posts/2018-06-24-attention/" target="_blank" class="external-link">注意？注意！</a> 作者：Lilian Weng：历史概述，介绍注意机制的必要性。</li>
+<li><a href="https://mlabonne.github.io/blog/posts/2023-06-07-Decoding_strategies.html" target="_blank" class="external-link">Decoding Strategies in LLMs</a> by Maxime Labonne: Provide code and a visual introduction to the different decoding strategies to generate text.<br>
+Maxime Labonne 的 <a href="https://mlabonne.github.io/blog/posts/2023-06-07-Decoding_strategies.html" target="_blank" class="external-link">LLM 解码策略</a> ：提供代码和视觉介绍，介绍用于生成文本的不同解码策略。</li>
+</ul>
+<hr>
+<h3 id="2-pre-training-models2" tabindex="-1">2. Pre-Training Models2. 预训练模型</h3>
+<hr>
+<p>Pre-training is a computationally intensive and expensive process. While it's not the focus of this course, it's important to have a solid understanding of how models are pre-trained, especially in terms of data and parameters.<br>
+预训练是一个计算密集型且成本高昂的过程。虽然这不是本课程的重点，但深入了解模型的预训练方式，尤其是在数据和参数方面，至关重要。<br>
+Pre-training can also be performed by hobbyists at a small scale with &lt;1B models.<br>
+业余爱好者也可以小规模地进行预训练，模型数量少于 10 亿。</p>
+<hr>
+<ul>
+<li><strong>Data preparation</strong>: Pre-training requires massive datasets (e.g., <a href="https://arxiv.org/abs/2307.09288" target="_blank" class="external-link">Llama 3.1</a> was trained on 15 trillion tokens) that need careful curation, cleaning, deduplication, and tokenization. Modern pre-training pipelines implement sophisticated filtering to remove low-quality or problematic content.<br>
+<strong>数据准备</strong> ：预训练需要海量数据集（例如， <a href="https://arxiv.org/abs/2307.09288" target="_blank" class="external-link">Llama 3.1</a> 使用 15 万亿个词元进行训练），这些数据集需要经过精心整理、清洗、去重和分词。现代预训练流程采用复杂的过滤机制来去除低质量或有问题的内容。</li>
+<li><strong>Distributed training</strong>: Combine different parallelization strategies: data parallel (batch distribution), pipeline parallel (layer distribution), and tensor parallel (operation splitting). These strategies require optimized network communication and memory management across GPU clusters.<br>
+<strong>分布式训练</strong> ：结合不同的并行化策略：数据并行（批处理分布）、流水线并行（层分布）和张量并行（运算拆分）。这些策略需要优化跨 GPU 集群的网络通信和内存管理。</li>
+<li><strong>Training optimization</strong>: Use adaptive learning rates with warm-up, gradient clipping, and normalization to prevent explosions, mixed-precision training for memory efficiency, and modern optimizers (AdamW, Lion) with tuned hyperparameters.<br>
+<strong>训练优化</strong> ：使用自适应学习率进行预热、梯度裁剪和归一化以防止爆炸，混合精度训练以提高内存效率，以及使用经过调整的超参数的现代优化器（AdamW、Lion）。</li>
+<li><strong>Monitoring</strong>: Track key metrics (loss, gradients, GPU stats) using dashboards, implement targeted logging for distributed training issues, and set up performance profiling to identify bottlenecks in computation and communication across devices.<br>
+<strong>监控</strong> ：使用仪表板跟踪关键指标（损失、梯度、GPU 统计信息），针对分布式训练问题实施有针对性的日志记录，并设置性能分析以识别跨设备的计算和通信瓶颈。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1" target="_blank" class="external-link">FineWeb</a> by Penedo et al.: Article to recreate a large-scale dataset for LLM pretraining (15T), including FineWeb-Edu, a high-quality subset.<br>
+Penedo 等人的 <a href="https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1" target="_blank" class="external-link">FineWeb</a> ：文章旨在重建用于 LLM 预训练的大规模数据集 (15T)，其中包括高质量子集 FineWeb-Edu。</li>
+<li><a href="https://www.together.ai/blog/redpajama-data-v2" target="_blank" class="external-link">RedPajama v2</a> by Weber et al.: Another article and paper about a large-scale pre-training dataset with a lot of interesting quality filters.<br>
+Weber 等人的 <a href="https://www.together.ai/blog/redpajama-data-v2" target="_blank" class="external-link">RedPajama v2</a> ：另一篇关于大规模预训练数据集的文章和论文，其中包含许多有趣的质量过滤器。</li>
+<li><a href="https://github.com/huggingface/nanotron" target="_blank" class="external-link">nanotron</a> by Hugging Face: Minimalistic LLM training codebase used to make <a href="https://github.com/huggingface/smollm" target="_blank" class="external-link">SmolLM2</a>.<br>
+Hugging Face 的 <a href="https://github.com/huggingface/nanotron" target="_blank" class="external-link">nanotron</a> ：用于制作 <a href="https://github.com/huggingface/smollm" target="_blank" class="external-link">SmolLM2 的</a> 极简 LLM 训练代码库。</li>
+<li><a href="https://www.andrew.cmu.edu/course/11-667/lectures/W10L2%20Scaling%20Up%20Parallel%20Training.pdf" target="_blank" class="external-link">Parallel training</a> by Chenyan Xiong: Overview of optimization and parallelism techniques.<br>
+陈彦雄的 <a href="https://www.andrew.cmu.edu/course/11-667/lectures/W10L2%20Scaling%20Up%20Parallel%20Training.pdf" target="_blank" class="external-link">并行训练</a> ：优化和并行技术概述。</li>
+<li><a href="https://arxiv.org/abs/2407.20018" target="_blank" class="external-link">Distributed training</a> by Duan et al.: A survey about efficient training of LLM on distributed architectures.<br>
+Duan 等人的 <a href="https://arxiv.org/abs/2407.20018" target="_blank" class="external-link">分布式训练</a> ：关于在分布式架构上高效训练 LLM 的调查。</li>
+<li><a href="https://allenai.org/olmo" target="_blank" class="external-link">OLMo 2</a> by AI2: Open-source language model with model, data, training, and evaluation code.<br>
+AI2 的 <a href="https://allenai.org/olmo" target="_blank" class="external-link">OLMo 2</a> ：开源语言模型，包含模型、数据、训练和评估代码。</li>
+<li><a href="https://www.llm360.ai/" target="_blank" class="external-link">LLM360</a> by LLM360: A framework for open-source LLMs with training and data preparation code, data, metrics, and models.<br>
+<a href="https://www.llm360.ai/" target="_blank" class="external-link">LLM360</a> 由 LLM360 提供：一个开源 LLM 框架，包含训练和数据准备代码、数据、指标和模型。</li>
+</ul>
+<hr>
+<h3 id="3-post-training-datasets3" tabindex="-1">3. Post-Training Datasets3. 训练后数据集</h3>
+<hr>
+<p>Post-training datasets have a precise structure with instructions and answers (supervised fine-tuning) or instructions and chosen/rejected answers (preference alignment).<br>
+训练后数据集具有精确的结构，包含指令和答案（监督微调）或指令和已选择/已拒绝的答案（偏好对齐）。<br>
+Conversational structures are a lot rarer than the raw text used for pre-training, which is why we often need to process seed data and refine it to improve the accuracy, diversity, and complexity of the samples.<br>
+对话结构比用于预训练的原始文本要少得多，因此我们经常需要处理种子数据并对其进行改进，以提高样本的准确性、多样性和复杂性。<br>
+More information and examples are available in my repo <a href="https://github.com/mlabonne/llm-datasets" target="_blank" class="external-link">💾 LLM Datasets</a>.<br>
+更多信息和示例可在我的仓库 <a href="https://github.com/mlabonne/llm-datasets" target="_blank" class="external-link">💾 LLM 数据</a> 集中找到。</p>
+<hr>
+<ul>
+<li><strong>Storage &amp; chat templates</strong>: Because of the conversational structure, post-training datasets are stored in a specific format like ShareGPT or OpenAI/HF. Then, these formats are mapped to a chat template like ChatML or Alpaca to produce the final samples that the model is trained on.<br>
+<strong>存储与聊天模板</strong> ：由于对话结构的特性，训练后的数据集会以特定格式存储，例如 ShareGPT 或 OpenAI/HF。然后，这些格式会被映射到聊天模板（例如 ChatML 或 Alpaca），从而生成模型训练所需的最终样本。</li>
+<li><strong>Synthetic data generation</strong>: Create instruction-response pairs based on seed data using frontier models like GPT-4o. This approach allows for flexible and scalable dataset creation with high-quality answers. Key considerations include designing diverse seed tasks and effective system prompts.<br>
+<strong>合成数据生成</strong> ：利用 GPT-4o 等前沿模型，基于种子数据创建指令-响应对。这种方法能够灵活、可扩展地创建高质量答案的数据集。关键考虑因素包括设计多样化的种子任务和有效的系统提示。</li>
+<li><strong>Data enhancement</strong>: Enhance existing samples using techniques like verified outputs (using unit tests or solvers), multiple answers with rejection sampling, <a href="https://arxiv.org/abs/2406.00770" target="_blank" class="external-link">Auto-Evol</a>, Chain-of-Thought, Branch-Solve-Merge, personas, etc.<br>
+<strong>数据增强</strong> ：使用验证输出（使用单元测试或求解器）、拒绝抽样的多答案、 <a href="https://arxiv.org/abs/2406.00770" target="_blank" class="external-link">自动进化</a> 、思维链、分支求解合并、角色等技术来增强现有样本。</li>
+<li><strong>Quality filtering</strong>: Traditional techniques involve rule-based filtering, removing duplicates or near-duplicates (with MinHash or embeddings), and n-gram decontamination. Reward models and judge LLMs complement this step with fine-grained and customizable quality control.<br>
+<strong>质量过滤</strong> ：传统技术包括基于规则的过滤、去除重复项或近似重复项（使用 MinHash 或嵌入）以及 n-gram 去污。奖励模型和评判 LLM 通过更精细、可定制的质量控制来补充这一步骤。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/spaces/argilla/synthetic-data-generator" target="_blank" class="external-link">Synthetic Data Generator</a> by Argilla: Beginner-friendly way of building datasets using natural language in a Hugging Face space.<br>
+Argilla 的 <a href="https://huggingface.co/spaces/argilla/synthetic-data-generator" target="_blank" class="external-link">合成数据生成器</a> ：在 Hugging Face 空间中使用自然语言构建数据集的入门友好方式。</li>
+<li><a href="https://github.com/mlabonne/llm-datasets" target="_blank" class="external-link">LLM Datasets</a> by Maxime Labonne: Curated list of datasets and tools for post-training.<br>
+Maxime Labonne 的 <a href="https://github.com/mlabonne/llm-datasets" target="_blank" class="external-link">LLM 数据集</a> ：精选的训练后数据集和工具列表。</li>
+<li><a href="https://github.com/NVIDIA/NeMo-Curator" target="_blank" class="external-link">NeMo-Curator</a> by Nvidia: Dataset preparation and curation framework for pre- and post-training data.<br>
+Nvidia 的 <a href="https://github.com/NVIDIA/NeMo-Curator" target="_blank" class="external-link">NeMo-Curator</a> ：用于训练前和训练后数据的数据集准备和管理框架。</li>
+<li><a href="https://distilabel.argilla.io/dev/sections/pipeline_samples/" target="_blank" class="external-link">Distilabel</a> by Argilla: Framework to generate synthetic data. It also includes interesting reproductions of papers like UltraFeedback.<br>
+Argilla 的 <a href="https://distilabel.argilla.io/dev/sections/pipeline_samples/" target="_blank" class="external-link">Distilabel</a> ：一个用于生成合成数据的框架。它还包含对 UltraFeedback 等论文的有趣复现。</li>
+<li><a href="https://github.com/MinishLab/semhash" target="_blank" class="external-link">Semhash</a> by MinishLab: Minimalistic library for near-deduplication and decontamination with a distilled embedding model.<br>
+<a href="https://github.com/MinishLab/semhash" target="_blank" class="external-link">Semhash</a> by MinishLab：一个极简的库，用于近乎去重和去污染，采用精简的嵌入模型。</li>
+<li><a href="https://huggingface.co/docs/transformers/main/en/chat_templating" target="_blank" class="external-link">Chat Template</a> by Hugging Face: Hugging Face's documentation about chat templates.<br>
+Hugging Face 的 <a href="https://huggingface.co/docs/transformers/main/en/chat_templating" target="_blank" class="external-link">聊天模板</a> ：Hugging Face 关于聊天模板的文档。</li>
+</ul>
+<hr>
+<h3 id="4-supervised-fine-tuning4" tabindex="-1">4. Supervised Fine-Tuning4. 监督式微调</h3>
+<hr>
+<p>SFT turns base models into helpful assistants, capable of answering questions and following instructions. During this process, they learn how to structure answers and reactivate a subset of knowledge learned during pre-training.<br>
+SFT 将基础模型转化为能够回答问题和执行指令的实用助手。在此过程中，它们学习如何构建答案，并重新激活预训练期间学习到的部分知识。<br>
+Instilling new knowledge is possible but superficial: it cannot be used to learn a completely new language.<br>
+灌输新知识是可能的，但却是肤浅的：它不能用来学习一门全新的语言。<br>
+Always prioritize data quality over parameter optimization.<br>
+始终将数据质量置于参数优化之上。</p>
+<hr>
+<hr>
+<ul>
+<li><strong>Training techniques</strong>: Full fine-tuning updates all model parameters but requires significant compute. Parameter-efficient fine-tuning techniques like LoRA and QLoRA reduce memory requirements by training a small number of adapter parameters while keeping base weights frozen.<br>
+<strong>训练方法</strong> ：完全微调会更新所有模型参数，但需要大量的计算资源。参数高效的微调方法，例如 LoRA 和 QLoRA，通过训练少量适配器参数并保持基础权重不变来降低内存需求。<br>
+QLoRA combines 4-bit quantization with LoRA to reduce VRAM usage.<br>
+QLoRA 将 4 位量化与 LoRA 相结合，以减少 VRAM 使用量。<br>
+These techniques are all implemented in the most popular fine-tuning frameworks:<a href="https://huggingface.co/docs/trl/en/index" target="_blank" class="external-link">TRL</a>, <a href="https://docs.unsloth.ai/" target="_blank" class="external-link">Unsloth</a>, and <a href="https://axolotl.ai/" target="_blank" class="external-link">Axolotl</a>.<br>
+这些技术都在最流行的微调框架中得到实现： <a href="https://huggingface.co/docs/trl/en/index" target="_blank" class="external-link">TRL</a> 、 <a href="https://docs.unsloth.ai/" target="_blank" class="external-link">Unsloth</a> 和 <a href="https://axolotl.ai/" target="_blank" class="external-link">Axolotl</a> 。</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Training parameters</strong>: Key parameters include learning rate with schedulers, batch size, gradient accumulation, number of epochs, optimizer (like 8-bit AdamW), weight decay for regularization, and warmup steps for training stability.<br>
+<strong>训练参数</strong> ：关键参数包括学习率（带调度器）、批大小、梯度累积、轮数、优化器（如 8 位 AdamW）、正则化权重衰减以及训练稳定性预热步骤。<br>
+LoRA also adds three parameters: rank (typically 16-128), alpha (1-2x rank), and target modules.<br>
+LoRA 还增加了三个参数：rank（通常为 16-128）、alpha（rank 的 1-2 倍）和目标模块。</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Distributed training</strong>: Scale training across multiple GPUs using DeepSpeed or FSDP. DeepSpeed provides three ZeRO optimization stages with increasing levels of memory efficiency through state partitioning. Both methods support gradient checkpointing for memory efficiency.<br>
+<strong>分布式训练</strong> ：使用 DeepSpeed 或 FSDP 在多个 GPU 上扩展训练规模。DeepSpeed 提供三个 ZeRO 优化阶段，通过状态划分逐步提高内存效率。两种方法都支持梯度检查点以提升内存效率。</li>
+<li><strong>Monitoring</strong>: Track training metrics including loss curves, learning rate schedules, and gradient norms. Monitor for common issues like loss spikes, gradient explosions, or performance degradation.<br>
+<strong>监控</strong> ：跟踪训练指标，包括损失曲线、学习率调度和梯度范数。监控常见问题，例如损失峰值、梯度爆炸或性能下降。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/blog/mlabonne/sft-llama3" target="_blank" class="external-link">Fine-tune Llama 3.1 Ultra-Efficiently with Unsloth</a> by Maxime Labonne: Hands-on tutorial on how to fine-tune a Llama 3.1 model using Unsloth.<br>
+Maxime Labonne 的《 <a href="https://huggingface.co/blog/mlabonne/sft-llama3" target="_blank" class="external-link">使用 Unsloth 超高效地微调 Llama 3.1》</a> ：关于如何使用 Unsloth 微调 Llama 3.1 模型的实践教程。</li>
+<li><a href="https://axolotl-ai-cloud.github.io/axolotl/" target="_blank" class="external-link">Axolotl - Documentation</a> by Wing Lian: Lots of interesting information related to distributed training and dataset formats.<br>
+<a href="https://axolotl-ai-cloud.github.io/axolotl/" target="_blank" class="external-link">墨西哥钝口螈 - Wing Lian 编写的文档</a> ：包含大量与分布式训练和数据集格式相关的有趣信息。</li>
+<li><a href="https://parlance-labs.com/education/" target="_blank" class="external-link">Mastering LLMs</a> by Hamel Husain: Collection of educational resources about fine-tuning (but also RAG, evaluation, applications, and prompt engineering).<br>
+Hamel Husain 的 <a href="https://parlance-labs.com/education/" target="_blank" class="external-link">《掌握 LLM》</a> ：关于微调（以及 RAG、评估、应用和提示工程）的教育资源集合。</li>
+<li><a href="https://lightning.ai/pages/community/lora-insights/" target="_blank" class="external-link">LoRA insights</a> by Sebastian Raschka: Practical insights about LoRA and how to select the best parameters.<br>
+Sebastian Raschka 的 <a href="https://lightning.ai/pages/community/lora-insights/" target="_blank" class="external-link">LoRA 见解</a> ：关于 LoRA 的实用见解以及如何选择最佳参数。</li>
+</ul>
+<hr>
+<h3 id="5-preference-alignment5" tabindex="-1">5. Preference Alignment5. 偏好一致性</h3>
+<hr>
+<p>Preference alignment is a second stage in the post-training pipeline, focused on aligning generated answers with human preferences. This stage was designed to tune the tone of LLMs and reduce toxicity and hallucinations.<br>
+偏好对齐是训练后流程的第二阶段，其重点在于使生成的答案与人类偏好保持一致。该阶段旨在调整逻辑推理模型（LLM）的语气，并减少其毒性和幻觉。<br>
+However, it has become increasingly important to also boost their performance and improve their usefulness. Unlike SFT, there are many preference alignment algorithms. Here, we'll focus on the three most important ones: DPO, GRPO, and PPO.<br>
+然而，提升它们的性能和实用性也变得越来越重要。与 SFT 不同，偏好对齐算法有很多种。本文将重点介绍其中最重要的三种：DPO、GRPO 和 PPO。</p>
+<hr>
+<ul>
+<li><strong>Rejection sampling</strong>: For each prompt, use the trained model to generate multiple responses, and score them to infer chosen/rejected answers. This creates on-policy data, where both responses come from the model being trained, improving alignment stability.<br>
+<strong>拒绝采样</strong> ：对于每个提示，使用训练好的模型生成多个响应，并对其进行评分以推断已选择/已拒绝的答案。这创建了策略内数据，其中所有响应均来自正在训练的模型，从而提高了对齐稳定性。</li>
+<li><strong><a href="https://arxiv.org/abs/2305.18290" target="_blank" class="external-link">Direct Preference Optimization</a></strong> Directly optimizes the policy to maximize the likelihood of chosen responses over rejected ones. It doesn't require reward modeling, which makes it more computationally efficient than RL techniques but slightly worse in terms of quality. Great for creating chat models.<br>
+<strong><a href="https://arxiv.org/abs/2305.18290" target="_blank" class="external-link">直接偏好优化</a></strong> 直接优化策略，以最大化被选择响应相对于被拒绝响应的概率。它不需要奖励建模，因此比强化学习技术计算效率更高，但质量略逊一筹。非常适合创建聊天模型。</li>
+<li><strong>Reward model</strong>: Train a reward model with human feedback to predict metrics like human preferences. It can leverage frameworks like <a href="https://huggingface.co/docs/trl/en/index" target="_blank" class="external-link">TRL</a>, <a href="https://github.com/volcengine/verl" target="_blank" class="external-link">verl</a>, and <a href="https://github.com/OpenRLHF/OpenRLHF" target="_blank" class="external-link">OpenRLHF</a> for scalable training.<br>
+<strong>奖励模型</strong> ：利用人类反馈训练奖励模型，以预测诸如人类偏好之类的指标。它可以利用 <a href="https://huggingface.co/docs/trl/en/index" target="_blank" class="external-link">TRL</a> 、 <a href="https://github.com/volcengine/verl" target="_blank" class="external-link">verl</a> 和 <a href="https://github.com/OpenRLHF/OpenRLHF" target="_blank" class="external-link">OpenRLHF</a> 等框架进行可扩展的训练。</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Reinforcement Learning</strong>: RL techniques like <a href="https://arxiv.org/abs/2402.03300" target="_blank" class="external-link">GRPO</a> and <a href="https://arxiv.org/abs/1707.06347" target="_blank" class="external-link">PPO</a> iteratively update a policy to maximize rewards while staying close to the initial behavior. They can use a reward model or reward functions to score responses.<br>
+<strong>强化学习</strong> ：诸如 <a href="https://arxiv.org/abs/2402.03300" target="_blank" class="external-link">GRPO</a> 和 <a href="https://arxiv.org/abs/1707.06347" target="_blank" class="external-link">PPO</a> 之类的强化学习技术会迭代地更新策略，以在保持接近初始行为的同时最大化奖励。它们可以使用奖励模型或奖励函数来对响应进行评分。<br>
+They tend to be computationally expensive and require careful tuning of hyperparameters, including learning rate, batch size, and clip range. Ideal for creating reasoning models.<br>
+它们计算量通常很大，需要仔细调整超参数，包括学习率、批大小和裁剪范围。非常适合用于创建推理模型。</li>
+</ul>
+<hr>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/blog/rlhf" target="_blank" class="external-link">Illustrating RLHF</a> by Hugging Face: Introduction to RLHF with reward model training and fine-tuning with reinforcement learning.<br>
+通过 Hugging Face 来 <a href="https://huggingface.co/blog/rlhf" target="_blank" class="external-link">说明 RLHF</a> ：使用奖励模型训练和强化学习微调来介绍 RLHF。</li>
+<li><a href="https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives" target="_blank" class="external-link">LLM Training: RLHF and Its Alternatives</a> by Sebastian Raschka: Overview of the RLHF process and alternatives like RLAIF.<br>
+<a href="https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives" target="_blank" class="external-link">LLM 培训：Sebastian Raschka 的 RLHF 及其替代方案</a> ：RLHF 流程概述以及 RLAIF 等替代方案。</li>
+<li><a href="https://huggingface.co/blog/pref-tuning" target="_blank" class="external-link">Preference Tuning LLMs</a> by Hugging Face: Comparison of the DPO, IPO, and KTO algorithms to perform preference alignment.<br>
+通过拥抱面孔 <a href="https://huggingface.co/blog/pref-tuning" target="_blank" class="external-link">进行偏好调整 LLM</a> ：DPO、IPO 和 KTO 算法在执行偏好对齐方面的比较。</li>
+<li><a href="https://mlabonne.github.io/blog/posts/Fine_tune_Mistral_7b_with_DPO.html" target="_blank" class="external-link">Fine-tune with DPO</a> by Maxime Labonne: Tutorial to fine-tune a Mistral-7b model with DPO and reproduce <a href="https://huggingface.co/mlabonne/NeuralHermes-2.5-Mistral-7B" target="_blank" class="external-link">NeuralHermes-2.5</a>.<br>
+Maxime Labonne 的 <a href="https://mlabonne.github.io/blog/posts/Fine_tune_Mistral_7b_with_DPO.html" target="_blank" class="external-link">DPO 微调</a> 教程：使用 DPO 微调 Mistral-7b 模型并重现 <a href="https://huggingface.co/mlabonne/NeuralHermes-2.5-Mistral-7B" target="_blank" class="external-link">NeuralHermes-2.5</a> 。</li>
+<li><a href="https://huggingface.co/learn/llm-course/en/chapter12/5" target="_blank" class="external-link">Fine-tune with GRPO</a> by Maxime Labonne: Practical exercise to fine-tune a small model with GRPO.<br>
+Maxime Labonne 的 <a href="https://huggingface.co/learn/llm-course/en/chapter12/5" target="_blank" class="external-link">《使用 GRPO 进行微调</a> ：使用 GRPO 微调小型模型的实践练习》。</li>
+<li><a href="https://wandb.ai/alexander-vishnevskiy/dpo/reports/TRL-Original-DPO--Vmlldzo1NjI4MTc4" target="_blank" class="external-link">DPO Wandb logs</a> by Alexander Vishnevskiy: It shows you the main DPO metrics to track and the trends you should expect.<br>
+Alexander Vishnevskiy 的 <a href="https://wandb.ai/alexander-vishnevskiy/dpo/reports/TRL-Original-DPO--Vmlldzo1NjI4MTc4" target="_blank" class="external-link">DPO Wandb 日志</a> ：它向您展示了要跟踪的主要 DPO 指标以及您应该预期的趋势。</li>
+</ul>
+<hr>
+<h3 id="6-evaluation6" tabindex="-1">6. Evaluation6. 评估</h3>
+<hr>
+<p>Reliably evaluating LLMs is a complex but essential task guiding data generation and training. It provides invaluable feedback about areas of improvement, which can be leveraged to modify the data mixture, quality, and training parameters.<br>
+可靠地评估线性模型是一项复杂但至关重要的任务，它指导着数据的生成和训练。评估结果能够提供关于改进领域的宝贵反馈，这些反馈可用于调整数据混合、质量和训练参数。<br>
+However, it's always good to remember Goodhart's law: &quot;When a measure becomes a target, it ceases to be a good measure.&quot;<br>
+然而，我们始终应该记住古德哈特定律：“当一项指标成为目标时，它就不再是一项好的指标了。”</p>
+<hr>
+<ul>
+<li><strong>Automated benchmarks</strong>: Evaluate models on specific tasks using curated datasets and metrics, like MMLU. It works well for concrete tasks but struggles with abstract and creative capabilities. It is also prone to data contamination.<br>
+<strong>自动化基准测试</strong> ：使用精心挑选的数据集和指标（例如 MMLU）评估模型在特定任务上的性能。它适用于具体任务，但在抽象和创造性能力方面表现不佳。此外，它也容易受到数据污染的影响。</li>
+<li><strong>Human evaluation</strong>: It involves humans prompting models and grading responses. Methods range from vibe checks to systematic annotations with specific guidelines and large-scale community voting (arena). It is more suited for subjective tasks and less reliable for factual accuracy.<br>
+<strong>人工评估</strong> ：这种方法涉及人工引导模型并对模型的响应进行评分。评估方法包括感觉检查、使用特定指南进行系统标注以及大规模社区投票（例如 Arena）。这种方法更适合主观性任务，但在事实准确性方面可靠性较低。</li>
+<li><strong>Model-based evaluation</strong>: Use judge and reward models to evaluate model outputs. It highly correlates with human preferences but suffers from bias toward their own outputs and inconsistent scoring.<br>
+<strong>基于模型的评估</strong> ：使用评判和奖励模型来评估模型输出。它与人类偏好高度相关，但存在偏向自身输出和评分不一致的问题。</li>
+<li><strong>Feedback signal</strong>: Analyze error patterns to identify specific weaknesses, such as limitations in following complex instructions, lack of specific knowledge, or susceptibility to adversarial prompts. This can be improved with better data generation and training parameters.<br>
+<strong>反馈信号</strong> ：分析错误模式以识别具体弱点，例如难以遵循复杂指令、缺乏特定知识或容易受到对抗性提示的影响。这可以通过改进数据生成和训练参数来提升。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/spaces/OpenEvals/evaluation-guidebook" target="_blank" class="external-link">LLM evaluation guidebook</a> by Hugging Face: Comprehensive guide about evaluation with practical insights.<br>
+Hugging Face 出版的 <a href="https://huggingface.co/spaces/OpenEvals/evaluation-guidebook" target="_blank" class="external-link">LLM 评估指南</a> ：提供具有实用见解的全面评估指南。</li>
+<li><a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank" class="external-link">Open LLM Leaderboard</a> by Hugging Face: Main leaderboard to compare LLMs in an open and reproducible way (automated benchmarks).<br>
+Hugging Face 的 <a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank" class="external-link">Open LLM 排行榜</a> ：以开放和可复现的方式（自动化基准测试）比较 LLM 的主要排行榜。</li>
+<li><a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="external-link">Language Model Evaluation Harness</a> by EleutherAI: A popular framework for evaluating LLMs using automated benchmarks.<br>
+EleutherAI 的 <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" class="external-link">Language Model Evaluation Harness</a> ：一个使用自动化基准测试来评估 LLM 的流行框架。</li>
+<li><a href="https://github.com/huggingface/lighteval" target="_blank" class="external-link">Lighteval</a> by Hugging Face: Alternative evaluation framework that also includes model-based evaluations.<br>
+Hugging Face 的 <a href="https://github.com/huggingface/lighteval" target="_blank" class="external-link">Lighteval</a> ：一种替代评估框架，也包括基于模型的评估。</li>
+<li><a href="https://lmarena.ai/" target="_blank" class="external-link">Chatbot Arena</a> by LMSYS: Elo rating of general-purpose LLMs, based on comparisons made by humans (human evaluation).<br>
+LMSYS 的 <a href="https://lmarena.ai/" target="_blank" class="external-link">Chatbot Arena</a> ：基于人类比较（人工评估）的通用 LLM 的 Elo 评级。</li>
+</ul>
+<hr>
+<h3 id="7-quantization7" tabindex="-1">7. Quantization7. 量化</h3>
+<hr>
+<p>Quantization is the process of converting the parameters and activations of a model to a lower precision. For example, weights stored using 16 bits can be converted into a 4-bit representation.<br>
+量化是将模型的参数和激活值转换为较低精度的过程。例如，用 16 位存储的权重可以转换为 4 位表示。<br>
+This technique has become increasingly important to reduce the computational and memory costs associated with LLMs.<br>
+该技术对于降低 LLM 相关的计算和内存成本变得越来越重要。</p>
+<hr>
+<ul>
+<li><strong>Base techniques</strong>: Learn the different levels of precision (FP32, FP16, INT8, etc.) and how to perform naïve quantization with absmax and zero-point techniques.<br>
+<strong>基础技术</strong> ：学习不同精度级别（FP32、FP16、INT8 等）以及如何使用 absmax 和零点技术进行朴素量化。</li>
+<li><strong>GGUF &amp; llama.cpp</strong>: Originally designed to run on CPUs, <a href="https://github.com/ggerganov/llama.cpp" target="_blank" class="external-link">llama.cpp</a> and the GGUF format have become the most popular tools to run LLMs on consumer-grade hardware. It supports storing special tokens, vocabulary, and metadata in a single file.<br>
+<strong>GGUF 和 llama.cpp</strong> ： <a href="https://github.com/ggerganov/llama.cpp" target="_blank" class="external-link">llama.cpp</a> 和 GGUF 格式最初设计用于在 CPU 上运行，如今已成为在消费级硬件上运行语言语言模型 (LLM) 的最流行工具。它支持将特殊标记、词汇表和元数据存储在单个文件中。</li>
+<li><strong>GPTQ &amp; AWQ</strong>: Techniques like <a href="https://arxiv.org/abs/2210.17323" target="_blank" class="external-link">GPTQ</a> / <a href="https://github.com/turboderp/exllamav2" target="_blank" class="external-link">EXL2</a> and <a href="https://arxiv.org/abs/2306.00978" target="_blank" class="external-link">AWQ</a> introduce layer-by-layer calibration that retains performance at extremely low bitwidths. They reduce catastrophic outliers using dynamic scaling, selectively skipping or re-centering the heaviest parameters.<br>
+<strong>GPTQ 和 AWQ</strong> ： <a href="https://arxiv.org/abs/2210.17323" target="_blank" class="external-link">GPTQ</a> / <a href="https://github.com/turboderp/exllamav2" target="_blank" class="external-link">EXL2</a> 和 <a href="https://arxiv.org/abs/2306.00978" target="_blank" class="external-link">AWQ</a> 等技术引入了逐层校准，即使在极低的位宽下也能保持性能。它们通过动态缩放来减少灾难性的异常值，选择性地跳过或重新调整最耗资源的参数。</li>
+<li><strong>SmoothQuant &amp; ZeroQuant</strong>: New quantization-friendly transformations (SmoothQuant) and compiler-based optimizations (ZeroQuant) help mitigate outliers before quantization. They also reduce hardware overhead by fusing certain ops and optimizing dataflow.<br>
+<strong>SmoothQuant 和 ZeroQuant</strong> ：新的量化友好型转换（SmoothQuant）和基于编译器的优化（ZeroQuant）有助于在量化之前缓解异常值问题。它们还通过融合某些操作和优化数据流来降低硬件开销。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://mlabonne.github.io/blog/posts/Introduction_to_Weight_Quantization.html" target="_blank" class="external-link">Introduction to quantization</a> by Maxime Labonne: Overview of quantization, absmax and zero-point quantization, and LLM.int8() with code.<br>
+Maxime Labonne 的 <a href="https://mlabonne.github.io/blog/posts/Introduction_to_Weight_Quantization.html" target="_blank" class="external-link">量化入门</a> ：量化概述、绝对最大值和零点量化，以及 LLM.int8() 代码。</li>
+<li><a href="https://mlabonne.github.io/blog/posts/Quantize_Llama_2_models_using_ggml.html" target="_blank" class="external-link">Quantize Llama models with llama.cpp</a> by Maxime Labonne: Tutorial on how to quantize a Llama 2 model using llama.cpp and the GGUF format.<br>
+Maxime Labonne 的教程：如何使用 llama.cpp 和 GGUF 格式 <a href="https://mlabonne.github.io/blog/posts/Quantize_Llama_2_models_using_ggml.html" target="_blank" class="external-link">量化 Llama 2 模型</a> 。</li>
+<li><a href="https://mlabonne.github.io/blog/posts/4_bit_Quantization_with_GPTQ.html" target="_blank" class="external-link">4-bit LLM Quantization with GPTQ</a> by Maxime Labonne: Tutorial on how to quantize an LLM using the GPTQ algorithm with AutoGPTQ.<br>
+Maxime Labonne 的 <a href="https://mlabonne.github.io/blog/posts/4_bit_Quantization_with_GPTQ.html" target="_blank" class="external-link">GPTQ 4 位 LLM 量化</a> 教程：如何使用 AutoGPTQ 和 GPTQ 算法量化 LLM。</li>
+<li><a href="https://medium.com/friendliai/understanding-activation-aware-weight-quantization-awq-boosting-inference-serving-efficiency-in-10bb0faf63a8" target="_blank" class="external-link">Understanding Activation-Aware Weight Quantization</a> by FriendliAI: Overview of the AWQ technique and its benefits.<br>
+<a href="https://medium.com/friendliai/understanding-activation-aware-weight-quantization-awq-boosting-inference-serving-efficiency-in-10bb0faf63a8" target="_blank" class="external-link">了解 FriendliAI 的激活感知权重量化</a> ：AWQ 技术概述及其优势。</li>
+<li><a href="https://github.com/mit-han-lab/smoothquant/blob/main/examples/smoothquant_llama_demo.ipynb" target="_blank" class="external-link">SmoothQuant on Llama 2 7B</a> by MIT HAN Lab: Tutorial on how to use SmoothQuant with a Llama 2 model in 8-bit precision.<br>
+<a href="https://github.com/mit-han-lab/smoothquant/blob/main/examples/smoothquant_llama_demo.ipynb" target="_blank" class="external-link">SmoothQuant on Llama 2 7B</a> by MIT HAN Lab: Tutorial on how to use SmoothQuant with a Llama 2 model in 8 bit precision.</li>
+<li><a href="https://www.deepspeed.ai/tutorials/model-compression/" target="_blank" class="external-link">DeepSpeed Model Compression</a> by DeepSpeed: Tutorial on how to use ZeroQuant and extreme compression (XTC) with DeepSpeed Compression.<br>
+<a href="https://www.deepspeed.ai/tutorials/model-compression/" target="_blank" class="external-link">DeepSpeed 模型压缩</a> （DeepSpeed 出品）：如何将 ZeroQuant 和极限压缩 (XTC) 与 DeepSpeed 压缩结合使用的教程。</li>
+</ul>
+<hr>
+<h3 id="8-new-trends8" tabindex="-1">8. New Trends8. 新趋势</h3>
+<p>Here are notable topics that didn't fit into other categories. Some are established techniques (model merging, multimodal), but others are more experimental (interpretability, test-time compute scaling) and the focus of numerous research papers.<br>
+以下是一些值得关注的主题，它们不属于其他类别。有些是成熟的技术（例如模型融合、多模态），而另一些则更具实验性（例如可解释性、测试时计算扩展），也是众多研究论文的重点。</p>
+<ul>
+<li><strong>Model merging</strong>: Merging trained models has become a popular way of creating performant models without any fine-tuning. The popular <a href="https://github.com/cg123/mergekit" target="_blank" class="external-link">mergekit</a> library implements the most popular merging methods, like SLERP, <a href="https://arxiv.org/abs/2311.03099" target="_blank" class="external-link">DARE</a>, and <a href="https://arxiv.org/abs/2311.03099" target="_blank" class="external-link">TIES</a>.<br>
+<strong>模型合并</strong> ：合并已训练好的模型已成为一种无需微调即可创建高性能模型的流行方法。流行的 <a href="https://github.com/cg123/mergekit" target="_blank" class="external-link">mergekit</a> 库实现了最常用的合并方法，例如 SLERP、 <a href="https://arxiv.org/abs/2311.03099" target="_blank" class="external-link">DARE</a> 和 <a href="https://arxiv.org/abs/2311.03099" target="_blank" class="external-link">TIES</a> 。</li>
+<li><strong>Multimodal models</strong>: These models (like <a href="https://openai.com/research/clip" target="_blank" class="external-link">CLIP</a>, <a href="https://stability.ai/stable-image" target="_blank" class="external-link">Stable Diffusion</a>, or <a href="https://llava-vl.github.io/" target="_blank" class="external-link">LLaVA</a>) process multiple types of inputs (text, images, audio, etc.) with a unified embedding space, which unlocks powerful applications like text-to-image.<br>
+<strong>多模态模型</strong> ：这些模型（如 <a href="https://openai.com/research/clip" target="_blank" class="external-link">CLIP</a> 、 <a href="https://stability.ai/stable-image" target="_blank" class="external-link">稳定扩散</a> 或 <a href="https://llava-vl.github.io/" target="_blank" class="external-link">LLaVA</a> ）使用统一的嵌入空间处理多种类型的输入（文本、图像、音频等），从而解锁了强大的应用，如文本到图像。</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Interpretability</strong>: Mechanistic interpretability techniques like Sparse Autoencoders (SAEs) have made remarkable progress to provide insights about the inner workings of LLMs.<br>
+<strong>可解释性</strong> ：稀疏自编码器 (SAE) 等机制可解释性技术取得了显著进展，为深入了解 LLM 的内部运作提供了见解。<br>
+This has also been applied with techniques such as abliteration, which allow you to modify the behavior of models without training.<br>
+这种方法也应用于诸如抹除之类的技术，该技术允许你在不进行训练的情况下修改模型的行为。</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Test-time compute</strong>: Reasoning models trained with RL techniques can be further improved by scaling the compute budget during test time. It can involve multiple calls, MCTS, or specialized models like a Process Reward Model (PRM).<br>
+<strong>测试时计算</strong> ：利用强化学习技术训练的推理模型可以通过在测试时增加计算预算来进一步改进。这可能涉及多次调用、蒙特卡洛测试集（MCTS）或诸如进程奖励模型（PRM）之类的专用模型。<br>
+Iterative steps with precise scoring significantly improve performance for complex reasoning tasks.<br>
+采用精确评分的迭代步骤可以显著提高复杂推理任务的性能。</li>
+</ul>
+<hr>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://mlabonne.github.io/blog/posts/2024-01-08_Merge_LLMs_with_mergekit.html" target="_blank" class="external-link">Merge LLMs with mergekit</a> by Maxime Labonne: Tutorial about model merging using mergekit.<br>
+<a href="https://mlabonne.github.io/blog/posts/2024-01-08_Merge_LLMs_with_mergekit.html" target="_blank" class="external-link">使用 mergekit 合并 LLMs</a> （Maxime Labonne 著）：关于使用 mergekit 进行模型合并的教程。</li>
+<li><a href="https://github.com/merveenoyan/smol-vision" target="_blank" class="external-link">Smol Vision</a> by Merve Noyan: Collection of notebooks and scripts dedicated to small multimodal models.<br>
+Merve Noyan 的 <a href="https://github.com/merveenoyan/smol-vision" target="_blank" class="external-link">Smol Vision</a> ：专门用于小型多模态模型的笔记本和脚本集合。</li>
+<li><a href="https://huyenchip.com/2023/10/10/multimodal.html" target="_blank" class="external-link">Large Multimodal Models</a> by Chip Huyen: Overview of multimodal systems and the recent history of this field.<br>
+Chip Huyen 的 <a href="https://huyenchip.com/2023/10/10/multimodal.html" target="_blank" class="external-link">《大型多模态模型》</a> ：多模态系统概述及该领域的最新发展历程。</li>
+<li><a href="https://huggingface.co/blog/mlabonne/abliteration" target="_blank" class="external-link">Unsensor any LLM with abliteration</a> by Maxime Labonne: Direct application of interpretability techniques to modify the style of a model.<br>
+Maxime Labonne 的 <a href="https://huggingface.co/blog/mlabonne/abliteration" target="_blank" class="external-link">《Unsensor any LLM with abliteration》</a> ：直接应用可解释性技术来修改模型的风格。</li>
+<li><a href="https://adamkarvonen.github.io/machine_learning/2024/06/11/sae-intuitions.html" target="_blank" class="external-link">Intuitive Explanation of SAEs</a> by Adam Karvonen: Article about how SAEs work and why they make sense for interpretability.<br>
+Adam Karvonen 对 <a href="https://adamkarvonen.github.io/machine_learning/2024/06/11/sae-intuitions.html" target="_blank" class="external-link">SAE 的直观解释</a> ：本文介绍了 SAE 的工作原理以及它们为何对可解释性有意义。</li>
+<li><a href="https://huggingface.co/spaces/HuggingFaceH4/blogpost-scaling-test-time-compute" target="_blank" class="external-link">Scaling test-time compute</a> by Beeching et al.: Tutorial and experiments to outperform Llama 3.1 70B on MATH-500 with a 3B model.<br>
+Beeching 等人 <a href="https://huggingface.co/spaces/HuggingFaceH4/blogpost-scaling-test-time-compute" target="_blank" class="external-link">扩展测试时计算</a> ：教程和实验，使用 3B 模型在 MATH-500 上超越 Llama 3.1 70B。</li>
+</ul>
+<h2 id="the-llm-engineer" tabindex="-1">👷 The LLM Engineer👷 法学硕士工程师</h2>
+<p>This section of the course focuses on learning how to build LLM-powered applications that can be used in production, with a focus on augmenting models and deploying them.<br>
+本课程的这一部分重点学习如何构建可在生产环境中使用的 LLM 应用程序，重点是增强模型和部署模型。</p>
+<p><a href="https://github.com/mlabonne/llm-course/blob/main/img/roadmap_engineer.png" target="_blank" class="external-link"><img src="https://github.com/mlabonne/llm-course/raw/main/img/roadmap_engineer.png" alt=""></a></p>
+<h3 id="1-running-ll-ms1-llm" tabindex="-1">1. Running LLMs1. 运行 LLM</h3>
+<hr>
+<p>Running LLMs can be difficult due to high hardware requirements. Depending on your use case, you might want to simply consume a model through an API (like GPT-4) or run it locally.<br>
+由于硬件要求高，运行低层模型可能比较困难。根据您的具体应用场景，您可能只想通过 API 使用模型（例如 GPT-4），或者在本地运行模型。<br>
+In any case, additional prompting and guidance techniques can improve and constrain the output for your applications.<br>
+总之，额外的提示和指导技术可以改进和限制应用程序的输出。</p>
+<hr>
+<ul>
+<li><strong>LLM APIs</strong>: APIs are a convenient way to deploy LLMs. This space is divided between private LLMs (<a href="https://platform.openai.com/" target="_blank" class="external-link">OpenAI</a>, <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/overview" target="_blank" class="external-link">Google</a>, <a href="https://docs.anthropic.com/claude/reference/getting-started-with-the-api" target="_blank" class="external-link">Anthropic</a>, etc.) and open-source LLMs (<a href="https://openrouter.ai/" target="_blank" class="external-link">OpenRouter</a>, <a href="https://huggingface.co/inference-api" target="_blank" class="external-link">Hugging Face</a>, <a href="https://www.together.ai/" target="_blank" class="external-link">Together AI</a>, etc.).<br>
+<strong>LLM API</strong> ：API 是部署 LLM 的一种便捷方式。该领域分为私有 LLM（ <a href="https://platform.openai.com/" target="_blank" class="external-link">OpenAI</a> 、 <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/overview" target="_blank" class="external-link">Google</a> 、 <a href="https://docs.anthropic.com/claude/reference/getting-started-with-the-api" target="_blank" class="external-link">Anthropic</a> 等）和开源 LLM（ <a href="https://openrouter.ai/" target="_blank" class="external-link">OpenRouter</a> 、 <a href="https://huggingface.co/inference-api" target="_blank" class="external-link">Hugging Face</a> 、 <a href="https://www.together.ai/" target="_blank" class="external-link">Together AI</a> 等）。</li>
+<li><strong>Open-source LLMs</strong>: The <a href="https://huggingface.co/models" target="_blank" class="external-link">Hugging Face Hub</a> is a great place to find LLMs. You can directly run some of them in <a href="https://huggingface.co/spaces" target="_blank" class="external-link">Hugging Face Spaces</a>, or download and run them locally in apps like <a href="https://lmstudio.ai/" target="_blank" class="external-link">LM Studio</a> or through the CLI with <a href="https://github.com/ggerganov/llama.cpp" target="_blank" class="external-link">llama.cpp</a> or <a href="https://ollama.ai/" target="_blank" class="external-link">ollama</a>.<br>
+<strong>开源 LLM</strong> ： <a href="https://huggingface.co/models" target="_blank" class="external-link">Hugging Face Hub</a> 是寻找 LLM 的好地方。您可以直接在 <a href="https://huggingface.co/spaces" target="_blank" class="external-link">Hugging Face Spaces</a> 中运行其中一些，或者下载它们并在本地应用程序中使用 <a href="https://lmstudio.ai/" target="_blank" class="external-link">LM Studio</a> 或通过 CLI 使用 <a href="https://github.com/ggerganov/llama.cpp" target="_blank" class="external-link">llama.cpp</a> 或 <a href="https://ollama.ai/" target="_blank" class="external-link">ollama</a> 运行。</li>
+<li><strong>Prompt engineering</strong>: Common techniques include zero-shot prompting, few-shot prompting, chain of thought, and ReAct. They work better with bigger models, but can be adapted to smaller ones.<br>
+<strong>提示工程</strong> ：常用技术包括零样本提示、少样本提示、思维链和 ReAct。它们在大型模型中效果更佳，但也可以应用于小型模型。</li>
+<li><strong>Structuring outputs</strong>: Many tasks require a structured output, like a strict template or a JSON format. Libraries like <a href="https://github.com/outlines-dev/outlines" target="_blank" class="external-link">Outlines</a> can be used to guide the generation and respect a given structure. Some APIs also support structured output generation natively using JSON schemas.<br>
+<strong>输出结构化</strong> ：许多任务需要结构化的输出，例如严格的模板或 JSON 格式。可以使用 <a href="https://github.com/outlines-dev/outlines" target="_blank" class="external-link">Outlines</a> 等库来指导输出生成并遵循给定的结构。一些 API 也原生支持使用 JSON 模式生成结构化输出。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://www.kdnuggets.com/run-an-llm-locally-with-lm-studio" target="_blank" class="external-link">Run an LLM locally with LM Studio</a> by Nisha Arya: Short guide on how to use LM Studio.<br>
+Nisha Arya 的《 <a href="https://www.kdnuggets.com/run-an-llm-locally-with-lm-studio" target="_blank" class="external-link">使用 LM Studio 在本地运行 LLM</a> ：LM Studio 使用方法简明指南》。</li>
+<li><a href="https://www.promptingguide.ai/" target="_blank" class="external-link">Prompt engineering guide</a> by <a href="http://DAIR.AI" target="_blank" class="external-link">DAIR.AI</a>: Exhaustive list of prompt techniques with examples<br>
+<a href="http://DAIR.AI" target="_blank" class="external-link">DAIR.AI</a> 出品的 <a href="https://www.promptingguide.ai/" target="_blank" class="external-link">提示工程指南</a> ：提示技术详尽列表及示例</li>
+<li><a href="https://dottxt-ai.github.io/outlines/latest/quickstart/" target="_blank" class="external-link">Outlines - Quickstart</a>: List of guided generation techniques enabled by Outlines.<br>
+<a href="https://dottxt-ai.github.io/outlines/latest/quickstart/" target="_blank" class="external-link">大纲 - 快速入门</a> ：大纲支持的引导式生成技术列表。</li>
+<li><a href="https://lmql.ai/docs/language/overview.html" target="_blank" class="external-link">LMQL - Overview</a>: Introduction to the LMQL language.<br>
+<a href="https://lmql.ai/docs/language/overview.html" target="_blank" class="external-link">LMQL - 概述</a> ：LMQL 语言简介。</li>
+</ul>
+<hr>
+<h3 id="2-building-a-vector-storage2" tabindex="-1">2. Building a Vector Storage2. 构建矢量存储</h3>
+<p>Creating a vector storage is the first step to building a Retrieval Augmented Generation (RAG) pipeline. Documents are loaded, split, and relevant chunks are used to produce vector representations (embeddings) that are stored for future use during inference.<br>
+创建向量存储是构建检索增强生成（RAG）流程的第一步。文档被加载、分割，并使用相关的数据块生成向量表示（嵌入），这些向量表示将被存储起来，以便在推理过程中使用。</p>
+<ul>
+<li><strong>Ingesting documents</strong>: Document loaders are convenient wrappers that can handle many formats: PDF, JSON, HTML, Markdown, etc. They can also directly retrieve data from some databases and APIs (GitHub, Reddit, Google Drive, etc.).<br>
+<strong>导入文档</strong> ：文档加载器是方便的封装器，可以处理多种格式：PDF、JSON、HTML、Markdown 等。它们还可以直接从一些数据库和 API（GitHub、Reddit、Google Drive 等）检索数据。</li>
+<li><strong>Splitting documents</strong>: Text splitters break down documents into smaller, semantically meaningful chunks. Instead of splitting text after <em>n</em> characters, it's often better to split by header or recursively, with some additional metadata.<br>
+<strong>文档分割</strong> ：文本分割器将文档拆分成更小、语义更有意义的片段。通常情况下，与其按 <em>n 个</em> 字符分割文本，不如按标题或递归方式分割，并添加一些元数据。</li>
+<li><strong>Embedding models</strong>: Embedding models convert text into vector representations. Picking task-specific models significantly improves performance for semantic search and RAG.<br>
+<strong>嵌入模型</strong> ：嵌入模型将文本转换为向量表示。选择特定任务的模型可以显著提高语义搜索和随机数生成器（RAG）的性能。</li>
+<li><strong>Vector databases</strong>: Vector databases (like <a href="https://www.trychroma.com/" target="_blank" class="external-link">Chroma</a>, <a href="https://www.pinecone.io/" target="_blank" class="external-link">Pinecone</a>, <a href="https://milvus.io/" target="_blank" class="external-link">Milvus</a>, <a href="https://faiss.ai/" target="_blank" class="external-link">FAISS</a>, <a href="https://github.com/spotify/annoy" target="_blank" class="external-link">Annoy</a>, etc.) are designed to store embedding vectors. They enable efficient retrieval of data that is 'most similar' to a query based on vector similarity.<br>
+<strong>向量数据库</strong> ：向量数据库（如 <a href="https://www.trychroma.com/" target="_blank" class="external-link">Chroma</a> 、 <a href="https://www.pinecone.io/" target="_blank" class="external-link">Pinecone</a> 、 <a href="https://milvus.io/" target="_blank" class="external-link">Milvus</a> 、 <a href="https://faiss.ai/" target="_blank" class="external-link">FAISS</a> 、 <a href="https://github.com/spotify/annoy" target="_blank" class="external-link">Annoy</a> 等）旨在存储嵌入向量。它们能够基于向量相似性，高效地检索与查询“最相似”的数据。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://python.langchain.com/docs/how_to/#text-splitters" target="_blank" class="external-link">LangChain - Text splitters</a>: List of different text splitters implemented in LangChain.<br>
+<a href="https://python.langchain.com/docs/how_to/#text-splitters" target="_blank" class="external-link">LangChain - 文本分割器</a> ：LangChain 中实现的不同文本分割器列表。</li>
+<li><a href="https://www.sbert.net/" target="_blank" class="external-link">Sentence Transformers library</a>: Popular library for embedding models.<br>
+<a href="https://www.sbert.net/" target="_blank" class="external-link">Sentence Transformers 库</a> ：流行的嵌入模型库。</li>
+<li><a href="https://huggingface.co/spaces/mteb/leaderboard" target="_blank" class="external-link">MTEB Leaderboard</a>: Leaderboard for embedding models.<br>
+<a href="https://huggingface.co/spaces/mteb/leaderboard" target="_blank" class="external-link">MTEB 排行榜</a> ：嵌入模型排行榜。</li>
+<li><a href="https://www.datacamp.com/blog/the-top-5-vector-databases" target="_blank" class="external-link">The Top 7 Vector Databases</a> by Moez Ali: A comparison of the best and most popular vector databases.<br>
+Moez Ali 评选的 <a href="https://www.datacamp.com/blog/the-top-5-vector-databases" target="_blank" class="external-link">7 大矢量数据库</a> ：最佳和最受欢迎的矢量数据库对比。</li>
+</ul>
+<hr>
+<h3 id="3-retrieval-augmented-generation3" tabindex="-1">3. Retrieval Augmented Generation3. 检索增强生成</h3>
+<p>With RAG, LLMs retrieve contextual documents from a database to improve the accuracy of their answers. RAG is a popular way of augmenting the model's knowledge without any fine-tuning.<br>
+RAG（评级赋值生成）技术使逻辑学习模型（LLM）能够从数据库中检索上下文文档，从而提高其答案的准确性。RAG 是一种无需任何微调即可增强模型知识的常用方法。</p>
+<ul>
+<li><strong>Orchestrators</strong>: Orchestrators like <a href="https://python.langchain.com/docs/get_started/introduction" target="_blank" class="external-link">LangChain</a> and <a href="https://docs.llamaindex.ai/en/stable/" target="_blank" class="external-link">LlamaIndex</a> are popular frameworks to connect your LLMs with tools and databases. The Model Context Protocol (MCP) introduces a new standard to pass data and context to models across providers.<br>
+<strong>编排器</strong> ：像 <a href="https://python.langchain.com/docs/get_started/introduction" target="_blank" class="external-link">LangChain</a> 和 <a href="https://docs.llamaindex.ai/en/stable/" target="_blank" class="external-link">LlamaIndex</a> 这样的编排器是连接 LLM 模型与工具和数据库的常用框架。模型上下文协议 (MCP) 引入了一种新的标准，用于在不同提供商之间传递数据和上下文信息。</li>
+<li><strong>Retrievers</strong>: Query rewriters and generative retrievers like CoRAG and HyDE enhance search by transforming user queries. Multi-vector and hybrid retrieval methods combine embeddings with keyword signals to improve recall and precision.<br>
+<strong>检索器</strong> ：查询重写器和生成式检索器（例如 CoRAG 和 HyDE）通过转换用户查询来增强搜索效果。多向量和混合检索方法将词嵌入与关键词信号相结合，以提高召回率和精确率。</li>
+<li><strong>Memory</strong>: To remember previous instructions and answers, LLMs and chatbots like ChatGPT add this history to their context window. This buffer can be improved with summarization (e.g., using a smaller LLM), a vector store + RAG, etc.<br>
+<strong>记忆</strong> ：为了记住之前的指令和答案，LLM 和 ChatGPT 等聊天机器人会将这些历史记录添加到上下文窗口中。可以通过摘要（例如，使用更小的 LLM）、向量存储 + RAG 等方式来改进此缓冲区。</li>
+<li><strong>Evaluation</strong>: We need to evaluate both the document retrieval (context precision and recall) and the generation stages (faithfulness and answer relevancy). It can be simplified with tools <a href="https://github.com/explodinggradients/ragas/tree/main" target="_blank" class="external-link">Ragas</a> and <a href="https://github.com/confident-ai/deepeval" target="_blank" class="external-link">DeepEval</a> (assessing quality).<br>
+<strong>评估</strong> ：我们需要评估文档检索阶段（上下文精确度和召回率）以及生成阶段（忠实度和答案相关性）。可以使用 <a href="https://github.com/explodinggradients/ragas/tree/main" target="_blank" class="external-link">Ragas</a> 和 <a href="https://github.com/confident-ai/deepeval" target="_blank" class="external-link">DeepEval 等</a> 工具（质量评估）简化评估过程。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://docs.llamaindex.ai/en/stable/getting_started/concepts.html" target="_blank" class="external-link">Llamaindex - High-level concepts</a>: Main concepts to know when building RAG pipelines.<br>
+<a href="https://docs.llamaindex.ai/en/stable/getting_started/concepts.html" target="_blank" class="external-link">Llamaindex - 高级概念</a> ：构建 RAG 流水线时需要了解的主要概念。</li>
+<li><a href="https://modelcontextprotocol.io/introduction" target="_blank" class="external-link">Model Context Protocol</a>: Introduction to MCP with motivate, architecture, and quick starts.<br>
+<a href="https://modelcontextprotocol.io/introduction" target="_blank" class="external-link">模型上下文协议</a> ：MCP 简介，包括动机、架构和快速入门。</li>
+<li><a href="https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/" target="_blank" class="external-link">Pinecone - Retrieval Augmentation</a>: Overview of the retrieval augmentation process.<br>
+<a href="https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/" target="_blank" class="external-link">松果 - 检索增强</a> ：检索增强过程概述。</li>
+<li><a href="https://python.langchain.com/docs/tutorials/rag/" target="_blank" class="external-link">LangChain - Q&amp;A with RAG</a>: Step-by-step tutorial to build a typical RAG pipeline.<br>
+<a href="https://python.langchain.com/docs/tutorials/rag/" target="_blank" class="external-link">LangChain - RAG 问答</a> ：构建典型 RAG 流水线的逐步教程。</li>
+<li><a href="https://python.langchain.com/docs/how_to/chatbots_memory/" target="_blank" class="external-link">LangChain - Memory types</a>: List of different types of memories with relevant usage.<br>
+<a href="https://python.langchain.com/docs/how_to/chatbots_memory/" target="_blank" class="external-link">LangChain - 内存类型</a> ：不同类型内存及其相关用途的列表。</li>
+<li><a href="https://docs.ragas.io/en/stable/concepts/metrics/index.html" target="_blank" class="external-link">RAG pipeline - Metrics</a>: Overview of the main metrics used to evaluate RAG pipelines.<br>
+<a href="https://docs.ragas.io/en/stable/concepts/metrics/index.html" target="_blank" class="external-link">RAG 流水线 - 指标</a> ：用于评估 RAG 流水线的主要指标概述。</li>
+</ul>
+<hr>
+<h3 id="4-advanced-rag-4-rag" tabindex="-1">4. Advanced RAG4. 高级 RAG</h3>
+<p>Real-life applications can require complex pipelines, including SQL or graph databases, as well as automatically selecting relevant tools and APIs. These advanced techniques can improve a baseline solution and provide additional features.<br>
+实际应用可能需要复杂的流程，包括 SQL 或图数据库，以及自动选择相关工具和 API。这些高级技术可以改进基础解决方案并提供更多功能。</p>
+<ul>
+<li><strong>Query construction</strong>: Structured data stored in traditional databases requires a specific query language like SQL, Cypher, metadata, etc. We can directly translate the user instruction into a query to access the data with query construction.<br>
+<strong>查询构建</strong> ：传统数据库中存储的结构化数据需要特定的查询语言，例如 SQL、Cypher、元数据等。我们可以通过查询构建将用户指令直接转换为查询语句来访问数据。</li>
+<li><strong>Tools</strong>: Agents augment LLMs by automatically selecting the most relevant tools to provide an answer. These tools can be as simple as using Google or Wikipedia, or more complex, like a Python interpreter or Jira.<br>
+<strong>工具</strong> ：智能体通过自动选择最相关的工具来提供答案，从而增强学习生命周期模型（LLM）的功能。这些工具可以很简单，例如使用谷歌或维基百科，也可以更复杂，例如使用 Python 解释器或 Jira。</li>
+<li><strong>Post-processing</strong>: Final step that processes the inputs that are fed to the LLM. It enhances the relevance and diversity of documents retrieved with re-ranking, <a href="https://github.com/Raudaschl/rag-fusion" target="_blank" class="external-link">RAG-fusion</a>, and classification.<br>
+<strong>后处理</strong> ：处理输入到 LLM 的最终步骤。它通过重排序、 <a href="https://github.com/Raudaschl/rag-fusion" target="_blank" class="external-link">RAG 融合</a> 和分类来增强检索到的文档的相关性和多样性。</li>
+<li><strong>Program LLMs</strong>: Frameworks like <a href="https://github.com/stanfordnlp/dspy" target="_blank" class="external-link">DSPy</a> allow you to optimize prompts and weights based on automated evaluations in a programmatic way.<br>
+<strong>程序化学习学习模型</strong> ：像 <a href="https://github.com/stanfordnlp/dspy" target="_blank" class="external-link">DSPy</a> 这样的框架允许您以程序化的方式，根据自动评估来优化提示和权重。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://blog.langchain.dev/query-construction/" target="_blank" class="external-link">LangChain - Query Construction</a>: Blog post about different types of query construction.<br>
+<a href="https://blog.langchain.dev/query-construction/" target="_blank" class="external-link">LangChain - 查询构造</a> ：一篇关于不同类型查询构造的博客文章。</li>
+<li><a href="https://python.langchain.com/docs/tutorials/sql_qa/" target="_blank" class="external-link">LangChain - SQL</a>: Tutorial on how to interact with SQL databases with LLMs, involving Text-to-SQL and an optional SQL agent.<br>
+<a href="https://python.langchain.com/docs/tutorials/sql_qa/" target="_blank" class="external-link">LangChain - SQL</a> ：关于如何使用 LLM 与 SQL 数据库交互的教程，涉及文本到 SQL 和可选的 SQL 代理。</li>
+<li><a href="https://www.pinecone.io/learn/series/langchain/langchain-agents/" target="_blank" class="external-link">Pinecone - LLM agents</a>: Introduction to agents and tools with different types.<br>
+<a href="https://www.pinecone.io/learn/series/langchain/langchain-agents/" target="_blank" class="external-link">Pinecone - LLM 代理</a> ：介绍不同类型的代理和工具。</li>
+<li><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" class="external-link">LLM Powered Autonomous Agents</a> by Lilian Weng: A more theoretical article about LLM agents.<br>
+Lilian Weng 的 <a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" class="external-link">LLM 驱动的自主代理</a> ：一篇关于 LLM 代理的理论性文章。</li>
+<li><a href="https://blog.langchain.dev/applying-openai-rag/" target="_blank" class="external-link">LangChain - OpenAI's RAG</a>: Overview of the RAG strategies employed by OpenAI, including post-processing.<br>
+<a href="https://blog.langchain.dev/applying-openai-rag/" target="_blank" class="external-link">LangChain - OpenAI 的 RAG</a> ：概述 OpenAI 所采用的 RAG 策略，包括后处理。</li>
+<li><a href="https://dspy-docs.vercel.app/docs/building-blocks/solving_your_task" target="_blank" class="external-link">DSPy in 8 Steps</a>: General-purpose guide to DSPy introducing modules, signatures, and optimizers.<br>
+<a href="https://dspy-docs.vercel.app/docs/building-blocks/solving_your_task" target="_blank" class="external-link">DSPy 八步入门</a> ：DSPy 通用指南，介绍模块、签名和优化器。</li>
+</ul>
+<hr>
+<h3 id="5-agents5" tabindex="-1">5. Agents5. 代理人</h3>
+<p>An LLM agent can autonomously perform tasks by taking actions based on reasoning about its environment, typically through the use of tools or functions to interact with external systems.<br>
+LLM 代理能够根据对环境的推理采取行动，自主地执行任务，通常是通过使用工具或功能与外部系统交互。</p>
+<ul>
+<li><strong>Agent fundamentals</strong>: Agents operate using thoughts (internal reasoning to decide what to do next), action (executing tasks, often by interacting with external tools), and observation (analyzing feedback or results to refine the next step).<br>
+<strong>智能体的基本原理</strong> ：智能体通过思考（内部推理来决定下一步做什么）、行动（执行任务，通常通过与外部工具交互）和观察（分析反馈或结果来改进下一步）来运作。</li>
+<li><strong>Agent protocols</strong>: <a href="https://modelcontextprotocol.io/" target="_blank" class="external-link">Model Context Protocol</a> (MCP) is the industry standard for connecting agents to external tools and data sources with MCP servers and clients. More recently, <a href="https://a2a-protocol.org/" target="_blank" class="external-link">Agent2Agent</a> (A2A) tries to standardize a common language for agent interoperability.<br>
+<strong>代理协议</strong> ： <a href="https://modelcontextprotocol.io/" target="_blank" class="external-link">模型上下文协议</a> (MCP) 是业界标准，它使用 MCP 服务器和客户端将代理连接到外部工具和数据源。最近， <a href="https://a2a-protocol.org/" target="_blank" class="external-link">Agent2Agent</a> (A2A) 尝试为代理互操作性制定通用语言。</li>
+<li><strong>Vendor frameworks</strong>: Each major cloud model provider has its own agentic framework with <a href="https://openai.github.io/openai-agents-python/" target="_blank" class="external-link">OpenAI SDK</a>, <a href="https://google.github.io/adk-docs/" target="_blank" class="external-link">Google ADK</a>, and <a href="https://platform.claude.com/docs/en/agent-sdk/overview" target="_blank" class="external-link">Claude Agent SDK</a> if you're particularly tied to one vendor.<br>
+<strong>供应商框架</strong> ：每个主要的云模型提供商都有自己的代理框架，如果您特别依赖于某个供应商，可以使用 <a href="https://openai.github.io/openai-agents-python/" target="_blank" class="external-link">OpenAI SDK</a> 、 <a href="https://google.github.io/adk-docs/" target="_blank" class="external-link">Google ADK</a> 和 <a href="https://platform.claude.com/docs/en/agent-sdk/overview" target="_blank" class="external-link">Claude Agent SDK</a> 。</li>
+<li><strong>Other frameworks</strong>: Agent development can be streamlined using different frameworks like <a href="https://www.langchain.com/langgraph" target="_blank" class="external-link">LangGraph</a> (design and visualization of workflows) <a href="https://docs.llamaindex.ai/en/stable/use_cases/agents/" target="_blank" class="external-link">LlamaIndex</a> (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as <a href="https://docs.crewai.com/introduction" target="_blank" class="external-link">CrewAI</a> (role-based team workflows) and <a href="https://github.com/microsoft/autogen" target="_blank" class="external-link">AutoGen</a> (conversation-driven multi-agent systems).<br>
+<strong>其他框架</strong> ：可以使用不同的框架来简化代理开发，例如 <a href="https://www.langchain.com/langgraph" target="_blank" class="external-link">LangGraph</a> （工作流的设计和可视化）、 <a href="https://docs.llamaindex.ai/en/stable/use_cases/agents/" target="_blank" class="external-link">LlamaIndex</a> （基于 RAG 的数据增强型代理）或自定义解决方案。更具实验性的框架包括不同代理之间的协作，例如 <a href="https://docs.crewai.com/introduction" target="_blank" class="external-link">CrewAI</a> （基于角色的团队工作流）和 <a href="https://github.com/microsoft/autogen" target="_blank" class="external-link">AutoGen</a> （对话驱动的多代理系统）。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/learn/agents-course/unit0/introduction" target="_blank" class="external-link">Agents Course</a>: Popular course about AI agents made by Hugging Face.<br>
+<a href="https://huggingface.co/learn/agents-course/unit0/introduction" target="_blank" class="external-link">智能体课程</a> ：由 Hugging Face 制作的关于人工智能智能体的热门课程。</li>
+<li><a href="https://langchain-ai.github.io/langgraph/concepts/why-langgraph/" target="_blank" class="external-link">LangGraph</a>: Overview of how to build AI agents with LangGraph.<br>
+<a href="https://langchain-ai.github.io/langgraph/concepts/why-langgraph/" target="_blank" class="external-link">LangGraph</a> ：如何使用 LangGraph 构建 AI 代理概述。</li>
+<li><a href="https://docs.llamaindex.ai/en/stable/use_cases/agents/" target="_blank" class="external-link">LlamaIndex Agents</a>: Uses cases and resources to build agents with LlamaIndex.<br>
+<a href="https://docs.llamaindex.ai/en/stable/use_cases/agents/" target="_blank" class="external-link">LlamaIndex Agents</a> ：使用 LlamaIndex 构建代理的用例和资源。</li>
+</ul>
+<hr>
+<h3 id="6-inference-optimization6" tabindex="-1">6. Inference optimization6. 推理优化</h3>
+<p>Text generation is a costly process that requires expensive hardware. In addition to quantization, various techniques have been proposed to maximize throughput and reduce inference costs.<br>
+文本生成是一个成本高昂的过程，需要昂贵的硬件。除了量化之外，人们还提出了各种技术来最大限度地提高吞吐量并降低推理成本。</p>
+<ul>
+<li><strong>Flash Attention</strong>: Optimization of the attention mechanism to transform its complexity from quadratic to linear, speeding up both training and inference.<br>
+<strong>闪光注意力</strong> ：优化注意力机制，将其复杂度从二次方转化为线性，从而加快训练和推理速度。</li>
+<li><strong>Key-value cache</strong>: Understand the key-value cache and the improvements introduced in <a href="https://arxiv.org/abs/1911.02150" target="_blank" class="external-link">Multi-Query Attention</a> (MQA) and <a href="https://arxiv.org/abs/2305.13245" target="_blank" class="external-link">Grouped-Query Attention</a> (GQA).<br>
+<strong>键值缓存</strong> ：了解键值缓存以及 <a href="https://arxiv.org/abs/1911.02150" target="_blank" class="external-link">多查询注意力机制</a> (MQA) 和 <a href="https://arxiv.org/abs/2305.13245" target="_blank" class="external-link">分组查询注意力机制</a> (GQA) 中引入的改进。</li>
+<li><strong>Speculative decoding</strong>: Use a small model to produce drafts that are then reviewed by a larger model to speed up text generation. EAGLE-3 is a particularly popular solution.<br>
+<strong>推测性解码</strong> ：使用小型模型生成草稿，然后用大型模型进行审查，以加快文本生成速度。EAGLE-3 是一种特别流行的解决方案。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://huggingface.co/docs/transformers/main/en/perf_infer_gpu_one" target="_blank" class="external-link">GPU Inference</a> by Hugging Face: Explain how to optimize inference on GPUs.<br>
+通过 Hugging Face 进行 <a href="https://huggingface.co/docs/transformers/main/en/perf_infer_gpu_one" target="_blank" class="external-link">GPU 推理</a> ：解释如何优化 GPU 上的推理。</li>
+<li><a href="https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices" target="_blank" class="external-link">LLM Inference</a> by Databricks: Best practices for how to optimize LLM inference in production.<br>
+Databricks 的 <a href="https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices" target="_blank" class="external-link">LLM 推理</a> ：如何在生产环境中优化 LLM 推理的最佳实践。</li>
+<li><a href="https://huggingface.co/docs/transformers/main/en/llm_tutorial_optimization" target="_blank" class="external-link">Optimizing LLMs for Speed and Memory</a> by Hugging Face: Explain three main techniques to optimize speed and memory, namely quantization, Flash Attention, and architectural innovations.<br>
+通过 Hugging Face <a href="https://huggingface.co/docs/transformers/main/en/llm_tutorial_optimization" target="_blank" class="external-link">优化 LLM 的速度和内存</a> ：解释优化速度和内存的三种主要技术，即量化、Flash Attention 和架构创新。</li>
+<li><a href="https://huggingface.co/blog/assisted-generation" target="_blank" class="external-link">Assisted Generation</a> by Hugging Face: HF's version of speculative decoding. It's an interesting blog post about how it works with code to implement it.<br>
+Hugging Face <a href="https://huggingface.co/blog/assisted-generation" target="_blank" class="external-link">辅助生成</a> ：HF 版本的推测性解码。一篇有趣的博文介绍了它如何通过代码实现。</li>
+<li><a href="https://arxiv.org/abs/2503.01840?utm_source=chatgpt.com" target="_blank" class="external-link">EAGLE-3 paper</a>: Introduces EAGLE-3 and reports speedups up to 6.5×.<br>
+<a href="https://arxiv.org/abs/2503.01840?utm_source=chatgpt.com" target="_blank" class="external-link">EAGLE-3 论文</a> ：介绍了 EAGLE-3，并报告速度提升高达 6.5 倍。</li>
+<li><a href="https://github.com/vllm-project/speculators" target="_blank" class="external-link">Speculators</a>: Library made by vLLM for building, evaluating, and storing speculative decoding algorithms (e.g., EAGLE-3) for LLM inference.<br>
+<a href="https://github.com/vllm-project/speculators" target="_blank" class="external-link">Speculators</a> ：由 vLLM 创建的库，用于构建、评估和存储 LLM 推理的推测性解码算法（例如 EAGLE-3）。</li>
+</ul>
+<hr>
+<h3 id="7-deploying-ll-ms7-llm" tabindex="-1">7. Deploying LLMs7. 部署 LLM</h3>
+<p>Deploying LLMs at scale is an engineering feat that can require multiple clusters of GPUs. In other scenarios, demos and local apps can be achieved with much lower complexity.<br>
+大规模部署 LLM 是一项工程挑战，可能需要多个 GPU 集群。但在其他情况下，演示和本地应用程序的实现复杂度要低得多。</p>
+<ul>
+<li><strong>Local deployment</strong>: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers (<a href="https://lmstudio.ai/" target="_blank" class="external-link">LM Studio</a>, <a href="https://ollama.ai/" target="_blank" class="external-link">Ollama</a>, <a href="https://github.com/oobabooga/text-generation-webui" target="_blank" class="external-link">oobabooga</a>, <a href="https://github.com/LostRuins/koboldcpp" target="_blank" class="external-link">kobold.cpp</a>, etc.) capitalize on this advantage to power local apps.<br>
+<strong>本地部署</strong> ：隐私是开源 LLM 相对于私有 LLM 的一个重要优势。本地 LLM 服务器（ <a href="https://lmstudio.ai/" target="_blank" class="external-link">LM Studio</a> 、 <a href="https://ollama.ai/" target="_blank" class="external-link">Ollama</a> 、 <a href="https://github.com/oobabooga/text-generation-webui" target="_blank" class="external-link">oobabooga</a> 、 <a href="https://github.com/LostRuins/koboldcpp" target="_blank" class="external-link">kobold.cpp</a> 等）正是利用这一优势来支持本地应用程序。</li>
+<li><strong>Demo deployment</strong>: Frameworks like <a href="https://www.gradio.app/" target="_blank" class="external-link">Gradio</a> and <a href="https://docs.streamlit.io/" target="_blank" class="external-link">Streamlit</a> are helpful to prototype applications and share demos. You can also easily host them online, for example, using <a href="https://huggingface.co/spaces" target="_blank" class="external-link">Hugging Face Spaces</a>.<br>
+<strong>演示部署</strong> ： <a href="https://www.gradio.app/" target="_blank" class="external-link">Gradio</a> 和 <a href="https://docs.streamlit.io/" target="_blank" class="external-link">Streamlit</a> 等框架有助于构建应用程序原型和分享演示。您还可以轻松地将它们托管到网上，例如使用 <a href="https://huggingface.co/spaces" target="_blank" class="external-link">Hugging Face Spaces</a> 。</li>
+<li><strong>Server deployment</strong>: Deploying LLMs at scale requires cloud (see also <a href="https://skypilot.readthedocs.io/en/latest/" target="_blank" class="external-link">SkyPilot</a>) or on-prem infrastructure and often leverages optimized text generation frameworks like <a href="https://github.com/huggingface/text-generation-inference" target="_blank" class="external-link">TGI</a>, <a href="https://github.com/vllm-project/vllm/tree/main" target="_blank" class="external-link">vLLM</a>, etc.<br>
+<strong>服务器部署</strong> ：大规模部署 LLM 需要云（另请参阅 <a href="https://skypilot.readthedocs.io/en/latest/" target="_blank" class="external-link">SkyPilot</a> ）或本地基础设施，并且通常利用优化的文本生成框架，如 <a href="https://github.com/huggingface/text-generation-inference" target="_blank" class="external-link">TGI</a> 、 <a href="https://github.com/vllm-project/vllm/tree/main" target="_blank" class="external-link">vLLM</a> 等。</li>
+<li><strong>Edge deployment</strong>: In constrained environments, high-performance frameworks like <a href="https://github.com/mlc-ai/mlc-llm" target="_blank" class="external-link">MLC LLM</a> and <a href="https://github.com/wangzhaode/mnn-llm/blob/master/README_en.md" target="_blank" class="external-link">mnn-llm</a> can deploy LLM in web browsers, Android, and iOS.<br>
+<strong>边缘部署</strong> ：在资源受限的环境中， <a href="https://github.com/mlc-ai/mlc-llm" target="_blank" class="external-link">MLC LLM</a> 和 <a href="https://github.com/wangzhaode/mnn-llm/blob/master/README_en.md" target="_blank" class="external-link">mnn-llm</a> 等高性能框架可以将 LLM 部署到 Web 浏览器、Android 和 iOS 上。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps" target="_blank" class="external-link">Streamlit - Build a basic LLM app</a>: Tutorial to make a basic ChatGPT-like app using Streamlit.<br>
+<a href="https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps" target="_blank" class="external-link">Streamlit - 构建一个基本的 LLM 应用程序</a> ：使用 Streamlit 制作类似 ChatGPT 的基本应用程序的教程。</li>
+<li><a href="https://huggingface.co/blog/sagemaker-huggingface-llm" target="_blank" class="external-link">HF LLM Inference Container</a>: Deploy LLMs on Amazon SageMaker using Hugging Face's inference container.<br>
+<a href="https://huggingface.co/blog/sagemaker-huggingface-llm" target="_blank" class="external-link">HF LLM 推理容器</a> ：使用 Hugging Face 的推理容器在 Amazon SageMaker 上部署 LLM。</li>
+<li><a href="https://www.philschmid.de/" target="_blank" class="external-link">Philschmid blog</a> by Philipp Schmid: Collection of high-quality articles about LLM deployment using Amazon SageMaker.<br>
+<a href="https://www.philschmid.de/" target="_blank" class="external-link">Philschmid 博客，</a> 作者 Philipp Schmid：收集了有关使用 Amazon SageMaker 部署 LLM 的高质量文章。</li>
+<li><a href="https://hamel.dev/notes/llm/inference/03_inference.html" target="_blank" class="external-link">Optimizing latence</a> by Hamel Husain: Comparison of TGI, vLLM, CTranslate2, and mlc in terms of throughput and latency.<br>
+Hamel Husain <a href="https://hamel.dev/notes/llm/inference/03_inference.html" target="_blank" class="external-link">优化延迟</a> ：TGI、vLLM、CTranslate2 和 mlc 在吞吐量和延迟方面的比较。</li>
+</ul>
+<hr>
+<h3 id="8-securing-ll-ms8-ll-ms" tabindex="-1">8. Securing LLMs8. 确保 LLMs</h3>
+<p>In addition to traditional security problems associated with software, LLMs have unique weaknesses due to the way they are trained and prompted.<br>
+除了与软件相关的传统安全问题外，LLM 还由于其训练和提示方式而存在独特的弱点。</p>
+<ul>
+<li><strong>Prompt hacking</strong>: Different techniques related to prompt engineering, including prompt injection (additional instruction to hijack the model's answer), data/prompt leaking (retrieve its original data/prompt), and jailbreaking (craft prompts to bypass safety features).<br>
+<strong>提示破解</strong> ：与提示工程相关的不同技术，包括提示注入（附加指令以劫持模型的答案）、数据/提示泄露（检索其原始数据/提示）和越狱（构造提示以绕过安全功能）。</li>
+<li><strong>Backdoors</strong>: Attack vectors can target the training data itself, by poisoning the training data (e.g., with false information) or creating backdoors (secret triggers to change the model's behavior during inference).<br>
+<strong>后门</strong> ：攻击向量可以针对训练数据本身，例如，通过污染训练数据（例如，用虚假信息）或创建后门（秘密触发器，用于在推理期间改变模型的行为）。</li>
+<li><strong>Defensive measures</strong>: The best way to protect your LLM applications is to test them against these vulnerabilities (e.g., using red teaming and checks like <a href="https://github.com/leondz/garak/" target="_blank" class="external-link">garak</a>) and observe them in production (with a framework like <a href="https://github.com/langfuse/langfuse" target="_blank" class="external-link">langfuse</a>).<br>
+<strong>防御措施</strong> ：保护 LLM 应用程序的最佳方法是针对这些漏洞进行测试（例如，使用红队演练和 <a href="https://github.com/leondz/garak/" target="_blank" class="external-link">garak</a> 等检查），并在生产环境中观察它们（使用 <a href="https://github.com/langfuse/langfuse" target="_blank" class="external-link">langfuse</a> 等框架）。</li>
+</ul>
+<p>📚 <strong>References</strong>:<br>
+📚 <strong>参考文献</strong> ：</p>
+<ul>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" class="external-link">OWASP LLM Top 10</a> by HEGO Wiki: List of the 10 most critical vulnerabilities seen in LLM applications.<br>
+HEGO Wiki 列出的 <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" class="external-link">OWASP LLM Top 10</a> ：LLM 应用程序中最常见的 10 个关键漏洞列表。</li>
+<li><a href="https://github.com/jthack/PIPE" target="_blank" class="external-link">Prompt Injection Primer</a> by Joseph Thacker: Short guide dedicated to prompt injection for engineers.<br>
+Joseph Thacker 的 <a href="https://github.com/jthack/PIPE" target="_blank" class="external-link">《提示注入入门》</a> ：面向工程师的提示注入简明指南。</li>
+<li><a href="https://llmsecurity.net/" target="_blank" class="external-link">LLM Security</a> by <a href="https://twitter.com/llm_sec" target="_blank" class="external-link">@llm_sec</a>: Extensive list of resources related to LLM security.<br>
+<a href="https://llmsecurity.net/" target="_blank" class="external-link">LLM 安全</a> （作者： <a href="https://twitter.com/llm_sec" target="_blank" class="external-link">@llm_sec</a> ）：与 LLM 安全相关的丰富资源列表。</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming" target="_blank" class="external-link">Red teaming LLMs</a> by Microsoft: Guide on how to perform red teaming with LLMs.<br>
+微软 <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming" target="_blank" class="external-link">红队 LLM</a> 指南：如何使用 LLM 执行红队演练。</li>
+</ul>
+<hr>
+<h2 id="acknowledgements" tabindex="-1">Acknowledgements致谢</h2>
+<p>This roadmap was inspired by the excellent <a href="https://github.com/milanm/DevOps-Roadmap" target="_blank" class="external-link">DevOps Roadmap</a> from Milan Milanović and Romano Roth.<br>
+该路线图的灵感来源于 Milan Milanović 和 Romano Roth 的优秀 <a href="https://github.com/milanm/DevOps-Roadmap" target="_blank" class="external-link">DevOps 路线图</a> 。</p>
+<p>Special thanks to:<br>
+特别鸣谢：</p>
+<ul>
+<li>Thomas Thelen for motivating me to create a roadmap<br>
+感谢 Thomas Thelen 激励我制定路线图</li>
+<li>André Frade for his input and review of the first draft<br>
+感谢 André Frade 对初稿的意见和审阅</li>
+<li>Dino Dunn for providing resources about LLM security<br>
+感谢 Dino Dunn 提供有关 LLM 安全性的资源</li>
+<li>Magdalena Kuhn for improving the &quot;human evaluation&quot; part<br>
+Magdalena Kuhn 对“人工评估”部分的改进做出了贡献</li>
+<li>Odoverdose for suggesting 3Blue1Brown's video about Transformers<br>
+Odoverdose 推荐了 3Blue1Brown 关于变形金刚的视频</li>
+<li>Everyone who contributed to the educational references in this course:)<br>
+感谢所有为本课程提供教育参考资料的人:)</li>
+</ul>
+<p><em>Disclaimer: I am not affiliated with any sources listed here.<br>
+免责声明：我与此处列出的任何来源均无关联。</em></p>
+<hr>
+<p><a href="https://www.star-history.com/#mlabonne/llm-course&amp;Date" target="_blank" class="external-link"><img src="https://camo.githubusercontent.com/a617c40678857173522d2f6eadfe102be8f72200949455e4739f779f213fb565/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6d6c61626f6e6e652f6c6c6d2d636f7572736526747970653d44617465" alt="Star History Chart"></a></p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#notebooks">📝 Notebooks📝 笔记本</a>
+<ol>
+<li><a href="#tools">Tools</a>
+</li>
+<li><a href="#fine-tuning">Fine-tuning</a>
+</li>
+<li><a href="#quantization">Quantization</a>
+</li>
+<li><a href="#other">Other</a>
+</li>
+</ol>
+</li>
+<li><a href="#llm-fundamentals">🧩 LLM Fundamentals🧩 法学硕士基础知识</a>
+<ol>
+<li><a href="#1-mathematics-for-machine-learning">1. Mathematics for Machine Learning</a>
+</li>
+<li><a href="#2-python-for-machine-learning">2. Python for Machine Learning</a>
+</li>
+<li><a href="#3-neural-networks">3. Neural Networks</a>
+</li>
+<li><a href="#4-natural-language-processing-nlp">4. Natural Language Processing (NLP)</a>
+</li>
+</ol>
+</li>
+<li><a href="#the-llm-scientist">🧑🔬 The LLM Scientist🧑🔬 法学硕士科学家</a>
+<ol>
+<li><a href="#1-the-llm-architecture1-llm">1. The LLM Architecture1. LLM 架构</a>
+</li>
+<li><a href="#2-pre-training-models2">2. Pre-Training Models2. 预训练模型</a>
+</li>
+<li><a href="#3-post-training-datasets3">3. Post-Training Datasets3. 训练后数据集</a>
+</li>
+<li><a href="#4-supervised-fine-tuning4">4. Supervised Fine-Tuning4. 监督式微调</a>
+</li>
+<li><a href="#5-preference-alignment5">5. Preference Alignment5. 偏好一致性</a>
+</li>
+<li><a href="#6-evaluation6">6. Evaluation6. 评估</a>
+</li>
+<li><a href="#7-quantization7">7. Quantization7. 量化</a>
+</li>
+<li><a href="#8-new-trends8">8. New Trends8. 新趋势</a>
+</li>
+</ol>
+</li>
+<li><a href="#the-llm-engineer">👷 The LLM Engineer👷 法学硕士工程师</a>
+<ol>
+<li><a href="#1-running-ll-ms1-llm">1. Running LLMs1. 运行 LLM</a>
+</li>
+<li><a href="#2-building-a-vector-storage2">2. Building a Vector Storage2. 构建矢量存储</a>
+</li>
+<li><a href="#3-retrieval-augmented-generation3">3. Retrieval Augmented Generation3. 检索增强生成</a>
+</li>
+<li><a href="#4-advanced-rag-4-rag">4. Advanced RAG4. 高级 RAG</a>
+</li>
+<li><a href="#5-agents5">5. Agents5. 代理人</a>
+</li>
+<li><a href="#6-inference-optimization6">6. Inference optimization6. 推理优化</a>
+</li>
+<li><a href="#7-deploying-ll-ms7-llm">7. Deploying LLMs7. 部署 LLM</a>
+</li>
+<li><a href="#8-securing-ll-ms8-ll-ms">8. Securing LLMs8. 确保 LLMs</a>
+</li>
+</ol>
+</li>
+<li><a href="#acknowledgements">Acknowledgements致谢</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
