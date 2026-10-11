@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>awesome-claude-skills</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-claude-skills/">awesome-claude-skills </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome/readme.md 在 main · sindresorhus/awesome --- awesome/readme.md at main </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science通往计算机科学免费自学之路/">ossu/computer-science：🎓通往计算机科学免费自学之路！ --- ossu/computer-science: 🎓 Path to a free self-taught education in Computer Science! </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes技术面试/">CyC2018/CS-Notes: :books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers. </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">justjavac/free-programming-books-zh_CN: :books: 免费的计算机编程类中文书籍，欢迎投稿 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">Snailclimb/JavaGuide: Java 面试 &amp; 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days Python100天从新手到大师/">jackfrued/Python-100-Days: Python - 100天从新手到大师 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统system-design-primer/">system-design-primer/README-zh-Hans.md at master </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">awesome-claude-skills</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<h2 id="awesome-claude-skills" tabindex="-1">Awesome Claude Skills克劳德的技能太棒了</h2>
+<p><a href="https://dashboard.composio.dev/login?utm_source=Github&amp;utm_medium=Youtube&amp;utm_campaign=2025-11&amp;utm_content=AwesomeSkills" target="_blank" class="external-link"><img src="https://private-user-images.githubusercontent.com/67639393/534448770-e91255af-e4ba-4d71-b1a8-bd081e8a234a.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTE3MzUzMDgsIm5iZiI6MTc5MTczNTAwOCwicGF0aCI6Ii82NzYzOTM5My81MzQ0NDg3NzAtZTkxMjU1YWYtZTRiYS00ZDcxLWIxYTgtYmQwODFlOGEyMzRhLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjEwMTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYxMDExVDE2MTAwOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWIyMTFkNDBmZTRjNjJiZDExMjM5M2Q5MDAzYTJjY2M4MTg1ODc5NTg3ZjJhM2NkNGYzNmNlY2JkZWYyNmEwZTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.-qsknjAIpYz9U_D53dvCGWZ5vXUKuF4CRj7WTwA4sMQ" alt="Composio banner"></a></p>
+<p>A comprehensive and curated list of 1000+ production ready and practical Claude Skills and Plugins for enhancing productivity across usecases on not just <a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a>, Claude Code, but also across coding agents like Codex, Cursor, Gemini CLI, Antigravity and more.<br>
+一份全面且精心挑选的列表，包含 1000 多个可用于生产环境且实用的 Claude 技能和插件，可提高各种用例的生产力，不仅适用于 <a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a>、Claude Code，还适用于 Codex、Cursor、Gemini CLI、Antigravity 等编码代理。</p>
+<h2 id="give-your-skills-real-world-actions" tabindex="-1">Give your skills real-world actions将你的技能应用于实际行动中</h2>
+<p>Skills tell your agent <strong>how</strong> to work. An MCP Gateway gives it secure access to the tools it needs.<br>
+技能决定了代理 <strong>如何</strong> 工作。MCP 网关为其提供对所需工具的安全访问权限。</p>
+<p>Composio <a href="https://composio.dev/mcp-gateway" target="_blank" class="external-link">MCP Gateway</a> provides a single MCP endpoint for 1,000+ integrations with built-in authentication, team-based access controls, audit logs, and production-ready reliability.<br>
+Composio <a href="https://composio.dev/mcp-gateway" target="_blank" class="external-link">MCP Gateway</a> 为 1,000 多个集成提供了一个单一的 MCP 端点，并内置了身份验证、基于团队的访问控制、审计日志和生产就绪的可靠性。</p>
+<hr>
+<h2 id="quickstart-connect-claude-to-1000-apps-claude-1000" tabindex="-1">Quickstart: Connect Claude to 1000+ Apps快速入门：将 Claude 连接到 1000 多个应用程序</h2>
+<p>The <strong>connect-apps</strong> plugin lets Claude perform real actions - send emails, create issues, post to Slack. It handles auth and connects to 1000+ apps using Composio under the hood.<br>
+<strong>connect-apps</strong> 插件让 Claude 可以执行实际操作——发送电子邮件、创建问题、发布到 Slack。它底层使用 Composio 处理身份验证并连接到 1000 多个应用程序。</p>
+<h3 id="1-install-the-plugin1" tabindex="-1">1. Install the Plugin1. 安装插件</h3>
+<pre><code>claude --plugin-dir ./connect-apps-plugin
+</code></pre>
+<h3 id="2-run-setup2" tabindex="-1">2. Run Setup2. 运行安装程序</h3>
+<pre><code>/connect-apps:setup
+</code></pre>
+<p>Paste your API key when asked. (Get a free key at <a href="https://dashboard.composio.dev/login?utm_source=Github&amp;utm_content=AwesomeSkills" target="_blank" class="external-link">dashboard.composio.dev</a>)<br>
+出现提示时，请粘贴您的 API 密钥。（您可以在 <a href="https://dashboard.composio.dev/login?utm_source=Github&amp;utm_content=AwesomeSkills" target="_blank" class="external-link">dashboard.composio.dev</a> 免费获取密钥）</p>
+<h3 id="3-restart-and-amp-try-it3" tabindex="-1">3. Restart &amp; Try It3. 重新启动并尝试</h3>
+<pre><code>exit
+claude
+</code></pre>
+<blockquote>
+<p><strong>Want skills that do more than generate text?</strong> Claude can send emails, create issues, post to Slack, and take actions across 1000+ apps. <a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/connect" target="_blank" class="external-link">See how →</a><br>
+<strong>想要功能更强大的技能，而不仅仅是生成文本？</strong> Claude 可以发送电子邮件、创建问题、在 Slack 上发布内容，并在 1000 多个应用程序中执行操作。 <a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/connect" target="_blank" class="external-link">了解详情 →</a></p>
+</blockquote>
+<p>If you receive the email, Claude is now connected to 1000+ apps.<br>
+如果您收到此邮件，则表示 Claude 现在已连接到 1000 多个应用程序。</p>
+<p><strong><a href="https://composio.dev/toolkits" target="_blank" class="external-link">See all supported apps →<br>
+查看所有支持的应用 →</a></strong></p>
+<hr>
+<h2 id="contents" tabindex="-1">Contents内容</h2>
+<h2 id="what-are-claude-skills" tabindex="-1">What Are Claude Skills?克劳德的技能有哪些？</h2>
+<p>Claude Skills are reusable instruction packages that teach an AI agent how to handle a specific class of tasks. Each skill is a folder containing a <code>SKILL.md</code> file with YAML frontmatter (name, description) and Markdown instructions, optionally bundled with scripts, references, and assets. Anthropic introduced the format in October 2025 and released it as an <a href="https://github.com/anthropics/skills" target="_blank" class="external-link">open standard</a> in December 2025; it's now supported by Claude Code, <a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a>, the Claude API, OpenAI Codex, Cursor, Gemini CLI, Antigravity, and Windsurf.<br>
+Claude 技能是可重用的指令包，用于教导 AI 代理如何处理特定类型的任务。每个技能都是一个文件夹，其中包含一个 <code>SKILL.md</code> 文件，该文件包含 YAML 格式的前置信息（名称、描述）和 Markdown 格式的指令，还可以选择性地捆绑脚本、参考资料和资源。Anthropic 于 2025 年 10 月推出了该格式，并于 2025 年 12 月将其作为 <a href="https://github.com/anthropics/skills" target="_blank" class="external-link">开放标准</a> 发布；目前，Claude Code、<a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a>、Claude API、OpenAI Codex、Cursor、Gemini CLI、Antigravity 和 Windsurf 均支持该格式。</p>
+<hr>
+<p>Skills load progressively. At session start, the agent sees only each skill's name and description — roughly 100 tokens per skill. The full <a href="http://SKILL.md" target="_blank" class="external-link">SKILL.md</a> body (typically under 5,000 tokens) loads only when the agent decides the skill is relevant to the current task.<br>
+技能会逐步加载。会话开始时，智能体只能看到每个技能的名称和描述——每个技能大约 100 个标记。完整的 <a href="http://SKILL.md" target="_blank" class="external-link">SKILL.md</a> 文件内容（通常少于 5000 个标记）只有在智能体判断该技能与当前任务相关时才会加载。<br>
+Auxiliary files in <code>scripts/</code> and <code>references/</code> load on demand. This is what lets a single agent host hundreds of skills without bloating its context window.<br>
+<code>scripts/</code> 和 <code>references/</code> 中的辅助文件按需加载。这使得单个代理可以承载数百种技能，而不会使其上下文窗口变得臃肿。</p>
+<hr>
+<p>Skills are not MCP servers and not tools. MCP defines how an agent connects to external systems — auth, transport, tool discovery. Tools are the individual functions an agent invokes.<br>
+技能并非 MCP 服务器，也不是工具。MCP 定义了代理如何连接到外部系统——包括身份验证、传输和工具发现。工具则是代理调用的具体功能。<br>
+Skills define the workflow — what to do, in what order, with what guardrails — once the agent has the connections and tools it needs. In production, all three layers run together: MCP for access, tools for actions, skills for behavior.<br>
+技能定义了工作流程——代理拥有所需的连接和工具后，应该做什么、按什么顺序做、以及遵循哪些安全规则。在生产环境中，这三个层协同运行：MCP 用于访问控制，工具用于执行操作，技能用于行为控制。</p>
+<hr>
+<h2 id="skills" tabindex="-1">Skills技能</h2>
+<h3 id="document-processing" tabindex="-1">Document Processing文档处理</h3>
+<ul>
+<li><a href="https://github.com/anthropics/skills/tree/main/skills/docx" target="_blank" class="external-link">docx</a> - Create, edit, analyze Word docs with tracked changes, comments, formatting.<br>
+<a href="https://github.com/anthropics/skills/tree/main/skills/docx" target="_blank" class="external-link">docx</a> - 创建、编辑、分析带有跟踪更改、注释和格式的 Word 文档。</li>
+<li><a href="https://github.com/anthropics/skills/tree/main/skills/pdf" target="_blank" class="external-link">pdf</a> - Extract text, tables, metadata, merge &amp; annotate PDFs.<br>
+<a href="https://github.com/anthropics/skills/tree/main/skills/pdf" target="_blank" class="external-link">pdf</a> - 提取文本、表格、元数据，合并和注释 PDF。</li>
+<li><a href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" class="external-link">pptx</a> - Read, generate, and adjust slides, layouts, templates.<br>
+<a href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" class="external-link">pptx</a> - 读取、生成和调整幻灯片、布局、模板。</li>
+<li><a href="https://github.com/anthropics/skills/tree/main/skills/xlsx" target="_blank" class="external-link">xlsx</a> - Spreadsheet manipulation: formulas, charts, data transformations.<br>
+<a href="https://github.com/anthropics/skills/tree/main/skills/xlsx" target="_blank" class="external-link">xlsx</a> - 电子表格操作：公式、图表、数据转换。</li>
+<li><a href="https://github.com/smerchek/claude-epub-skill" target="_blank" class="external-link">Markdown to EPUB Converter</a> - Converts markdown documents and chat summaries into professional EPUB ebook files. <em>By <a href="https://github.com/smerchek" target="_blank" class="external-link">@smerchek</a></em><br>
+<a href="https://github.com/smerchek/claude-epub-skill" target="_blank" class="external-link">Markdown 转 EPUB 转换器</a> - 将 Markdown 文档和聊天记录摘要转换为专业的 EPUB 电子书文件。 <em>作者： <a href="https://github.com/smerchek" target="_blank" class="external-link">@smerchek</a></em></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://github.com/sboghossian/master-claude-for-legal" target="_blank" class="external-link">Master Claude for Legal</a> - Skill pack for legal teams. NDA triage, multi-party version diff, citation verifier, meeting brief, and the Friday-newsletter status synthesis pattern. Includes 10 reference docs (privilege, verification, long documents, practice areas) and 3 firm templates.<br>
+<a href="https://github.com/sboghossian/master-claude-for-legal" target="_blank" class="external-link">Master Claude for Legal——</a> 法律团队技能包。包含保密协议分类、多方版本差异分析、引文验证、会议简报撰写以及周五简报状态汇总模式。内含 10 份参考文档（特权、验证、长篇文档、业务领域）和 3 个律所模板。<br>
+Built from the public Anthropic Claude for Legal Teams webinar dataset.<em>By <a href="https://github.com/sboghossian" target="_blank" class="external-link">@sboghossian</a></em><br>
+基于公开的 Anthropico Claude for Legal Teams 网络研讨会数据集构建。 <em>作者： <a href="https://github.com/sboghossian" target="_blank" class="external-link">@sboghossian</a></em></li>
+</ul>
+<hr>
+<h3 id="development-and-amp-code-tools" tabindex="-1">Development &amp; Code Tools开发和代码工具</h3>
+<ul>
+<li><a href="https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder" target="_blank" class="external-link">artifacts-builder</a> - Suite of tools for creating elaborate, multi-component <a href="http://claude.ai" target="_blank" class="external-link">claude.ai</a> HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui).<br>
+<a href="https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder" target="_blank" class="external-link">artifacts-builder</a> - 一套使用现代前端 Web 技术（React、Tailwind CSS、shadcn/ui）创建复杂的多组件 <a href="http://claude.ai" target="_blank" class="external-link">claude.ai</a> HTML 工件的工具。</li>
+<li><a href="https://github.com/zxkane/aws-skills" target="_blank" class="external-link">aws-skills</a> - AWS development with CDK best practices, cost optimization MCP servers, and serverless/event-driven architecture patterns.<br>
+<a href="https://github.com/zxkane/aws-skills" target="_blank" class="external-link">aws-skills</a> - 使用 CDK 最佳实践、成本优化 MCP 服务器以及无服务器/事件驱动架构模式进行 AWS 开发。</li>
+<li><a href="https://github.com/BuildShipGrowRepeat/nextjs-sanity-blog-skill" target="_blank" class="external-link">building-blog</a> - Adds an SEO-first, i18n-ready blog to a Next.js + Sanity site via a 40-question intake, a one-page plan, and a 20-section spec. Includes a generator for AI hero images via Gemini 3 Pro Image (Nano Banana Pro). <em>By <a href="https://github.com/BuildShipGrowRepeat" target="_blank" class="external-link">@BuildShipGrowRepeat</a></em><br>
+<a href="https://github.com/BuildShipGrowRepeat/nextjs-sanity-blog-skill" target="_blank" class="external-link">building-blog</a> - 通过 40 个问题的问卷调查、一页纸的计划和 20 个章节的规范，为基于 Next.js + Sanity 的网站添加一个 SEO 优先、国际化 (i18n) 就绪的博客。包含一个使用 Gemini 3 Pro Image (Nano Banana Pro) 生成 AI 首页图片的生成器。 <em>作者： <a href="https://github.com/BuildShipGrowRepeat" target="_blank" class="external-link">@BuildShipGrowRepeat</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/changelog-generator" target="_blank" class="external-link">Changelog Generator</a> - Automatically creates user-facing changelogs from git commits by analyzing history and transforming technical commits into customer-friendly release notes.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/changelog-generator" target="_blank" class="external-link">变更日志生成器</a> - 通过分析历史记录并将技术提交转换为客户友好的发布说明，自动从 git 提交创建面向用户的变更日志。</li>
+<li><a href="https://chrome-relay.kushalsm.com/" target="_blank" class="external-link">Chrome Relay</a> - Drives the user's already-open Chrome session — cookies, SSO, extensions, localhost — through a local CLI bridge. Real-Chrome counterpart to Playwright Browser Automation; install via <code>npx skills add chrome-relay</code> + a <a href="https://chromewebstore.google.com/detail/chrome-relay/cpdiapbifblhlcpnmlmfpgfjlacebokb" target="_blank" class="external-link">Chrome Web Store extension</a>. No remote relay, no Playwright fixtures, no MCP server needed.<br>
+<a href="https://chrome-relay.kushalsm.com/" target="_blank" class="external-link">Chrome Relay</a> - 通过本地 CLI 桥接器驱动用户已打开的 Chrome 会话（包括 cookie、SSO、扩展程序和本地主机）。它是 Playwright Browser Automation 的 Chrome 版本；可通过 <code>npx skills add chrome-relay</code> 和 <a href="https://chromewebstore.google.com/detail/chrome-relay/cpdiapbifblhlcpnmlmfpgfjlacebokb" target="_blank" class="external-link">Chrome 网上应用商店扩展程序</a> 进行安装。无需远程中继、Playwright fixtures 或 MCP 服务器。</li>
+<li><a href="https://github.com/bluzername/claude-code-terminal-title" target="_blank" class="external-link">Claude Code Terminal Title</a> - Gives each Claud-Code terminal window a dynamic title that describes the work being done so you don't lose track of what window is doing what.<br>
+<a href="https://github.com/bluzername/claude-code-terminal-title" target="_blank" class="external-link">Claude Code 终端标题</a> - 为每个 Claud-Code 终端窗口赋予一个动态标题，描述正在执行的工作，这样您就不会忘记哪个窗口正在执行什么操作。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/connect" target="_blank" class="external-link">Connect</a> - Connect Claude to any app. Send emails, create issues, post messages, update databases - take real actions across Gmail, Slack, GitHub, Notion, and 1000+ services.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/connect" target="_blank" class="external-link">连接</a> - 将 Claude 连接到任何应用程序。发送电子邮件、创建问题、发布消息、更新数据库 - 在 Gmail、Slack、GitHub、Notion 和 1000 多个服务中执行实际操作。</li>
+<li><a href="https://github.com/chrisvoncsefalvay/claude-d3js-skill" target="_blank" class="external-link">D3.js Visualization</a> - Teaches Claude to produce D3 charts and interactive data visualizations. <em>By <a href="https://github.com/chrisvoncsefalvay" target="_blank" class="external-link">@chrisvoncsefalvay</a></em><br>
+<a href="https://github.com/chrisvoncsefalvay/claude-d3js-skill" target="_blank" class="external-link">D3.js 可视化</a> - 教 Claude 制作 D3 图表和交互式数据可视化。 <em>作者： <a href="https://github.com/chrisvoncsefalvay" target="_blank" class="external-link">@chrisvoncsefalvay</a></em></li>
+<li><a href="https://github.com/jthack/ffuf_claude_skill" target="_blank" class="external-link">FFUF Web Fuzzing</a> - Integrates the ffuf web fuzzer so Claude can run fuzzing tasks and analyze results for vulnerabilities. <em>By <a href="https://github.com/jthack" target="_blank" class="external-link">@jthack</a></em><br>
+<a href="https://github.com/jthack/ffuf_claude_skill" target="_blank" class="external-link">FFUF Web Fuzzing</a> - 集成了 ffuf Web Fuzzer，使 Claude 能够运行模糊测试任务并分析结果以发现漏洞。 <em>作者： <a href="https://github.com/jthack" target="_blank" class="external-link">@jthack</a></em></li>
+<li><a href="https://github.com/obra/superpowers/tree/main/skills/finishing-a-development-branch" target="_blank" class="external-link">finishing-a-development-branch</a> - Guides completion of development work by presenting clear options and handling chosen workflow.<br>
+<a href="https://github.com/obra/superpowers/tree/main/skills/finishing-a-development-branch" target="_blank" class="external-link">完成开发分支</a> - 通过提供清晰的选项和处理选定的工作流程来指导开发工作的完成。</li>
+<li><a href="https://github.com/LewisLiu007/full-page-screenshot" target="_blank" class="external-link">Full-Page Screenshot</a> - Captures full-page screenshots of web pages via Chrome DevTools Protocol with zero dependencies. <em>By <a href="https://github.com/LewisLiu007" target="_blank" class="external-link">@LewisLiu007</a></em><br>
+<a href="https://github.com/LewisLiu007/full-page-screenshot" target="_blank" class="external-link">全页面截图</a> - 通过 Chrome 开发者工具协议捕获网页全页面截图，无需任何依赖项。 <em>作者： <a href="https://github.com/LewisLiu007" target="_blank" class="external-link">@LewisLiu007</a></em></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://github.com/avelikiy/great_cto" target="_blank" class="external-link">great_cto</a> - Claude Code plugin: 7 specialised subagents (tech-lead, senior-dev, qa-engineer, security-officer, devops, l3-support, project-auditor) orchestrating a full SDLC pipeline — architecture, TDD, 12-angle code review, QA, security audit, deploy.<br>
+<a href="https://github.com/avelikiy/great_cto" target="_blank" class="external-link">great_cto</a> - Claude Code 插件：7 个专业子代理（技术主管、高级开发人员、质量保证工程师、安全官、DevOps、L3 支持、项目审计员）协调完整的 SDLC 管道——架构、TDD、12 角度代码审查、质量保证、安全审计、部署。<br>
+11 project archetypes auto-detected, 13 compliance frameworks (GDPR/PCI-DSS/HIPAA/SOC2/ISO 27001), self-improving knowledge layer that learns from every incident.<em>By <a href="https://github.com/avelikiy" target="_blank" class="external-link">@avelikiy</a></em><br>
+自动检测 11 种项目原型，支持 13 种合规框架（GDPR/PCI-DSS/HIPAA/SOC2/ISO 27001），并拥有可从每次事件中学习的自我改进知识层。 <em>作者： <a href="https://github.com/avelikiy" target="_blank" class="external-link">@avelikiy</a></em></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://github.com/conorluddy/ios-simulator-skill" target="_blank" class="external-link">iOS Simulator</a> - Enables Claude to interact with iOS Simulator for testing and debugging iOS applications. <em>By <a href="https://github.com/conorluddy" target="_blank" class="external-link">@conorluddy</a></em><br>
+<a href="https://github.com/conorluddy/ios-simulator-skill" target="_blank" class="external-link">iOS 模拟器</a> - 使 Claude 能够与 iOS 模拟器交互，以便测试和调试 iOS 应用程序。 <em>作者： <a href="https://github.com/conorluddy" target="_blank" class="external-link">@conorluddy</a></em></li>
+<li><a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/jules" target="_blank" class="external-link">jules</a> - Delegate coding tasks to Google Jules AI agent for async bug fixes, documentation, tests, and feature implementation on GitHub repos. <em>By <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em><br>
+<a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/jules" target="_blank" class="external-link">Jules</a> - 将编码任务委托给 Google Jules AI 代理，用于 GitHub 代码库中的异步错误修复、文档编写、测试和功能实现。 <em>作者： <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/langsmith-fetch" target="_blank" class="external-link">LangSmith Fetch</a> - Debug LangChain and LangGraph agents by automatically fetching and analyzing execution traces from LangSmith Studio. First AI observability skill for Claude Code. <em>By <a href="https://github.com/OthmanAdi" target="_blank" class="external-link">@OthmanAdi</a></em><br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/langsmith-fetch" target="_blank" class="external-link">LangSmith Fetch</a> - 通过自动从 LangSmith Studio 获取和分析执行轨迹，调试 LangChain 和 LangGraph 代理。首个面向 Claude Code 的 AI 可观测性技能。 <em>作者： <a href="https://github.com/OthmanAdi" target="_blank" class="external-link">@OthmanAdi</a></em></li>
+<li><a href="https://github.com/yvgude/lean-ctx" target="_blank" class="external-link">lean-ctx</a> - MCP server and context runtime for AI coding agents: session caching, AST-aware compression, and 90+ shell patterns to reduce token usage. Supports Claude Code, Cursor, Copilot, and other integrations. Install the Claude Code skill with <code>lean-ctx init --agent claude-code</code>; docs at <a href="https://leanctx.com/" target="_blank" class="external-link">leanctx.com</a>. <em>By <a href="https://github.com/yvgude" target="_blank" class="external-link">@yvgude</a></em><br>
+<a href="https://github.com/yvgude/lean-ctx" target="_blank" class="external-link">lean-ctx</a> 是一个面向 AI 编码代理的 MCP 服务器和上下文运行时环境：支持会话缓存、AST 感知压缩以及 90 多种 shell 模式，可减少令牌使用。支持 Claude Code、Cursor、Copilot 和其他集成。使用 <code>lean-ctx init --agent claude-code</code> 安装 Claude Code 技能；文档请访问 <a href="https://leanctx.com/" target="_blank" class="external-link">leanctx.com</a> 。 <em>作者： <a href="https://github.com/yvgude" target="_blank" class="external-link">@yvgude</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/mcp-builder" target="_blank" class="external-link">MCP Builder</a> - Guides creation of high-quality MCP (Model Context Protocol) servers for integrating external APIs and services with LLMs using Python or TypeScript.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/mcp-builder" target="_blank" class="external-link">MCP Builder</a> - 指导使用 Python 或 TypeScript 创建高质量的 MCP（模型上下文协议）服务器，以便将外部 API 和服务与 LLM 集成。</li>
+<li><a href="https://github.com/1NickPappas/move-code-quality-skill" target="_blank" class="external-link">move-code-quality-skill</a> - Analyzes Move language packages against the official Move Book Code Quality Checklist for Move 2024 Edition compliance and best practices.<br>
+<a href="https://github.com/1NickPappas/move-code-quality-skill" target="_blank" class="external-link">move-code-quality-skill</a> - 根据官方的 Move Book 代码质量检查表分析 Move 语言包，以确保其符合 Move 2024 版的合规性和最佳实践。</li>
+<li><a href="https://github.com/openweb-org/openweb" target="_blank" class="external-link">OpenWeb</a> - Agent-native way to access any website. Calls the same APIs the website calls (JSON in, JSON out) with auth (cookies, JWT, CSRF, signing) auto-resolved per request. 90+ sites built in. <em>By <a href="https://github.com/openweb-org" target="_blank" class="external-link">@openweb-org</a></em><br>
+<a href="https://github.com/openweb-org/openweb" target="_blank" class="external-link">OpenWeb——</a> 一种以代理原生方式访问任何网站的方法。它调用网站使用的相同 API（JSON 输入，JSON 输出），并自动解析每个请求的身份验证（cookie、JWT、CSRF、签名）。内置 90 多个网站。 <em>由 <a href="https://github.com/openweb-org" target="_blank" class="external-link">@openweb-org</a></em> 开发</li>
+<li><a href="https://github.com/santiago-vargas-de-kruijf/claude-overkill" target="_blank" class="external-link">overkill</a> - Surfaces advanced, maximalist alternatives to whatever solution is being discussed — advanced data structures, distributed-systems algorithms, niche frameworks, design patterns, and frontier tooling — each ranked on a calibrated complexity scale with learning links and the scenario in which the path pays off.<em>By <a href="https://github.com/santiago-vargas-de-kruijf" target="_blank" class="external-link">@santiago-vargas-de-kruijf</a></em><br>
+<a href="https://github.com/santiago-vargas-de-kruijf/claude-overkill" target="_blank" class="external-link">过度设计</a> ——针对正在讨论的解决方案，提出各种先进且极致的替代方案，包括高级数据结构、分布式系统算法、小众框架、设计模式和前沿工具——每项方案都按照校准后的复杂度等级进行排名，并附有学习链接和适用场景。 <em>作者： <a href="https://github.com/santiago-vargas-de-kruijf" target="_blank" class="external-link">@santiago-vargas-de-kruijf</a></em></li>
+<li><a href="https://github.com/lackeyjb/playwright-skill" target="_blank" class="external-link">Playwright Browser Automation</a> - Model-invoked Playwright automation for testing and validating web applications. <em>By <a href="https://github.com/lackeyjb" target="_blank" class="external-link">@lackeyjb</a></em><br>
+<a href="https://github.com/lackeyjb/playwright-skill" target="_blank" class="external-link">Playwright 浏览器自动化</a> - 基于模型调用的 Playwright 自动化，用于测试和验证 Web 应用程序。 <em>作者： <a href="https://github.com/lackeyjb" target="_blank" class="external-link">@lackeyjb</a></em></li>
+<li><a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/customaize-agent/skills/prompt-engineering" target="_blank" class="external-link">prompt-engineering</a> - Teaches well-known prompt engineering techniques and patterns, including Anthropic best practices and agent persuasion principles.<br>
+<a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/customaize-agent/skills/prompt-engineering" target="_blank" class="external-link">提示工程</a> - 教授众所周知的提示工程技术和模式，包括人因工程最佳实践和代理说服原则。</li>
+<li><a href="https://github.com/omkamal/pypict-claude-skill" target="_blank" class="external-link">pypict-claude-skill</a> - Design comprehensive test cases using PICT (Pairwise Independent Combinatorial Testing) for requirements or code, generating optimized test suites with pairwise coverage.<br>
+<a href="https://github.com/omkamal/pypict-claude-skill" target="_blank" class="external-link">pypict-claude-skill</a> - 使用 PICT（成对独立组合测试）为需求或代码设计全面的测试用例，生成具有成对覆盖率的优化测试套件。</li>
+<li><a href="https://github.com/ykdojo/claude-code-tips/tree/main/skills/reddit-fetch" target="_blank" class="external-link">reddit-fetch</a> - Fetches Reddit content via Gemini CLI when WebFetch is blocked or returns 403 errors.<br>
+<a href="https://github.com/ykdojo/claude-code-tips/tree/main/skills/reddit-fetch" target="_blank" class="external-link">reddit-fetch</a> - 当 WebFetch 被阻止或返回 403 错误时，通过 Gemini CLI 获取 Reddit 内容。</li>
+<li><a href="https://septimlabs.com/tools/agents?utm_source=awesome-claude-skills&amp;utm_medium=awesome-list&amp;utm_campaign=oss-backlink" target="_blank" class="external-link">Septim Agents Pack</a> - 10 named Claude Code sub-agents (Atlas, Luca, Canon, Ember, Tally, Nova, Ward, Mira, Juno, Pip) covering planning, architecture, brand, marketing, finance, design, legal, customer, research, and coordination. Drop into <code>.claude/agents/</code>. <em>By <a href="https://github.com/septimlabs-code" target="_blank" class="external-link">@septimlabs-code</a></em><br>
+<a href="https://septimlabs.com/tools/agents?utm_source=awesome-claude-skills&amp;utm_medium=awesome-list&amp;utm_campaign=oss-backlink" target="_blank" class="external-link">Septim Agents Pack</a> - 包含 10 个以 Claude Code 命名的子代理（Atlas、Luca、Canon、Ember、Tally、Nova、Ward、Mira、Juno、Pip），涵盖规划、建筑、品牌、市场营销、财务、设计、法律、客户、研究和协调等领域。请将文件放入 <code>.claude/agents/</code> 目录。 <em>作者： <a href="https://github.com/septimlabs-code" target="_blank" class="external-link">@septimlabs-code</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/skill-creator" target="_blank" class="external-link">Skill Creator</a> - Provides guidance for creating effective Claude Skills that extend capabilities with specialized knowledge, workflows, and tool integrations.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/skill-creator" target="_blank" class="external-link">技能创建器</a> - 提供指导，帮助创建有效的 Claude 技能，通过专业知识、工作流程和工具集成来扩展功能。</li>
+<li><a href="https://github.com/yusufkaraaslan/Skill_Seekers" target="_blank" class="external-link">Skill Seekers</a> - Automatically converts any documentation website into a Claude AI skill in minutes. <em>By <a href="https://github.com/yusufkaraaslan" target="_blank" class="external-link">@yusufkaraaslan</a></em><br>
+<a href="https://github.com/yusufkaraaslan/Skill_Seekers" target="_blank" class="external-link">Skill Seekers——</a> 只需几分钟即可将任何文档网站自动转换为 Claude AI 技能。 <em>作者： <a href="https://github.com/yusufkaraaslan" target="_blank" class="external-link">@yusufkaraaslan</a></em></li>
+<li><a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/ddd/skills/software-architecture" target="_blank" class="external-link">software-architecture</a> - Implements design patterns including Clean Architecture, SOLID principles, and comprehensive software design best practices.<br>
+<a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/ddd/skills/software-architecture" target="_blank" class="external-link">软件架构</a> - 实现包括整洁架构、SOLID 原则和综合软件设计最佳实践在内的设计模式。</li>
+<li><a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/sadd/skills/subagent-driven-development" target="_blank" class="external-link">subagent-driven-development</a> - Dispatches independent subagents for individual tasks with code review checkpoints between iterations for rapid, controlled development.<br>
+<a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/sadd/skills/subagent-driven-development" target="_blank" class="external-link">子代理驱动开发</a> - 为各个任务调度独立的子代理，并在迭代之间设置代码审查检查点，以实现快速、可控的开发。</li>
+<li><a href="https://github.com/obra/superpowers/tree/main/skills/test-driven-development" target="_blank" class="external-link">test-driven-development</a> - Use when implementing any feature or bugfix, before writing implementation code.<br>
+<a href="https://github.com/obra/superpowers/tree/main/skills/test-driven-development" target="_blank" class="external-link">测试驱动开发</a> - 在编写实现代码之前，用于实现任何功能或错误修复。</li>
+<li><a href="https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/" target="_blank" class="external-link">using-git-worktrees</a> - Creates isolated git worktrees with smart directory selection and safety verification.<br>
+<a href="https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/" target="_blank" class="external-link">using-git-worktrees</a> - 创建具有智能目录选择和安全验证的隔离 git 工作树。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/webapp-testing" target="_blank" class="external-link">Webapp Testing</a> - Tests local web applications using Playwright for verifying frontend functionality, debugging UI behavior, and capturing screenshots.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/webapp-testing" target="_blank" class="external-link">Web 应用程序测试</a> - 使用 Playwright 测试本地 Web 应用程序，以验证前端功能、调试 UI 行为和捕获屏幕截图。</li>
+</ul>
+<h3 id="data-and-amp-analysis" tabindex="-1">Data &amp; Analysis数据与分析</h3>
+<ul>
+<li><a href="https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill" target="_blank" class="external-link">CSV Data Summarizer</a> - Automatically analyzes CSV files and generates comprehensive insights with visualizations without requiring user prompts. <em>By <a href="https://github.com/coffeefuelbump" target="_blank" class="external-link">@coffeefuelbump</a></em><br>
+<a href="https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill" target="_blank" class="external-link">CSV 数据汇总器</a> - 自动分析 CSV 文件，无需用户干预即可生成包含可视化图表的全面洞察。 <em>作者： <a href="https://github.com/coffeefuelbump" target="_blank" class="external-link">@coffeefuelbump</a></em></li>
+<li><a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research" target="_blank" class="external-link">deep-research</a> - Execute autonomous multi-step research using Gemini Deep Research Agent for market analysis, competitive landscaping, and literature reviews. <em>By <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em><br>
+<a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research" target="_blank" class="external-link">深度研究</a> - 使用 Gemini 深度研究代理执行自主多步骤研究，进行市场分析、竞争格局分析和文献综述。 <em>作者： <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em></li>
+<li><a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres" target="_blank" class="external-link">postgres</a> - Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and defense-in-depth security. <em>By <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em><br>
+<a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres" target="_blank" class="external-link">postgres</a> - 支持多连接和纵深防御安全机制，可对 PostgreSQL 数据库执行安全的只读 SQL 查询。 <em>作者： <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em></li>
+<li><a href="https://github.com/Anjos2/recursive-research" target="_blank" class="external-link">recursive-research</a> - Recursive research up to PhD level across any domain (science, tech, business, arts, humanities) with source tiering, WDM + Munger inversion for autonomous decisions, and disk checkpointing to survive context compaction. <em>By <a href="https://github.com/Anjos2" target="_blank" class="external-link">@Anjos2</a></em><br>
+<a href="https://github.com/Anjos2/recursive-research" target="_blank" class="external-link">递归研究</a> - 在任何领域（科学、技术、商业、艺术、人文）进行博士级别的递归研究，采用源分层、WDM + Munger 逆向算法进行自主决策，以及磁盘检查点机制以应对上下文压缩。 <em>作者： <a href="https://github.com/Anjos2" target="_blank" class="external-link">@Anjos2</a></em></li>
+<li><a href="https://github.com/obra/superpowers/tree/main/skills/root-cause-tracing" target="_blank" class="external-link">root-cause-tracing</a> - Use when errors occur deep in execution and you need to trace back to find the original trigger.<br>
+<a href="https://github.com/obra/superpowers/tree/main/skills/root-cause-tracing" target="_blank" class="external-link">根本原因追踪</a> - 当错误发生在执行的深处，需要追溯到原始触发因素时使用。</li>
+</ul>
+<h3 id="business-and-amp-marketing" tabindex="-1">Business &amp; Marketing商业与市场营销</h3>
+<ul>
+<li><a href="https://github.com/rampstackco/claude-skills" target="_blank" class="external-link">Brand Build Skills</a> - 59-skill library covering the full website lifecycle: brand, design, content, SEO, dev, ops, growth, and research. Stack-agnostic with an Ahrefs MCP-powered SEO audit suite. Includes a meta-skill for writing your own. <em>By <a href="https://github.com/rampstackco" target="_blank" class="external-link">@rampstackco</a></em><br>
+<a href="https://github.com/rampstackco/claude-skills" target="_blank" class="external-link">品牌建设技能</a> ——包含 59 项技能的技能库，涵盖网站的完整生命周期：品牌、设计、内容、SEO、开发、运维、增长和研究。该技能库与技术栈无关，并配备由 Ahrefs MCP 提供支持的 SEO 审核套件。此外，还包含一项元技能，用于编写您自己的 SEO 审核。 <em>作者： <a href="https://github.com/rampstackco" target="_blank" class="external-link">@rampstackco</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/brand-guidelines" target="_blank" class="external-link">Brand Guidelines</a> - Applies Anthropic's official brand colors and typography to artifacts for consistent visual identity and professional design standards.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/brand-guidelines" target="_blank" class="external-link">品牌指南</a> - 将 Anthropic 的官方品牌颜色和字体应用于产品，以实现一致的视觉识别和专业设计标准。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/competitive-ads-extractor" target="_blank" class="external-link">Competitive Ads Extractor</a> - Extracts and analyzes competitors' ads from ad libraries to understand messaging and creative approaches that resonate.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/competitive-ads-extractor" target="_blank" class="external-link">竞争对手广告提取器</a> - 从广告库中提取和分析竞争对手的广告，以了解引起共鸣的信息传递和创意方法。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/domain-name-brainstormer" target="_blank" class="external-link">Domain Name Brainstormer</a> - Generates creative domain name ideas and checks availability across multiple TLDs <a href="http://including.com" target="_blank" class="external-link">including.com</a>,.io,.dev, <a href="http://and.ai" target="_blank" class="external-link">and.ai</a> extensions.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/domain-name-brainstormer" target="_blank" class="external-link">域名创意生成器</a> - 生成创意域名，<a href="http://xn--uir19x6qdp9fj5a.com" target="_blank" class="external-link">并检查包括.com</a>、.io、.dev <a href="http://xn--0tr.ai" target="_blank" class="external-link">和.ai</a> 在内的多个顶级域名的可用性。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/internal-comms" target="_blank" class="external-link">Internal Comms</a> - Helps write internal communications including 3P updates, company newsletters, FAQs, status reports, and project updates using company-specific formats.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/internal-comms" target="_blank" class="external-link">内部沟通</a> - 帮助撰写内部沟通材料，包括 3P 更新、公司新闻简报、常见问题解答、状态报告和项目更新，使用公司特定的格式。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/lead-research-assistant" target="_blank" class="external-link">Lead Research Assistant</a> - Identifies and qualifies high-quality leads by analyzing your product, searching for target companies, and providing actionable outreach strategies.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/lead-research-assistant" target="_blank" class="external-link">首席研究助理</a> - 通过分析您的产品、寻找目标公司并提供可行的推广策略，识别和筛选高质量的潜在客户。</li>
+</ul>
+<h3 id="communication-and-amp-writing" tabindex="-1">Communication &amp; Writing沟通与写作</h3>
+<ul>
+<li><a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/article-extractor" target="_blank" class="external-link">article-extractor</a> - Extract full article text and metadata from web pages.<br>
+<a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/article-extractor" target="_blank" class="external-link">文章提取器</a> - 从网页中提取完整的文章文本和元数据。</li>
+<li><a href="https://github.com/obra/superpowers/tree/main/skills/brainstorming" target="_blank" class="external-link">brainstorming</a> - Transform rough ideas into fully-formed designs through structured questioning and alternative exploration.<br>
+<a href="https://github.com/obra/superpowers/tree/main/skills/brainstorming" target="_blank" class="external-link">头脑风暴</a> ——通过结构化的提问和另辟蹊径的探索，将粗略的想法转化为完整的设计。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/content-research-writer" target="_blank" class="external-link">Content Research Writer</a> - Assists in writing high-quality content by conducting research, adding citations, improving hooks, and providing section-by-section feedback.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/content-research-writer" target="_blank" class="external-link">内容研究撰稿人</a> - 通过进行研究、添加引用、改进引人入胜的开头以及提供逐节反馈来协助撰写高质量的内容。</li>
+<li><a href="https://github.com/emaynard/claude-family-history-research-skill" target="_blank" class="external-link">family-history-research</a> - Provides assistance with planning family history and genealogy research projects.<br>
+<a href="https://github.com/emaynard/claude-family-history-research-skill" target="_blank" class="external-link">家族史研究</a> - 提供家族史和家谱研究项目规划方面的帮助。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/meeting-insights-analyzer" target="_blank" class="external-link">Meeting Insights Analyzer</a> - Analyzes meeting transcripts to uncover behavioral patterns including conflict avoidance, speaking ratios, filler words, and leadership style.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/meeting-insights-analyzer" target="_blank" class="external-link">会议洞察分析器</a> - 分析会议记录，以发现行为模式，包括避免冲突、发言比例、填充词和领导风格。</li>
+<li><a href="https://github.com/PleasePrompto/notebooklm-skill" target="_blank" class="external-link">NotebookLM Integration</a> - Lets Claude Code chat directly with NotebookLM for source-grounded answers based exclusively on uploaded documents. <em>By <a href="https://github.com/PleasePrompto" target="_blank" class="external-link">@PleasePrompto</a></em><br>
+<a href="https://github.com/PleasePrompto/notebooklm-skill" target="_blank" class="external-link">NotebookLM 集成</a> - 让 Claude Code 可以直接与 NotebookLM 聊天，获取完全基于上传文档的、基于源代码的答案。 <em>作者： <a href="https://github.com/PleasePrompto" target="_blank" class="external-link">@PleasePrompto</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/twitter-algorithm-optimizer" target="_blank" class="external-link">Twitter Algorithm Optimizer</a> - Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrite and edit tweets to improve engagement and visibility.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/twitter-algorithm-optimizer" target="_blank" class="external-link">Twitter 算法优化器</a> - 利用 Twitter 的开源算法洞察，分析并优化推文，以最大限度地扩大覆盖范围。重写和编辑推文，以提高互动率和曝光度。</li>
+</ul>
+<h3 id="creative-and-amp-media" tabindex="-1">Creative &amp; Media创意与媒体</h3>
+<ul>
+<li><a href="https://github.com/uxKero/anydesign" target="_blank" class="external-link">anydesign</a> - Analyzes any image, URL, or Figma file and generates a structured <code>design.md</code> with the full design system, component inventory, and reconstruction notes — portable to v0, Lovable, Cursor or any AI builder. <em>By <a href="https://github.com/uxKero" target="_blank" class="external-link">@uxKero</a></em><br>
+<a href="https://github.com/uxKero/anydesign" target="_blank" class="external-link">anydesign——</a> 分析任何图像、URL 或 Figma 文件，并生成包含完整设计系统、组件清单和重构说明的结构化 <code>design.md</code> 文件——可移植到 v0、Lovable、Cursor 或任何 AI 构建器。 <em>作者： <a href="https://github.com/uxKero" target="_blank" class="external-link">@uxKero</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/canvas-design" target="_blank" class="external-link">Canvas Design</a> - Creates beautiful visual art in PNG and PDF documents using design philosophy and aesthetic principles for posters, designs, and static pieces.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/canvas-design" target="_blank" class="external-link">Canvas Design</a> - 使用设计理念和美学原则，为海报、设计和静态作品创作精美的 PNG 和 PDF 文档视觉艺术作品。</li>
+<li><a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen" target="_blank" class="external-link">imagen</a> - Generate images using Google Gemini's image generation API for UI mockups, icons, illustrations, and visual assets. <em>By <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em><br>
+<a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen" target="_blank" class="external-link">imagen</a> - 使用 Google Gemini 的图像生成 API 生成图像，用于 UI 模型、图标、插图和视觉素材。 <em>作者： <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em></li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/image-enhancer" target="_blank" class="external-link">Image Enhancer</a> - Improves image and screenshot quality by enhancing resolution, sharpness, and clarity for professional presentations and documentation.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/image-enhancer" target="_blank" class="external-link">图像增强器</a> - 通过提高分辨率、锐度和清晰度来改善图像和屏幕截图的质量，适用于专业演示和文档。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/slack-gif-creator" target="_blank" class="external-link">Slack GIF Creator</a> - Creates animated GIFs optimized for Slack with validators for size constraints and composable animation primitives.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/slack-gif-creator" target="_blank" class="external-link">Slack GIF 创建器</a> - 创建针对 Slack 优化的动画 GIF，带有大小限制验证器和可组合的动画原语。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/theme-factory" target="_blank" class="external-link">Theme Factory</a> - Applies professional font and color themes to artifacts including slides, docs, reports, and HTML landing pages with 10 pre-set themes.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/theme-factory" target="_blank" class="external-link">Theme Factory</a> - 为幻灯片、文档、报告和 HTML 登录页面等素材应用专业的字体和颜色主题，提供 10 个预设主题。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/video-downloader" target="_blank" class="external-link">Video Downloader</a> - Downloads videos from YouTube and other platforms for offline viewing, editing, or archival with support for various formats and quality options.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/video-downloader" target="_blank" class="external-link">视频下载器</a> - 从 YouTube 和其他平台下载视频，以便离线观看、编辑或存档，支持各种格式和质量选项。</li>
+<li><a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/youtube-transcript" target="_blank" class="external-link">youtube-transcript</a> - Fetch transcripts from YouTube videos and prepare summaries.<br>
+<a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/youtube-transcript" target="_blank" class="external-link">youtube-transcript</a> - 从 YouTube 视频中提取文字稿并生成摘要。</li>
+<li><a href="https://github.com/wholiver/swiftui-design-skill" target="_blank" class="external-link">swiftui-design-skill</a> - SwiftUI 前端设计 skill — 反 AI Slop 六条铁律、设计方向顾问、品牌资产协议、五维评审。支持 Claude Code / Cursor / Codex / OpenCode 等全部 AI agent 平台。 <em>By <a href="https://github.com/wholiver" target="_blank" class="external-link">@wholiver</a></em><br>
+<a href="https://github.com/wholiver/swiftui-design-skill" target="_blank" class="external-link">swiftui-design-skill - SwiftUI 前端设计技能</a> — 反 AI Slop 六条铁律、设计方向顾问、品牌资产协议、五维评审。支持 Claude Code / Cursor / Codex / OpenCode 等全部 AI 代理平台。 <em>By <a href="https://github.com/wholiver" target="_blank" class="external-link">@wholiver</a></em></li>
+<li><a href="https://github.com/anandpareek-hub/pixelbin-claude-skill" target="_blank" class="external-link">Pixelbin-Media-Generation</a> - Generate and edit images &amp; videos with 85+ API portfolio and build visually appealing website pages<br>
+<a href="https://github.com/anandpareek-hub/pixelbin-claude-skill" target="_blank" class="external-link">Pixelbin-媒体生成</a> - 利用 85 多个 API 生成和编辑图像及视频，并构建视觉效果出色的网站页面</li>
+</ul>
+<h3 id="productivity-and-amp-organization" tabindex="-1">Productivity &amp; Organization生产力和组织能力</h3>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/file-organizer" target="_blank" class="external-link">File Organizer</a> - Intelligently organizes files and folders by understanding context, finding duplicates, and suggesting better organizational structures.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/file-organizer" target="_blank" class="external-link">文件整理器</a> - 通过理解上下文、查找重复项并建议更好的组织结构，智能地整理文件和文件夹。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/invoice-organizer" target="_blank" class="external-link">Invoice Organizer</a> - Automatically organizes invoices and receipts for tax preparation by reading files, extracting information, and renaming consistently.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/invoice-organizer" target="_blank" class="external-link">发票整理器</a> - 通过读取文件、提取信息和统一重命名，自动整理发票和收据，以便进行税务准备。</li>
+<li><a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/kaizen/skills/kaizen" target="_blank" class="external-link">kaizen</a> - Applies continuous improvement methodology with multiple analytical approaches, based on Japanese Kaizen philosophy and Lean methodology.<br>
+<a href="https://github.com/NeoLabHQ/context-engineering-kit/tree/master/plugins/kaizen/skills/kaizen" target="_blank" class="external-link">改善（Kaizen）</a> ——运用多种分析方法，基于日本的改善（Kaizen）理念和精益方法，进行持续改进。</li>
+<li><a href="https://github.com/haunchen/n8n-skills" target="_blank" class="external-link">n8n-skills</a> - Enables AI assistants to directly understand and operate n8n workflows.<br>
+<a href="https://github.com/haunchen/n8n-skills" target="_blank" class="external-link">n8n-skills</a> - 使 AI 助手能够直接理解和操作 n8n 工作流程。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/raffle-winner-picker" target="_blank" class="external-link">Raffle Winner Picker</a> - Randomly selects winners from lists, spreadsheets, or Google Sheets for giveaways and contests with cryptographically secure randomness.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/raffle-winner-picker" target="_blank" class="external-link">抽奖赢家选择器</a> - 从列表、电子表格或 Google 表格中随机选择赠品和竞赛的赢家，采用加密安全的随机性。</li>
+<li><a href="https://github.com/rockscy/solo-skills" target="_blank" class="external-link">solo-skills</a> - 7 bilingual (EN+中文) skills for solo founders and indie devs: launch tweets, customer emails, decision frameworks, postmortems. Each skill includes an explicit &quot;When NOT to use&quot; section.<br>
+<a href="https://github.com/rockscy/solo-skills" target="_blank" class="external-link">solo-skills——</a> 专为独立创始人及开发者打造的 7 项双语（英+中文）技能：发布推文、客户邮件、决策框架、事后分析。每项技能都包含明确的“何时不应使用”部分。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/tailored-resume-generator" target="_blank" class="external-link">Tailored Resume Generator</a> - Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills, and achievements to maximize interview chances.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/tailored-resume-generator" target="_blank" class="external-link">定制简历生成器</a> - 分析职位描述并生成定制简历，突出相关经验、技能和成就，以最大限度地提高面试机会。</li>
+<li><a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/ship-learn-next" target="_blank" class="external-link">ship-learn-next</a> - Skill to help iterate on what to build or learn next, based on feedback loops.<br>
+<a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/ship-learn-next" target="_blank" class="external-link">ship-learn-next</a> - 根据反馈循环，帮助迭代下一步构建或学习的内容的技能。</li>
+<li><a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/tapestry" target="_blank" class="external-link">tapestry</a> - Interlink and summarize related documents into knowledge networks.<br>
+<a href="https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/tapestry" target="_blank" class="external-link">将</a> 相关文档相互链接并汇总成知识网络。</li>
+</ul>
+<h3 id="collaboration-and-amp-project-management" tabindex="-1">Collaboration &amp; Project Management协作与项目管理</h3>
+<ul>
+<li><a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/git-pushing" target="_blank" class="external-link">git-pushing</a> - Automate git operations and repository interactions.<br>
+<a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/git-pushing" target="_blank" class="external-link">git-pushing</a> - 自动化 git 操作和存储库交互。</li>
+<li><a href="https://github.com/sanjay3290/ai-skills/tree/main/skills" target="_blank" class="external-link">google-workspace-skills</a> - Suite of Google Workspace integrations: Gmail, Calendar, Chat, Docs, Sheets, Slides, and Drive with cross-platform OAuth. <em>By <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em><br>
+<a href="https://github.com/sanjay3290/ai-skills/tree/main/skills" target="_blank" class="external-link">google-workspace-skills</a> - 一套完整的 Google Workspace 集成方案：支持跨平台 OAuth 的 Gmail、日历、聊天、文档、表格、幻灯片和云端硬盘集成。 <em>作者： <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em></li>
+<li><a href="https://www.teamoffsite.ai/proton/docs/skill" target="_blank" class="external-link">mercury-mcp</a> - Cheatsheet for the Mercury (Proton) MCP tools. Message agent teammates, manage threads, create tasks, and schedule automations across coordinated agent teams. <em>By <a href="https://mercury.build/" target="_blank" class="external-link">Mercury</a></em><br>
+<a href="https://www.teamoffsite.ai/proton/docs/skill" target="_blank" class="external-link">mercury-mcp</a> - Mercury (Proton) MCP 工具速查表。用于向代理团队成员发送消息、管理讨论串、创建任务以及安排跨代理团队的自动化操作。 <em>由 <a href="https://mercury.build/" target="_blank" class="external-link">Mercury</a> 提供。</em></li>
+<li><a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/outline" target="_blank" class="external-link">outline</a> - Search, read, create, and manage documents in Outline wiki instances (cloud or self-hosted). <em>By <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em><br>
+<a href="https://github.com/sanjay3290/ai-skills/tree/main/skills/outline" target="_blank" class="external-link">Outline</a> - 在 Outline wiki 实例（云端或自托管）中搜索、阅读、创建和管理文档。 <em>作者： <a href="https://github.com/sanjay3290" target="_blank" class="external-link">@sanjay3290</a></em></li>
+<li><a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/review-implementing" target="_blank" class="external-link">review-implementing</a> - Evaluate code implementation plans and align with specs.<br>
+<a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/review-implementing" target="_blank" class="external-link">审查实施</a> - 评估代码实施计划并使其符合规范。</li>
+<li><a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/test-fixing" target="_blank" class="external-link">test-fixing</a> - Detect failing tests and propose patches or fixes.<br>
+<a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/test-fixing" target="_blank" class="external-link">测试修复</a> - 检测失败的测试并提出补丁或修复方案。</li>
+</ul>
+<h3 id="security-and-amp-systems" tabindex="-1">Security &amp; Systems安全与系统</h3>
+<ul>
+<li><a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/computer-forensics-skills/skills/computer-forensics" target="_blank" class="external-link">computer-forensics</a> - Digital forensics analysis and investigation techniques.<br>
+<a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/computer-forensics-skills/skills/computer-forensics" target="_blank" class="external-link">计算机取证</a> ——数字取证分析和调查技术。</li>
+<li><a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/computer-forensics-skills/skills/file-deletion" target="_blank" class="external-link">file-deletion</a> - Secure file deletion and data sanitization methods.<br>
+<a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/computer-forensics-skills/skills/file-deletion" target="_blank" class="external-link">文件删除</a> - 安全的文件删除和数据清除方法。</li>
+<li><a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/computer-forensics-skills/skills/metadata-extraction" target="_blank" class="external-link">metadata-extraction</a> - Extract and analyze file metadata for forensic purposes.<br>
+<a href="https://github.com/mhattingpete/claude-skills-marketplace/tree/main/computer-forensics-skills/skills/metadata-extraction" target="_blank" class="external-link">元数据提取</a> - 提取和分析文件元数据以用于取证目的。</li>
+<li><a href="https://github.com/jthack/threat-hunting-with-sigma-rules-skill" target="_blank" class="external-link">threat-hunting-with-sigma-rules</a> - Use Sigma detection rules to hunt for threats and analyze security events.<br>
+<a href="https://github.com/jthack/threat-hunting-with-sigma-rules-skill" target="_blank" class="external-link">使用 Sigma 规则进行威胁狩猎</a> - 使用 Sigma 检测规则来狩猎威胁并分析安全事件。</li>
+</ul>
+<h3 id="assistive-technology" tabindex="-1">Assistive Technology辅助技术</h3>
+<ul>
+<li><a href="https://github.com/emory/ASD-AuDHD-PAI-Skills" target="_blank" class="external-link">ASD-AuDHD-PAI-Skills</a> - New collection, first skill <a href="https://github.com/emory/ASD-AuDHD-PAI-Skills/blob/main/Skills/pda-reframing/SKILL.md" target="_blank" class="external-link">pda-reframing</a> can reframe requests or decisions to defeat Persistent Demand Avoidance flavors of autism spectrum disorders, or people with ADHD that struggle to Start tasks and need help aligning with a task.<br>
+<a href="https://github.com/emory/ASD-AuDHD-PAI-Skills" target="_blank" class="external-link">ASD-AuDHD-PAI-Skills</a> - 新系列，第一个技能 <a href="https://github.com/emory/ASD-AuDHD-PAI-Skills/blob/main/Skills/pda-reframing/SKILL.md" target="_blank" class="external-link">pda-reframing</a> 可以重新构建请求或决定，以克服自闭症谱系障碍的持续性需求回避 (PAI) 类型，或难以开始任务且需要帮助才能完成任务的多动症患者。</li>
+</ul>
+<h3 id="app-automation-via-composio-composio" tabindex="-1">App Automation via Composio通过 Composio 实现应用自动化</h3>
+<p>Pre-built workflow skills for 78 SaaS apps via <a href="https://composio.dev/" target="_blank" class="external-link">Rube MCP (Composio)</a>. Each skill includes tool sequences, parameter guidance, known pitfalls, and quick reference tables — all using real tool slugs discovered from Composio's API.<br>
+通过 <a href="https://composio.dev/" target="_blank" class="external-link">Rube MCP（Composio）</a> 为 78 个 SaaS 应用预构建工作流技能。每个技能都包含工具序列、参数指南、已知陷阱和快速参考表——所有这些都使用从 Composio API 中发现的真实工具 slug。</p>
+<p><strong>CRM &amp; Sales<br>
+客户关系管理与销售</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/close-automation" target="_blank" class="external-link">Close Automation</a> - Automate Close CRM: leads, contacts, opportunities, activities, and pipelines.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/close-automation" target="_blank" class="external-link">成交自动化</a> - 自动化成交 CRM：潜在客户、联系人、商机、活动和销售渠道。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/hubspot-automation" target="_blank" class="external-link">HubSpot Automation</a> - Automate HubSpot CRM: contacts, deals, companies, tickets, and email engagement.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/hubspot-automation" target="_blank" class="external-link">HubSpot 自动化</a> - 自动化 HubSpot CRM：联系人、交易、公司、工单和电子邮件互动。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/pipedrive-automation" target="_blank" class="external-link">Pipedrive Automation</a> - Automate Pipedrive: deals, contacts, organizations, activities, and pipelines.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/pipedrive-automation" target="_blank" class="external-link">Pipedrive 自动化</a> - 自动化 Pipedrive：交易、联系人、组织、活动和管道。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/salesforce-automation" target="_blank" class="external-link">Salesforce Automation</a> - Automate Salesforce: objects, records, SOQL queries, and bulk operations.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/salesforce-automation" target="_blank" class="external-link">Salesforce Automation</a> - 自动化 Salesforce：对象、记录、SOQL 查询和批量操作。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/zoho-crm-automation" target="_blank" class="external-link">Zoho CRM Automation</a> - Automate Zoho CRM: leads, contacts, deals, accounts, and modules.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/zoho-crm-automation" target="_blank" class="external-link">Zoho CRM 自动化</a> - 自动化 Zoho CRM：潜在客户、联系人、交易、帐户和模块。</li>
+</ul>
+<p><strong>Project Management<br>
+项目管理</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/asana-automation" target="_blank" class="external-link">Asana Automation</a> - Automate Asana: tasks, projects, sections, assignments, and workspaces.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/asana-automation" target="_blank" class="external-link">Asana Automation</a> - 自动化 Asana：任务、项目、版块、分配和工作区。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/basecamp-automation" target="_blank" class="external-link">Basecamp Automation</a> - Automate Basecamp: to-do lists, messages, people, groups, and projects.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/basecamp-automation" target="_blank" class="external-link">Basecamp 自动化</a> - 自动化 Basecamp：待办事项列表、消息、人员、群组和项目。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/clickup-automation" target="_blank" class="external-link">ClickUp Automation</a> - Automate ClickUp: tasks, lists, spaces, goals, and time tracking.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/clickup-automation" target="_blank" class="external-link">ClickUp 自动化</a> - 自动化 ClickUp：任务、列表、空间、目标和时间跟踪。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/jira-automation" target="_blank" class="external-link">Jira Automation</a> - Automate Jira: issues, projects, boards, sprints, and JQL queries.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/jira-automation" target="_blank" class="external-link">Jira Automation</a> - 自动化 Jira：问题、项目、看板、迭代和 JQL 查询。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/linear-automation" target="_blank" class="external-link">Linear Automation</a> - Automate Linear: issues, projects, cycles, teams, and workflows.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/linear-automation" target="_blank" class="external-link">线性自动化</a> - 自动化线性流程：问题、项目、周期、团队和工作流程。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/monday-automation" target="_blank" class="external-link">Monday Automation</a> - Automate <a href="http://Monday.com" target="_blank" class="external-link">Monday.com</a>: boards, items, columns, groups, and workspaces.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/monday-automation" target="_blank" class="external-link">星期一自动化</a> - Automate <a href="http://Monday.com" target="_blank" class="external-link">Monday.com</a>：看板、项目、列、组和工作区。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/notion-automation" target="_blank" class="external-link">Notion Automation</a> - Automate Notion: pages, databases, blocks, comments, and search.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/notion-automation" target="_blank" class="external-link">Notion Automation</a> - 自动化 Notion：页面、数据库、区块、评论和搜索。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/todoist-automation" target="_blank" class="external-link">Todoist Automation</a> - Automate Todoist: tasks, projects, sections, labels, and filters.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/todoist-automation" target="_blank" class="external-link">Todoist 自动化</a> - 自动化 Todoist：任务、项目、部分、标签和过滤器。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/trello-automation" target="_blank" class="external-link">Trello Automation</a> - Automate Trello: boards, cards, lists, members, and checklists.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/trello-automation" target="_blank" class="external-link">Trello 自动化</a> - 自动化 Trello：看板、卡片、列表、成员和清单。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/wrike-automation" target="_blank" class="external-link">Wrike Automation</a> - Automate Wrike: tasks, folders, projects, comments, and workflows.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/wrike-automation" target="_blank" class="external-link">Wrike Automation</a> - 自动化 Wrike：任务、文件夹、项目、评论和工作流。</li>
+</ul>
+<p><strong>Communication<br>
+沟通</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/discord-automation" target="_blank" class="external-link">Discord Automation</a> - Automate Discord: messages, channels, servers, roles, and reactions.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/discord-automation" target="_blank" class="external-link">Discord 自动化</a> - 自动化 Discord：消息、频道、服务器、角色和反应。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/intercom-automation" target="_blank" class="external-link">Intercom Automation</a> - Automate Intercom: conversations, contacts, companies, tickets, and articles.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/intercom-automation" target="_blank" class="external-link">对讲自动化</a> - 自动化对讲：对话、联系人、公司、工单和文章。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/microsoft-teams-automation" target="_blank" class="external-link">Microsoft Teams Automation</a> - Automate Teams: messages, channels, teams, chats, and meetings.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/microsoft-teams-automation" target="_blank" class="external-link">Microsoft Teams 自动化</a> - 自动化 Teams：消息、频道、团队、聊天和会议。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/slack-automation" target="_blank" class="external-link">Slack Automation</a> - Automate Slack: messages, channels, search, reactions, threads, and scheduling.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/slack-automation" target="_blank" class="external-link">Slack 自动化</a> - 自动化 Slack：消息、频道、搜索、反应、主题和日程安排。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/telegram-automation" target="_blank" class="external-link">Telegram Automation</a> - Automate Telegram: messages, chats, media, groups, and bots.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/telegram-automation" target="_blank" class="external-link">Telegram 自动化</a> - 自动化 Telegram：消息、聊天、媒体、群组和机器人。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/whatsapp-automation" target="_blank" class="external-link">WhatsApp Automation</a> - Automate WhatsApp: messages, media, templates, groups, and business profiles.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/whatsapp-automation" target="_blank" class="external-link">WhatsApp 自动化</a> - 自动化 WhatsApp：消息、媒体、模板、群组和企业个人资料。</li>
+</ul>
+<p><strong>Email<br>
+电子邮件</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/gmail-automation" target="_blank" class="external-link">Gmail Automation</a> - Automate Gmail: send/reply, search, labels, drafts, and attachments.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/gmail-automation" target="_blank" class="external-link">Gmail 自动化</a> - 自动化 Gmail：发送/回复、搜索、标签、草稿和附件。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/outlook-automation" target="_blank" class="external-link">Outlook Automation</a> - Automate Outlook: emails, folders, contacts, and calendar integration.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/outlook-automation" target="_blank" class="external-link">Outlook 自动化</a> - 自动化 Outlook：电子邮件、文件夹、联系人和日历集成。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/postmark-automation" target="_blank" class="external-link">Postmark Automation</a> - Automate Postmark: transactional emails, templates, servers, and delivery stats.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/postmark-automation" target="_blank" class="external-link">Postmark 自动化</a> - 自动化 Postmark：交易电子邮件、模板、服务器和投递统计。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/sendgrid-automation" target="_blank" class="external-link">SendGrid Automation</a> - Automate SendGrid: emails, templates, contacts, lists, and campaign stats.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/sendgrid-automation" target="_blank" class="external-link">SendGrid 自动化</a> - 自动化 SendGrid：电子邮件、模板、联系人、列表和活动统计信息。</li>
+</ul>
+<p><strong>Code &amp; DevOps<br>
+代码与 DevOps</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/bitbucket-automation" target="_blank" class="external-link">Bitbucket Automation</a> - Automate Bitbucket: repos, PRs, branches, issues, and workspaces.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/bitbucket-automation" target="_blank" class="external-link">Bitbucket 自动化</a> - 自动化 Bitbucket：仓库、PR、分支、问题和工作区。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/circleci-automation" target="_blank" class="external-link">CircleCI Automation</a> - Automate CircleCI: pipelines, workflows, jobs, and project configuration.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/circleci-automation" target="_blank" class="external-link">CircleCI 自动化</a> - 自动化 CircleCI：管道、工作流、作业和项目配置。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/datadog-automation" target="_blank" class="external-link">Datadog Automation</a> - Automate Datadog: monitors, dashboards, metrics, incidents, and alerts.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/datadog-automation" target="_blank" class="external-link">Datadog Automation</a> - 自动化 Datadog：监控、仪表盘、指标、事件和警报。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/github-automation" target="_blank" class="external-link">GitHub Automation</a> - Automate GitHub: issues, PRs, repos, branches, actions, and code search.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/github-automation" target="_blank" class="external-link">GitHub Automation</a> - 自动化 GitHub：问题、PR、仓库、分支、操作和代码搜索。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/gitlab-automation" target="_blank" class="external-link">GitLab Automation</a> - Automate GitLab: issues, MRs, projects, pipelines, and branches.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/gitlab-automation" target="_blank" class="external-link">GitLab 自动化</a> - 自动化 GitLab：问题、合并请求、项目、流水线和分支。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/pagerduty-automation" target="_blank" class="external-link">PagerDuty Automation</a> - Automate PagerDuty: incidents, services, schedules, escalation policies, and on-call.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/pagerduty-automation" target="_blank" class="external-link">PagerDuty 自动化</a> - 自动化 PagerDuty：事件、服务、日程安排、升级策略和值班。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/render-automation" target="_blank" class="external-link">Render Automation</a> - Automate Render: services, deploys, and project management.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/render-automation" target="_blank" class="external-link">渲染自动化</a> - 自动化渲染：服务、部署和项目管理。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/sentry-automation" target="_blank" class="external-link">Sentry Automation</a> - Automate Sentry: issues, events, projects, releases, and alerts.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/sentry-automation" target="_blank" class="external-link">Sentry Automation</a> - 自动化 Sentry：问题、事件、项目、版本和警报。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/supabase-automation" target="_blank" class="external-link">Supabase Automation</a> - Automate Supabase: SQL queries, table schemas, edge functions, and storage.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/supabase-automation" target="_blank" class="external-link">Supabase Automation</a> - 自动化 Supabase：SQL 查询、表架构、边缘函数和存储。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/vercel-automation" target="_blank" class="external-link">Vercel Automation</a> - Automate Vercel: deployments, projects, domains, environment variables, and logs.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/vercel-automation" target="_blank" class="external-link">Vercel 自动化</a> - 自动化 Vercel：部署、项目、域、环境变量和日志。</li>
+</ul>
+<p><strong>Storage &amp; Files<br>
+存储和文件</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/box-automation" target="_blank" class="external-link">Box Automation</a> - Automate Box: files, folders, search, sharing, collaborations, and sign requests.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/box-automation" target="_blank" class="external-link">Box Automation</a> - 自动化 Box：文件、文件夹、搜索、共享、协作和签署请求。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/dropbox-automation" target="_blank" class="external-link">Dropbox Automation</a> - Automate Dropbox: files, folders, search, sharing, and batch operations.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/dropbox-automation" target="_blank" class="external-link">Dropbox 自动化</a> - 自动化 Dropbox：文件、文件夹、搜索、共享和批量操作。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/google-drive-automation" target="_blank" class="external-link">Google Drive Automation</a> - Automate Google Drive: upload, download, search, share, and organize files.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/google-drive-automation" target="_blank" class="external-link">Google 云端硬盘自动化</a> - 自动化 Google 云端硬盘：上传、下载、搜索、共享和整理文件。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/one-drive-automation" target="_blank" class="external-link">OneDrive Automation</a> - Automate OneDrive: files, folders, search, sharing, permissions, and versioning.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/one-drive-automation" target="_blank" class="external-link">OneDrive 自动化</a> - 自动化 OneDrive：文件、文件夹、搜索、共享、权限和版本控制。</li>
+</ul>
+<p><strong>Spreadsheets &amp; Databases<br>
+电子表格和数据库</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/airtable-automation" target="_blank" class="external-link">Airtable Automation</a> - Automate Airtable: records, tables, bases, views, and field management.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/airtable-automation" target="_blank" class="external-link">Airtable 自动化</a> - 自动化 Airtable：记录、表格、数据库、视图和字段管理。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/coda-automation" target="_blank" class="external-link">Coda Automation</a> - Automate Coda: docs, tables, rows, formulas, and automations.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/coda-automation" target="_blank" class="external-link">Coda Automation</a> - 自动化 Coda：文档、表格、行、公式和自动化。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/googlesheets-automation" target="_blank" class="external-link">Google Sheets Automation</a> - Automate Google Sheets: read/write cells, formatting, formulas, and batch operations.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/googlesheets-automation" target="_blank" class="external-link">Google Sheets 自动化</a> - 自动化 Google Sheets：读取/写入单元格、格式设置、公式和批量操作。</li>
+</ul>
+<p><strong>Calendar &amp; Scheduling<br>
+日历和日程安排</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/cal-com-automation" target="_blank" class="external-link">Cal.com Automation</a> - Automate <a href="http://Cal.com" target="_blank" class="external-link">Cal.com</a>: event types, bookings, availability, and scheduling.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/cal-com-automation" target="_blank" class="external-link">Cal.com 自动化</a> - 自动化 <a href="http://Cal.com" target="_blank" class="external-link">Cal.com</a>：活动类型、预订、可用性和日程安排。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/calendly-automation" target="_blank" class="external-link">Calendly Automation</a> - Automate Calendly: events, invitees, event types, scheduling links, and availability.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/calendly-automation" target="_blank" class="external-link">Calendly 自动化</a> - 自动化 Calendly：事件、受邀者、事件类型、日程安排链接和可用性。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/google-calendar-automation" target="_blank" class="external-link">Google Calendar Automation</a> - Automate Google Calendar: events, attendees, free/busy, and recurring schedules.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/google-calendar-automation" target="_blank" class="external-link">Google 日历自动化</a> - 自动管理 Google 日历：事件、与会者、空闲/忙碌状态和重复性日程安排。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/outlook-calendar-automation" target="_blank" class="external-link">Outlook Calendar Automation</a> - Automate Outlook Calendar: events, attendees, reminders, and recurring schedules.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/outlook-calendar-automation" target="_blank" class="external-link">Outlook 日历自动化</a> - 自动执行 Outlook 日历：事件、与会者、提醒和重复日程。</li>
+</ul>
+<p><strong>Social Media<br>
+社交媒体</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/instagram-automation" target="_blank" class="external-link">Instagram Automation</a> - Automate Instagram: posts, stories, comments, media, and business insights.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/instagram-automation" target="_blank" class="external-link">Instagram 自动化</a> - 自动化 Instagram：帖子、快拍、评论、媒体和商业洞察。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/linkedin-automation" target="_blank" class="external-link">LinkedIn Automation</a> - Automate LinkedIn: posts, profiles, companies, images, and comments.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/linkedin-automation" target="_blank" class="external-link">LinkedIn 自动化</a> - 自动执行 LinkedIn 操作：帖子、个人资料、公司、图片和评论。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/reddit-automation" target="_blank" class="external-link">Reddit Automation</a> - Automate Reddit: posts, comments, subreddits, voting, and moderation.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/reddit-automation" target="_blank" class="external-link">Reddit 自动化</a> - 自动化 Reddit：帖子、评论、子版块、投票和版主管理。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/tiktok-automation" target="_blank" class="external-link">TikTok Automation</a> - Automate TikTok: video uploads, queries, and creator management.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/tiktok-automation" target="_blank" class="external-link">TikTok 自动化</a> - 自动化 TikTok：视频上传、查询和创作者管理。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/twitter-automation" target="_blank" class="external-link">Twitter Automation</a> - Automate Twitter/X: tweets, search, users, lists, and engagement.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/twitter-automation" target="_blank" class="external-link">Twitter Automation</a> - 自动化 Twitter/X：推文、搜索、用户、列表和互动。</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/youtube-automation" target="_blank" class="external-link">YouTube Automation</a> - Automate YouTube: videos, channels, playlists, comments, and subscriptions.<br>
+<a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/youtube-automation" target="_blank" class="external-link">YouTube 自动化</a> - 自动化 YouTube：视频、频道、播放列表、评论和订阅。</li>
+</ul>
+<p><strong>Marketing &amp; Email Marketing</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/activecampaign-automation" target="_blank" class="external-link">ActiveCampaign Automation</a> - Automate ActiveCampaign: contacts, deals, campaigns, lists, and automations.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/brevo-automation" target="_blank" class="external-link">Brevo Automation</a> - Automate Brevo: contacts, email campaigns, transactional emails, and lists.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/convertkit-automation" target="_blank" class="external-link">ConvertKit Automation</a> - Automate ConvertKit (Kit): subscribers, tags, sequences, broadcasts, and forms.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/klaviyo-automation" target="_blank" class="external-link">Klaviyo Automation</a> - Automate Klaviyo: profiles, lists, segments, campaigns, and events.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/mailchimp-automation" target="_blank" class="external-link">Mailchimp Automation</a> - Automate Mailchimp: audiences, campaigns, templates, segments, and reports.</li>
+</ul>
+<p><strong>Support &amp; Helpdesk</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/freshdesk-automation" target="_blank" class="external-link">Freshdesk Automation</a> - Automate Freshdesk: tickets, contacts, agents, groups, and canned responses.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/freshservice-automation" target="_blank" class="external-link">Freshservice Automation</a> - Automate Freshservice: tickets, assets, changes, problems, and service catalog.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/helpdesk-automation" target="_blank" class="external-link">Help Scout Automation</a> - Automate Help Scout: conversations, customers, mailboxes, and tags.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/zendesk-automation" target="_blank" class="external-link">Zendesk Automation</a> - Automate Zendesk: tickets, users, organizations, search, and macros.</li>
+</ul>
+<p><strong>E-commerce &amp; Payments</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/shopify-automation" target="_blank" class="external-link">Shopify Automation</a> - Automate Shopify: products, orders, customers, inventory, and GraphQL queries.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/square-automation" target="_blank" class="external-link">Square Automation</a> - Automate Square: payments, customers, catalog, orders, and locations.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/stripe-automation" target="_blank" class="external-link">Stripe Automation</a> - Automate Stripe: charges, customers, products, subscriptions, and refunds.</li>
+</ul>
+<p><strong>Design &amp; Collaboration</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/canva-automation" target="_blank" class="external-link">Canva Automation</a> - Automate Canva: designs, templates, assets, folders, and brand kits.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/confluence-automation" target="_blank" class="external-link">Confluence Automation</a> - Automate Confluence: pages, spaces, search, CQL, labels, and versions.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/docusign-automation" target="_blank" class="external-link">DocuSign Automation</a> - Automate DocuSign: envelopes, templates, signing, and document management.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/figma-automation" target="_blank" class="external-link">Figma Automation</a> - Automate Figma: files, components, comments, projects, and team management.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/miro-automation" target="_blank" class="external-link">Miro Automation</a> - Automate Miro: boards, sticky notes, shapes, connectors, and items.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/webflow-automation" target="_blank" class="external-link">Webflow Automation</a> - Automate Webflow: CMS collections, items, sites, publishing, and assets.</li>
+</ul>
+<p><strong>Analytics &amp; Data</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/amplitude-automation" target="_blank" class="external-link">Amplitude Automation</a> - Automate Amplitude: events, cohorts, user properties, and analytics queries.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/google-analytics-automation" target="_blank" class="external-link">Google Analytics Automation</a> - Automate Google Analytics: reports, dimensions, metrics, and property management.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/mixpanel-automation" target="_blank" class="external-link">Mixpanel Automation</a> - Automate Mixpanel: events, funnels, cohorts, annotations, and JQL queries.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/posthog-automation" target="_blank" class="external-link">PostHog Automation</a> - Automate PostHog: events, persons, feature flags, insights, and annotations.</li>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/segment-automation" target="_blank" class="external-link">Segment Automation</a> - Automate Segment: sources, destinations, tracking, and warehouse connections.</li>
+</ul>
+<p><strong>HR &amp; People</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/bamboohr-automation" target="_blank" class="external-link">BambooHR Automation</a> - Automate BambooHR: employees, time off, reports, and directory management.</li>
+</ul>
+<p><strong>Automation Platforms</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/make-automation" target="_blank" class="external-link">Make Automation</a> - Automate Make (Integromat): scenarios, connections, and execution management.</li>
+</ul>
+<p><strong>Zoom &amp; Meetings</strong></p>
+<ul>
+<li><a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/zoom-automation" target="_blank" class="external-link">Zoom Automation</a> - Automate Zoom: meetings, recordings, participants, webinars, and reports.</li>
+</ul>
+<h2 id="getting-started" tabindex="-1">Getting Started</h2>
+<h3 id="using-skills-in-a-href-http-claude-ai-target-blank-class-external-link-claude-ai-a" tabindex="-1">Using Skills in <a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a></h3>
+<ol>
+<li>Click the skill icon (🧩) in your chat interface.</li>
+<li>Add skills from the marketplace or upload custom skills.</li>
+<li>Claude automatically activates relevant skills based on your task.</li>
+</ol>
+<h3 id="using-skills-in-claude-code" tabindex="-1">Using Skills in Claude Code</h3>
+<ol>
+<li>Place the skill in <code>~/.config/claude-code/skills/</code>:<pre><code>mkdir -p ~/.config/claude-code/skills/
+cp -r skill-name ~/.config/claude-code/skills/
+</code></pre>
+</li>
+<li>Verify skill metadata:<pre><code>head ~/.config/claude-code/skills/skill-name/SKILL.md
+</code></pre>
+</li>
+<li>Start Claude Code:<pre><code>claude
+</code></pre>
+</li>
+<li>The skill loads automatically and activates when relevant.</li>
+</ol>
+<h3 id="using-skills-via-api" tabindex="-1">Using Skills via API</h3>
+<p>Use the Claude Skills API to programmatically load and manage skills:</p>
+<pre><code>import anthropic
+
+client = anthropic.Anthropic(api_key=&quot;your-api-key&quot;)
+
+response = client.messages.create(
+    model=&quot;claude-3-5-sonnet-20241022&quot;,
+    skills=[&quot;skill-id-here&quot;],
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Your prompt&quot;}]
+)
+</code></pre>
+<p>See the <a href="https://docs.claude.com/en/api/skills-guide" target="_blank" class="external-link">Skills API documentation</a> for details.</p>
+<h2 id="creating-skills" tabindex="-1">Creating Skills</h2>
+<h3 id="skill-structure" tabindex="-1">Skill Structure</h3>
+<p>Each skill is a folder containing a <code>SKILL.md</code> file with YAML frontmatter:</p>
+<pre><code>skill-name/
+├── SKILL.md          # Required: Skill instructions and metadata
+├── scripts/          # Optional: Helper scripts
+├── templates/        # Optional: Document templates
+└── resources/        # Optional: Reference files
+</code></pre>
+<h3 id="basic-skill-template" tabindex="-1">Basic Skill Template</h3>
+<pre><code>---
+name: my-skill-name
+description: A clear description of what this skill does and when to use it.
+---
+
+# My Skill Name
+
+Detailed description of the skill's purpose and capabilities.
+
+## When to Use This Skill
+
+- Use case 1
+- Use case 2
+- Use case 3
+
+## Instructions
+
+[Detailed instructions for Claude on how to execute this skill]
+
+## Examples
+
+[Real-world examples showing the skill in action]
+</code></pre>
+<h3 id="skill-best-practices" tabindex="-1">Skill Best Practices</h3>
+<ul>
+<li>Focus on specific, repeatable tasks</li>
+<li>Include clear examples and edge cases</li>
+<li>Write instructions for Claude, not end users</li>
+<li>Test across <a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a>, Claude Code, and API</li>
+<li>Document prerequisites and dependencies</li>
+<li>Include error handling guidance</li>
+</ul>
+<h2 id="contributing" tabindex="-1">Contributing</h2>
+<p>We welcome contributions! Please read our <a href="https://github.com/ComposioHQ/awesome-claude-skills/blob/master/CONTRIBUTING.md" target="_blank" class="external-link">Contributing Guidelines</a> for details on:</p>
+<ul>
+<li>How to submit new skills</li>
+<li>Skill quality standards</li>
+<li>Pull request process</li>
+<li>Code of conduct</li>
+</ul>
+<h3 id="quick-contribution-steps" tabindex="-1">Quick Contribution Steps</h3>
+<ol>
+<li>Ensure your skill is based on a real use case</li>
+<li>Check for duplicates in existing skills</li>
+<li>Follow the skill structure template</li>
+<li>Test your skill across platforms</li>
+<li>Submit a pull request with clear documentation</li>
+</ol>
+<h2 id="resources" tabindex="-1">Resources</h2>
+<h3 id="official-documentation" tabindex="-1">Official Documentation</h3>
+<ul>
+<li><a href="https://www.anthropic.com/news/skills" target="_blank" class="external-link">Claude Skills Overview</a> - Official announcement and features</li>
+<li><a href="https://support.claude.com/en/articles/12512180-using-skills-in-claude" target="_blank" class="external-link">Skills User Guide</a> - How to use skills in Claude</li>
+<li><a href="https://support.claude.com/en/articles/12512198-creating-custom-skills" target="_blank" class="external-link">Creating Custom Skills</a> - Skill development guide</li>
+<li><a href="https://docs.claude.com/en/api/skills-guide" target="_blank" class="external-link">Skills API Documentation</a> - API integration guide</li>
+<li><a href="https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills" target="_blank" class="external-link">Agent Skills Blog Post</a> - Engineering deep dive</li>
+</ul>
+<h3 id="community-resources" tabindex="-1">Community Resources</h3>
+<ul>
+<li><a href="https://github.com/anthropics/skills" target="_blank" class="external-link">Anthropic Skills Repository</a> - Official example skills</li>
+<li><a href="https://community.anthropic.com/" target="_blank" class="external-link">Claude Community</a> - Discuss skills with other users</li>
+<li><a href="https://claude.ai/marketplace" target="_blank" class="external-link">Skills Marketplace</a> - Discover and share skills</li>
+</ul>
+<h3 id="inspiration-and-amp-use-cases" tabindex="-1">Inspiration &amp; Use Cases</h3>
+<ul>
+<li><a href="https://www.lennysnewsletter.com/p/everyone-should-be-using-claude-code" target="_blank" class="external-link">Lenny's Newsletter</a> - 50 ways people use Claude Code</li>
+<li><a href="https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0" target="_blank" class="external-link">Notion Skills</a> - Notion integration skills</li>
+<li><a href="https://composio.dev/content/top-claude-skills" target="_blank" class="external-link">Top Claude Skills</a></li>
+</ul>
+<h2 id="join-the-community" tabindex="-1">Join the Community</h2>
+<ul>
+<li><a href="https://discord.com/invite/composio" target="_blank" class="external-link">Join our Discord</a> - Chat with other developers building Claude Skills</li>
+<li><a href="https://x.com/composio" target="_blank" class="external-link">Follow on Twitter/X</a> - Stay updated on new skills and features</li>
+<li>Questions? <a href="mailto:support@composio.dev" target="_blank" class="external-link">support@composio.dev</a></li>
+</ul>
+<hr>
+<p><strong>Join 20,000+ developers building agents that ship</strong></p>
+<h2 id="license" tabindex="-1">License</h2>
+<p>This repository is licensed under the Apache License 2.0.</p>
+<p>Individual skills may have different licenses - please check each skill's folder for specific licensing information.</p>
+<hr>
+<p><strong>Note</strong>: Claude Skills work across <a href="http://Claude.ai" target="_blank" class="external-link">Claude.ai</a>, Claude Code, and the Claude API. Once you create a skill, it's portable across all platforms, making your workflows consistent everywhere you use Claude.</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#awesome-claude-skills">Awesome Claude Skills克劳德的技能太棒了</a>
+</li>
+<li><a href="#give-your-skills-real-world-actions">Give your skills real-world actions将你的技能应用于实际行动中</a>
+</li>
+<li><a href="#quickstart-connect-claude-to-1000-apps-claude-1000">Quickstart: Connect Claude to 1000+ Apps快速入门：将 Claude 连接到 1000 多个应用程序</a>
+<ol>
+<li><a href="#1-install-the-plugin1">1. Install the Plugin1. 安装插件</a>
+</li>
+<li><a href="#2-run-setup2">2. Run Setup2. 运行安装程序</a>
+</li>
+<li><a href="#3-restart-and-amp-try-it3">3. Restart & Try It3. 重新启动并尝试</a>
+</li>
+</ol>
+</li>
+<li><a href="#contents">Contents内容</a>
+</li>
+<li><a href="#what-are-claude-skills">What Are Claude Skills?克劳德的技能有哪些？</a>
+</li>
+<li><a href="#skills">Skills技能</a>
+<ol>
+<li><a href="#document-processing">Document Processing文档处理</a>
+</li>
+<li><a href="#development-and-amp-code-tools">Development & Code Tools开发和代码工具</a>
+</li>
+<li><a href="#data-and-amp-analysis">Data & Analysis数据与分析</a>
+</li>
+<li><a href="#business-and-amp-marketing">Business & Marketing商业与市场营销</a>
+</li>
+<li><a href="#communication-and-amp-writing">Communication & Writing沟通与写作</a>
+</li>
+<li><a href="#creative-and-amp-media">Creative & Media创意与媒体</a>
+</li>
+<li><a href="#productivity-and-amp-organization">Productivity & Organization生产力和组织能力</a>
+</li>
+<li><a href="#collaboration-and-amp-project-management">Collaboration & Project Management协作与项目管理</a>
+</li>
+<li><a href="#security-and-amp-systems">Security & Systems安全与系统</a>
+</li>
+<li><a href="#assistive-technology">Assistive Technology辅助技术</a>
+</li>
+<li><a href="#app-automation-via-composio-composio">App Automation via Composio通过 Composio 实现应用自动化</a>
+</li>
+</ol>
+</li>
+<li><a href="#getting-started">Getting Started</a>
+<ol>
+<li><a href="#using-skills-in-a-href-http-claude-ai-target-blank-class-external-link-claude-ai-a">Using Skills in Claude.ai</a>
+</li>
+<li><a href="#using-skills-in-claude-code">Using Skills in Claude Code</a>
+</li>
+<li><a href="#using-skills-via-api">Using Skills via API</a>
+</li>
+</ol>
+</li>
+<li><a href="#creating-skills">Creating Skills</a>
+<ol>
+<li><a href="#skill-structure">Skill Structure</a>
+</li>
+<li><a href="#basic-skill-template">Basic Skill Template</a>
+</li>
+<li><a href="#skill-best-practices">Skill Best Practices</a>
+</li>
+</ol>
+</li>
+<li><a href="#contributing">Contributing</a>
+<ol>
+<li><a href="#quick-contribution-steps">Quick Contribution Steps</a>
+</li>
+</ol>
+</li>
+<li><a href="#resources">Resources</a>
+<ol>
+<li><a href="#official-documentation">Official Documentation</a>
+</li>
+<li><a href="#community-resources">Community Resources</a>
+</li>
+<li><a href="#inspiration-and-amp-use-cases">Inspiration & Use Cases</a>
+</li>
+</ol>
+</li>
+<li><a href="#join-the-community">Join the Community</a>
+</li>
+<li><a href="#license">License</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
