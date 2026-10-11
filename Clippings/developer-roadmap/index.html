@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers.</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome/readme.md 在 main · sindresorhus/awesome --- awesome/readme.md at main </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers. </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers.</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<p><a href="https://roadmap.sh/" target="_blank" class="external-link"><img src="https://camo.githubusercontent.com/c4fd49c92829fc4861a5aae2e2a1a23587d90258199f8063caee4c849ed86257/68747470733a2f2f726f61646d61702e73682f696d672f6272616e642e706e67" alt=""></a></p>
+<h2 id="a-href-http-roadmap-xn-sh-7h8cs12mo4p-sh-target-blank-class-external-link-roadmap-sh-sh-a" tabindex="-1"><a href="http://roadmap.xn--sh-7h8cs12mo4p.sh" target="_blank" class="external-link">roadmap.sh路线图.sh</a></h2>
+<p>Community-driven roadmaps, articles and resources for developers<br>
+面向开发者的社区驱动型路线图、文章和资源</p>
+<p>Roadmaps are now interactive, you can click the nodes to read more about the topics.<br>
+路线图现在是交互式的，您可以点击节点阅读更多有关主题的信息。</p>
+<h3 id="view-all-roadmaps-best-practices-questions" tabindex="-1">View all Roadmaps · Best Practices · Questions查看所有路线图 · 最佳实践 · 问题</h3>
+<p>Here is the list of available roadmaps with more being actively worked upon.<br>
+以下是现有路线图列表，更多路线图正在积极制定中。</p>
+<blockquote>
+<p>Have a look at the <a href="https://roadmap.sh/get-started" target="_blank" class="external-link">get started</a> page that might help you pick up a path.<br>
+看看 <a href="https://roadmap.sh/get-started" target="_blank" class="external-link">入门</a> 页面，它或许能帮助你找到方向。</p>
+</blockquote>
+<ul>
+<li><a href="https://roadmap.sh/frontend" target="_blank" class="external-link">Frontend Roadmap</a> / <a href="https://roadmap.sh/frontend?r=frontend-beginner" target="_blank" class="external-link">Frontend Beginner Roadmap</a><br>
+<a href="https://roadmap.sh/frontend" target="_blank" class="external-link">前端开发路线图</a> / <a href="https://roadmap.sh/frontend?r=frontend-beginner" target="_blank" class="external-link">前端入门路线图</a></li>
+<li><a href="https://roadmap.sh/backend" target="_blank" class="external-link">Backend Roadmap</a> / <a href="https://roadmap.sh/backend?r=backend-beginner" target="_blank" class="external-link">Backend Beginner Roadmap</a><br>
+<a href="https://roadmap.sh/backend" target="_blank" class="external-link">后端开发路线图</a> / <a href="https://roadmap.sh/backend?r=backend-beginner" target="_blank" class="external-link">后端入门路线图</a></li>
+<li><a href="https://roadmap.sh/devops" target="_blank" class="external-link">DevOps Roadmap</a> / <a href="https://roadmap.sh/devops?r=devops-beginner" target="_blank" class="external-link">DevOps Beginner Roadmap</a><br>
+<a href="https://roadmap.sh/devops" target="_blank" class="external-link">DevOps 路线图</a> / <a href="https://roadmap.sh/devops?r=devops-beginner" target="_blank" class="external-link">DevOps 入门路线图</a></li>
+<li><a href="https://roadmap.sh/devsecops" target="_blank" class="external-link">DevSecOps Roadmap<br>
+DevSecOps 路线图</a></li>
+<li><a href="https://roadmap.sh/full-stack" target="_blank" class="external-link">Full Stack Roadmap<br>
+全栈路线图</a></li>
+<li><a href="https://roadmap.sh/claude-code" target="_blank" class="external-link">Claude Code Roadmap<br>
+克劳德代码路线图</a></li>
+<li><a href="https://roadmap.sh/openclaw" target="_blank" class="external-link">OpenClaw Roadmap<br>
+OpenClaw 路线图</a></li>
+<li><a href="https://roadmap.sh/vibe-coding" target="_blank" class="external-link">Vibe Coding Roadmap<br>
+Vibe 编码路线图</a></li>
+<li><a href="https://roadmap.sh/forward-deployed-engineer" target="_blank" class="external-link">Forward Deployed Engineer Roadmap<br>
+前沿部署工程师路线图</a></li>
+<li><a href="https://roadmap.sh/html" target="_blank" class="external-link">HTML Roadmap<br>
+HTML 路线图</a></li>
+<li><a href="https://roadmap.sh/css" target="_blank" class="external-link">CSS Roadmap<br>
+CSS 路线图</a></li>
+<li><a href="https://roadmap.sh/javascript" target="_blank" class="external-link">JavaScript Roadmap<br>
+JavaScript 路线图</a></li>
+<li><a href="https://roadmap.sh/typescript" target="_blank" class="external-link">TypeScript Roadmap<br>
+TypeScript 路线图</a></li>
+<li><a href="https://roadmap.sh/git-github" target="_blank" class="external-link">Git and GitHub</a> / <a href="https://roadmap.sh/git-github?r=git-github-beginner" target="_blank" class="external-link">Git and GitHub Beginner</a><br>
+<a href="https://roadmap.sh/git-github" target="_blank" class="external-link">Git 和 GitHub</a> / <a href="https://roadmap.sh/git-github?r=git-github-beginner" target="_blank" class="external-link">Git 和 GitHub 入门</a></li>
+<li><a href="https://roadmap.sh/api-design" target="_blank" class="external-link">API Design Roadmap<br>
+API 设计路线图</a></li>
+<li><a href="https://roadmap.sh/computer-science" target="_blank" class="external-link">Computer Science Roadmap<br>
+计算机科学路线图</a></li>
+<li><a href="https://roadmap.sh/datastructures-and-algorithms" target="_blank" class="external-link">Data Structures and Algorithms Roadmap<br>
+数据结构与算法路线图</a></li>
+<li><a href="https://roadmap.sh/ai-data-scientist" target="_blank" class="external-link">AI and Data Scientist Roadmap<br>
+人工智能和数据科学家路线图</a></li>
+<li><a href="https://roadmap.sh/ai-engineer" target="_blank" class="external-link">AI Engineer Roadmap<br>
+人工智能工程师路线图</a></li>
+<li><a href="https://roadmap.sh/inference-engineering" target="_blank" class="external-link">Inference Engineering Roadmap<br>
+推理工程路线图</a></li>
+<li><a href="https://roadmap.sh/ai-product-builder" target="_blank" class="external-link">AI Product Builder Roadmap<br>
+AI 产品构建器路线图</a></li>
+<li><a href="https://roadmap.sh/network-engineer" target="_blank" class="external-link">Network Engineer Roadmap<br>
+网络工程师路线图</a></li>
+<li><a href="https://roadmap.sh/aws" target="_blank" class="external-link">AWS Roadmap<br>
+AWS 路线图</a></li>
+<li><a href="https://roadmap.sh/cloudflare" target="_blank" class="external-link">Cloudflare Roadmap<br>
+Cloudflare 路线图</a></li>
+<li><a href="https://roadmap.sh/linux" target="_blank" class="external-link">Linux Roadmap<br>
+Linux 路线图</a></li>
+<li><a href="https://roadmap.sh/leetcode" target="_blank" class="external-link">Leetcode Roadmap<br>
+LeetCode 路线图</a></li>
+<li><a href="https://roadmap.sh/terraform" target="_blank" class="external-link">Terraform Roadmap<br>
+Terraform 路线图</a></li>
+<li><a href="https://roadmap.sh/data-analyst" target="_blank" class="external-link">Data Analyst Roadmap<br>
+数据分析师路线图</a></li>
+<li><a href="https://roadmap.sh/bi-analyst" target="_blank" class="external-link">BI Analyst Roadmap<br>
+BI 分析师路线图</a></li>
+<li><a href="https://roadmap.sh/data-engineer" target="_blank" class="external-link">Data Engineer Roadmap<br>
+数据工程师路线图</a></li>
+<li><a href="https://roadmap.sh/machine-learning" target="_blank" class="external-link">Machine Learning Roadmap<br>
+机器学习路线图</a></li>
+<li><a href="https://roadmap.sh/mlops" target="_blank" class="external-link">MLOps Roadmap<br>
+MLOps 路线图</a></li>
+<li><a href="https://roadmap.sh/product-manager" target="_blank" class="external-link">Product Manager Roadmap<br>
+产品经理路线图</a></li>
+<li><a href="https://roadmap.sh/engineering-manager" target="_blank" class="external-link">Engineering Manager Roadmap<br>
+工程经理路线图</a></li>
+<li><a href="https://roadmap.sh/qa" target="_blank" class="external-link">QA Roadmap<br>
+质量保证路线图</a></li>
+<li><a href="https://roadmap.sh/python" target="_blank" class="external-link">Python Roadmap<br>
+Python 路线图</a></li>
+<li><a href="https://roadmap.sh/python-data-analysis" target="_blank" class="external-link">Python for Data Analysis Roadmap<br>
+Python 数据分析路线图</a></li>
+<li><a href="https://roadmap.sh/django" target="_blank" class="external-link">Django Roadmap<br>
+Django 路线图</a></li>
+<li><a href="https://roadmap.sh/power-bi" target="_blank" class="external-link">Power BI Roadmap<br>
+Power BI 路线图</a></li>
+<li><a href="https://roadmap.sh/r-programming" target="_blank" class="external-link">R Programming Roadmap<br>
+R 编程路线图</a></li>
+<li><a href="https://roadmap.sh/software-architect" target="_blank" class="external-link">Software Architect Roadmap<br>
+软件架构师路线图</a></li>
+<li><a href="https://roadmap.sh/game-developer" target="_blank" class="external-link">Game Developer Roadmap</a> / <a href="https://roadmap.sh/server-side-game-developer" target="_blank" class="external-link">Server Side Game Developer</a><br>
+<a href="https://roadmap.sh/game-developer" target="_blank" class="external-link">游戏开发者路线图</a> / <a href="https://roadmap.sh/server-side-game-developer" target="_blank" class="external-link">服务器端游戏开发者</a></li>
+<li><a href="https://roadmap.sh/software-design-architecture" target="_blank" class="external-link">Software Design and Architecture Roadmap<br>
+软件设计与架构路线图</a></li>
+<li><a href="https://roadmap.sh/c" target="_blank" class="external-link">C Roadmap<br>
+C 路线图</a></li>
+<li><a href="https://roadmap.sh/cpp" target="_blank" class="external-link">C++ Roadmap<br>
+C++路线图</a></li>
+<li><a href="https://roadmap.sh/react" target="_blank" class="external-link">React Roadmap<br>
+React 路线图</a></li>
+<li><a href="https://roadmap.sh/nextjs" target="_blank" class="external-link">Next.js Roadmap<br>
+Next.js 路线图</a></li>
+<li><a href="https://roadmap.sh/react-native" target="_blank" class="external-link">React Native Roadmap<br>
+React Native 路线图</a></li>
+<li><a href="https://roadmap.sh/vue" target="_blank" class="external-link">Vue Roadmap<br>
+Vue 路线图</a></li>
+<li><a href="https://roadmap.sh/angular" target="_blank" class="external-link">Angular Roadmap<br>
+Angular 路线图</a></li>
+<li><a href="https://roadmap.sh/nodejs" target="_blank" class="external-link">Node.js Roadmap<br>
+Node.js 路线图</a></li>
+<li><a href="https://roadmap.sh/php" target="_blank" class="external-link">PHP Roadmap<br>
+PHP 路线图</a></li>
+<li><a href="https://roadmap.sh/seo" target="_blank" class="external-link">SEO Roadmap<br>
+SEO 路线图</a></li>
+<li><a href="https://roadmap.sh/wordpress" target="_blank" class="external-link">WordPress Roadmap<br>
+WordPress 路线图</a></li>
+<li><a href="https://roadmap.sh/laravel" target="_blank" class="external-link">Laravel Roadmap<br>
+Laravel 路线图</a></li>
+<li><a href="https://roadmap.sh/graphql" target="_blank" class="external-link">GraphQL Roadmap<br>
+GraphQL 路线图</a></li>
+<li><a href="https://roadmap.sh/android" target="_blank" class="external-link">Android Roadmap<br>
+Android 路线图</a></li>
+<li><a href="https://roadmap.sh/ios" target="_blank" class="external-link">iOS Roadmap<br>
+iOS 路线图</a></li>
+<li><a href="https://roadmap.sh/swift-ui" target="_blank" class="external-link">Swift/Swift UI Roadmap<br>
+Swift/Swift UI 路线图</a></li>
+<li><a href="https://roadmap.sh/flutter" target="_blank" class="external-link">Flutter Roadmap<br>
+Flutter 路线图</a></li>
+<li><a href="https://roadmap.sh/golang" target="_blank" class="external-link">Go Roadmap<br>
+前往路线图</a></li>
+<li><a href="https://roadmap.sh/rust" target="_blank" class="external-link">Rust Roadmap<br>
+Rust 路线图</a></li>
+<li><a href="https://roadmap.sh/java" target="_blank" class="external-link">Java Roadmap<br>
+Java 路线图</a></li>
+<li><a href="https://roadmap.sh/kotlin" target="_blank" class="external-link">Kotlin Roadmap<br>
+Kotlin 路线图</a></li>
+<li><a href="https://roadmap.sh/spring-boot" target="_blank" class="external-link">Spring Boot Roadmap<br>
+Spring Boot 路线图</a></li>
+<li><a href="https://roadmap.sh/design-system" target="_blank" class="external-link">Design System Roadmap<br>
+设计系统路线图</a></li>
+<li><a href="https://roadmap.sh/postgresql-dba" target="_blank" class="external-link">PostgreSQL Roadmap<br>
+PostgreSQL 路线图</a></li>
+<li><a href="https://roadmap.sh/elasticsearch" target="_blank" class="external-link">Elasticsearch Roadmap<br>
+Elasticsearch 路线图</a></li>
+<li><a href="https://roadmap.sh/sql" target="_blank" class="external-link">SQL Roadmap<br>
+SQL 路线图</a></li>
+<li><a href="https://roadmap.sh/redis" target="_blank" class="external-link">Redis Roadmap<br>
+Redis 路线图</a></li>
+<li><a href="https://roadmap.sh/blockchain" target="_blank" class="external-link">Blockchain Roadmap<br>
+区块链路线图</a></li>
+<li><a href="https://roadmap.sh/aspnet-core" target="_blank" class="external-link">ASP.NET Core Roadmap<br>
+ASP.NET Core 路线图</a></li>
+<li><a href="https://roadmap.sh/system-design" target="_blank" class="external-link">System Design Roadmap<br>
+系统设计路线图</a></li>
+<li><a href="https://roadmap.sh/kubernetes" target="_blank" class="external-link">Kubernetes Roadmap<br>
+Kubernetes 路线图</a></li>
+<li><a href="https://roadmap.sh/cyber-security" target="_blank" class="external-link">Cyber Security Roadmap<br>
+网络安全路线图</a></li>
+<li><a href="https://roadmap.sh/mongodb" target="_blank" class="external-link">MongoDB Roadmap<br>
+MongoDB 路线图</a></li>
+<li><a href="https://roadmap.sh/product-design" target="_blank" class="external-link">Product Design Roadmap<br>
+产品设计路线图</a></li>
+<li><a href="https://roadmap.sh/ux-design" target="_blank" class="external-link">UX Design Roadmap<br>
+用户体验设计路线图</a></li>
+<li><a href="https://roadmap.sh/docker" target="_blank" class="external-link">Docker Roadmap<br>
+Docker 路线图</a></li>
+<li><a href="https://roadmap.sh/prompt-engineering" target="_blank" class="external-link">Prompt Engineering Roadmap<br>
+及时工程路线图</a></li>
+<li><a href="https://roadmap.sh/technical-writer" target="_blank" class="external-link">Technical Writer Roadmap<br>
+技术写作路线图</a></li>
+<li><a href="https://roadmap.sh/devrel" target="_blank" class="external-link">DevRel Engineer Roadmap<br>
+开发关系工程师路线图</a></li>
+<li><a href="https://roadmap.sh/ai-red-teaming" target="_blank" class="external-link">AI Red Teaming Roadmap<br>
+AI 红队演练路线图</a></li>
+<li><a href="https://roadmap.sh/ai-agents" target="_blank" class="external-link">AI Agents Roadmap<br>
+人工智能代理路线图</a></li>
+<li><a href="https://roadmap.sh/shell-bash" target="_blank" class="external-link">Bash/Shell Roadmap<br>
+Bash/Shell 路线图</a></li>
+<li><a href="https://roadmap.sh/ruby" target="_blank" class="external-link">Ruby Roadmap<br>
+Ruby 路线图</a></li>
+<li><a href="https://roadmap.sh/ruby-on-rails" target="_blank" class="external-link">Ruby on Rails Roadmap<br>
+Ruby on Rails 路线图</a></li>
+<li><a href="https://roadmap.sh/scala" target="_blank" class="external-link">Scala Roadmap<br>
+Scala 路线图</a></li>
+</ul>
+<p>There are also interactive best practices:<br>
+此外，还有一些互动式最佳实践：</p>
+<ul>
+<li><a href="https://roadmap.sh/best-practices/backend-performance" target="_blank" class="external-link">Backend Performance Best Practices<br>
+后端性能最佳实践</a></li>
+<li><a href="https://roadmap.sh/best-practices/frontend-performance" target="_blank" class="external-link">Frontend Performance Best Practices<br>
+前端性能最佳实践</a></li>
+<li><a href="https://roadmap.sh/best-practices/code-review" target="_blank" class="external-link">Code Review Best Practices<br>
+代码审查最佳实践</a></li>
+<li><a href="https://roadmap.sh/best-practices/api-security" target="_blank" class="external-link">API Security Best Practices<br>
+API 安全最佳实践</a></li>
+<li><a href="https://roadmap.sh/best-practices/aws" target="_blank" class="external-link">AWS Best Practices<br>
+AWS 最佳实践</a></li>
+</ul>
+<p>..and questions to help you test, rate and improve your knowledge<br>
+……以及一些问题，帮助你测试、评估和提高你的知识水平。</p>
+<ul>
+<li><a href="https://roadmap.sh/questions/javascript" target="_blank" class="external-link">JavaScript Questions<br>
+JavaScript 问题</a></li>
+<li><a href="https://roadmap.sh/questions/nodejs" target="_blank" class="external-link">Node.js Questions<br>
+Node.js 问题</a></li>
+<li><a href="https://roadmap.sh/questions/react" target="_blank" class="external-link">React Questions<br>
+React 问题</a></li>
+<li><a href="https://roadmap.sh/questions/backend" target="_blank" class="external-link">Backend Questions<br>
+后端问题</a></li>
+<li><a href="https://roadmap.sh/questions/frontend" target="_blank" class="external-link">Frontend Questions<br>
+前端问题</a></li>
+</ul>
+<p>Please consider sharing a post about <a href="https://roadmap.sh/" target="_blank" class="external-link">roadmap.sh</a> and the value it provides. It really does help!<br>
+请考虑分享一篇关于 <a href="https://roadmap.sh/" target="_blank" class="external-link">roadmap.sh</a> 及其价值的文章。这真的很有帮助！</p>
+<h2 id="repository-structure" tabindex="-1">Repository Structure存储库结构</h2>
+<p>This repository holds the content behind the roadmaps on <a href="https://roadmap.sh/" target="_blank" class="external-link">roadmap.sh</a>.<br>
+该存储库包含 <a href="https://roadmap.sh/" target="_blank" class="external-link">roadmap.sh</a> 上的路线图背后的内容。</p>
+<pre><code>roadmaps/&lt;roadmap-slug&gt;/content/&lt;topic-slug&gt;@&lt;node-id&gt;.md
+</code></pre>
+<p>Each markdown file is the content of a single topic on a roadmap. The node id in the file name is what links it to the topic, so please keep file names intact. Merged changes are synced to the website automatically.<br>
+每个 Markdown 文件都代表路线图上的一个主题的内容。文件名中的节点 ID 用于将其链接到相应的主题，因此请保持文件名不变。合并后的更改会自动同步到网站。</p>
+<pre><code>git clone git@github.com:nilbuild/developer-roadmap.git --depth 1
+cd developer-roadmap
+</code></pre>
+<p><code>scripts/</code> holds the sync tooling used by the maintainers, see <a href="https://github.com/nilbuild/developer-roadmap/blob/master/scripts/readme.md" target="_blank" class="external-link">scripts/readme.md</a> for details.<br>
+<code>scripts/</code> 目录下存放着维护人员使用的同步工具，请参阅 详情请参阅 <a href="https://github.com/nilbuild/developer-roadmap/blob/master/scripts/readme.md" target="_blank" class="external-link">scripts/readme.md</a> 。</p>
+<h2 id="contribution" tabindex="-1">Contribution贡献</h2>
+<blockquote>
+<p>Have a look at <a href="https://github.com/nilbuild/developer-roadmap/blob/master/contributing.md" target="_blank" class="external-link">contribution docs</a> for how to update any of the roadmaps<br>
+请查看 <a href="https://github.com/nilbuild/developer-roadmap/blob/master/contributing.md" target="_blank" class="external-link">贡献文档</a> ，了解如何更新任何路线图。</p>
+</blockquote>
+<ul>
+<li>Add content to roadmaps<br>
+向路线图添加内容</li>
+<li>Add new roadmaps<br>
+添加新的路线图</li>
+<li>Suggest changes to existing roadmaps<br>
+建议对现有路线图进行修改</li>
+<li>Discuss ideas in issues<br>
+讨论议题中的观点</li>
+<li>Spread the word<br>
+广而告之</li>
+</ul>
+<h2 id="thanks-to-all-contributors" tabindex="-1">Thanks to all contributors ❤感谢所有贡献者❤</h2>
+<p><a href="https://github.com/nilbuild/developer-roadmap/graphs/contributors" target="_blank" class="external-link"><img src="https://camo.githubusercontent.com/93e6d019cafd8e2040f914269732c7565f8b104f674427e99bc6ff42405196af/68747470733a2f2f636f6e747269622e726f636b732f696d6167653f7265706f3d6e696c6275696c642f646576656c6f7065722d726f61646d6170" alt=""></a></p>
+<h2 id="license" tabindex="-1">License执照</h2>
+<p>Have a look at the <a href="https://github.com/nilbuild/developer-roadmap/blob/master/license" target="_blank" class="external-link">license file</a> for details<br>
+请查看 <a href="https://github.com/nilbuild/developer-roadmap/blob/master/license" target="_blank" class="external-link">许可证文件</a> 了解详情。</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#a-href-http-roadmap-xn-sh-7h8cs12mo4p-sh-target-blank-class-external-link-roadmap-sh-sh-a">roadmap.sh路线图.sh</a>
+<ol>
+<li><a href="#view-all-roadmaps-best-practices-questions">View all Roadmaps · Best Practices · Questions查看所有路线图 · 最佳实践 · 问题</a>
+</li>
+</ol>
+</li>
+<li><a href="#repository-structure">Repository Structure存储库结构</a>
+</li>
+<li><a href="#contribution">Contribution贡献</a>
+</li>
+<li><a href="#thanks-to-all-contributors">Thanks to all contributors ❤感谢所有贡献者❤</a>
+</li>
+<li><a href="#license">License执照</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
