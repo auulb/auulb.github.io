@@ -1,0 +1,1656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>day01</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">day01</h1>
+<div class="header-meta">
+<div class="header-tags">
+</div>
+</div>
+</header>
+<h1 id="day-01-v1" tabindex="-1">Day 01 · V1：能跑的图书管理（无登录）</h1>
+<blockquote>
+<p>目标用时 6 小时。今天结束你会得到一个<strong>能真正用起来</strong>的网页程序：图书列表、搜索、新增、编辑、删除，数据存进 <code>data/books.json</code>，重启不丢。</p>
+<p>今天<strong>不做</strong>登录、不做用户管理、不做借阅。那些是 Day 2 / Day 3 的事——先把地基打牢。</p>
+</blockquote>
+<hr>
+<h2 id="0" tabindex="-1">0. 开始之前：先把「答案」备份走</h2>
+<p>当前项目 <code>hi/</code> 里已经躺着写好的最终版代码。你要是一边看一边抄，就学不到东西了。所以第一件事：</p>
+<pre><code class="language-bash">cd /Users/jwj/Documents/IdeaProjects/test
+cp -r hi hi-backup        # 备份一份，Day 3 会回来取两个文件
+ls hi-backup/src/main/resources/seed/books.json   # 确认在
+</code></pre>
+<p><code>hi-backup</code> 里有两样东西后面要用，现在记一下位置：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>什么时候用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hi-backup/src/main/resources/static/css/style.css</code></td>
+<td>Day 1 第 5 步，直接拷过去</td>
+</tr>
+<tr>
+<td><code>hi-backup/src/main/resources/seed/books.json</code></td>
+<td>Day 3，豆瓣 Top 250 种子数据</td>
+</tr>
+</tbody>
+</table></div>
+<p>然后<strong>清空 <code>hi/src</code></strong>，从零开始写：</p>
+<pre><code class="language-bash">cd /Users/jwj/Documents/IdeaProjects/test/hi
+rm -rf src            # 删掉整个 src，回到空白
+mkdir -p src/main/java/com/library
+mkdir -p src/main/resources/templates/fragments
+mkdir -p src/main/resources/static/css
+</code></pre>
+<blockquote>
+<p>⚠️ 别删 <code>pom.xml</code> 以外的 <code>hi.iml</code> / <code>.idea/</code>，那是 IDEA 的工程配置，留着省事。<code>pom.xml</code> 我们一会自己写。</p>
+</blockquote>
+<hr>
+<h2 id="1-10" tabindex="-1">1. 环境自检（10 分钟）</h2>
+<p>在终端里逐条跑，确认输出符合预期：</p>
+<pre><code class="language-bash">java -version
+</code></pre>
+<p>应该看到 <code>java version &quot;27&quot;</code> 之类。本机只装了 JDK 27。</p>
+<pre><code class="language-bash">which mvn
+</code></pre>
+<p><strong>大概率什么都没有</strong>——这很正常，本机没装 Maven。我们不用它。</p>
+<pre><code class="language-bash">ls -l mvnw
+</code></pre>
+<p>应该看到 <code>mvnw</code> 文件存在（Maven Wrapper，项目自带的，不需要你装 Maven）。</p>
+<p>所以今天所有 Maven 命令，一律写成 <code>./mvnw ...</code>：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>你想做的事</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编译</td>
+<td><code>./mvnw -q compile</code></td>
+</tr>
+<tr>
+<td>打包</td>
+<td><code>./mvnw -q package</code></td>
+</tr>
+<tr>
+<td>直接跑起来</td>
+<td><code>./mvnw spring-boot:run</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 如果你更习惯在 IDEA 里点按钮：右侧 Maven 面板 → Lifecycle → <code>package</code>。两种都行。</p>
+</blockquote>
+<hr>
+<h2 id="2" tabindex="-1">2. 今天的时间表</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>时段</th>
+<th>内容</th>
+<th>产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00–00:20</td>
+<td>环境自检、清理目录</td>
+<td>空工程</td>
+</tr>
+<tr>
+<td>00:20–01:00</td>
+<td>搭骨架：pom + 启动类，<strong>第一次跑起来</strong></td>
+<td>能看到 404 白页 = 框架活了</td>
+</tr>
+<tr>
+<td>01:00–02:00</td>
+<td>模型 + JSON 持久化</td>
+<td><code>Book</code> / <code>JsonFileStore</code> / <code>BookRepository</code></td>
+</tr>
+<tr>
+<td>02:00–02:15</td>
+<td>☕ 休息</td>
+<td></td>
+</tr>
+<tr>
+<td>02:15–03:00</td>
+<td>业务层</td>
+<td><code>BookService</code> + 两个异常类</td>
+</tr>
+<tr>
+<td>03:00–04:00</td>
+<td>Web 层</td>
+<td><code>BookController</code></td>
+</tr>
+<tr>
+<td>04:00–04:15</td>
+<td>☕ 休息</td>
+<td></td>
+</tr>
+<tr>
+<td>04:15–05:30</td>
+<td>页面</td>
+<td>4 个 HTML + CSS</td>
+</tr>
+<tr>
+<td>05:30–06:00</td>
+<td>自测清单 + 复盘</td>
+<td>V1 完成 ✅</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>重要</strong>：每个步骤末尾都有「✅ 验证」。<strong>没看到预期结果就不要往下走</strong>，先解决。这是最重要的一条学习纪律。</p>
+<hr>
+<h2 id="3-40" tabindex="-1">3. 搭骨架（40 分钟）</h2>
+<h3 id="3-1-code-pom-xml-code" tabindex="-1">3.1 <code>pom.xml</code></h3>
+<p>在 <code>hi/pom.xml</code> 写入（<strong>覆盖</strong>原文件）：</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;4.1.1&lt;/version&gt;
+        &lt;relativePath/&gt;
+    &lt;/parent&gt;
+
+    &lt;groupId&gt;com.library&lt;/groupId&gt;
+    &lt;artifactId&gt;hi&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;name&gt;library-management&lt;/name&gt;
+    &lt;description&gt;图书馆管理系统&lt;/description&gt;
+
+    &lt;properties&gt;
+        &lt;java.version&gt;27&lt;/java.version&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-webmvc&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<p><strong>这段在干什么？</strong></p>
+<ul>
+<li><code>&lt;parent&gt;</code> 继承 Spring Boot 官方父 POM。好处：下面所有依赖<strong>不用写版本号</strong>，版本由父 POM 统一管。这就是为什么 <code>&lt;dependency&gt;</code> 里只有 <code>groupId</code> + <code>artifactId</code>。</li>
+<li><code>spring-boot-starter-webmvc</code>：一个「starter」= 一捆打包好的依赖。它把 Spring MVC、内嵌 Tomcat、JSON 处理全拉进来。<strong>注意名字是 <code>webmvc</code> 不是 <code>web</code></strong>——网上老教程会写 <code>spring-boot-starter-web</code>，那对老版本是常识，但<strong>请照这份 pom 抄</strong>，跟本项目保持一致。</li>
+<li><code>spring-boot-starter-thymeleaf</code>：模板引擎，负责把 HTML 里的 <code>th:xxx</code> 标签渲染成真正的网页。</li>
+<li><code>spring-boot-starter-validation</code>：表单校验，提供 <code>@NotBlank</code>、<code>@Min</code> 这些注解。</li>
+<li><code>&lt;java.version&gt;27&lt;/java.version&gt;</code>：告诉编译器用 Java 27。</li>
+</ul>
+<h3 id="3-2-code-application-yml-code" tabindex="-1">3.2 <code>application.yml</code></h3>
+<p>新建 <code>src/main/resources/application.yml</code>：</p>
+<pre><code class="language-yaml">server:
+  port: 8080
+
+spring:
+  application:
+    name: library-management
+  thymeleaf:
+    # 开发阶段关闭模板缓存，改完 HTML 刷新即可见
+    cache: false
+  jackson:
+    deserialization:
+      # 数据文件里出现模型中没有的字段时忽略即可，避免旧数据/字段改名导致启动失败
+      fail-on-unknown-properties: false
+
+library:
+  # JSON 数据文件存放目录（相对应用启动目录）
+  data-dir: data
+</code></pre>
+<p><strong>三个关键点：</strong></p>
+<ol>
+<li><code>thymeleaf.cache: false</code> —— 开发时改了 HTML 不用重启，刷新浏览器就行。上线要关掉（缓存能提速），但今天开着。</li>
+<li><code>fail-on-unknown-properties: false</code> —— 以后你给 <code>Book</code> 加字段、删字段，旧数据文件不会让程序启动失败。是个很实用的保险。</li>
+<li><code>library.data-dir: data</code> —— 这是<strong>我们自己的</strong>配置项，下面 <code>LibraryProperties</code> 会读它。</li>
+</ol>
+<h3 id="3-3" tabindex="-1">3.3 启动类</h3>
+<p>新建 <code>src/main/java/com/library/LibraryApplication.java</code>：</p>
+<pre><code class="language-java">package com.library;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+
+/**
+ * 图书馆管理系统启动类。
+ */
+@SpringBootApplication
+@ConfigurationPropertiesScan
+public class LibraryApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LibraryApplication.class, args);
+    }
+}
+</code></pre>
+<p><strong>两个注解：</strong></p>
+<ul>
+<li><code>@SpringBootApplication</code> —— 三合一：① 标记这是 Spring Boot 应用 ② 开启自动配置（Spring 看到你引入了 webmvc 就自动配好 Tomcat + MVC）③ 从 <code>com.library</code> 包往下扫描所有 <code>@Controller</code> / <code>@Service</code> / <code>@Repository</code> 组件。</li>
+<li><code>@ConfigurationPropertiesScan</code> —— 自动扫描 <code>@ConfigurationProperties</code> 类（下面 <code>LibraryProperties</code> 用）。</li>
+</ul>
+<blockquote>
+<p>🔍 <strong>包名很重要</strong>。Spring 默认从启动类所在包往下扫。启动类是 <code>com.library</code>，所以 <code>com.library.service</code>、<code>com.library.web</code> 都能被扫到；但如果你把类放到 <code>com.library2</code> 就扫不到了。新手最常见的&quot;我的 Controller 怎么 404&quot;就是这个原因。</p>
+</blockquote>
+<h3 id="✅ 验证：框架活了吗" tabindex="-1">✅ 验证：框架活了吗</h3>
+<pre><code class="language-bash">./mvnw spring-boot:run
+</code></pre>
+<p>第一次会下载一堆依赖，耐心等。看到这两行就是成功：</p>
+<pre><code>Tomcat started on port 8080 (http)
+Started LibraryApplication in x.xxx seconds
+</code></pre>
+<p>浏览器打开 <a href="http://localhost:8080" target="_blank" class="external-link">http://localhost:8080</a> —— 会看到 <strong>Whitelabel Error Page / 404</strong>。</p>
+<p><strong>这是好事</strong>：说明 Tomcat 起来了、Spring 启动了，只是你还没写任何页面。按 <code>Ctrl+C</code> 停掉。</p>
+<blockquote>
+<p>❌ 如果报 <code>Port 8080 was already in use</code>，说明有别的程序占着 8080。查出来杀掉：</p>
+<pre><code class="language-bash">lsof -ti:8080 | xargs kill -9
+</code></pre>
+</blockquote>
+<hr>
+<h2 id="4-json-60" tabindex="-1">4. 模型 + JSON 持久化（60 分钟）</h2>
+<p>这一节是<strong>今天最重要的部分</strong>。理解它，就理解了&quot;没有数据库怎么存数据&quot;。</p>
+<h3 id="4-1-code-book-code" tabindex="-1">4.1 图书模型 <code>Book</code></h3>
+<p>新建 <code>src/main/java/com/library/model/Book.java</code>：</p>
+<pre><code class="language-java">package com.library.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+/**
+ * 图书。既作为持久化实体，也直接作为新增/编辑表单的绑定对象。
+ */
+public class Book {
+
+    private Long id;
+
+    @NotBlank(message = &quot;书名不能为空&quot;)
+    @Size(max = 200, message = &quot;书名不能超过 200 个字符&quot;)
+    private String title;
+
+    @NotBlank(message = &quot;作者不能为空&quot;)
+    @Size(max = 120, message = &quot;作者不能超过 120 个字符&quot;)
+    private String author;
+
+    @NotBlank(message = &quot;ISBN 不能为空&quot;)
+    @Size(max = 32, message = &quot;ISBN 不能超过 32 个字符&quot;)
+    private String isbn;
+
+    @Size(max = 60, message = &quot;分类不能超过 60 个字符&quot;)
+    private String category;
+
+    @NotNull(message = &quot;总册数不能为空&quot;)
+    @Min(value = 1, message = &quot;总册数至少为 1&quot;)
+    private Integer totalCopies;
+
+    @NotNull(message = &quot;可借册数不能为空&quot;)
+    @Min(value = 0, message = &quot;可借册数不能为负数&quot;)
+    private Integer availableCopies;
+
+    public Book() {
+    }
+
+    public Book(String title, String author, String isbn, String category, int totalCopies) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.category = category;
+        this.totalCopies = totalCopies;
+        this.availableCopies = totalCopies;
+    }
+
+    /** 已借出册数 = 总册数 - 可借册数。派生值，不写入 JSON。 */
+    @JsonIgnore
+    public int getBorrowedCopies() {
+        int total = totalCopies == null ? 0 : totalCopies;
+        int available = availableCopies == null ? 0 : availableCopies;
+        return Math.max(0, total - available);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Integer getTotalCopies() {
+        return totalCopies;
+    }
+
+    public void setTotalCopies(Integer totalCopies) {
+        this.totalCopies = totalCopies;
+    }
+
+    public Integer getAvailableCopies() {
+        return availableCopies;
+    }
+
+    public void setAvailableCopies(Integer availableCopies) {
+        this.availableCopies = availableCopies;
+    }
+}
+</code></pre>
+<p><strong>要理解的三件事：</strong></p>
+<ol>
+<li><strong>为什么要有无参构造 <code>Book()</code>？</strong> 两个框架都要用：Jackson 从 JSON 反序列化时要先 <code>new Book()</code> 再逐个 <code>setXxx()</code>；Spring MVC 把表单数据装进对象时也一样。<strong>删掉它程序就崩</strong>。另一个带参数的构造器是我们自己代码里方便用的。</li>
+<li><strong><code>@JsonIgnore</code> 是干嘛的？</strong> <code>borrowedCopies</code> 是由另外两个字段<strong>算出来</strong>的，不该存进 JSON——存了反而可能不一致。加了它，Jackson 序列化时会跳过。这就是所谓「派生字段」。</li>
+<li><strong>校验注解</strong>：<code>@NotBlank</code>（非空白字符串）、<code>@Size</code>（长度）、<code>@NotNull</code>、<code>@Min</code>。它们<strong>自己什么都不做</strong>，要配合控制器里的 <code>@Valid</code> 才生效（第 5 节讲）。<code>message</code> 是校验失败时给用户看的中文提示——注意这里直接写中文，因为文件是 UTF-8。</li>
+</ol>
+<blockquote>
+<p>🐛 <strong>今天第一个大坑，务必看</strong>：</p>
+<p>这个项目的 <code>message</code> 里的中文、页面里的中文，全靠 UTF-8。pom 里的 <code>project.build.sourceEncoding</code> 已经设好了。但<strong>IDEA 里如果看到中文变乱码</strong>，去 <code>Settings → Editor → File Encodings</code>，把三处都设成 <code>UTF-8</code>，并勾上 <code>Transparent native-to-ASCII conversion</code> 的<strong>反面</strong>（不要勾）。</p>
+</blockquote>
+<h3 id="4-2-json-code-json-file-store-code" tabindex="-1">4.2 通用 JSON 仓储 <code>JsonFileStore</code></h3>
+<p>这是今天的核心。需求很简单：<strong>把一串对象整个存成一个 JSON 文件，读的时候整个读回来。</strong></p>
+<p>新建 <code>src/main/java/com/library/repository/JsonFileStore.java</code>：</p>
+<pre><code class="language-java">package com.library.repository;
+
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.function.Function;
+
+/**
+ * 把一组对象以 JSON 数组的形式存到单个文件的通用仓储基类。
+ *
+ * &lt;p&gt;读写都用 {@link ReentrantReadWriteLock} 保护：读走读锁，写走写锁，
+ * 而 {@link #update} 在整个「读取-修改-写回」期间持有写锁，保证并发下不会丢失更新。
+ * 本系统数据量很小，整文件读写完全够用。
+ *
+ * &lt;p&gt;用的是 Jackson 3（Spring Boot 4 的默认版本），包名为 {@code tools.jackson.*}，
+ * 其异常为非受检的 {@link JacksonException}。
+ *
+ * @param &lt;T&gt; 记录类型
+ */
+public abstract class JsonFileStore&lt;T&gt; {
+
+    private final ObjectMapper mapper;
+    private final Path file;
+    private final JavaType listType;
+    private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+
+    protected JsonFileStore(ObjectMapper mapper, Path dataDir, String fileName, Class&lt;T&gt; elementType) {
+        this.mapper = mapper;
+        this.file = dataDir.resolve(fileName);
+        this.listType = mapper.getTypeFactory().constructCollectionType(List.class, elementType);
+        try {
+            Files.createDirectories(dataDir);
+        } catch (IOException e) {
+            throw new UncheckedIOException(&quot;无法创建数据目录: &quot; + dataDir, e);
+        }
+    }
+
+    /** 返回全部记录的快照。 */
+    protected List&lt;T&gt; readAll() {
+        lock.readLock().lock();
+        try {
+            return load();
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+
+    /**
+     * 在写锁内执行「读取-修改-写回」。{@code mutator} 收到的是可变列表，
+     * 其返回值会原样返回给调用方；方法结束前列表会被写回文件。
+     */
+    protected &lt;R&gt; R update(Function&lt;List&lt;T&gt;, R&gt; mutator) {
+        lock.writeLock().lock();
+        try {
+            List&lt;T&gt; items = load();
+            R result = mutator.apply(items);
+            save(items);
+            return result;
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+
+    /** 数据文件路径，供实现类判断是否需要初始化。 */
+    protected Path file() {
+        return file;
+    }
+
+    private List&lt;T&gt; load() {
+        try {
+            if (!Files.exists(file) || Files.size(file) == 0) {
+                return new ArrayList&lt;&gt;();
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(&quot;读取数据文件失败: &quot; + file, e);
+        }
+        try {
+            List&lt;T&gt; items = mapper.readValue(file.toFile(), listType);
+            return items == null ? new ArrayList&lt;&gt;() : items;
+        } catch (JacksonException e) {
+            throw new IllegalStateException(&quot;解析数据文件失败: &quot; + file, e);
+        }
+    }
+
+    private void save(List&lt;T&gt; items) {
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file.toFile(), items);
+        } catch (JacksonException e) {
+            throw new IllegalStateException(&quot;写入数据文件失败: &quot; + file, e);
+        }
+    }
+}
+</code></pre>
+<h4 id="jackson-3" tabindex="-1">🚨 全项目最大的坑：Jackson 3</h4>
+<p><strong>看第一行 import：</strong></p>
+<pre><code class="language-java">import tools.jackson.databind.ObjectMapper;      // ← 项目用的
+</code></pre>
+<p>而你从网上搜到的教程、问 AI 得到的答案，十有八九写的是：</p>
+<pre><code class="language-java">import com.fasterxml.jackson.databind.ObjectMapper;   // ← 老写法，本项目用不了
+</code></pre>
+<p><strong>Spring Boot 4 内置的是 Jackson 3，包名从 <code>com.fasterxml.jackson</code> 换成了 <code>tools.jackson</code>。</strong> 具体差异：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th>Jackson 2（老）</th>
+<th>Jackson 3（本项目）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心包</td>
+<td><code>com.fasterxml.jackson.databind</code></td>
+<td><code>tools.jackson.databind</code></td>
+</tr>
+<tr>
+<td><strong>注解包</strong></td>
+<td><code>com.fasterxml.jackson.annotation</code></td>
+<td><strong><code>com.fasterxml.jackson.annotation</code>（没变！）</strong></td>
+</tr>
+<tr>
+<td>抛出的异常</td>
+<td>受检异常 <code>JsonProcessingException</code></td>
+<td><strong>非受检</strong> <code>JacksonException</code>（<code>RuntimeException</code>）</td>
+</tr>
+<tr>
+<td>静态构造</td>
+<td><code>JsonMapper.builder()</code></td>
+<td><code>JsonMapper.builder()</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>划重点两条：</strong></p>
+<ol>
+<li><code>ObjectMapper</code>、<code>JavaType</code> 这些<strong>类</strong>在 <code>tools.jackson.*</code> 下；<br>
+但 <code>@JsonIgnore</code>、<code>@JsonProperty</code> 这些<strong>注解</strong>还在 <code>com.fasterxml.jackson.annotation</code> 下。这就是为什么 <code>Book.java</code> 里 import 的是 <code>com.fasterxml</code>，而这里 import 的是 <code>tools.jackson</code>。<strong>看起来矛盾，其实是对的。</strong></li>
+<li><code>JacksonException</code> 是 <code>RuntimeException</code>，<strong>不需要 <code>throws</code></strong>，可以自由地 <code>throw</code>。老教程里那种 <code>try/catch (JsonProcessingException)</code> 的写法在这里是编译不过的。</li>
+</ol>
+<blockquote>
+<p>遇到&quot;找不到符号 ObjectMapper&quot;的报错，99% 是 import 写错了。回来对一眼这两张表。</p>
+</blockquote>
+<h4 id="code-json-file-store-code" tabindex="-1">这段 <code>JsonFileStore</code> 的设计思路</h4>
+<p><strong>为什么是抽象类 + 泛型 <code>&lt;T&gt;</code>？</strong></p>
+<p>因为图书和用户都要存 JSON，逻辑一模一样。写一份通用的，子类只需告诉它「存哪个文件、存什么类型」。</p>
+<p><strong><code>update(Function&lt;List&lt;T&gt;, R&gt; mutator)</code> 这个签名是什么意思？</strong></p>
+<p><code>Function&lt;List&lt;T&gt;, R&gt;</code> 是 Java 的函数式接口：<strong>你交给我一个函数，我调用它、把数据列表传进去，它返回一个结果 R</strong>。看它的用法就懂了：</p>
+<pre><code class="language-java">update(items -&gt; {
+    items.add(book);     // items 是「已从文件读出来的完整列表」，可以随便改
+    return book;         // 返回值会原样交还给调用方
+});
+</code></pre>
+<p><strong>关键在于整个「读文件 → 你改列表 → 写回文件」全程持有写锁</strong>。两个管理员同时点&quot;新增&quot;，不会有一个的修改被覆盖掉。这就是为什么不能简单地&quot;读、改、写&quot;三步分开做。</p>
+<p><strong><code>ReentrantReadWriteLock</code> 是什么？</strong></p>
+<p>一把能同时允许多个读者、但写者独占的锁。读多写少的场景比普通锁快。<code>readLock()</code> 给读，<code>writeLock()</code> 给写，必须 <code>finally</code> 解锁——你可能会忘了写 <code>unlock()</code>，看看上面代码里 <code>try/finally</code> 的结构，这是标准写法，照抄。</p>
+<p><strong><code>mapper.getTypeFactory().constructCollectionType(List.class, elementType)</code> 在干嘛？</strong></p>
+<p>Java 的泛型在运行时会「擦除」，Jackson 光看 <code>List</code> 不知道里面装的是什么。这行是在<strong>运行时构造出 <code>List&lt;Book&gt;</code> 这个完整的类型信息</strong>交给 Jackson，它才知道该 new 多少个 <code>Book</code>。</p>
+<h3 id="4-3-code-library-properties-code" tabindex="-1">4.3 配置绑定 <code>LibraryProperties</code></h3>
+<p>新建 <code>src/main/java/com/library/config/LibraryProperties.java</code>：</p>
+<pre><code class="language-java">package com.library.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.nio.file.Path;
+
+/**
+ * 绑定 application.yml 中 library.* 的配置。
+ */
+@ConfigurationProperties(prefix = &quot;library&quot;)
+public class LibraryProperties {
+
+    /** JSON 数据文件所在目录。 */
+    private String dataDir = &quot;data&quot;;
+
+    public String getDataDir() {
+        return dataDir;
+    }
+
+    public void setDataDir(String dataDir) {
+        this.dataDir = dataDir;
+    }
+
+    public Path dataDirPath() {
+        return Path.of(dataDir);
+    }
+}
+</code></pre>
+<p><code>@ConfigurationProperties(prefix = &quot;library&quot;)</code> 会把 yml 里 <code>library:</code> 底下的配置，<strong>按名字</strong>塞进这个类的字段：<code>library.data-dir</code> → <code>dataDir</code>（Spring 自动处理「短横线 / 驼峰」的转换）。所以以后想换数据目录，改 yml 就行，不用改代码。</p>
+<p><code>dataDirPath()</code> 是给仓储用的便捷方法，把字符串转成 <code>Path</code>。</p>
+<h3 id="4-4-code-book-repository-code" tabindex="-1">4.4 图书仓储 <code>BookRepository</code></h3>
+<p>新建 <code>src/main/java/com/library/repository/BookRepository.java</code>：</p>
+<pre><code class="language-java">package com.library.repository;
+
+import tools.jackson.databind.ObjectMapper;
+import com.library.config.LibraryProperties;
+import com.library.model.Book;
+import org.springframework.stereotype.Repository;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+/**
+ * 图书仓储，数据落在 {@code data/books.json}。
+ */
+@Repository
+public class BookRepository extends JsonFileStore&lt;Book&gt; {
+
+    public BookRepository(ObjectMapper mapper, LibraryProperties properties) {
+        super(mapper, properties.dataDirPath(), &quot;books.json&quot;, Book.class);
+    }
+
+    public List&lt;Book&gt; findAll() {
+        return readAll().stream()
+                .sortedgetId, Comparator.nullsLast(Comparator.naturalOrder()))
+                .toList();
+    }
+
+    public Optional&lt;Book&gt; findById(Long id) {
+        if (id == null) {
+            return Optional.empty();
+        }
+        return readAll().stream().filter(book -&gt; id.equals(book.getId())).findFirst();
+    }
+
+    /** ISBN 是否已被其它图书占用；{@code excludeId} 用于编辑时排除自身。 */
+    public boolean existsByIsbn(String isbn, Long excludeId) {
+        if (isbn == null || isbn.isBlank()) {
+            return false;
+        }
+        return readAll().stream().anyMatch(book -&gt;
+                isbn.equalsIgnoreCase(book.getIsbn())
+                        &amp;&amp; !(excludeId != null &amp;&amp; excludeId.equals(book.getId())));
+    }
+
+    /** 新增（id 为 null）或更新（id 已存在）一本书，返回保存后的对象。 */
+    public Book save(Book book) {
+        return update(items -&gt; {
+            if (book.getId() == null) {
+                book.setId(nextId(items));
+                items.add(book);
+                return book;
+            }
+            for (int i = 0; i &lt; items.size(); i++) {
+                if (book.getId().equals(items.get(i).getId())) {
+                    items.set(i, book);
+                    return book;
+                }
+            }
+            items.add(book);
+            return book;
+        });
+    }
+
+    public boolean deleteById(Long id) {
+        return update(items -&gt; items.removeIf(book -&gt; id != null &amp;&amp; id.equals(book.getId())));
+    }
+
+    private Long nextId(List&lt;Book&gt; items) {
+        return items.stream()
+                .mapgetId
+                .filternonNull
+                .maxcompareTo
+                .orElse(0L) + 1;
+    }
+}
+</code></pre>
+<p><strong>几个点：</strong></p>
+<ul>
+<li><strong>构造器就是子类要提供的全部信息</strong>：<code>dataDir</code>、文件名 <code>books.json</code>、元素类型 <code>Book.class</code>。剩下的读写逻辑都在父类里。这就是继承的价值。</li>
+<li><code>ObjectMapper</code> 参数是<strong>从 Spring 容器里注入进来的</strong>。你没写任何 <code>new ObjectMapper()</code> 的代码——Spring Boot 看到你用了 webmvc，就自动配好了一个 <code>ObjectMapper</code> Bean。<code>@Repository</code> 标记这个类由 Spring 创建和管理。</li>
+<li><code>Optional&lt;Book&gt;</code> 是 Java 用来表达「可能没有」的类型。<code>findById</code> 找不到时返回 <code>Optional.empty()</code>，强迫调用方处理「找不到」的情况，比返回 <code>null</code> 安全。</li>
+<li><code>nextId</code> 取现有最大 id + 1。简单粗暴，但对我们这种小数据量够用。</li>
+<li><code>save</code> 同时负责「新增」和「更新」：<code>id == null</code> 就是新增。</li>
+</ul>
+<h3 id="✅ 验证：能编译" tabindex="-1">✅ 验证：能编译</h3>
+<pre><code class="language-bash">./mvnw -q compile
+</code></pre>
+<p><strong>没有任何输出 = 成功。</strong> 有报错就照着 <code>${}</code> 提示的位置改。</p>
+<blockquote>
+<p>如果报 <code>找不到符号: 类 ObjectMapper</code>，回头检查 import 是不是写成了 <code>com.fasterxml.jackson.databind.ObjectMapper</code>。</p>
+</blockquote>
+<hr>
+<h2 id="5-45" tabindex="-1">5. 业务层（45 分钟）</h2>
+<h3 id="5-1" tabindex="-1">5.1 两个异常类</h3>
+<p>先说<strong>为什么要自定义异常</strong>。校验失败时（比如 ISBN 重复），我们希望：</p>
+<ol>
+<li>业务层只管「发现错误、抛出来」，不用管界面怎么显示；</li>
+<li>控制器接住它，把中文提示塞回表单对应的输入框底下。</li>
+</ol>
+<p>所以做一个能携带「是哪個字段出错了」的异常。</p>
+<p>新建 <code>src/main/java/com/library/service/BusinessException.java</code>：</p>
+<pre><code class="language-java">package com.library.service;
+
+/**
+ * 业务规则校验失败（如 ISBN 重复、可借册数越界）。
+ *
+ * &lt;p&gt;{@code field} 指出应把错误挂在表单的哪个字段上，方便控制器回显到对应输入框；
+ * 为 {@code null} 时作为整表单的全局错误显示。
+ */
+public class BusinessException extends RuntimeException {
+
+    private final String field;
+
+    public BusinessException(String message) {
+        this(null, message);
+    }
+
+    public BusinessException(String field, String message) {
+        super(message);
+        this.field = field;
+    }
+
+    public String getField() {
+        return field;
+    }
+}
+</code></pre>
+<p>新建 <code>src/main/java/com/library/service/NotFoundException.java</code>：</p>
+<pre><code class="language-java">package com.library.service;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+/**
+ * 记录不存在。映射为 HTTP 404，由 error 页面渲染。
+ */
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundException extends RuntimeException {
+
+    public NotFoundException(String message) {
+        super(message);
+    }
+}
+</code></pre>
+<ul>
+<li><code>RuntimeException</code> 是<strong>非受检异常</strong>，抛出时不需要在方法签名上写 <code>throws</code>，一路往上冒到能处理它的地方。业务异常用它最合适。</li>
+<li><code>@ResponseStatus(HttpStatus.NOT_FOUND)</code> 让 Spring 在没人接住这个异常时，自动返回 <strong>404</strong> 而不是 500。访问 <code>/books/999/edit</code> 而 999 不存在时，用户看到的就是 404。</li>
+</ul>
+<h3 id="5-2-code-book-service-code" tabindex="-1">5.2 <code>BookService</code></h3>
+<p>新建 <code>src/main/java/com/library/service/BookService.java</code>：</p>
+<pre><code class="language-java">package com.library.service;
+
+import com.library.model.Book;
+import com.library.repository.BookRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Locale;
+
+/**
+ * 图书业务逻辑：增删改查。
+ */
+@Service
+public class BookService {
+
+    private final BookRepository bookRepository;
+
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public List&lt;Book&gt; findAll() {
+        return bookRepository.findAll();
+    }
+
+    /** 按关键字过滤书名、作者、ISBN、分类；关键字为空时返回全部。 */
+    public List&lt;Book&gt; search(String keyword) {
+        List&lt;Book&gt; all = bookRepository.findAll();
+        if (keyword == null || keyword.isBlank()) {
+            return all;
+        }
+        String needle = keyword.trim().toLowerCase(Locale.ROOT);
+        return all.stream().filter(book -&gt; contains(book.getTitle(), needle)
+                || contains(book.getAuthor(), needle)
+                || contains(book.getIsbn(), needle)
+                || contains(book.getCategory(), needle)).toList();
+    }
+
+    public Book get(Long id) {
+        return bookRepository.findById(id)
+                .orElseThrow(() -&gt; new NotFoundException(&quot;图书不存在（id=&quot; + id + &quot;）&quot;));
+    }
+
+    public Book create(Book book) {
+        book.setId(null);
+        validate(book, null);
+        if (book.getAvailableCopies() == null) {
+            book.setAvailableCopies(book.getTotalCopies());
+        }
+        return bookRepository.save(book);
+    }
+
+    public Book update(Long id, Book book) {
+        get(id); // 确认存在，否则抛 404
+        book.setId(id);
+        validate(book, id);
+        return bookRepository.save(book);
+    }
+
+    public void delete(Long id) {
+        if (!bookRepository.deleteById(id)) {
+            throw new NotFoundException(&quot;图书不存在（id=&quot; + id + &quot;）&quot;);
+        }
+    }
+
+    private void validate(Book book, Long excludeId) {
+        if (bookRepository.existsByIsbn(book.getIsbn(), excludeId)) {
+            throw new BusinessException(&quot;isbn&quot;, &quot;ISBN「&quot; + book.getIsbn() + &quot;」已被另一本图书使用&quot;);
+        }
+        int total = book.getTotalCopies() == null ? 0 : book.getTotalCopies();
+        int available = book.getAvailableCopies() == null ? 0 : book.getAvailableCopies();
+        if (available &gt; total) {
+            throw new BusinessException(&quot;availableCopies&quot;, &quot;可借册数不能大于总册数（当前 &quot; + total + &quot;）&quot;);
+        }
+    }
+
+    private boolean contains(String value, String needle) {
+        return value != null &amp;&amp; value.toLowerCase(Locale.ROOT).contains(needle);
+    }
+}
+</code></pre>
+<p><strong>理解分层：</strong> Controller 只负责&quot;接 HTTP 请求、调 Service、选返回哪个页面&quot;；Service 负责&quot;业务规则&quot;（ISBN 不能重复、可借数不能超总册数）。<strong>校验规则写在 Service 里，意味着不管从哪个入口进来都生效</strong>，不会因为将来加了个 API 就绕过去。</p>
+<p><strong><code>search</code> 为什么用 <code>Locale.ROOT</code>？</strong> <code>toLowerCase()</code> 不带参数会用系统默认区域（土耳其语环境下 <code>I</code> 会变成 <code>ı</code>，导致搜索诡异出错）。传 <code>Locale.ROOT</code> 表示&quot;用最中性的规则&quot;，是个好习惯。</p>
+<p><strong><code>create</code> 里为什么要 <code>book.setId(null)</code>？</strong> 防止表单里被塞了 id 导致&quot;新增&quot;变成&quot;覆盖&quot;。</p>
+<h3 id="✅ 验证" tabindex="-1">✅ 验证</h3>
+<pre><code class="language-bash">./mvnw -q compile
+</code></pre>
+<p>无输出 = 通过。</p>
+<hr>
+<h2 id="6-web-60" tabindex="-1">6. Web 层（60 分钟）</h2>
+<h3 id="6-1-code-book-controller-code" tabindex="-1">6.1 <code>BookController</code></h3>
+<p>新建 <code>src/main/java/com/library/web/BookController.java</code>：</p>
+<pre><code class="language-java">package com.library.web;
+
+import com.library.model.Book;
+import com.library.service.BookService;
+import com.library.service.BusinessException;
+import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+/**
+ * 图书管理：列表、搜索、增删改查。
+ */
+@Controller
+@RequestMapping(&quot;/books&quot;)
+public class BookController {
+
+    private final BookService bookService;
+
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @GetMapping
+    public String list(@RequestParam(required = false) String keyword, Model model) {
+        model.addAttribute(&quot;books&quot;, bookService.search(keyword));
+        model.addAttribute(&quot;keyword&quot;, keyword);
+        return &quot;books/list&quot;;
+    }
+
+    @GetMapping(&quot;/new&quot;)
+    public String createForm(Model model) {
+        Book book = new Book();
+        book.setTotalCopies(1);
+        book.setAvailableCopies(1);
+        model.addAttribute(&quot;book&quot;, book);
+        model.addAttribute(&quot;editing&quot;, false);
+        return &quot;books/form&quot;;
+    }
+
+    @PostMapping
+    public String create(@Valid @ModelAttribute(&quot;book&quot;) Book book,
+                         BindingResult binding,
+                         Model model,
+                         RedirectAttributes redirect) {
+        if (binding.hasErrors()) {
+            model.addAttribute(&quot;editing&quot;, false);
+            return &quot;books/form&quot;;
+        }
+        try {
+            bookService.create(book);
+        } catch (BusinessException e) {
+            reject(binding, e);
+            model.addAttribute(&quot;editing&quot;, false);
+            return &quot;books/form&quot;;
+        }
+        redirect.addFlashAttribute(&quot;message&quot;, &quot;已新增图书《&quot; + book.getTitle() + &quot;》&quot;);
+        return &quot;redirect:/books&quot;;
+    }
+
+    @GetMapping(&quot;/{id}/edit&quot;)
+    public String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute(&quot;book&quot;, bookService.get(id));
+        model.addAttribute(&quot;editing&quot;, true);
+        return &quot;books/form&quot;;
+    }
+
+    @PostMapping(&quot;/{id}&quot;)
+    public String update(@PathVariable Long id,
+                         @Valid @ModelAttribute(&quot;book&quot;) Book book,
+                         BindingResult binding,
+                         Model model,
+                         RedirectAttributes redirect) {
+        if (binding.hasErrors()) {
+            model.addAttribute(&quot;editing&quot;, true);
+            return &quot;books/form&quot;;
+        }
+        try {
+            bookService.update(id, book);
+        } catch (BusinessException e) {
+            reject(binding, e);
+            model.addAttribute(&quot;editing&quot;, true);
+            return &quot;books/form&quot;;
+        }
+        redirect.addFlashAttribute(&quot;message&quot;, &quot;已更新图书《&quot; + book.getTitle() + &quot;》&quot;);
+        return &quot;redirect:/books&quot;;
+    }
+
+    @PostMapping(&quot;/{id}/delete&quot;)
+    public String delete(@PathVariable Long id, RedirectAttributes redirect) {
+        bookService.delete(id);
+        redirect.addFlashAttribute(&quot;message&quot;, &quot;已删除该图书&quot;);
+        return &quot;redirect:/books&quot;;
+    }
+
+    /** 把业务异常回显到对应字段；无字段信息时作为整表单的全局错误。 */
+    private void reject(BindingResult binding, BusinessException e) {
+        if (e.getField() != null &amp;&amp; binding.getFieldError(e.getField()) == null) {
+            binding.rejectValue(e.getField(), &quot;business&quot;, e.getMessage());
+        } else {
+            binding.reject(&quot;business&quot;, e.getMessage());
+        }
+    }
+}
+</code></pre>
+<h3 id="6-2" tabindex="-1">6.2 逐个概念拆解</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>注解</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Controller</code></td>
+<td>声明「这是个处理 HTTP 请求的类」，Spring 会创建它</td>
+</tr>
+<tr>
+<td><code>@RequestMapping(&quot;/books&quot;)</code></td>
+<td>类级别的路径前缀，下面所有方法都在这之下</td>
+</tr>
+<tr>
+<td><code>@GetMapping</code></td>
+<td>处理 GET 请求（浏览器地址栏直接访问）</td>
+</tr>
+<tr>
+<td><code>@PostMapping</code></td>
+<td>处理 POST 请求（表单提交）</td>
+</tr>
+<tr>
+<td><code>@RequestParam</code></td>
+<td>取 URL 里的查询参数，如 <code>/books?keyword=三体</code></td>
+</tr>
+<tr>
+<td><code>@PathVariable</code></td>
+<td>取路径里的变量，如 <code>/books/{id}/edit</code> 里的 id</td>
+</tr>
+<tr>
+<td><code>@ModelAttribute</code></td>
+<td>把请求参数装进一个对象（表单绑定）</td>
+</tr>
+<tr>
+<td><code>@Valid</code></td>
+<td>触发 <code>Book</code> 上的校验注解</td>
+</tr>
+<tr>
+<td><code>Model</code></td>
+<td>往里面 <code>addAttribute</code> 的东西，模板里能直接取到</td>
+</tr>
+<tr>
+<td><code>RedirectAttributes</code></td>
+<td>专用于重定向的 Model，<code>addFlashAttribute</code> 的数据只活一次</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="6-3" tabindex="-1">6.3 三个必须弄懂的设计点</h3>
+<p><strong>① 为什么「新增」和「编辑」用同一个 <code>books/form</code> 页面？</strong></p>
+<p>因为表单长得一模一样，只是标题不同。用一个 <code>editing</code> 布尔值区分：</p>
+<pre><code class="language-java">model.addAttribute(&quot;editing&quot;, false);   // 新增
+model.addAttribute(&quot;editing&quot;, true);    // 编辑
+</code></pre>
+<p>模板里 <code>th:text=&quot;${editing} ? '编辑图书' : '新增图书'&quot;</code>。<strong>少写一个页面，少一处维护。</strong></p>
+<p><strong>② 为什么表单提交失败时 <code>return &quot;books/form&quot;</code> 而不是 <code>redirect:</code>？</strong></p>
+<p>因为<strong>要保住用户刚填的内容</strong>。直接返回视图名 = 用当前 Model 渲染页面，Spring 会把 <code>book</code> 对象（用户填的值）放回表单里，错误提示也在。如果用重定向，数据就全丢了，用户得重新填一遍。</p>
+<p><strong>③ <code>redirect.addFlashAttribute(&quot;message&quot;, ...)</code> 的&quot;flash&quot;是什么意思？</strong></p>
+<p>提交成功后重定向到列表页，要显示「已新增图书《xxx》」。但这个提示<strong>只能显示一次</strong>——刷新页面就该消失。<code>addFlashAttribute</code> 的数据存在 session 里，被读取一次后自动删除，正好符合这个需求。（普通 <code>addAttribute</code> 在重定向后会丢失，因为重定向是新的请求。）</p>
+<p><strong>④ <code>reject()</code> 这个方法在干什么？</strong></p>
+<p><code>BusinessException</code> 带着 <code>field</code>（比如 <code>&quot;isbn&quot;</code>）。这个方法把它转成 Spring 表单体系的字段错误，模板里的：</p>
+<pre><code class="language-html">&lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('isbn')}&quot; th:errors=&quot;*{isbn}&quot;&gt;&lt;/small&gt;
+</code></pre>
+<p>就能把「ISBN「xxx」已被另一本图书使用」显示在 ISBN 输入框下面。如果异常没有 <code>field</code>，就变成整表单的全局错误（显示在表单顶部）。</p>
+<h3 id="6-4-code-home-controller-code" tabindex="-1">6.4 <code>HomeController</code>（临时版）</h3>
+<p>新建 <code>src/main/java/com/library/web/HomeController.java</code>：</p>
+<pre><code class="language-java">package com.library.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+/**
+ * 首页。今天先简单地跳到图书列表。
+ */
+@Controller
+public class HomeController {
+
+    @GetMapping(&quot;/&quot;)
+    public String home() {
+        return &quot;redirect:/books&quot;;
+    }
+}
+</code></pre>
+<p><code>&quot;redirect:/books&quot;</code> 里的 <code>redirect:</code> 前缀是 Spring MVC 的约定：<strong>不是渲染页面，而是告诉浏览器「去访问 /books」</strong>。</p>
+<h3 id="✅ 验证-1" tabindex="-1">✅ 验证</h3>
+<pre><code class="language-bash">./mvnw -q compile
+</code></pre>
+<p>编译通过。现在还不能跑——页面还没写呢。</p>
+<hr>
+<h2 id="7-75" tabindex="-1">7. 页面（75 分钟）</h2>
+<p>Thymeleaf 的语法先记住三个：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>写法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>th:text=&quot;${expr}&quot;</code></td>
+<td>把表达式的值填进这个标签的文本里</td>
+</tr>
+<tr>
+<td><code>th:if=&quot;${cond}&quot;</code></td>
+<td>条件为真才渲染这个标签</td>
+</tr>
+<tr>
+<td><code>th:each=&quot;x : ${list}&quot;</code></td>
+<td>循环</td>
+</tr>
+<tr>
+<td><code>th:href=&quot;@{/books}&quot;</code></td>
+<td>生成 URL（会自动加应用上下文路径）</td>
+</tr>
+<tr>
+<td><code>th:field=&quot;*{title}&quot;</code></td>
+<td>表单绑定：生成 <code>name=&quot;title&quot;</code> 和 <code>value=&quot;当前值&quot;</code></td>
+</tr>
+<tr>
+<td><code>*{...}</code></td>
+<td>配合 <code>th:object</code> 用的&quot;当前对象&quot;简写</td>
+</tr>
+<tr>
+<td><code>@{...}</code></td>
+<td>URL 表达式，<code>@{/books/{id}(id=${b.id})}</code> 会生成 <code>/books/3</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="7-1" tabindex="-1">7.1 公共布局片段</h3>
+<p>新建 <code>src/main/resources/templates/fragments/layout.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head th:fragment=&quot;head(pageTitle)&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title th:text=&quot;${pageTitle} + ' · 图书馆管理系统'&quot;&gt;图书馆管理系统&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; th:href=&quot;@{/css/style.css}&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;nav class=&quot;navbar&quot; th:fragment=&quot;navbar&quot;&gt;
+    &lt;div class=&quot;navbar-inner&quot;&gt;
+        &lt;a class=&quot;brand&quot; th:href=&quot;@{/}&quot;&gt;📚 图书馆管理系统&lt;/a&gt;
+
+        &lt;div class=&quot;nav-links&quot;&gt;
+            &lt;a th:href=&quot;@{/}&quot;&gt;首页&lt;/a&gt;
+            &lt;a th:href=&quot;@{/books}&quot;&gt;图书&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong><code>th:fragment</code> 是 Thymeleaf 的&quot;片段&quot;机制</strong>——给一块 HTML 起个名字，别的页面可以复用。这里定义了两个：<code>head</code>（带一个参数 <code>pageTitle</code>）和 <code>navbar</code>。</p>
+<p>别处这样用：</p>
+<pre><code class="language-html">&lt;head th:replace=&quot;~{fragments/layout :: head('图书列表')}&quot;&gt;&lt;/head&gt;
+&lt;nav th:replace=&quot;~{fragments/layout :: navbar}&quot;&gt;&lt;/nav&gt;
+</code></pre>
+<p><code>~{文件 :: 片段名}</code> 是引用语法。<code>th:replace</code> = 用片段<strong>整个替换</strong>这个标签。</p>
+<blockquote>
+<p>为什么要有布局片段？因为导航栏、CSS 引用每个页面都要写一遍。抽出来后，改导航只改一个文件。<strong>Day 2 加登录之后，导航栏要显示用户名和退出按钮——那时你只需改这一个文件。</strong></p>
+</blockquote>
+<h3 id="7-2" tabindex="-1">7.2 图书列表页</h3>
+<p>新建 <code>src/main/resources/templates/books/list.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head th:replace=&quot;~{fragments/layout :: head('图书列表')}&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;nav th:replace=&quot;~{fragments/layout :: navbar}&quot;&gt;&lt;/nav&gt;
+
+&lt;main class=&quot;container&quot;&gt;
+    &lt;div class=&quot;page-header&quot;&gt;
+        &lt;h1&gt;图书列表&lt;/h1&gt;
+        &lt;a class=&quot;btn btn-primary&quot; th:href=&quot;@{/books/new}&quot;&gt;+ 新增图书&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;alert alert-success&quot; th:if=&quot;${message}&quot; th:text=&quot;${message}&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;alert alert-error&quot; th:if=&quot;${error}&quot; th:text=&quot;${error}&quot;&gt;&lt;/div&gt;
+
+    &lt;form class=&quot;search-bar&quot; method=&quot;get&quot; th:action=&quot;@{/books}&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;keyword&quot; th:value=&quot;${keyword}&quot;
+               placeholder=&quot;搜索书名 / 作者 / ISBN / 分类&quot;&gt;
+        &lt;button class=&quot;btn&quot; type=&quot;submit&quot;&gt;搜索&lt;/button&gt;
+        &lt;a class=&quot;btn btn-ghost&quot; th:if=&quot;${keyword != null and !keyword.isBlank()}&quot; th:href=&quot;@{/books}&quot;&gt;清除&lt;/a&gt;
+    &lt;/form&gt;
+
+    &lt;div class=&quot;table-wrap&quot;&gt;
+        &lt;table class=&quot;table&quot;&gt;
+            &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;ID&lt;/th&gt;
+                &lt;th&gt;书名&lt;/th&gt;
+                &lt;th&gt;作者&lt;/th&gt;
+                &lt;th&gt;ISBN&lt;/th&gt;
+                &lt;th&gt;分类&lt;/th&gt;
+                &lt;th class=&quot;num&quot;&gt;总册数&lt;/th&gt;
+                &lt;th class=&quot;num&quot;&gt;可借&lt;/th&gt;
+                &lt;th class=&quot;num&quot;&gt;已借出&lt;/th&gt;
+                &lt;th class=&quot;actions-col&quot;&gt;操作&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+            &lt;tr th:if=&quot;${books.isEmpty()}&quot;&gt;
+                &lt;td colspan=&quot;9&quot; class=&quot;empty&quot;&gt;没有匹配的图书&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr th:each=&quot;book : ${books}&quot;&gt;
+                &lt;td th:text=&quot;${book.id}&quot;&gt;1&lt;/td&gt;
+                &lt;td th:text=&quot;${book.title}&quot;&gt;书名&lt;/td&gt;
+                &lt;td th:text=&quot;${book.author}&quot;&gt;作者&lt;/td&gt;
+                &lt;td th:text=&quot;${book.isbn}&quot;&gt;ISBN&lt;/td&gt;
+                &lt;td th:text=&quot;${book.category}&quot;&gt;分类&lt;/td&gt;
+                &lt;td class=&quot;num&quot; th:text=&quot;${book.totalCopies}&quot;&gt;0&lt;/td&gt;
+                &lt;td class=&quot;num&quot;&gt;
+                    &lt;span class=&quot;pill&quot;
+                          th:classappend=&quot;${book.availableCopies != null and book.availableCopies &gt; 0} ? 'pill-ok' : 'pill-out'&quot;
+                          th:text=&quot;${book.availableCopies}&quot;&gt;0&lt;/span&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;num&quot; th:text=&quot;${book.borrowedCopies}&quot;&gt;0&lt;/td&gt;
+                &lt;td class=&quot;actions&quot;&gt;
+                    &lt;a class=&quot;btn btn-small btn-ghost&quot;
+                       th:href=&quot;@{/books/{id}/edit(id=${book.id})}&quot;&gt;编辑&lt;/a&gt;
+                    &lt;form th:action=&quot;@{/books/{id}/delete(id=${book.id})}&quot; method=&quot;post&quot;
+                          onsubmit=&quot;return confirm('确定删除这本书吗？此操作不可撤销。');&quot;&gt;
+                        &lt;button class=&quot;btn btn-small btn-danger&quot; type=&quot;submit&quot;&gt;删除&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>看几个细节：</strong></p>
+<ul>
+<li><strong><code>th:value=&quot;${keyword}&quot;</code></strong> —— 搜索完把关键词填回输入框，用户能看到自己搜的是什么。</li>
+<li><strong><code>th:classappend</code></strong> —— 在原有 class 基础上追加。可借数 &gt; 0 时加 <code>pill-ok</code>（绿色），否则 <code>pill-out</code>（红色）。</li>
+<li><strong><code>onsubmit=&quot;return confirm(...)&quot;</code></strong> —— 原生 JS：返回 <code>false</code> 就不提交表单。删除前弹个确认框。</li>
+<li><strong>删除为什么用 <code>&lt;form method=&quot;post&quot;&gt;</code> 而不是 <code>&lt;a&gt;</code>？</strong> 因为<strong>删除是&quot;写操作&quot;，必须用 POST</strong>。用 GET 的话，浏览器预取、爬虫、甚至用户回退都可能误触发删除。这是个重要习惯。</li>
+</ul>
+<h3 id="7-3" tabindex="-1">7.3 图书表单页</h3>
+<p>新建 <code>src/main/resources/templates/books/form.html</code>：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head th:replace=&quot;~{fragments/layout :: head('图书编辑')}&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;nav th:replace=&quot;~{fragments/layout :: navbar}&quot;&gt;&lt;/nav&gt;
+
+&lt;main class=&quot;container narrow&quot;&gt;
+    &lt;div class=&quot;page-header&quot;&gt;
+        &lt;h1 th:text=&quot;${editing} ? '编辑图书' : '新增图书'&quot;&gt;图书&lt;/h1&gt;
+        &lt;a class=&quot;btn btn-ghost&quot; th:href=&quot;@{/books}&quot;&gt;返回列表&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;form class=&quot;card form&quot; method=&quot;post&quot; th:object=&quot;${book}&quot;
+          th:action=&quot;${editing} ? @{/books/{id}(id=${book.id})} : @{/books}&quot;&gt;
+
+        &lt;div class=&quot;alert alert-error&quot; th:if=&quot;${#fields.hasGlobalErrors()}&quot;&gt;
+            &lt;div th:each=&quot;err : ${#fields.globalErrors()}&quot; th:text=&quot;${err}&quot;&gt;错误&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;label&gt;
+            &lt;span&gt;书名 *&lt;/span&gt;
+            &lt;input type=&quot;text&quot; th:field=&quot;*{title}&quot; autofocus&gt;
+            &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('title')}&quot; th:errors=&quot;*{title}&quot;&gt;&lt;/small&gt;
+        &lt;/label&gt;
+
+        &lt;div class=&quot;form-row&quot;&gt;
+            &lt;label&gt;
+                &lt;span&gt;作者 *&lt;/span&gt;
+                &lt;input type=&quot;text&quot; th:field=&quot;*{author}&quot;&gt;
+                &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('author')}&quot; th:errors=&quot;*{author}&quot;&gt;&lt;/small&gt;
+            &lt;/label&gt;
+            &lt;label&gt;
+                &lt;span&gt;ISBN *&lt;/span&gt;
+                &lt;input type=&quot;text&quot; th:field=&quot;*{isbn}&quot;&gt;
+                &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('isbn')}&quot; th:errors=&quot;*{isbn}&quot;&gt;&lt;/small&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+
+        &lt;label&gt;
+            &lt;span&gt;分类&lt;/span&gt;
+            &lt;input type=&quot;text&quot; th:field=&quot;*{category}&quot; placeholder=&quot;如：计算机 / 文学 / 历史&quot;&gt;
+            &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('category')}&quot; th:errors=&quot;*{category}&quot;&gt;&lt;/small&gt;
+        &lt;/label&gt;
+
+        &lt;div class=&quot;form-row&quot;&gt;
+            &lt;label&gt;
+                &lt;span&gt;总册数 *&lt;/span&gt;
+                &lt;input type=&quot;number&quot; min=&quot;1&quot; th:field=&quot;*{totalCopies}&quot;&gt;
+                &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('totalCopies')}&quot; th:errors=&quot;*{totalCopies}&quot;&gt;&lt;/small&gt;
+            &lt;/label&gt;
+            &lt;label&gt;
+                &lt;span&gt;可借册数 *&lt;/span&gt;
+                &lt;input type=&quot;number&quot; min=&quot;0&quot; th:field=&quot;*{availableCopies}&quot;&gt;
+                &lt;small class=&quot;field-error&quot; th:if=&quot;${#fields.hasErrors('availableCopies')}&quot; th:errors=&quot;*{availableCopies}&quot;&gt;&lt;/small&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;form-actions&quot;&gt;
+            &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;保存&lt;/button&gt;
+            &lt;a class=&quot;btn btn-ghost&quot; th:href=&quot;@{/books}&quot;&gt;取消&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>三个关键机制：</strong></p>
+<ol>
+<li><strong><code>th:object=&quot;${book}&quot;</code> + <code>th:field=&quot;*{title}&quot;</code></strong> —— 表单和 <code>Book</code> 对象绑定。<code>th:field</code> 会自动生成 <code>name=&quot;title&quot;</code>，编辑时还会<strong>自动填上当前值</strong>。这就是为什么编辑页能回显数据，一行 JS 都不用写。</li>
+<li><strong><code>th:action=&quot;${editing} ? @{/books/{id}(id=${book.id})} : @{/books}&quot;</code></strong> —— 一套表单，两个提交地址：编辑时 POST 到 <code>/books/3</code>，新增时 POST 到 <code>/books</code>。<strong>和控制器里的 <code>@PostMapping(&quot;/{id}&quot;)</code> / <code>@PostMapping</code> 两两对应。</strong></li>
+<li><strong><code>#fields.hasErrors('title')</code> / <code>th:errors=&quot;*{title}&quot;</code></strong> —— 显示某个字段的校验错误。<code>#fields</code> 是 Thymeleaf 内置对象，专门配合 Spring 的表单校验。</li>
+</ol>
+<blockquote>
+<p>🔎 <strong><code>th:errors=&quot;*{title}&quot;</code> 显示的错误文字从哪来？</strong> 三个来源，按优先级：(1) <code>Book</code> 上 <code>@NotBlank(message=&quot;书名不能为空&quot;)</code> 的 message；(2) 控制器 <code>binding.rejectValue(...)</code> 塞进去的；(3) <code>BusinessException</code> 经 <code>reject()</code> 转换来的。</p>
+</blockquote>
+<h3 id="7-4-css" tabindex="-1">7.4 CSS（拷贝即可）</h3>
+<p>CSS 不是今天的学习重点，直接从上一步的备份里拷：</p>
+<pre><code class="language-bash">mkdir -p src/main/resources/static/css
+cp ../hi-backup/src/main/resources/static/css/style.css src/main/resources/static/css/style.css
+</code></pre>
+<blockquote>
+<p>你只需要知道模板里用到的几个 class 名：<code>container</code>（居中容器）、<code>card</code>（白卡片）、<code>btn / btn-primary / btn-danger / btn-ghost</code>（按钮）、<code>table</code>（表格）、<code>form</code>（表单）、<code>alert-success / alert-error</code>（提示条）、<code>pill-ok / pill-out</code>（可借数徽章）。名字对上了页面就好看，对不上就是没样式——不影响功能。</p>
+</blockquote>
+<h3 id="✅ 验证：跑起来！" tabindex="-1">✅ 验证：跑起来！</h3>
+<pre><code class="language-bash">./mvnw spring-boot:run
+</code></pre>
+<p>打开 <a href="http://localhost:8080" target="_blank" class="external-link">http://localhost:8080</a> —— 应该自动跳到 <code>/books</code>，看到空列表和「没有匹配的图书」。</p>
+<hr>
+<h2 id="8" tabindex="-1">8. 自测清单（今天必须逐条走完）</h2>
+<p>打开浏览器，按顺序做，<strong>每条都亲手验证</strong>：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 访问 <code>http://localhost:8080</code> → 自动跳到 <code>/books</code>，显示空列表</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> 点「+ 新增图书」→ 出现表单，总册数/可借册数默认都是 1</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> <strong>什么都填，直接点保存</strong> → 表单重新出现，书名/作者/ISBN 下面出现红色提示「xxx不能为空」</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> 填一本书：<code>三体 / 刘慈欣 / 9787536692930 / 科幻 / 3</code> → 保存 → 回到列表，看到这本书，可借数显示 <strong>3</strong>（绿色徽章）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> 再新增一本，<strong>ISBN 故意填一样的</strong> <code>9787536692930</code> → 保存被拒绝，ISBN 输入框下方提示「ISBN「…」已被另一本图书使用」</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 新增第二本：<code>活着 / 余华 / 9787506365437 / 小说 / 5</code></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> <strong>总册数填 2、可借册数填 5</strong> → 保存 → 提示「可借册数不能大于总册数（当前 2）」</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> 点某本书的「编辑」→ 表单<strong>已经填好了这本书的数据</strong>，改书名保存 → 列表里变了</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 搜索框输入 <code>科幻</code> → 只剩《三体》；输入 <code>余华</code> → 只剩《活着》；输入 <code>三体</code> → 书名匹配</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> 搜索框输入 <code>不存在的书</code> → 显示「没有匹配的图书」，旁边出现「清除」按钮，点了能回到全部</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 点「删除」→ 弹出确认框 → 确定 → 列表里消失</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> 打开 <code>data/books.json</code>，看到格式化好的 JSON 数组</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> <strong><code>Ctrl+C</code> 停掉程序，再 <code>./mvnw spring-boot:run</code> 重启</strong> → 数据还在 ✅ <strong>（这条最重要，证明持久化真的生效了）</strong></label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> 访问 <code>http://localhost:8080/books/999/edit</code> → 显示 <strong>404</strong>（不是 500）</label></li>
+</ul>
+<p>全过 = <strong>V1 完成</strong> 🎉</p>
+<hr>
+<h2 id="9" tabindex="-1">9. 常见坑速查</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>原因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动报 <code>Port 8080 was already in use</code></td>
+<td>有别的进程占着 8080</td>
+<td><code>lsof -ti:8080 | xargs kill -9</code></td>
+</tr>
+<tr>
+<td>编译报「找不到符号 ObjectMapper」</td>
+<td>import 写成了 <code>com.fasterxml.jackson.databind</code></td>
+<td>改成 <code>tools.jackson.databind</code></td>
+</tr>
+<tr>
+<td>编译报 <code>unreported exception JsonProcessingException</code></td>
+<td>套用了 Jackson 2 的老代码</td>
+<td>Jackson 3 的 <code>JacksonException</code> 是非受检的，删掉 <code>throws</code></td>
+</tr>
+<tr>
+<td>页面 404，但类明明写了</td>
+<td>包位置不对，没被扫描到</td>
+<td>所有类必须在 <code>com.library</code> 或其子包下</td>
+</tr>
+<tr>
+<td>中文全是 <code>???</code> 或乱码</td>
+<td>编码不是 UTF-8</td>
+<td>pom 已配好；IDEA 里检查 File Encodings 三处都是 UTF-8</td>
+</tr>
+<tr>
+<td><code>th:field</code> 报错 <code>Neither BindingResult nor plain target object</code></td>
+<td>表单页缺少 <code>th:object</code> 对应的 Model 属性</td>
+<td>控制器里确认 <code>model.addAttribute(&quot;book&quot;, ...)</code></td>
+</tr>
+<tr>
+<td>改完 HTML 刷新没变化</td>
+<td>模板缓存</td>
+<td>确认 <code>spring.thymeleaf.cache: false</code></td>
+</tr>
+<tr>
+<td>保存后列表没变，也没报错</td>
+<td>提交失败被静默吞了</td>
+<td>看浏览器是否停在表单页 + 有没有红字提示</td>
+</tr>
+<tr>
+<td><code>data/</code> 里没有 JSON 文件</td>
+<td>只有写入时才会创建</td>
+<td>新增一本书后就有了</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="10-30" tabindex="-1">10. 复盘：回答这几个问题（30 分钟）</h2>
+<p>合上代码，<strong>用自己的话</strong>写在笔记里。答不上来的，回去重看对应章节。</p>
+<ol>
+<li>从浏览器点「保存」到数据写进 <code>books.json</code>，中间经过了哪些类？按顺序说出来。</li>
+<li><code>JsonFileStore.update()</code> 为什么不直接写成&quot;读、改、写&quot;三步？<strong>那把锁保护的是什么？</strong></li>
+<li>如果没有 <code>@JsonIgnore</code>，<code>data/books.json</code> 里会多出什么？会有什么问题？</li>
+<li><code>BookService.validate()</code> 里的校验，和 <code>Book</code> 上的 <code>@NotBlank</code> 有什么本质区别？（提示：一个校验的是「格式」，一个校验的是「业务规则」；一个需要查仓库，一个不需要）</li>
+<li>为什么&quot;删除&quot;必须用 POST？</li>
+<li>表单提交失败返回 <code>books/form</code>、成功返回 <code>redirect:/books</code>——<strong>如果成功也直接返回 <code>books/list</code> 会怎样？</strong>（提示：刷新页面时会重复提交）</li>
+</ol>
+<h3 id="🛠 动手改一改（选做，但强烈建议）" tabindex="-1">🛠 动手改一改（选做，但强烈建议）</h3>
+<ol>
+<li><strong>加分页</strong>：现在 250 本书会一页全显示。在 <code>BookService.search()</code> 后面加个分页，页面上加「上一页 / 下一页」。</li>
+<li><strong>加排序</strong>：点表头「书名」按书名排序，再点一次倒序。提示：加个 <code>sort</code> 查询参数。</li>
+<li><strong>加一个字段</strong> <code>publisher</code>（出版社），走完「模型 → 表单 → 列表 → 校验」全流程。<strong>这一条做完，你就掌握了整个 CRUD 的套路。</strong></li>
+</ol>
+<hr>
+<h2 id="11" tabindex="-1">11. 明天预告</h2>
+<p>今天的程序<strong>谁都能用</strong>——包括删掉你所有图书的人。而且&quot;新增图书&quot;和&quot;借阅图书&quot;这两件事，显然不该是同一批人干的。</p>
+<p>Day 2 我们会：</p>
+<ul>
+<li>引入 <strong>Spring Security</strong>，做出登录页</li>
+<li>建 <code>User</code> / <code>Role</code> 模型，密码用 <strong>BCrypt</strong> 哈希存储（<strong>绝不存明文</strong>）</li>
+<li>分成<strong>管理员 / 读者</strong>两种角色</li>
+<li>让「新增 / 编辑 / 删除图书」<strong>只有管理员能做</strong>，读者只能看</li>
+<li>首页从&quot;跳转到列表&quot;变成一个真正的<strong>概览页</strong></li>
+</ul>
+<p>到时候你会发现：<strong>今天写的 <code>BookController</code>，只需要加几个 <code>@PreAuthorize</code> 注解就完成了权限控制</strong>——因为好的分层设计，改动总是局部的。</p>
+<hr>
+<p><strong>V1 打卡：</strong> 当你完成自测清单并重启验证了数据持久化，在 <a class="internal-link is-unresolved" href="/404" target="">day02.md</a> 开头写下今天的日期和一句话感受。明天见 👋</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#day-01-v1">Day 01 · V1：能跑的图书管理（无登录）</a>
+<ol>
+<li><a href="#0">0. 开始之前：先把「答案」备份走</a>
+</li>
+<li><a href="#1-10">1. 环境自检（10 分钟）</a>
+</li>
+<li><a href="#2">2. 今天的时间表</a>
+</li>
+<li><a href="#3-40">3. 搭骨架（40 分钟）</a>
+<ol>
+<li><a href="#3-1-code-pom-xml-code">3.1 pom.xml</a>
+</li>
+<li><a href="#3-2-code-application-yml-code">3.2 application.yml</a>
+</li>
+<li><a href="#3-3">3.3 启动类</a>
+</li>
+<li><a href="#✅ 验证：框架活了吗">✅ 验证：框架活了吗</a>
+</li>
+</ol>
+</li>
+<li><a href="#4-json-60">4. 模型 + JSON 持久化（60 分钟）</a>
+<ol>
+<li><a href="#4-1-code-book-code">4.1 图书模型 Book</a>
+</li>
+<li><a href="#4-2-json-code-json-file-store-code">4.2 通用 JSON 仓储 JsonFileStore</a>
+<ol>
+<li><a href="#jackson-3">🚨 全项目最大的坑：Jackson 3</a>
+</li>
+<li><a href="#code-json-file-store-code">这段 JsonFileStore 的设计思路</a>
+</li>
+</ol>
+</li>
+<li><a href="#4-3-code-library-properties-code">4.3 配置绑定 LibraryProperties</a>
+</li>
+<li><a href="#4-4-code-book-repository-code">4.4 图书仓储 BookRepository</a>
+</li>
+<li><a href="#✅ 验证：能编译">✅ 验证：能编译</a>
+</li>
+</ol>
+</li>
+<li><a href="#5-45">5. 业务层（45 分钟）</a>
+<ol>
+<li><a href="#5-1">5.1 两个异常类</a>
+</li>
+<li><a href="#5-2-code-book-service-code">5.2 BookService</a>
+</li>
+<li><a href="#✅ 验证">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#6-web-60">6. Web 层（60 分钟）</a>
+<ol>
+<li><a href="#6-1-code-book-controller-code">6.1 BookController</a>
+</li>
+<li><a href="#6-2">6.2 逐个概念拆解</a>
+</li>
+<li><a href="#6-3">6.3 三个必须弄懂的设计点</a>
+</li>
+<li><a href="#6-4-code-home-controller-code">6.4 HomeController（临时版）</a>
+</li>
+<li><a href="#✅ 验证-1">✅ 验证</a>
+</li>
+</ol>
+</li>
+<li><a href="#7-75">7. 页面（75 分钟）</a>
+<ol>
+<li><a href="#7-1">7.1 公共布局片段</a>
+</li>
+<li><a href="#7-2">7.2 图书列表页</a>
+</li>
+<li><a href="#7-3">7.3 图书表单页</a>
+</li>
+<li><a href="#7-4-css">7.4 CSS（拷贝即可）</a>
+</li>
+<li><a href="#✅ 验证：跑起来！">✅ 验证：跑起来！</a>
+</li>
+</ol>
+</li>
+<li><a href="#8">8. 自测清单（今天必须逐条走完）</a>
+</li>
+<li><a href="#9">9. 常见坑速查</a>
+</li>
+<li><a href="#10-30">10. 复盘：回答这几个问题（30 分钟）</a>
+<ol>
+<li><a href="#🛠 动手改一改（选做，但强烈建议）">🛠 动手改一改（选做，但强烈建议）</a>
+</li>
+</ol>
+</li>
+<li><a href="#11">11. 明天预告</a>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
