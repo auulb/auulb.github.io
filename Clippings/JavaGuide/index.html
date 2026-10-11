@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Snailclimb/JavaGuide: Java 面试 &amp; 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome/readme.md 在 main · sindresorhus/awesome --- awesome/readme.md at main </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science通往计算机科学免费自学之路/">ossu/computer-science：🎓通往计算机科学免费自学之路！ --- ossu/computer-science: 🎓 Path to a free self-taught education in Computer Science! </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes技术面试/">CyC2018/CS-Notes: :books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers. </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">Snailclimb/JavaGuide: Java 面试 &amp; 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days Python100天从新手到大师/">jackfrued/Python-100-Days: Python - 100天从新手到大师 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统system-design-primer/">system-design-primer/README-zh-Hans.md at master </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">Snailclimb/JavaGuide: Java 面试 &amp; 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<p><strong><a href="https://github.com/Snailclimb/JavaGuide/blob/main/README_EN.md" target="_blank" class="external-link">English</a></strong> | <strong><a href="https://github.com/Snailclimb/JavaGuide/blob/main/README_JA.md" target="_blank" class="external-link">日本語</a></strong> | <strong>简体中文</strong></p>
+<ul>
+<li>推荐在线阅读（体验更好，速度更快）： <a href="https://javaguide.cn/" target="_blank" class="external-link">javaguide.cn</a></li>
+<li>面试突击版本（只保留重点，附带精美 PDF 下载）： <a href="https://interview.javaguide.cn/" target="_blank" class="external-link">interview.javaguide.cn</a></li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>大模型实战项目</strong> ： <a href="https://javaguide.cn/zhuanlan/interview-guide.html" target="_blank" class="external-link">⭐AI 智能面试辅助平台 + RAG 知识库</a> （基于 Spring Boot 4.0 + Java 21 + Spring AI 2.0，非常适合作为学习和简历项目，学习门槛低）。</li>
+<li><strong>面试资料补充</strong> ：
+<ul>
+<li><a href="https://javaguide.cn/zhuanlan/java-mian-shi-zhi-bei.html" target="_blank" class="external-link">《Java 面试指北》</a> ：四年打磨，和 <a href="https://javaguide.cn/" target="_blank" class="external-link">JavaGuide 开源版</a> 的内容互补，带你从零开始系统准备面试！
+<ul>
+<li><a href="https://javaguide.cn/zhuanlan/back-end-interview-high-frequency-system-design-and-scenario-questions.html" target="_blank" class="external-link">《后端面试高频系统设计&amp;场景题》</a> ：30+ 道高频系统设计和场景面试，助你应对当下中大厂面试趋势。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>使用建议</strong> ：如果你想要系统准备 Java 后端面试但又不知道如何开始的，可以参考 <a href="https://javaguide.cn/interview-preparation/backend-interview-plan.html" target="_blank" class="external-link">Java 后端面试通关计划（后端通用）</a> 。</li>
+<li><strong>求个 Star</strong> ：如果觉得 JavaGuide 的内容对你有帮助的话，还请点个免费的 Star，这是对我最大的鼓励，感谢各位一起同行，共勉！传送门： <a href="https://github.com/Snailclimb/JavaGuide" target="_blank" class="external-link">GitHub</a> | <a href="https://gitee.com/SnailClimb/JavaGuide" target="_blank" class="external-link">Gitee</a> 。</li>
+<li><strong>转载须知</strong> ：以下所有文章如非文首说明为转载皆为 JavaGuide 原创，转载请在文首注明出处。如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！</li>
+</ul>
+</blockquote>
+<h2 id="ai" tabindex="-1">AI 应用开发面试指南</h2>
+<p>面向后端开发者的 AI 应用开发、AI 编程实战与面试指南已开源，涵盖 LLM、Agent、RAG、MCP、Claude Code、Codex 等核心技术与工程实践。对标 JavaGuide！有帮助的话，欢迎 Star！</p>
+<ul>
+<li><strong>项目地址</strong> ： <a href="https://github.com/Snailclimb/AIGuide" target="_blank" class="external-link">https://github.com/Snailclimb/AIGuide</a></li>
+<li><strong>在线阅读</strong> ： <a href="https://javaguide.cn/ai/" target="_blank" class="external-link">https://javaguide.cn/ai/</a></li>
+</ul>
+<h2 id="后端面试准备" tabindex="-1">后端面试准备</h2>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/backend-interview-plan.md" target="_blank" class="external-link">⭐Java 后端面试通关计划（涵盖后端通用体系）</a> (一定要看 👍)</li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/teach-you-how-to-prepare-for-the-interview-hand-in-hand.md" target="_blank" class="external-link">如何高效准备 Java 面试？</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/key-points-of-interview.md" target="_blank" class="external-link">Java 后端面试重点总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/java-roadmap.md" target="_blank" class="external-link">Java 学习路线（最新版，4w+ 字）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/resume-guide.md" target="_blank" class="external-link">程序员简历编写指南</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/project-experience-guide.md" target="_blank" class="external-link">项目经验指南</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/how-to-handle-interview-nerves.md" target="_blank" class="external-link">面试太紧张怎么办？</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/interview-preparation/internship-experience.md" target="_blank" class="external-link">校招没有实习经历怎么办？实习经历怎么写？</a></li>
+</ul>
+<h2 id="java" tabindex="-1">Java</h2>
+<h3 id="基础" tabindex="-1">基础</h3>
+<p><strong>知识点/面试题总结</strong> （必看:+1:）：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/java-basic-questions-01.md" target="_blank" class="external-link">Java 基础常见知识点&amp;面试题总结(上)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/java-basic-questions-02.md" target="_blank" class="external-link">Java 基础常见知识点&amp;面试题总结(中)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/java-basic-questions-03.md" target="_blank" class="external-link">Java 基础常见知识点&amp;面试题总结(下)</a></li>
+</ul>
+<p><strong>重要知识点详解</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/why-there-only-value-passing-in-java.md" target="_blank" class="external-link">为什么 Java 中只有值传递？</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/serialization.md" target="_blank" class="external-link">Java 序列化详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/generics-and-wildcards.md" target="_blank" class="external-link">泛型&amp;通配符详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/reflection.md" target="_blank" class="external-link">Java 反射机制详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/proxy.md" target="_blank" class="external-link">Java 代理模式详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/bigdecimal.md" target="_blank" class="external-link">BigDecimal 详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/unsafe.md" target="_blank" class="external-link">Java 魔法类 Unsafe 详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/spi.md" target="_blank" class="external-link">Java SPI 机制详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/syntactic-sugar.md" target="_blank" class="external-link">Java 语法糖详解</a></li>
+</ul>
+<h3 id="集合" tabindex="-1">集合</h3>
+<p><strong>知识点/面试题总结</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/java-collection-questions-01.md" target="_blank" class="external-link">Java 集合常见知识点&amp;面试题总结(上)</a> （必看 👍）</li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/java-collection-questions-02.md" target="_blank" class="external-link">Java 集合常见知识点&amp;面试题总结(下)</a> （必看 👍）</li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/java-collection-precautions-for-use.md" target="_blank" class="external-link">Java 容器使用注意事项总结</a></li>
+</ul>
+<p><strong>源码分析</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/arraylist-source-code.md" target="_blank" class="external-link">ArrayList 核心源码+扩容机制分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/linkedlist-source-code.md" target="_blank" class="external-link">LinkedList 核心源码分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/hashmap-source-code.md" target="_blank" class="external-link">HashMap 核心源码+底层数据结构分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/concurrent-hash-map-source-code.md" target="_blank" class="external-link">ConcurrentHashMap 核心源码+底层数据结构分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/linkedhashmap-source-code.md" target="_blank" class="external-link">LinkedHashMap 核心源码分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/copyonwritearraylist-source-code.md" target="_blank" class="external-link">CopyOnWriteArrayList 核心源码分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/arrayblockingqueue-source-code.md" target="_blank" class="external-link">ArrayBlockingQueue 核心源码分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/priorityqueue-source-code.md" target="_blank" class="external-link">PriorityQueue 核心源码分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/collection/delayqueue-source-code.md" target="_blank" class="external-link">DelayQueue 核心源码分析</a></li>
+</ul>
+<h3 id="io" tabindex="-1">IO</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/io/io-basis.md" target="_blank" class="external-link">IO 基础知识总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/io/io-design-patterns.md" target="_blank" class="external-link">IO 设计模式总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/io/io-model.md" target="_blank" class="external-link">IO 模型详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/io/nio-basis.md" target="_blank" class="external-link">NIO 核心知识总结</a></li>
+</ul>
+<h3 id="并发" tabindex="-1">并发</h3>
+<p><strong>知识点/面试题总结</strong> （必看 👍）</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-concurrent-questions-01.md" target="_blank" class="external-link">Java 并发常见知识点&amp;面试题总结（上）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-concurrent-questions-02.md" target="_blank" class="external-link">Java 并发常见知识点&amp;面试题总结（中）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-concurrent-questions-03.md" target="_blank" class="external-link">Java 并发常见知识点&amp;面试题总结（下）</a></li>
+</ul>
+<p><strong>重要知识点详解</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-lock.md" target="_blank" class="external-link">Java 锁详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/optimistic-lock-and-pessimistic-lock.md" target="_blank" class="external-link">乐观锁和悲观锁详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/cas.md" target="_blank" class="external-link">CAS 详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/jmm.md" target="_blank" class="external-link">JMM（Java 内存模型）详解</a></li>
+<li><strong>线程池</strong> ： <a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-thread-pool-summary.md" target="_blank" class="external-link">Java 线程池详解</a> 、 <a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-thread-pool-best-practices.md" target="_blank" class="external-link">Java 线程池最佳实践</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/threadlocal.md" target="_blank" class="external-link">ThreadLocal 详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/java-concurrent-collections.md" target="_blank" class="external-link">Java 并发容器总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/atomic-classes.md" target="_blank" class="external-link">Atomic 原子类总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/aqs.md" target="_blank" class="external-link">AQS 详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/concurrent/completablefuture-intro.md" target="_blank" class="external-link">CompletableFuture 详解</a></li>
+</ul>
+<h3 id="jvm" tabindex="-1">JVM（必看 👍）</h3>
+<p>JVM 这部分内容主要参考 <a href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html" target="_blank" class="external-link">JVM 虚拟机规范-Java8</a> 和周志明老师的 <a href="https://book.douban.com/subject/34907497/" target="_blank" class="external-link">《深入理解 Java 虚拟机（第 3 版）》</a> （强烈建议阅读多遍！）。</p>
+<ul>
+<li><strong><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/memory-area.md" target="_blank" class="external-link">Java 内存区域</a></strong></li>
+<li><strong><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/jvm-garbage-collection.md" target="_blank" class="external-link">JVM 垃圾回收</a></strong></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/class-file-structure.md" target="_blank" class="external-link">类文件结构</a></li>
+<li><strong><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/class-loading-process.md" target="_blank" class="external-link">类加载过程</a></strong></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/classloader.md" target="_blank" class="external-link">类加载器</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/jvm-parameters-intro.md" target="_blank" class="external-link">【待完成】最重要的 JVM 参数总结（翻译完善了一半）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/jvm-intro.md" target="_blank" class="external-link">【加餐】大白话带你认识 JVM</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/jvm/jdk-monitoring-and-troubleshooting-tools.md" target="_blank" class="external-link">JDK 监控和故障处理工具</a></li>
+</ul>
+<h3 id="新特性" tabindex="-1">新特性</h3>
+<ul>
+<li><strong>Java 8</strong> ： <a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java8-tutorial-translate.md" target="_blank" class="external-link">Java 8 新特性总结（翻译）</a> 、 <a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java8-common-new-features.md" target="_blank" class="external-link">Java8 常用新特性总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java9.md" target="_blank" class="external-link">Java 9 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java10.md" target="_blank" class="external-link">Java 10 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java11.md" target="_blank" class="external-link">Java 11 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java12-13.md" target="_blank" class="external-link">Java 12 &amp; 13 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java14-15.md" target="_blank" class="external-link">Java 14 &amp; 15 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java16.md" target="_blank" class="external-link">Java 16 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java17.md" target="_blank" class="external-link">Java 17 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java18.md" target="_blank" class="external-link">Java 18 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java19.md" target="_blank" class="external-link">Java 19 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java20.md" target="_blank" class="external-link">Java 20 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java21.md" target="_blank" class="external-link">Java 21 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java22-23.md" target="_blank" class="external-link">Java 22 &amp; 23 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java24.md" target="_blank" class="external-link">Java 24 新特性概览</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/new-features/java25.md" target="_blank" class="external-link">Java 25 新特性概览</a></li>
+</ul>
+<h2 id="计算机基础" tabindex="-1">计算机基础</h2>
+<h3 id="操作系统" tabindex="-1">操作系统</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/operating-system-basic-questions-01.md" target="_blank" class="external-link">操作系统常见知识点&amp;面试题总结(上)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/operating-system-basic-questions-02.md" target="_blank" class="external-link">操作系统常见知识点&amp;面试题总结(下)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/process-and-thread.md" target="_blank" class="external-link">进程与线程详解：区别、状态、通信、上下文切换与虚拟线程</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/ipc.md" target="_blank" class="external-link">进程间通信（IPC）详解：管道、消息队列、共享内存、Socket 与 Binder</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/dead-lock.md" target="_blank" class="external-link">死锁详解：四个必要条件、Java 死锁排查与数据库死锁处理</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/memory-management.md" target="_blank" class="external-link">操作系统内存管理详解：分页、分段、页面置换、Swap 与 OOM</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/virtual-memory.md" target="_blank" class="external-link">虚拟内存详解：地址转换、TLB、缺页中断与页面置换</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/file-system.md" target="_blank" class="external-link">操作系统文件系统详解：inode、VFS、Page Cache 与日志机制</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/io-multiplexing.md" target="_blank" class="external-link">I/O 多路复用详解：select、poll、epoll 原理与区别</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/zero-copy.md" target="_blank" class="external-link">零拷贝详解：mmap、sendfile 与 splice</a></li>
+<li><strong>Linux</strong> ：
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/linux-intro.md" target="_blank" class="external-link">后端程序员必备的 Linux 基础知识总结</a>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/operating-system/shell-intro.md" target="_blank" class="external-link">Shell 编程基础知识总结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络" tabindex="-1">网络</h3>
+<p><strong>知识点/面试题总结</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/other-network-questions.md" target="_blank" class="external-link">计算机网络常见知识点&amp;面试题总结(上)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/other-network-questions2.md" target="_blank" class="external-link">计算机网络常见知识点&amp;面试题总结(下)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/computer-network-xiexiren-summary.md" target="_blank" class="external-link">谢希仁老师的《计算机网络》内容总结（补充）</a></li>
+</ul>
+<p><strong>重要知识点详解</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/osi-and-tcp-ip-model.md" target="_blank" class="external-link">OSI 和 TCP/IP 网络分层模型详解（基础）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/application-layer-protocol.md" target="_blank" class="external-link">应用层常见协议总结（应用层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/http-vs-https.md" target="_blank" class="external-link">HTTP vs HTTPS（应用层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/http1.0-vs-http1.1.md" target="_blank" class="external-link">HTTP 1.0 vs HTTP 1.1（应用层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/http-status-codes.md" target="_blank" class="external-link">HTTP 常见状态码（应用层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/dns.md" target="_blank" class="external-link">DNS 域名系统详解（应用层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/tcp-connection-and-disconnection.md" target="_blank" class="external-link">TCP 三次握手和四次挥手（传输层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/tcp-keepalive-vs-http-keepalive.md" target="_blank" class="external-link">TCP Keepalive 和 HTTP Keep-Alive 有什么区别？（传输层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/tcp-reliability-guarantee.md" target="_blank" class="external-link">TCP 传输可靠性保障（传输层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/can-ping-but-tcp-may-not-connect.md" target="_blank" class="external-link">能 Ping 通，TCP 就一定能连通吗？（传输层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/can-tcp-and-udp-use-the-same-port.md" target="_blank" class="external-link">TCP 和 UDP 可以使用同一个端口吗？（传输层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/maximum-number-of-tcp-connections-per-host.md" target="_blank" class="external-link">一台主机最多能保持多少个 TCP 连接？（传输层）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/arp.md" target="_blank" class="external-link">ARP 协议详解(网络层)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/nat.md" target="_blank" class="external-link">NAT 协议详解(网络层)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/network/network-attack-means.md" target="_blank" class="external-link">网络攻击常见手段总结（安全）</a></li>
+</ul>
+<h3 id="数据结构" tabindex="-1">数据结构</h3>
+<p><strong>图解数据结构：</strong></p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/data-structure/linear-data-structure.md" target="_blank" class="external-link">线性数据结构:数组、链表、栈、队列</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/data-structure/graph.md" target="_blank" class="external-link">图</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/data-structure/heap.md" target="_blank" class="external-link">堆</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/data-structure/tree.md" target="_blank" class="external-link">树</a> ：重点关注 <a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/data-structure/red-black-tree.md" target="_blank" class="external-link">红黑树</a> 、B-，B+，B*树、LSM 树</li>
+</ul>
+<p>其他常用数据结构：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/data-structure/bloom-filter.md" target="_blank" class="external-link">布隆过滤器</a></li>
+</ul>
+<h3 id="算法" tabindex="-1">算法</h3>
+<p>算法这部分内容非常重要，如果你不知道如何学习算法的话，可以看下我写的：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/323359308/answer/1545320858" target="_blank" class="external-link">算法学习书籍+资源推荐</a> 。</li>
+<li><a href="https://www.zhihu.com/question/31092580/answer/1534887374" target="_blank" class="external-link">如何刷 Leetcode?</a></li>
+</ul>
+<p><strong>常见算法问题总结</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/algorithms/string-algorithm-problems.md" target="_blank" class="external-link">几道常见的字符串算法题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/algorithms/linkedlist-algorithm-problems.md" target="_blank" class="external-link">几道常见的链表算法题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/algorithms/the-sword-refers-to-offer.md" target="_blank" class="external-link">剑指 offer 部分编程题</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/cs-basics/algorithms/10-classical-sorting-algorithms.md" target="_blank" class="external-link">十大经典排序算法</a></li>
+</ul>
+<p>另外， <a href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/" target="_blank" class="external-link">GeeksforGeeks</a> 这个网站总结了常见的算法，比较全面系统。</p>
+<h2 id="数据库" tabindex="-1">数据库</h2>
+<h3 id="基础-1" tabindex="-1">基础</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/basis.md" target="_blank" class="external-link">数据库基础知识总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/nosql.md" target="_blank" class="external-link">NoSQL 基础知识总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/character-set.md" target="_blank" class="external-link">字符集详解</a></li>
+<li>SQL:
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/sql/sql-syntax-summary.md" target="_blank" class="external-link">SQL 语法基础知识总结</a>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/sql/sql-questions-01.md" target="_blank" class="external-link">SQL 常见面试题总结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="my-sql" tabindex="-1">MySQL</h3>
+<p><strong>知识点/面试题总结：</strong></p>
+<ul>
+<li><strong><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-questions-01.md" target="_blank" class="external-link">MySQL 常见知识点&amp;面试题总结</a></strong> （必看 👍）</li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-high-performance-optimization-specification-recommendations.md" target="_blank" class="external-link">MySQL 高性能优化规范建议总结</a></li>
+</ul>
+<p><strong>重要知识点：</strong></p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-index.md" target="_blank" class="external-link">MySQL 索引详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-index-invalidation.md" target="_blank" class="external-link">MySQL 索引失效场景总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/transaction-isolation-level.md" target="_blank" class="external-link">MySQL 事务隔离级别图文详解)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-logs.md" target="_blank" class="external-link">MySQL 三大日志(binlog、redo log 和 undo log)详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-backup-and-restore.md" target="_blank" class="external-link">MySQL 备份与恢复详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/innodb-implementation-of-mvcc.md" target="_blank" class="external-link">InnoDB 存储引擎对 MVCC 的实现</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/how-sql-executed-in-mysql.md" target="_blank" class="external-link">SQL 语句在 MySQL 中的执行过程</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-query-cache.md" target="_blank" class="external-link">MySQL 查询缓存详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-query-execution-plan.md" target="_blank" class="external-link">MySQL 执行计划分析</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/mysql-auto-increment-primary-key-continuous.md" target="_blank" class="external-link">MySQL 自增主键一定是连续的吗</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/some-thoughts-on-database-storage-time.md" target="_blank" class="external-link">MySQL 时间类型数据存储建议</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mysql/index-invalidation-caused-by-implicit-conversion.md" target="_blank" class="external-link">MySQL 隐式转换造成索引失效</a></li>
+</ul>
+<h3 id="redis" tabindex="-1">Redis</h3>
+<p><strong>知识点/面试题总结</strong> （必看:+1:）：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-questions-01.md" target="_blank" class="external-link">Redis 常见知识点&amp;面试题总结(上)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-questions-02.md" target="_blank" class="external-link">Redis 常见知识点&amp;面试题总结(下)</a></li>
+</ul>
+<p><strong>重要知识点：</strong></p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/3-commonly-used-cache-read-and-write-strategies.md" target="_blank" class="external-link">3 种常用的缓存读写策略详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-stream-mq.md" target="_blank" class="external-link">Redis 能做消息队列吗？怎么实现？</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-data-structures-01.md" target="_blank" class="external-link">Redis 5 种基本数据结构详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-data-structures-02.md" target="_blank" class="external-link">Redis 3 种特殊数据结构详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-persistence.md" target="_blank" class="external-link">Redis 持久化机制详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-memory-fragmentation.md" target="_blank" class="external-link">Redis 内存碎片详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-common-blocking-problems-summary.md" target="_blank" class="external-link">Redis 常见阻塞原因总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/redis/redis-cluster.md" target="_blank" class="external-link">Redis 集群详解</a></li>
+</ul>
+<h3 id="mongo-db" tabindex="-1">MongoDB</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mongodb/mongodb-questions-01.md" target="_blank" class="external-link">MongoDB 常见知识点&amp;面试题总结(上)</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/mongodb/mongodb-questions-02.md" target="_blank" class="external-link">MongoDB 常见知识点&amp;面试题总结(下)</a></li>
+</ul>
+<h2 id="搜索引擎" tabindex="-1">搜索引擎</h2>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/database/elasticsearch/elasticsearch-questions-01.md" target="_blank" class="external-link">Elasticsearch 常见面试题总结(付费)</a></p>
+<h2 id="开发工具" tabindex="-1">开发工具</h2>
+<h3 id="maven" tabindex="-1">Maven</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/maven/maven-core-concepts.md" target="_blank" class="external-link">Maven 核心概念总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/maven/maven-best-practices.md" target="_blank" class="external-link">Maven 最佳实践</a></li>
+</ul>
+<h3 id="gradle" tabindex="-1">Gradle</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/gradle/gradle-core-concepts.md" target="_blank" class="external-link">Gradle 核心概念总结</a> （可选，目前国内还是使用 Maven 普遍一些）</p>
+<h3 id="docker" tabindex="-1">Docker</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/docker/docker-intro.md" target="_blank" class="external-link">Docker 核心概念总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/docker/docker-in-action.md" target="_blank" class="external-link">Docker 实战</a></li>
+</ul>
+<h3 id="git" tabindex="-1">Git</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/git/git-intro.md" target="_blank" class="external-link">Git 核心概念总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/tools/git/github-tips.md" target="_blank" class="external-link">GitHub 实用小技巧总结</a></li>
+</ul>
+<h2 id="系统设计" tabindex="-1">系统设计</h2>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/system-design-questions.md" target="_blank" class="external-link">⭐系统设计常见面试题总结</a></li>
+<li><a href="https://interview.javaguide.cn/system-design/design-pattern.html" target="_blank" class="external-link">⭐设计模式常见面试题总结</a></li>
+</ul>
+<h3 id="基础-2" tabindex="-1">基础</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/basis/RESTfulAPI.md" target="_blank" class="external-link">RestFul API 简明教程</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/basis/software-engineering.md" target="_blank" class="external-link">软件工程简明教程</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/basis/naming.md" target="_blank" class="external-link">代码命名指南</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/basis/refactoring.md" target="_blank" class="external-link">代码重构指南</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/basis/unit-test.md" target="_blank" class="external-link">单元测试指南</a></li>
+</ul>
+<h3 id="常用框架" tabindex="-1">常用框架</h3>
+<h4 id="spring-spring-boot" tabindex="-1">Spring/SpringBoot（必看 👍）</h4>
+<p><strong>知识点/面试题总结</strong>:</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/spring-knowledge-and-questions-summary.md" target="_blank" class="external-link">Spring 常见知识点&amp;面试题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/springboot-knowledge-and-questions-summary.md" target="_blank" class="external-link">SpringBoot 常见知识点&amp;面试题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/spring-common-annotations.md" target="_blank" class="external-link">Spring/Spring Boot 常用注解总结</a></li>
+<li><a href="https://github.com/Snailclimb/springboot-guide" target="_blank" class="external-link">SpringBoot 入门指南</a></li>
+</ul>
+<p><strong>重要知识点详解</strong> ：</p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/ioc-and-aop.md" target="_blank" class="external-link">IoC &amp; AOP详解（快速搞懂）</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/spring-transaction.md" target="_blank" class="external-link">Spring 事务详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/spring-design-patterns-summary.md" target="_blank" class="external-link">Spring 中的设计模式详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/spring/spring-boot-auto-assembly-principles.md" target="_blank" class="external-link">SpringBoot 自动装配原理详解</a></li>
+</ul>
+<h4 id="my-batis" tabindex="-1">MyBatis</h4>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/framework/mybatis/mybatis-interview.md" target="_blank" class="external-link">MyBatis 常见面试题总结</a></p>
+<h3 id="安全" tabindex="-1">安全</h3>
+<h4 id="认证授权" tabindex="-1">认证授权</h4>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/basis-of-authority-certification.md" target="_blank" class="external-link">认证授权基础概念详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/jwt-intro.md" target="_blank" class="external-link">JWT 基础概念详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/advantages-and-disadvantages-of-jwt.md" target="_blank" class="external-link">JWT 优缺点分析以及常见问题解决方案</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/sso-intro.md" target="_blank" class="external-link">SSO 单点登录详解</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/design-of-authority-system.md" target="_blank" class="external-link">权限系统设计详解</a></li>
+</ul>
+<h4 id="数据安全" tabindex="-1">数据安全</h4>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/encryption-algorithms.md" target="_blank" class="external-link">常见加密算法总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/sentive-words-filter.md" target="_blank" class="external-link">敏感词过滤方案总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/data-desensitization.md" target="_blank" class="external-link">数据脱敏方案总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/data-validation.md" target="_blank" class="external-link">为什么前后端都要做数据校验</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/security/why-password-reset-instead-of-retrieval.md" target="_blank" class="external-link">为什么忘记密码时只能重置，不能告诉你原密码？</a></li>
+</ul>
+<h3 id="定时任务" tabindex="-1">定时任务</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/schedule-task.md" target="_blank" class="external-link">Java 定时任务详解</a></p>
+<h3 id="web" tabindex="-1">Web 实时消息推送</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/system-design/web-real-time-message-push.md" target="_blank" class="external-link">Web 实时消息推送详解</a></p>
+<h2 id="分布式" tabindex="-1">分布式</h2>
+<ul>
+<li><a href="https://interview.javaguide.cn/distributed-system/distributed-system.html" target="_blank" class="external-link">⭐分布式高频面试题</a></li>
+<li><a href="https://javaguide.cn/distributed-system/distributed-system-intro.html" target="_blank" class="external-link">分布式系统入门</a></li>
+</ul>
+<h3 id="and-amp-and-amp" tabindex="-1">理论&amp;算法&amp;协议</h3>
+<ul>
+<li><a href="https://javaguide.cn/distributed-system/protocol/cap-and-base-theorem.html" target="_blank" class="external-link">CAP 理论和 BASE 理论解读</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/centralized-and-decentralized.html" target="_blank" class="external-link">分布式协调详解</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/byzantine-generals-problem.html" target="_blank" class="external-link">拜占庭将军问题详解</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/paxos-algorithm.html" target="_blank" class="external-link">Paxos 算法解读</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html" target="_blank" class="external-link">Raft 算法解读</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/zab.html" target="_blank" class="external-link">ZAB 协议解读</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/gossip-protocol.html" target="_blank" class="external-link">Gossip 协议详解</a></li>
+<li><a href="https://javaguide.cn/distributed-system/protocol/consistent-hashing.html" target="_blank" class="external-link">一致性哈希算法详解</a></li>
+</ul>
+<h3 id="rpc" tabindex="-1">RPC</h3>
+<ul>
+<li><a href="https://javaguide.cn/distributed-system/rpc/rpc-intro.html" target="_blank" class="external-link">RPC 基础知识总结</a></li>
+<li><a href="https://javaguide.cn/distributed-system/rpc/dubbo.html" target="_blank" class="external-link">Dubbo 常见知识点&amp;面试题总结</a></li>
+</ul>
+<h3 id="zoo-keeper" tabindex="-1">ZooKeeper</h3>
+<blockquote>
+<p>这两篇文章可能有内容重合部分，推荐都看一遍。</p>
+</blockquote>
+<ul>
+<li><a href="https://javaguide.cn/distributed-system/distributed-process-coordination/zookeeper/zookeeper-intro.html" target="_blank" class="external-link">ZooKeeper 相关概念总结(入门)</a></li>
+<li><a href="https://javaguide.cn/distributed-system/distributed-process-coordination/zookeeper/zookeeper-plus.html" target="_blank" class="external-link">ZooKeeper 相关概念总结(进阶)</a></li>
+</ul>
+<h3 id="api" tabindex="-1">API 网关</h3>
+<ul>
+<li><a href="https://javaguide.cn/distributed-system/api-gateway.html" target="_blank" class="external-link">API 网关基础知识总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/distributed-system/spring-cloud-gateway-questions.md" target="_blank" class="external-link">Spring Cloud Gateway 常见知识点&amp;面试题总结</a></li>
+</ul>
+<h3 id="id" tabindex="-1">分布式 ID</h3>
+<ul>
+<li><a href="https://javaguide.cn/distributed-system/distributed-id.html" target="_blank" class="external-link">分布式ID介绍&amp;实现方案总结</a></li>
+<li><a href="https://javaguide.cn/distributed-system/distributed-id-design.html" target="_blank" class="external-link">分布式 ID 设计指南</a></li>
+</ul>
+<h3 id="分布式锁" tabindex="-1">分布式锁</h3>
+<ul>
+<li><a href="https://javaguide.cn/distributed-system/distributed-lock.html" target="_blank" class="external-link">分布式锁介绍</a></li>
+<li><a href="https://javaguide.cn/distributed-system/distributed-lock-implementations.html" target="_blank" class="external-link">分布式锁常见实现方案总结</a></li>
+</ul>
+<h3 id="分布式事务" tabindex="-1">分布式事务</h3>
+<p><a href="https://javaguide.cn/distributed-system/distributed-transaction.html" target="_blank" class="external-link">分布式事务常见知识点&amp;面试题总结</a></p>
+<h3 id="分布式配置中心" tabindex="-1">分布式配置中心</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/distributed-system/distributed-configuration-center.md" target="_blank" class="external-link">分布式配置中心常见知识点&amp;面试题总结</a></p>
+<h2 id="高性能" tabindex="-1">高性能</h2>
+<h3 id="数据库优化" tabindex="-1">数据库优化</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/read-and-write-separation-and-library-subtable.md" target="_blank" class="external-link">数据库读写分离和分库分表</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/data-cold-hot-separation.md" target="_blank" class="external-link">数据冷热分离</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/sql-optimization.md" target="_blank" class="external-link">常见 SQL 优化手段总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/deep-pagination-optimization.md" target="_blank" class="external-link">深度分页介绍及优化建议</a></li>
+</ul>
+<h3 id="负载均衡" tabindex="-1">负载均衡</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/load-balancing.md" target="_blank" class="external-link">负载均衡常见知识点&amp;面试题总结</a></p>
+<h3 id="cdn" tabindex="-1">CDN</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/cdn.md" target="_blank" class="external-link">CDN（内容分发网络）常见知识点&amp;面试题总结</a></p>
+<h3 id="消息队列" tabindex="-1">消息队列</h3>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/message-queue/message-queue.md" target="_blank" class="external-link">消息队列基础知识总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/message-queue/disruptor-questions.md" target="_blank" class="external-link">Disruptor 常见知识点&amp;面试题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/message-queue/rabbitmq-questions.md" target="_blank" class="external-link">RabbitMQ 常见知识点&amp;面试题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/message-queue/rocketmq-questions.md" target="_blank" class="external-link">RocketMQ 常见知识点&amp;面试题总结</a></li>
+<li><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-performance/message-queue/kafka-questions-01.md" target="_blank" class="external-link">Kafka 常见知识点&amp;面试题总结</a></li>
+</ul>
+<h2 id="高可用" tabindex="-1">高可用</h2>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-availability/high-availability-system-design.md" target="_blank" class="external-link">高可用系统设计指南</a></p>
+<h3 id="冗余设计" tabindex="-1">冗余设计</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-availability/redundancy.md" target="_blank" class="external-link">冗余设计详解</a></p>
+<h3 id="限流" tabindex="-1">限流</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-availability/limit-request.md" target="_blank" class="external-link">服务限流详解</a></p>
+<h3 id="and-amp" tabindex="-1">降级&amp;熔断</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-availability/fallback-and-circuit-breaker.md" target="_blank" class="external-link">降级&amp;熔断详解</a></p>
+<h3 id="and-amp-1" tabindex="-1">超时&amp;重试</h3>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/main/docs/high-availability/timeout-and-retry.md" target="_blank" class="external-link">超时&amp;重试详解</a></p>
+<h3 id="集群" tabindex="-1">集群</h3>
+<p>相同的服务部署多份，避免单点故障。</p>
+<h3 id="灾备设计和异地多活" tabindex="-1">灾备设计和异地多活</h3>
+<p><strong>灾备</strong> = 容灾 + 备份。</p>
+<ul>
+<li><strong>备份</strong> ：将系统所产生的所有重要数据多备份几份。</li>
+<li><strong>容灾</strong> ：在异地建立两个完全相同的系统。当某个地方的系统突然挂掉，整个应用系统可以切换到另一个，这样系统就可以正常提供服务了。</li>
+</ul>
+<p><strong>异地多活</strong> 描述的是将服务部署在异地并且服务同时对外提供服务。和传统的灾备设计的最主要区别在于“多活”，即所有站点都是同时在对外提供服务的。异地多活是为了应对突发状况比如火灾、地震等自然或者人为灾害。</p>
+<h2 id="star" tabindex="-1">Star 趋势</h2>
+<p><a href="https://star-history.dera.page/#Snailclimb/JavaGuide&amp;type=date&amp;legend=top-left" target="_blank" class="external-link"><img src="https://camo.githubusercontent.com/1ff2d9ca6f32f273fe698b4799fbda3d98222acba93f05868a01848cbe3178b0/68747470733a2f2f737461722d686973746f72792e646572612e706167652f7376673f7265706f733d536e61696c636c696d622f4a617661477569646526747970653d64617465266c6567656e643d746f702d6c656674" alt="Star History Chart"></a></p>
+<h2 id="公众号" tabindex="-1">公众号</h2>
+<p>如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#ai">AI 应用开发面试指南</a>
+</li>
+<li><a href="#后端面试准备">后端面试准备</a>
+</li>
+<li><a href="#java">Java</a>
+<ol>
+<li><a href="#基础">基础</a>
+</li>
+<li><a href="#集合">集合</a>
+</li>
+<li><a href="#io">IO</a>
+</li>
+<li><a href="#并发">并发</a>
+</li>
+<li><a href="#jvm">JVM（必看 👍）</a>
+</li>
+<li><a href="#新特性">新特性</a>
+</li>
+</ol>
+</li>
+<li><a href="#计算机基础">计算机基础</a>
+<ol>
+<li><a href="#操作系统">操作系统</a>
+</li>
+<li><a href="#网络">网络</a>
+</li>
+<li><a href="#数据结构">数据结构</a>
+</li>
+<li><a href="#算法">算法</a>
+</li>
+</ol>
+</li>
+<li><a href="#数据库">数据库</a>
+<ol>
+<li><a href="#基础-1">基础</a>
+</li>
+<li><a href="#my-sql">MySQL</a>
+</li>
+<li><a href="#redis">Redis</a>
+</li>
+<li><a href="#mongo-db">MongoDB</a>
+</li>
+</ol>
+</li>
+<li><a href="#搜索引擎">搜索引擎</a>
+</li>
+<li><a href="#开发工具">开发工具</a>
+<ol>
+<li><a href="#maven">Maven</a>
+</li>
+<li><a href="#gradle">Gradle</a>
+</li>
+<li><a href="#docker">Docker</a>
+</li>
+<li><a href="#git">Git</a>
+</li>
+</ol>
+</li>
+<li><a href="#系统设计">系统设计</a>
+<ol>
+<li><a href="#基础-2">基础</a>
+</li>
+<li><a href="#常用框架">常用框架</a>
+<ol>
+<li><a href="#spring-spring-boot">Spring/SpringBoot（必看 👍）</a>
+</li>
+<li><a href="#my-batis">MyBatis</a>
+</li>
+</ol>
+</li>
+<li><a href="#安全">安全</a>
+<ol>
+<li><a href="#认证授权">认证授权</a>
+</li>
+<li><a href="#数据安全">数据安全</a>
+</li>
+</ol>
+</li>
+<li><a href="#定时任务">定时任务</a>
+</li>
+<li><a href="#web">Web 实时消息推送</a>
+</li>
+</ol>
+</li>
+<li><a href="#分布式">分布式</a>
+<ol>
+<li><a href="#and-amp-and-amp">理论&算法&协议</a>
+</li>
+<li><a href="#rpc">RPC</a>
+</li>
+<li><a href="#zoo-keeper">ZooKeeper</a>
+</li>
+<li><a href="#api">API 网关</a>
+</li>
+<li><a href="#id">分布式 ID</a>
+</li>
+<li><a href="#分布式锁">分布式锁</a>
+</li>
+<li><a href="#分布式事务">分布式事务</a>
+</li>
+<li><a href="#分布式配置中心">分布式配置中心</a>
+</li>
+</ol>
+</li>
+<li><a href="#高性能">高性能</a>
+<ol>
+<li><a href="#数据库优化">数据库优化</a>
+</li>
+<li><a href="#负载均衡">负载均衡</a>
+</li>
+<li><a href="#cdn">CDN</a>
+</li>
+<li><a href="#消息队列">消息队列</a>
+</li>
+</ol>
+</li>
+<li><a href="#高可用">高可用</a>
+<ol>
+<li><a href="#冗余设计">冗余设计</a>
+</li>
+<li><a href="#限流">限流</a>
+</li>
+<li><a href="#and-amp">降级&熔断</a>
+</li>
+<li><a href="#and-amp-1">超时&重试</a>
+</li>
+<li><a href="#集群">集群</a>
+</li>
+<li><a href="#灾备设计和异地多活">灾备设计和异地多活</a>
+</li>
+</ol>
+</li>
+<li><a href="#star">Star 趋势</a>
+</li>
+<li><a href="#公众号">公众号</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
