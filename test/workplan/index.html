@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>workplan</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-claude-skills/">awesome-claude-skills </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science通往计算机科学免费自学之路/">computer-science通往计算机科学免费自学之路 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes/">CS-Notes技术面试 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes技术面试/">CyC2018/CS-Notes: :books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">developer-roadmap </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">free-programming-books </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">JavaGuide </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境/">Mac开发环境 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days Python100天从新手到大师/">jackfrued/Python-100-Days: Python - 100天从新手到大师 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days/">Python-100-Days </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer学习如何设计大型系统/">system-design-primer学习如何设计大型系统 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统system-design-primer/">学习如何设计大型系统system-design-primer </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('test')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">test</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">workplan</h1>
+<div class="header-meta">
+<div class="header-tags">
+</div>
+</div>
+</header>
+<h1 id="v4" tabindex="-1">学习计划 v4 · 六个月全天候</h1>
+<blockquote>
+<p>长期目标：Java 架构师 / AI 全栈<br>
+周期：<strong>2026-10-11 → 2027-04-10</strong>（26 周 · 每天 6 小时 · 约 1100 小时）<br>
+起点：2026-10-11（周日，启动日，同时也是每周的减半日）<br>
+Java 专项见：test/javaplan.md</p>
+</blockquote>
+<hr>
+<h2 id="上篇 · 能力地图（长期）" tabindex="-1">上篇 · 能力地图（长期）</h2>
+<h3 id="0" tabindex="-1">0. 四个阶段，真正在考什么</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>表面看是</th>
+<th>本质核心能力</th>
+<th>自测标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小白</td>
+<td>会写代码</td>
+<td><strong>建立因果直觉</strong>：知道每行代码为什么这么写，能独立调试报错</td>
+<td>独立把一个小需求从 0 跑到通</td>
+</tr>
+<tr>
+<td>企业入职（初级）</td>
+<td>能干活、能交付</td>
+<td><strong>在约束下可预测地交付</strong>：命名规范、Git/CR、日志与异常、单测、进度同步</td>
+<td>别人能无痛接手你的代码</td>
+</tr>
+<tr>
+<td>中级</td>
+<td>能解决难题</td>
+<td><strong>把不确定问题收敛成确定解</strong>：性能、并发、线上排障、模块设计、技术方案</td>
+<td>线上故障由你定位到根因</td>
+</tr>
+<tr>
+<td>高级 / 架构</td>
+<td>能画图定方案</td>
+<td><strong>权衡与抽象</strong>：信息不全、多目标冲突下做取舍，划边界、定演进、控复杂度与成本</td>
+<td>你的方案别人能执行，且一年后还站得住</td>
+</tr>
+</tbody>
+</table></div>
+<p>一句话：小白练<strong>理解</strong> → 初级练<strong>交付</strong> → 中级练<strong>收敛</strong> → 高级练<strong>取舍</strong>。</p>
+<h3 id="1" tabindex="-1">1. 能力骨架（越往后，越靠下面几项）</h3>
+<ul>
+<li>语言与运行时：Python / Java 基础、集合源码、JMM、类加载、GC</li>
+<li>并发与异步：线程池、锁、异步编排</li>
+<li>框架：FastAPI / Spring（IoC、AOP、自动装配）</li>
+<li>数据：SQL、MySQL（索引 / 执行计划 / MVCC / 锁）、Redis</li>
+<li>中间件：MQ（幂等 / 顺序 / 事务消息）、分布式锁</li>
+<li>分布式：CAP、一致性、限流熔断降级、链路追踪</li>
+<li>AI 应用：LLM API、Prompt、RAG、向量库、Agent / MCP</li>
+<li>架构：DDD、分层与边界、微服务拆分、容量估算</li>
+<li>工程化：Git、CI/CD、Docker/K8s、可观测性、压测</li>
+<li>软能力：技术方案文档、ADR、跨团队推动</li>
+</ul>
+<hr>
+<h2 id="26" tabindex="-1">下篇 · 26 周路线</h2>
+<h3 id="2-6" tabindex="-1">2. 6 小时怎么分（整套计划最重要的设计）</h3>
+<p>6 小时不是连续学 6 小时，而是<strong>四种性质不同的活动各占一块</strong>。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>时段</th>
+<th>时长</th>
+<th>内容</th>
+<th>硬性产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上午</td>
+<td>2h</td>
+<td><strong>刻意练习</strong>：算法 1 题（30 min）+ 当周主题动手写（90 min）</td>
+<td>1 道题 + 1 段能跑的代码</td>
+</tr>
+<tr>
+<td>下午</td>
+<td>2.5h</td>
+<td><strong>项目推进</strong>：真实项目，写代码为主</td>
+<td>1 个 commit + 能演示的产物</td>
+</tr>
+<tr>
+<td>傍晚</td>
+<td>1h</td>
+<td><strong>限时输入</strong>：官方文档 / 源码 / 课程</td>
+<td>3 条笔记</td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>0.5h</td>
+<td><strong>输出与规划</strong>：当日笔记 + 明日任务</td>
+<td>笔记 + 明日 3 件事</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>三条纪律</strong></p>
+<ol>
+<li>6 小时里<strong>至少 4.5 小时在动手</strong>，限时输入不超过 1.5 小时。这条比什么都重要。</li>
+<li>每 50 分钟休息 10 分钟，不要硬撑。</li>
+<li>每天必须留下 commit。<strong>没有 commit 的一天 = 没学。</strong></li>
+</ol>
+<h3 id="3-26" tabindex="-1">3. 项目主线：一个项目贯穿 26 周</h3>
+<p>不要做十几个小项目。<strong>只做一个，让它逐周长大</strong>——这样你能看见系统是怎么长出来的，而不是每次从零开始。</p>
+<p><strong>项目：AI 内容助手</strong> —— 抓取技术热点 → LLM 生成中文摘要 → 发布 / 提供服务 → 最后变成能查你笔记的问答服务。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>形态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W2–W6</td>
+<td>命令行脚本 → 每天自动产出 Markdown 内容</td>
+</tr>
+<tr>
+<td>W7–W12</td>
+<td>Web 服务 → 有界面、有数据库、有用户、公网可访问</td>
+</tr>
+<tr>
+<td>W13–W18</td>
+<td>Java 重写后端 → 前后端分离 + 缓存</td>
+</tr>
+<tr>
+<td>W19–W22</td>
+<td>接入 RAG / Agent → 能查你自己的 Obsidian 笔记</td>
+</tr>
+<tr>
+<td>W23–W26</td>
+<td>架构收口 → 技术方案文档 + 简历 + 面试准备</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="4" tabindex="-1">4. 每周节奏与防崩盘机制</h3>
+<ul>
+<li>周一～周六：满负荷 6 小时</li>
+<li><strong>周日：减半（3 小时）</strong>，下午完全断网休息</li>
+<li><strong>法定节假日当周自动减半</strong>，不要为了「进度」硬补</li>
+<li>每晚睡前 5 分钟：写明天的 3 件事</li>
+</ul>
+<p><strong>每 6 周一次体检</strong>（W6 / W12 / W18 / W24 的周日做），回答 5 个问题：</p>
+<ol>
+<li>这 6 周我一共提交了多少次 commit？</li>
+<li>有没有一个<strong>能演示给别人看</strong>的东西？</li>
+<li>有没有真人用过我做的东西？</li>
+<li>我能不能不看资料，把这 6 周学的东西讲清楚？</li>
+<li>我的睡眠和情绪还正常吗？</li>
+</ol>
+<p>任何一条答不上来 → <strong>下一周减半，把它补上，别硬冲</strong>。六个月是马拉松，中途放弃是最大的失败方式，比学得慢严重得多。</p>
+<h3 id="5-26" tabindex="-1">5. 26 周日历</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>周</th>
+<th>日期</th>
+<th>阶段</th>
+<th>主题</th>
+<th>交付</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>10/11–10/17</td>
+<td>启动</td>
+<td>环境、Git、注册大模型 API、Python 速通</td>
+<td><code>chat.py</code> 能跑 + 仓库建好</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>10/18–10/24</td>
+<td>Python</td>
+<td>语法补全、函数、模块、虚拟环境</td>
+<td>结构化的小脚本集</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>10/25–10/31</td>
+<td>Python</td>
+<td>文件、异常、日志、requests、JSON</td>
+<td>稳定的抓取脚本</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>11/1–11/7</td>
+<td>Python</td>
+<td>类与对象、代码拆分；算法：数组 / 字符串 / 哈希表</td>
+<td>每天 1 题 + 类改造练习</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>11/8–11/14</td>
+<td>项目 v0.1</td>
+<td>LLM 批量调用、Prompt 设计、并发限流、成本控制</td>
+<td>一批带中文摘要的数据</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>11/15–11/21</td>
+<td>项目 v0.1</td>
+<td>整合流水线 + 定时任务 + 输出 Markdown</td>
+<td><strong>M1：全自动内容流水线</strong></td>
+</tr>
+<tr>
+<td>W7</td>
+<td>11/22–11/28</td>
+<td>后端</td>
+<td>Web 与 HTTP 基础、FastAPI 单接口、参数校验</td>
+<td>本地可调通的接口</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>11/29–12/5</td>
+<td>后端</td>
+<td>接口分层（router / service）、错误处理</td>
+<td>3 个接口</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>12/6–12/12</td>
+<td>数据</td>
+<td>SQL 基础、表设计、SQLite → PostgreSQL</td>
+<td>数据真正入表</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>12/13–12/19</td>
+<td>数据</td>
+<td>ORM、索引入门、查询优化</td>
+<td>带数据库的服务</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>12/20–12/26</td>
+<td>前端</td>
+<td>HTML / CSS 最小集 + fetch 调接口</td>
+<td>网页能输入能出结果（元旦周减半）</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>12/27–1/2</td>
+<td>上线</td>
+<td>Linux、云服务器、Nginx、Docker、域名 HTTPS</td>
+<td><strong>M2：公网服务 + 3 个用户</strong></td>
+</tr>
+<tr>
+<td>W13</td>
+<td>1/3–1/9</td>
+<td>Java</td>
+<td>Java 速通（对照 Python）、JDK、IDEA、Maven</td>
+<td>Java 版摘要脚本</td>
+</tr>
+<tr>
+<td>W14</td>
+<td>1/10–1/16</td>
+<td>Java</td>
+<td>集合、泛型、异常、IO、面向对象</td>
+<td>用 Java 重写 2 个小工具</td>
+</tr>
+<tr>
+<td>W15</td>
+<td>1/17–1/23</td>
+<td>Java</td>
+<td>Spring Boot 单接口、分层、异常、日志、Spring AI</td>
+<td><code>curl</code> 调通接口</td>
+</tr>
+<tr>
+<td>W16</td>
+<td>1/24–1/30</td>
+<td>Java</td>
+<td>接数据库（JPA / MyBatis）、事务基础</td>
+<td>Java 版接口读写数据库</td>
+</tr>
+<tr>
+<td>W17</td>
+<td>1/31–2/6</td>
+<td>缓冲</td>
+<td><strong>春节</strong>：减量，只做复盘 + Java 小练习</td>
+<td>阶段复盘 + Python→Java 对照表</td>
+</tr>
+<tr>
+<td>W18</td>
+<td>2/7–2/13</td>
+<td>Java</td>
+<td>用 Java 重写后端 + Redis 缓存 + Docker 部署</td>
+<td><strong>M3：Java 后端上线</strong></td>
+</tr>
+<tr>
+<td>W19</td>
+<td>2/14–2/20</td>
+<td>AI</td>
+<td>Embedding 与向量检索原理、向量库（Chroma / pgvector）</td>
+<td>跑通语义检索</td>
+</tr>
+<tr>
+<td>W20</td>
+<td>2/21–2/27</td>
+<td>AI</td>
+<td>RAG 全链路：切分、检索、重排、Prompt 拼装</td>
+<td>能从自己笔记里查东西</td>
+</tr>
+<tr>
+<td>W21</td>
+<td>2/28–3/6</td>
+<td>AI</td>
+<td>Agent、工具调用、MCP</td>
+<td>一个会调工具的助手</td>
+</tr>
+<tr>
+<td>W22</td>
+<td>3/7–3/13</td>
+<td>AI</td>
+<td>把 RAG 接到服务上，做成可访问的问答服务</td>
+<td><strong>M4：笔记问答服务</strong></td>
+</tr>
+<tr>
+<td>W23</td>
+<td>3/14–3/20</td>
+<td>架构</td>
+<td>梳理项目：架构图、技术方案文档（选型 / 取舍 / 风险）</td>
+<td>技术方案文档</td>
+</tr>
+<tr>
+<td>W24</td>
+<td>3/21–3/27</td>
+<td>架构</td>
+<td>压测、缓存策略、限流、日志与监控入门</td>
+<td>压测报告</td>
+</tr>
+<tr>
+<td>W25</td>
+<td>3/28–4/3</td>
+<td>面试</td>
+<td>算法冲刺（每天 3 题）+ Java / Spring / 数据库高频问题</td>
+<td>刷题记录</td>
+</tr>
+<tr>
+<td>W26</td>
+<td>4/4–4/10</td>
+<td>面试</td>
+<td>简历、GitHub 整理、模拟面试、六个月复盘</td>
+<td><strong>M5：简历 + 仓库 + 模拟面试</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="6" tabindex="-1">6. 五个里程碑</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> <strong>M1</strong> · W6 末（11/21）：一个每天自动产出内容的脚本，能当场演示</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> <strong>M2</strong> · W12 末（1/2）：一个公网可访问的服务，3 个真实用户</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> <strong>M3</strong> · W18 末（2/13）：Java 版后端上线，替换 Python 版</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> <strong>M4</strong> · W22 末（3/13）：能查自己笔记的问答服务</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> <strong>M5</strong> · W26 末（4/10）：简历 + GitHub 仓库 + 技术方案文档 + 一次完整模拟面试</label></li>
+</ul>
+<h3 id="7" tabindex="-1">7. 反馈闭环</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 每天 1 个 commit（硬指标）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 每周日一篇短文，<strong>发出去</strong>（掘金 / 公众号 / GitHub）—— 公开输出是最强的正反馈来源</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> 每两周找一个真人用一次，收集 1 条反馈</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 每天把代码和报错贴给 AI 做 review，<strong>明确要求「指出问题，不要替我写」</strong></label></li>
+</ul>
+<h3 id="8" tabindex="-1">8. 六个月里最大的六个坑</h3>
+<ol>
+<li><strong>前松后紧。</strong> 26 周听起来很长，前两个月最容易松懈。用每 6 周的体检卡住。</li>
+<li><strong>6 小时全在输入。</strong> 看视频 6 小时，一周后什么都不会。输入硬性上限 1.5 小时。</li>
+<li><strong>中途换方向。</strong> 听说前端好、听说算法重要，就换赛道。<strong>一条线走完再换。</strong></li>
+<li><strong>不出门、不见人。</strong> 每周至少找一个真人聊一次你的代码或项目。</li>
+<li><strong>追求完美方案。</strong> 先跑通再优化——一个能跑的丑东西，胜过一个不能跑的美方案。</li>
+<li><strong>一遇报错就换方案。</strong> 报错的最后一行才是你真正的老师，先读懂它。</li>
+</ol>
+<h3 id="9" tabindex="-1">9. 待确认</h3>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> 每天 6 小时是<strong>净学习时长</strong>还是包含休息？（这会直接影响进度）</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 目标方向：AI 应用开发 / 传统企业信息化 / AI 创业公司？决定 Java 与 Python 的权重</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> 需要的话，我可以把 W1 拆成一份逐日清单（10/11 到 10/17 每天做什么）</label></li>
+</ul>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#v4">学习计划 v4 · 六个月全天候</a>
+<ol>
+<li><a href="#上篇 · 能力地图（长期）">上篇 · 能力地图（长期）</a>
+<ol>
+<li><a href="#0">0. 四个阶段，真正在考什么</a>
+</li>
+<li><a href="#1">1. 能力骨架（越往后，越靠下面几项）</a>
+</li>
+</ol>
+</li>
+<li><a href="#26">下篇 · 26 周路线</a>
+<ol>
+<li><a href="#2-6">2. 6 小时怎么分（整套计划最重要的设计）</a>
+</li>
+<li><a href="#3-26">3. 项目主线：一个项目贯穿 26 周</a>
+</li>
+<li><a href="#4">4. 每周节奏与防崩盘机制</a>
+</li>
+<li><a href="#5-26">5. 26 周日历</a>
+</li>
+<li><a href="#6">6. 五个里程碑</a>
+</li>
+<li><a href="#7">7. 反馈闭环</a>
+</li>
+<li><a href="#8">8. 六个月里最大的六个坑</a>
+</li>
+<li><a href="#9">9. 待确认</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
