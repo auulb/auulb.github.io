@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>justjavac/free-programming-books-zh_CN: :books: 免费的计算机编程类中文书籍，欢迎投稿</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome/readme.md 在 main · sindresorhus/awesome --- awesome/readme.md at main </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science通往计算机科学免费自学之路/">ossu/computer-science：🎓通往计算机科学免费自学之路！ --- ossu/computer-science: 🎓 Path to a free self-taught education in Computer Science! </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes技术面试/">CyC2018/CS-Notes: :books: 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers. </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">justjavac/free-programming-books-zh_CN: :books: 免费的计算机编程类中文书籍，欢迎投稿 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">Snailclimb/JavaGuide: Java 面试 &amp; 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days Python100天从新手到大师/">jackfrued/Python-100-Days: Python - 100天从新手到大师 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统system-design-primer/">system-design-primer/README-zh-Hans.md at master </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">justjavac/free-programming-books-zh_CN: :books: 免费的计算机编程类中文书籍，欢迎投稿</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<h2 id="免费的编程中文书籍索引" tabindex="-1">免费的编程中文书籍索引</h2>
+<p><a href="https://travis-ci.org/justjavac/free-programming-books-zh_CN" target="_blank" class="external-link"><img src="https://camo.githubusercontent.com/85079b6ff02a88e2f4abd189cccc3237a53757662b860c7cd91a5782046f1259/68747470733a2f2f7472617669732d63692e6f72672f6a7573746a617661632f667265652d70726f6772616d6d696e672d626f6f6b732d7a685f434e2e7376673f6272616e63683d6d6173746572" alt=""></a></p>
+<p>免费的编程中文书籍索引，欢迎投稿。</p>
+<ul>
+<li>国外程序员在 <a href="http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read/1713%231713" target="_blank" class="external-link">stackoverflow</a> 推荐的程序员必读书籍， <a href="http://justjavac.com/other/2012/05/15/qualified-programmer-should-read-what-books.html" title="一个合格的程序员应该读过哪些书" target="_blank" class="external-link">中文版</a> 。</li>
+<li>程序员应该阅读的非编程类书籍有哪些？ <a href="https://github.com/justjavac/free-programming-books-zh_CN/blob/main/what-non-programming-books-should-programmers-read.md" target="_blank" class="external-link">中文版</a> （原帖为 stackoverflow 上已删除的 <a href="https://web.archive.org/web/20170103152138/http://stackoverflow.com/questions/38210/what-non-programming-books-should-programmers-read" target="_blank" class="external-link">问题 38210</a> ）</li>
+<li><a href="https://github.com/EbookFoundation/free-programming-books" target="_blank" class="external-link">github</a> 上的一个流行的编程书籍索引 <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-zh.md" target="_blank" class="external-link">中文版</a></li>
+</ul>
+<p>如果这个仓库对你有帮助，欢迎 star。如果这个仓库帮你提升了技能找到了工作，可以请我喝杯咖啡：</p>
+<p><a href="https://camo.githubusercontent.com/5efa40e0cc8e292f5cdf6b0066c02dbfdbdb2674c44e018c4f1d2c3be3d8b491/68747470733a2f2f646c2e64656e6f2e6a732e636e2f6275792d6d652d612d636f666665652d7765636861742e706e67" target="_blank" class="external-link"><img src="https://camo.githubusercontent.com/5efa40e0cc8e292f5cdf6b0066c02dbfdbdb2674c44e018c4f1d2c3be3d8b491/68747470733a2f2f646c2e64656e6f2e6a732e636e2f6275792d6d652d612d636f666665652d7765636861742e706e67" alt=""></a></p>
+<h2 id="参与交流" tabindex="-1">参与交流</h2>
+<p>欢迎大家将珍藏已久的经典免费书籍共享出来，您可以：</p>
+<ul>
+<li>使用 <a href="https://github.com/justjavac/free-programming-books-zh_CN/pulls" target="_blank" class="external-link">Pull Request</a> 提交</li>
+</ul>
+<p>如果你发现了不能访问的链接，也可以提 PR，在无法访问链接的后面增加 <code>:worried:</code>。</p>
+<p>贡献者名单: <a href="https://github.com/justjavac/free-programming-books-zh_CN/graphs/contributors" target="_blank" class="external-link">https://github.com/justjavac/free-programming-books-zh_CN/graphs/contributors</a></p>
+<h2 id="目录" tabindex="-1">目录</h2>
+<h2 id="置顶" tabindex="-1">置顶</h2>
+<ul>
+<li><a href="https://shenbao.github.io/2017/04/22/justjavac-live/" target="_blank" class="external-link">[笔记]前端工程师的入门与进阶</a> 💯</li>
+<li><a href="https://github.com/i5ting/How-to-learn-node-correctly" target="_blank" class="external-link">[全文]如何正确的学习 Node.js</a> 💯</li>
+</ul>
+<h2 id="操作系统" tabindex="-1">操作系统</h2>
+<ul>
+<li><a href="http://i.linuxtoy.org/docs/guide/index.html" target="_blank" class="external-link">开源世界旅行手册</a></li>
+<li><a href="http://linux.vbird.org/" target="_blank" class="external-link">鸟哥的Linux私房菜</a></li>
+<li><a href="http://billie66.github.io/TLCL/index.html" target="_blank" class="external-link">The Linux Command Line</a> (中英文版)</li>
+<li><a href="http://cb.vu/unixtoolbox_zh_CN.xhtml" target="_blank" class="external-link">UNIX TOOLBOX</a> 😟</li>
+<li><a href="https://github.com/widuu/chinese_docker" target="_blank" class="external-link">Docker中文指南</a></li>
+<li><a href="https://github.com/yeasy/docker_practice" target="_blank" class="external-link">Docker —— 从入门到实践</a></li>
+<li><a href="http://yuedu.baidu.com/ebook/d817967416fc700abb68fca1" target="_blank" class="external-link">Docker入门实战</a> 😟</li>
+<li><a href="https://github.com/wsargent/docker-cheat-sheet/tree/master/zh-cn#docker-cheat-sheet" target="_blank" class="external-link">Docker Cheat Sheet</a></li>
+<li><a href="http://freeradius.akagi201.org/" target="_blank" class="external-link">FreeRADIUS新手入门</a> 😟</li>
+<li><a href="https://aaaaaashu.gitbooks.io/mac-dev-setup/content/" target="_blank" class="external-link">Mac 开发配置手册</a></li>
+<li><a href="https://www.freebsd.org/doc/zh_CN/books/handbook/index.html" target="_blank" class="external-link">FreeBSD 使用手册</a></li>
+<li><a href="http://billie66.github.io/TLCL/book/" target="_blank" class="external-link">Linux 命令行(中文版)</a></li>
+<li><a href="https://www.jinbuguo.com/lfs/lfs62/index.html" target="_blank" class="external-link">Linux 构建指南</a></li>
+<li><a href="https://github.com/me115/linuxtools_rst" target="_blank" class="external-link">Linux工具快速教程</a></li>
+<li><a href="https://www.gitbook.com/book/tinylab/linux-doc/details" target="_blank" class="external-link">Linux Documentation (中文版)</a> 😟</li>
+<li><a href="https://www.gitbook.com/book/tinylab/elinux/details" target="_blank" class="external-link">嵌入式 Linux 知识库 (eLinux.org 中文版)</a> 😟</li>
+<li><a href="https://github.com/tobegit3hub/understand_linux_process" target="_blank" class="external-link">理解Linux进程</a></li>
+<li><a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md" target="_blank" class="external-link">命令行的艺术</a></li>
+<li><a href="https://spacewander.gitbooks.io/systemtapbeginnersguide_zh/content/index.html" target="_blank" class="external-link">SystemTap新手指南</a></li>
+<li><a href="https://github.com/wizardforcel/think-os-zh" target="_blank" class="external-link">操作系统思考</a></li>
+<li><a href="https://linux-kernel-labs-zh.github.io/" target="_blank" class="external-link">Linux 内核实验</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="ai" tabindex="-1">AI</h2>
+<ul>
+<li><a href="https://github.com/LLMBook-zh/LLMBook-zh.github.io" target="_blank" class="external-link">大语言模型</a> （中国人民大学）</li>
+<li><a href="https://github.com/ZJU-LLMs/Foundations-of-LLMs" target="_blank" class="external-link">大模型基础</a> （浙江大学）</li>
+<li><a href="https://github.com/datawhalechina/happy-llm" target="_blank" class="external-link">Happy-LLM：从零开始的大语言模型原理与实践教程</a></li>
+<li><a href="https://github.com/Lordog/dive-into-llms" target="_blank" class="external-link">动手学大模型 Dive into LLMs</a> （上海交通大学）</li>
+<li><a href="https://github.com/datawhalechina/self-llm" target="_blank" class="external-link">开源大模型食用指南 Self-LLM</a></li>
+<li><a href="https://github.com/datawhalechina/llm-universe" target="_blank" class="external-link">动手学大模型应用开发</a></li>
+<li><a href="https://github.com/datawhalechina/all-in-rag" target="_blank" class="external-link">RAG 技术全栈指南</a></li>
+<li><a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" class="external-link">面向开发者的 LLM 入门教程</a></li>
+<li><a href="https://github.com/datawhalechina/hello-agents" target="_blank" class="external-link">Hello-Agents：从零开始构建智能体</a></li>
+<li><a href="https://github.com/bojieli/ai-agent-book" target="_blank" class="external-link">深入理解 AI Agent：设计原理与工程实践</a></li>
+<li><a href="https://github.com/huggingface/agents-course" target="_blank" class="external-link">Hugging Face Agents Course</a> （含中文版）</li>
+<li><a href="https://github.com/datawhalechina/vibe-vibe" target="_blank" class="external-link">Vibe Vibe：人人都能学会的 AI 编程指南</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="智能系统" tabindex="-1">智能系统</h2>
+<ul>
+<li><a href="https://github.com/phodal/designiot" target="_blank" class="external-link">一步步搭建物联网系统</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="分布式系统" tabindex="-1">分布式系统</h2>
+<ul>
+<li><a href="http://dcaoyuan.github.io/papers/pdfs/Scalability.pdf" target="_blank" class="external-link">走向分布式</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="编译原理" tabindex="-1">编译原理</h2>
+<ul>
+<li><a href="https://github.com/DeathKing/Learning-SICP" target="_blank" class="external-link">《计算机程序的结构和解释》公开课 翻译项目</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="函数式概念" tabindex="-1">函数式概念</h2>
+<ul>
+<li><a href="https://github.com/justinyhuang/Functional-Programming-For-The-Rest-of-Us-Cn" target="_blank" class="external-link">傻瓜函数编程</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="计算机图形学" tabindex="-1">计算机图形学</h2>
+<ul>
+<li><a href="https://github.com/zilongshanren/opengl-tutorials" target="_blank" class="external-link">OpenGL 教程</a></li>
+<li><a href="https://github.com/QianMo/Real-Time-Rendering-3rd-Summary-Ebook" target="_blank" class="external-link">《Real-Time Rendering 3rd》提炼总结</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="web" tabindex="-1">WEB服务器</h2>
+<ul>
+<li><a href="http://tengine.taobao.org/book/index.html" target="_blank" class="external-link">Nginx开发从入门到精通</a> (淘宝团队出品)</li>
+<li><a href="https://github.com/parieses/source/blob/master/Nginx%E6%95%99%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A(%E8%BF%90%E7%BB%B4%E7%94%9F%E5%AD%98%E6%97%B6%E9%97%B4TTLSA%E5%87%BA%E5%93%81).pdf" target="_blank" class="external-link">Nginx教程从入门到精通</a> (PDF版本，运维生存时间出品)</li>
+<li><a href="https://www.gitbook.com/book/moonbingbing/openresty-best-practices/details" target="_blank" class="external-link">OpenResty最佳实践</a> 😟</li>
+<li><a href="https://www.jinbuguo.com/apache/manual/index.html" target="_blank" class="external-link">Apache 中文手册</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="版本控制" tabindex="-1">版本控制</h2>
+<ul>
+<li><a href="https://www.git-tower.com/learn/git/ebook/cn/command-line/" target="_blank" class="external-link">Learn Git - complete book in Chinese</a></li>
+<li><a href="https://www.git-tower.com/blog/git-cheat-sheet-cn" target="_blank" class="external-link">Git Cheat Sheet</a></li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" class="external-link">Git教程</a> （本文由 <a href="http://www.liaoxuefeng.com/" target="_blank" class="external-link">廖雪峰</a> 创作，如果觉得本教程对您有帮助，可以去 <a href="https://itunes.apple.com/cn/app/git-jiao-cheng/id876420437" target="_blank" class="external-link">iTunes</a> 购买）</li>
+<li><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" class="external-link">git - 简易指南</a></li>
+<li><a href="http://backlogtool.com/git-guide/cn/" target="_blank" class="external-link">猴子都能懂的GIT入门</a></li>
+<li><a href="http://gitref.justjavac.com/" target="_blank" class="external-link">Git 参考手册</a></li>
+<li><a href="http://git-scm.com/book/zh/v2" target="_blank" class="external-link">Pro Git</a></li>
+<li><a href="https://www.gitbook.com/book/0532/progit/details" target="_blank" class="external-link">Pro Git 中文版</a> (整理在gitbook上) 😟</li>
+<li><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/" target="_blank" class="external-link">Git Magic</a></li>
+<li><a href="http://www.worldhello.net/gotgithub/index.html" target="_blank" class="external-link">GotGitHub</a></li>
+<li><a href="http://www.worldhello.net/gotgit/" target="_blank" class="external-link">Git权威指南</a></li>
+<li><a href="https://www.mercurial-scm.org/wiki/ChineseTutorial" target="_blank" class="external-link">Mercurial 使用教程</a></li>
+<li><a href="http://igit.linuxtoy.org/" target="_blank" class="external-link">沉浸式学 Git</a> 😟</li>
+<li><a href="https://github.com/flyhigher139/Git-Cheat-Sheet" target="_blank" class="external-link">Git-Cheat-Sheet</a> （感谢 @flyhigher139 翻译了中文版）</li>
+<li><a href="https://snowdream86.gitbooks.io/github-cheat-sheet/content/zh/index.html" target="_blank" class="external-link">GitHub秘籍</a></li>
+<li><a href="https://github.com/waylau/github-help" target="_blank" class="external-link">GitHub帮助文档</a></li>
+<li><a href="http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html" target="_blank" class="external-link">git-flow 备忘清单</a></li>
+<li><a href="http://svnbook.red-bean.com/nightly/zh/index.html" target="_blank" class="external-link">svn 手册</a></li>
+<li><a href="https://github.com/phodal/github-roam" target="_blank" class="external-link">GitHub漫游指南</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="编辑器" tabindex="-1">编辑器</h2>
+<ul>
+<li><a href="http://exvim.github.io/docs-zh/intro/" target="_blank" class="external-link">exvim--vim 改良成IDE项目</a></li>
+<li><a href="http://learnvimscriptthehardway.onefloweroneworld.com/" target="_blank" class="external-link">笨方法学Vimscript 中译本</a> 😟</li>
+<li><a href="https://github.com/vimcn/vimcdoc" target="_blank" class="external-link">Vim中文文档</a></li>
+<li><a href="http://book.emacs-china.org/" target="_blank" class="external-link">21天学会Emacs</a></li>
+<li><a href="https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org" target="_blank" class="external-link">一年成为Emacs高手 (像神一样使用编辑器)</a></li>
+<li><a href="https://github.com/yangyangwithgnu/use_vim_as_ide" target="_blank" class="external-link">所需即所获：像 IDE 一样使用 vim</a></li>
+<li><a href="https://github.com/dofy/learn-vim" target="_blank" class="external-link">vim 实操教程</a></li>
+<li><a href="https://github.com/wizardforcel/atom-flight-manual-zh-cn" target="_blank" class="external-link">Atom飞行手册中文版</a></li>
+<li><a href="https://github.com/wizardforcel/markdown-simple-world" target="_blank" class="external-link">Markdown·简单的世界</a></li>
+<li><a href="https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org" target="_blank" class="external-link">一年成为 Emacs 高手</a></li>
+<li><a href="http://lifegoo.pluskid.org/upload/blog/152/Survive.in.Emacs.pdf" target="_blank" class="external-link">Emacs 生存指南</a></li>
+<li><a href="https://atom-china.org/t/atom/62" target="_blank" class="external-link">Atom官方手册</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="no-sql" tabindex="-1">NoSQL</h2>
+<ul>
+<li><a href="http://redisbook.com/" target="_blank" class="external-link">Redis 设计与实现</a></li>
+<li><a href="http://redisdoc.com/" target="_blank" class="external-link">Redis 命令参考</a> 😟</li>
+<li><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" class="external-link">带有详细注释的 Redis 3.0 代码</a></li>
+<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" class="external-link">带有详细注释的 Redis 2.6 代码</a></li>
+<li><a href="https://github.com/justinyhuang/the-little-mongodb-book-cn/blob/master/mongodb.md" target="_blank" class="external-link">The Little MongoDB Book</a></li>
+<li><a href="https://github.com/JasonLai256/the-little-redis-book/blob/master/cn/redis.md" target="_blank" class="external-link">The Little Redis Book</a></li>
+<li><a href="https://web.archive.org/web/20130716014446/http://neo4j.tw/" target="_blank" class="external-link">Neo4j.rb 中文資源</a> 😟</li>
+<li><a href="https://github.com/JerryLead/SparkInternals/tree/master/markdown" target="_blank" class="external-link">Apache Spark 设计与实现</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="postgre-sql" tabindex="-1">PostgreSQL</h2>
+<ul>
+<li><a href="https://www.jinbuguo.com/postgresql/manual/index.html" target="_blank" class="external-link">PostgreSQL 8.2.3 中文文档</a></li>
+<li><a href="http://www.postgres.cn/docs/9.3/index.html" target="_blank" class="external-link">PostgreSQL 9.3.1 中文文档</a></li>
+<li><a href="http://www.postgres.cn/docs/9.5/index.html" target="_blank" class="external-link">PostgreSQL 9.5.3 中文文档</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="my-sql" tabindex="-1">MySQL</h2>
+<ul>
+<li><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" class="external-link">MySQL索引背后的数据结构及算法原理</a></li>
+<li><a href="http://www.cnblogs.com/mr-wid/archive/2013/05/09/3068229.html" target="_blank" class="external-link">21分钟MySQL入门教程</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="管理和监控" tabindex="-1">管理和监控</h2>
+<ul>
+<li><a href="https://www.gitbook.com/book/fuxiaopang/learnelasticsearch/details" target="_blank" class="external-link">ElasticSearch 权威指南</a> 😟</li>
+<li><a href="https://github.com/chenryn/logstash-best-practice-cn" target="_blank" class="external-link">Logstash 最佳实践</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="项目相关" tabindex="-1">项目相关</h2>
+<ul>
+<li><a href="http://article.yeeyan.org/view/2251/94882" target="_blank" class="external-link">持续集成（第二版）</a> (译言网) 😟</li>
+<li><a href="https://web.archive.org/web/20181023074323/https://www.ibm.com/developerworks/cn/java/j-ap/" target="_blank" class="external-link">让开发自动化系列专栏</a> 😟</li>
+<li><a href="https://web.archive.org/web/20181023194039/https://www.ibm.com/developerworks/cn/java/j-cq/" target="_blank" class="external-link">追求代码质量</a> 😟</li>
+<li><a href="https://github.com/it-ebooks-0/it-ebooks-2016-allinone/blob/master/Selenium%20Webdriver%20%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B.epub" target="_blank" class="external-link">Selenium Webdriver 简易教程</a> (EPUB)</li>
+<li><a href="https://github.com/waylau/Gradle-2-User-Guide" target="_blank" class="external-link">Gradle 2 用户指南</a></li>
+<li><a href="http://yuedu.baidu.com/ebook/f23af265998fcc22bcd10da2" target="_blank" class="external-link">Gradle 中文使用文档</a> 😟</li>
+<li><a href="https://github.com/ecomfe/spec" target="_blank" class="external-link">编码规范</a></li>
+<li><a href="http://www.ituring.com.cn/book/1143" target="_blank" class="external-link">开源软件架构</a></li>
+<li><a href="http://docs.huihoo.com/gnu/linux/gmake.html" target="_blank" class="external-link">GNU make 指南</a></li>
+<li><a href="http://12factor.net/zh_cn/" target="_blank" class="external-link">The Twelve-Factor App</a> 😟</li>
+<li><a href="https://github.com/qiangmzsx/Software-Engineering-at-Google" target="_blank" class="external-link">Software Engineering at Google</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="设计模式" tabindex="-1">设计模式</h2>
+<ul>
+<li><a href="https://github.com/me115/design_patterns" target="_blank" class="external-link">图说设计模式</a></li>
+<li><a href="http://blog.csdn.net/lovelion/article/details/17517213" target="_blank" class="external-link">史上最全设计模式导学目录</a></li>
+<li><a href="https://github.com/MiaoJoy/Design-Pattern" target="_blank" class="external-link">design pattern 包教不包会</a></li>
+<li><a href="https://quanke.gitbooks.io/design-pattern-java/content/" target="_blank" class="external-link">设计模式 Java 版</a> 😟</li>
+<li><a href="https://refactoringguru.cn/design-patterns/catalog" target="_blank" class="external-link">设计模式目录</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="web-1" tabindex="-1">Web</h2>
+<ul>
+<li><a href="http://www.20thingsilearned.com/zh-CN/home" target="_blank" class="external-link">关于浏览器和网络的 20 项须知</a> 😟</li>
+<li><a href="http://jinlong.github.io/2013/08/29/devtoolsecrets/" target="_blank" class="external-link">浏览器开发工具的秘密</a></li>
+<li><a href="https://github.com/CN-Chrome-DevTools/CN-Chrome-DevTools" target="_blank" class="external-link">Chrome 开发者工具中文手册</a></li>
+<li><a href="http://open.chrome.360.cn/extension_dev/overview.html" target="_blank" class="external-link">Chrome扩展开发文档</a></li>
+<li><a href="http://www.gruntjs.net/" target="_blank" class="external-link">Grunt中文文档</a></li>
+<li><a href="http://www.gulpjs.com.cn/docs/" target="_blank" class="external-link">gulp中文文档</a></li>
+<li><a href="https://github.com/nimojs/gulp-book" target="_blank" class="external-link">Gulp 入门指南</a></li>
+<li><a href="https://github.com/AlloyTeam/Mars" target="_blank" class="external-link">移动Web前端知识库</a></li>
+<li><a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" class="external-link">正则表达式30分钟入门教程</a></li>
+<li><a href="https://github.com/fouber/blog/issues/2" target="_blank" class="external-link">前端开发体系建设日记</a></li>
+<li><a href="https://github.com/hoosin/mobile-web-favorites" target="_blank" class="external-link">移动前端开发收藏夹</a></li>
+<li><a href="https://github.com/darcyliu/google-styleguide/blob/master/JSONStyleGuide.md" target="_blank" class="external-link">JSON风格指南</a></li>
+<li><a href="https://github.com/bolasblack/http-api-guide" target="_blank" class="external-link">HTTP 接口设计指北</a></li>
+<li><a href="https://github.com/hacke2/hacke2.github.io/issues/1" target="_blank" class="external-link">前端资源分享（一）</a></li>
+<li><a href="https://github.com/hacke2/hacke2.github.io/issues/3" target="_blank" class="external-link">前端资源分享（二）</a></li>
+<li><a href="http://coderlmn.github.io/code-standards/" target="_blank" class="external-link">前端代码规范 及 最佳实践</a></li>
+<li><a href="https://www.gitbook.com/book/dwqs/frontenddevhandbook/details" target="_blank" class="external-link">前端开发者手册</a> 😟</li>
+<li><a href="https://www.gitbook.com/book/leohxj/front-end-database/details" target="_blank" class="external-link">前端工程师手册</a> 😟</li>
+<li><a href="https://community.emc.com/thread/194901" target="_blank" class="external-link">一站式学习Wireshark</a> 😟</li>
+<li><a href="https://ccbikai.gitbooks.io/http-book/content/" target="_blank" class="external-link">HTTP 下午茶</a></li>
+<li><a href="http://yuedu.baidu.com/ebook/478d1a62376baf1ffc4fad99?pn=1" target="_blank" class="external-link">HTTP/2.0 中文翻译</a> 😟</li>
+<li><a href="https://github.com/abbshr/rfc7540-translation-zh_cn" target="_blank" class="external-link">RFC 7540 - HTTP/2 中文翻译版</a></li>
+<li><a href="https://www.gitbook.com/book/ye11ow/http2-explained/details" target="_blank" class="external-link">http2讲解</a> 😟</li>
+<li><a href="https://www.gitbook.com/book/juntao/3-web-designs-in-3-weeks/details" target="_blank" class="external-link">3 Web Designs in 3 Weeks</a> 😟</li>
+<li><a href="https://websec.readthedocs.io/" target="_blank" class="external-link">Web安全学习笔记</a></li>
+<li><a href="https://github.com/phodal/serverless" target="_blank" class="external-link">Serverless 架构应用开发指南</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="大数据" tabindex="-1">大数据</h2>
+<ul>
+<li><a href="https://github.com/linyiqun/DataMiningAlgorithm" target="_blank" class="external-link">数据挖掘中经典的算法实现和详细的注释</a></li>
+<li><a href="https://aiyanbo.gitbooks.io/spark-programming-guide-zh-cn/content/" target="_blank" class="external-link">Spark 编程指南简体中文版</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="编程艺术" tabindex="-1">编程艺术</h2>
+<ul>
+<li><a href="https://github.com/julycoding/The-Art-Of-Programming-by-July" target="_blank" class="external-link">程序员编程艺术</a></li>
+<li><a href="http://www.oschina.net/translate/what-every-programmer-should-know-about-memory-part1?print" target="_blank" class="external-link">每个程序员都应该了解的内存知识(译)</a> 【第一部分】</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="游戏引擎" tabindex="-1">游戏引擎</h2>
+<ul>
+<li><a href="https://github.com/ThisisGame/cpp-game-engine-book" target="_blank" class="external-link">游戏引擎 浅入浅出</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="算法" tabindex="-1">算法</h2>
+<ul>
+<li><a href="https://github.com/labuladong/fucking-algorithm" target="_blank" class="external-link">labuladong 的算法小抄</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="其它" tabindex="-1">其它</h2>
+<ul>
+<li><a href="https://www.gitbook.com/book/softwaredownload/openwrt-fanqiang/details" target="_blank" class="external-link">OpenWrt智能、自动、透明翻墙路由器教程</a> 😟</li>
+<li><a href="https://community.emc.com/docs/DOC-16067" target="_blank" class="external-link">SAN 管理入门系列</a> 😟</li>
+<li><a href="http://sketchcn.com/sketch-chinese-user-manual.html#introduce" target="_blank" class="external-link">Sketch 中文手册</a></li>
+<li><a href="http://ifeve.com/perfbook/" target="_blank" class="external-link">深入理解并行编程</a></li>
+<li><a href="http://www.kancloud.cn/kancloud/a-programmer-prepares" target="_blank" class="external-link">程序员的自我修养</a></li>
+<li><a href="https://github.com/phodal/growth-ebook" target="_blank" class="external-link">Growth: 全栈增长工程师指南</a></li>
+<li><a href="https://github.com/phodal/migration" target="_blank" class="external-link">系统重构与迁移指南</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="android" tabindex="-1">Android</h2>
+<ul>
+<li>Google Material Design 正體中文版 (<a href="https://wcc723.gitbooks.io/google_design_translate/content/style-icons.html" target="_blank" class="external-link">译本一</a> <a href="https://github.com/1sters/material_design_zh" target="_blank" class="external-link">译本二</a>)</li>
+<li><a href="http://wiki.jikexueyuan.com/project/material-design/" target="_blank" class="external-link">Material Design 中文版</a></li>
+<li><a href="http://hukai.me/android-training-course-in-chinese/index.html" target="_blank" class="external-link">Google Android官方培训课程中文版</a> 😟</li>
+<li><a href="https://github.com/bboyfeiyu/android-tech-frontier" target="_blank" class="external-link">Android开发技术前线(android-tech-frontier)</a></li>
+<li><a href="https://github.com/FX-Max/Point-of-Android" target="_blank" class="external-link">Point-of-Android</a> Android 一些重要知识点解析整理</li>
+<li><a href="http://leanote.com/blog/post/561658f938f41126b2000298" target="_blank" class="external-link">Android6.0新特性详解</a> 😟</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="app" tabindex="-1">APP</h2>
+<ul>
+<li><a href="https://github.com/waylau/cordova-dev-guide" target="_blank" class="external-link">Apache Cordova 开发指南</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="awk" tabindex="-1">AWK</h2>
+<ul>
+<li><a href="https://github.com/wuzhouhui/awk" target="_blank" class="external-link">awk程序设计语言</a></li>
+<li><a href="https://awk.readthedocs.io/en/latest/index.html" target="_blank" class="external-link">awk中文指南</a></li>
+<li><a href="https://book.saubcy.com/AwkInAction/" target="_blank" class="external-link">awk实战指南</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="c-c" tabindex="-1">C/C++</h2>
+<ul>
+<li><a href="http://zh.cppreference.com/" target="_blank" class="external-link">C/C++ 中文参考手册</a> (欢迎大家参与在线翻译和校对)</li>
+<li><a href="https://www.gitbook.com/book/tinylab/cbook/details" target="_blank" class="external-link">C 语言编程透视</a> 😟</li>
+<li><a href="https://github.com/forhappy/Cplusplus-Concurrency-In-Practice" target="_blank" class="external-link">C++ 并发编程指南</a></li>
+<li><a href="http://akaedu.github.io/book/" target="_blank" class="external-link">Linux C编程一站式学习</a> (宋劲杉, 北京亚嵌教育研究中心)</li>
+<li><a href="https://github.com/leeyiw/cgdb-manual-in-chinese" target="_blank" class="external-link">CGDB中文手册</a></li>
+<li><a href="https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md" target="_blank" class="external-link">100个gdb小技巧</a></li>
+<li><a href="https://github.com/hellogcc/100-gcc-tips/blob/master/src/index.md" target="_blank" class="external-link">100个gcc小技巧</a></li>
+<li><a href="https://github.com/anjuke/zguide-cn" target="_blank" class="external-link">ZMQ 指南</a></li>
+<li><a href="http://www.ituring.com.cn/book/1203" target="_blank" class="external-link">How to Think Like a Computer Scientist</a> (中英文版)</li>
+<li><a href="https://github.com/seisman/how-to-write-makefile" target="_blank" class="external-link">跟我一起写 Makefile</a></li>
+<li><a href="https://github.com/Jing--Li/book/blob/master/PL%20GNU%20make%20%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.pdf" target="_blank" class="external-link">GNU make中文手册</a> (PDF)</li>
+<li><a href="http://docs.huihoo.com/gnu/linux/gmake.html" target="_blank" class="external-link">GNU make 指南</a></li>
+<li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents.html" target="_blank" class="external-link">Google C++ 风格指南</a></li>
+<li><a href="https://github.com/andycai/cprimer" target="_blank" class="external-link">C/C++ Primer</a> (by @andycai)</li>
+<li><a href="http://www.nowamagic.net/librarys/books/contents/c" target="_blank" class="external-link">简单易懂的C魔法</a> 😟</li>
+<li><a href="http://www.sunistudio.com/cppfaq/" target="_blank" class="external-link">C++ FAQ LITE(中文版)</a></li>
+<li><a href="https://github.com/Mooophy/Cpp-Primer" target="_blank" class="external-link">C++ Primer 5th Answers</a></li>
+<li><a href="https://www.gitbook.com/book/chenxiaowei/cpp_concurrency_in_action/details" target="_blank" class="external-link">C++ 并发编程(基于C++11)</a> 😟</li>
+<li><a href="http://www.devbean.net/category/qt-study-road-2/" target="_blank" class="external-link">DevBean的《Qt学习之路2》(Qt5)</a></li>
+<li><a href="https://github.com/cwc1987/QmlBook-In-Chinese" target="_blank" class="external-link">中文版《QmlBook》</a></li>
+<li><a href="https://github.com/wuye9036/CppTemplateTutorial" target="_blank" class="external-link">C++ Template 进阶指南</a></li>
+<li><a href="https://github.com/luohaha/Chinese-uvbook" target="_blank" class="external-link">libuv中文教程</a></li>
+<li><a href="http://zh.highscore.de/cpp/boost/" target="_blank" class="external-link">Boost 库中文教程</a></li>
+<li><a href="https://github.com/wizardforcel/lcthw-zh" target="_blank" class="external-link">笨办法学C</a></li>
+<li><a href="https://github.com/changkun/modern-cpp-tutorial" target="_blank" class="external-link">高速上手 C++11/14/17</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="c" tabindex="-1">C#</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/" target="_blank" class="external-link">Microsoft Docs C# 官方文档</a></li>
+<li><a href="http://www.cnblogs.com/powertoolsteam/p/aspnetmvc5-tutorials-grapecity.html" target="_blank" class="external-link">ASP.NET MVC 5 入门指南</a></li>
+<li><a href="http://www.cnblogs.com/geeksss/p/4162318.html" target="_blank" class="external-link">超全面的.NET GDI+ 图形图像编程教程</a></li>
+<li><a href="https://github.com/JackWangCUMT/customcontrol" target="_blank" class="external-link">.NET控件开发基础</a></li>
+<li><a href="https://github.com/sherlockchou86/-free-ebook-.NET-" target="_blank" class="external-link">.NET开发要点精讲（初稿）</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="clojure" tabindex="-1">Clojure</h2>
+<ul>
+<li><a href="https://wizardforcel.gitbooks.io/clojure-fpftj/" target="_blank" class="external-link">Clojure入门教程</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="css-html" tabindex="-1">CSS/HTML</h2>
+<ul>
+<li><a href="http://zh.learnlayout.com/" target="_blank" class="external-link">学习CSS布局</a></li>
+<li><a href="https://github.com/chadluo/CSS-Guidelines/blob/master/README.md" target="_blank" class="external-link">通用 CSS 笔记、建议与指导</a></li>
+<li><a href="http://css.doyoe.com/" target="_blank" class="external-link">CSS参考手册</a></li>
+<li><a href="http://yanxyz.github.io/emmet-docs/" target="_blank" class="external-link">Emmet 文档</a></li>
+<li><a href="http://alloyteam.github.io/CodeGuide/" target="_blank" class="external-link">前端代码规范</a> (腾讯 AlloyTeam 团队)</li>
+<li><a href="http://codeguide.bootcss.com/" target="_blank" class="external-link">HTML和CSS编码规范</a></li>
+<li><a href="http://sass-guidelin.es/zh/" target="_blank" class="external-link">Sass Guidelines 中文</a></li>
+<li><a href="https://github.com/waylau/css3-tutorial" target="_blank" class="external-link">CSS3 Tutorial 《CSS3 教程》</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" target="_blank" class="external-link">MDN HTML 中文文档</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS" target="_blank" class="external-link">MDN CSS 中文文档</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="elixir" tabindex="-1">Elixir</h2>
+<ul>
+<li><a href="https://github.com/straightdave/programming_elixir" target="_blank" class="external-link">Elixir编程入门</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="fortran" tabindex="-1">Fortran</h2>
+<ul>
+<li><a href="http://micro.ustc.edu.cn/Fortran/ZJDing/" target="_blank" class="external-link">Fortran77和90/95编程入门</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="go" tabindex="-1">Go</h2>
+<ul>
+<li><a href="https://gopl-zh.github.io/" target="_blank" class="external-link">Go语言圣经</a></li>
+<li><a href="https://chai2010.cn/advanced-go-programming-book/" target="_blank" class="external-link">Go语言高级编程</a></li>
+<li><a href="https://chai2010.cn/go-ast-book/" target="_blank" class="external-link">Go语言定制指南</a> （原名：Go语法树入门）</li>
+<li><a href="https://draveness.me/golang/" target="_blank" class="external-link">Go语言设计与实现</a></li>
+<li><a href="https://github.com/Unknwon/go-fundamental-programming" target="_blank" class="external-link">Go编程基础</a></li>
+<li><a href="https://github.com/Unknwon/the-way-to-go_ZH_CN" target="_blank" class="external-link">Go入门指南</a></li>
+<li><a href="http://mikespook.com/learning-go/" target="_blank" class="external-link">学习Go语言</a></li>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang" target="_blank" class="external-link">Go Web 编程</a> (此书已经出版，希望开发者们去购买，支持作者的创作)</li>
+<li><a href="https://github.com/astaxie/Go-in-Action" target="_blank" class="external-link">Go实战开发</a> (当我收录此项目时，作者已经写完第三章，如果读完前面章节觉得有帮助，可以给作者 <a href="https://me.alipay.com/astaxie" target="_blank" class="external-link">捐赠</a> ，以鼓励作者的继续创作)</li>
+<li><a href="https://github.com/astaxie/NPWG_zh" target="_blank" class="external-link">Network programming with Go 中文翻译版本</a></li>
+<li><a href="https://github.com/polaris1119/The-Golang-Standard-Library-by-Example" target="_blank" class="external-link">Go 语言标准库</a></li>
+<li><a href="http://blog.csdn.net/dc_726/article/details/46565241" target="_blank" class="external-link">Java程序员的Golang入门指南</a></li>
+<li><a href="https://github.com/hyper-carrot/go_command_tutorial" target="_blank" class="external-link">Go命令教程</a></li>
+<li><a href="https://github.com/achun/Go-Blog-In-Action" target="_blank" class="external-link">Go语言博客实践</a></li>
+<li><a href="https://github.com/golang-china/golangdoc.translations" target="_blank" class="external-link">Go 官方文档翻译</a></li>
+<li><a href="https://github.com/tiancaiamao/go-internals" target="_blank" class="external-link">深入解析Go</a></li>
+<li><a href="https://github.com/sheepbao/golang_runtime_reading" target="_blank" class="external-link">golang runtime源码分析</a></li>
+<li><a href="https://github.com/llitfkitfk/go-best-practice" target="_blank" class="external-link">Go语言实战: 编写可维护Go语言代码建议</a></li>
+<li><a href="https://github.com/Tinywan/golang-tutorial" target="_blank" class="external-link">Golang 系列教程(译)</a></li>
+<li><a href="https://github.com/smallnest/go-rpc-programming-guide" target="_blank" class="external-link">Go RPC 开发指南</a> <a href="https://smallnest.gitbooks.io/go-rpc-programming-guide/" target="_blank" class="external-link">GitBook</a></li>
+<li><a href="https://github.com/senghoo/golang-design-pattern" target="_blank" class="external-link">Go语言设计模式</a></li>
+<li><a href="https://github.com/ffhelicopter/Go42" target="_blank" class="external-link">Go语言四十二章经</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="haskell" tabindex="-1">Haskell</h2>
+<ul>
+<li><a href="https://rwh.readthedocs.io/en/latest/" target="_blank" class="external-link">Real World Haskell 中文版</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="i-os" tabindex="-1">iOS</h2>
+<ul>
+<li><a href="https://github.com/qinjx/30min_guides/blob/master/ios.md" target="_blank" class="external-link">iOS开发60分钟入门</a></li>
+<li><a href="http://isux.tencent.com/ios-human-interface-guidelines-ui-design-basics-ios7.html" target="_blank" class="external-link">iOS7人机界面指南</a> 😟</li>
+<li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-objc-styleguide/" target="_blank" class="external-link">Google Objective-C Style Guide 中文版</a></li>
+<li><a href="http://wileam.com/iphone-6-screen-cn/" target="_blank" class="external-link">iPhone 6 屏幕揭秘</a></li>
+<li><a href="https://developer.apple.com/library/archive/referencelibrary/GettingStarted/RoadMapiOSCh-Legacy/index.html" target="_blank" class="external-link">马上着手开发 iOS 应用程序</a></li>
+<li><a href="https://github.com/jkyin/Subtitle" target="_blank" class="external-link">网易斯坦福大学公开课：iOS 7应用开发字幕文件</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="java" tabindex="-1">Java</h2>
+<ul>
+<li><a href="https://github.com/waylau/apache-shiro-1.2.x-reference" target="_blank" class="external-link">Apache Shiro 用户指南</a></li>
+<li><a href="https://github.com/waylau/Jersey-2.x-User-Guide" target="_blank" class="external-link">Jersey 2.x 用户指南</a></li>
+<li><a href="https://github.com/waylau/spring-framework-4-reference" target="_blank" class="external-link">Spring Framework 4.x参考文档</a></li>
+<li><a href="https://github.com/qibaoguang/Spring-Boot-Reference-Guide" target="_blank" class="external-link">Spring Boot参考指南</a> (翻译中)</li>
+<li><a href="https://github.com/jcohy/jcohy-docs" target="_blank" class="external-link">Spring 系列中文参考指南</a></li>
+<li><a href="https://mybatis.org/mybatis-3/zh_CN/index.html" target="_blank" class="external-link">MyBatis中文文档</a></li>
+<li><a href="https://github.com/waylau/RestDemo" target="_blank" class="external-link">用jersey构建REST服务</a></li>
+<li><a href="https://github.com/waylau/activiti-5.x-user-guide" target="_blank" class="external-link">Activiti 5.x 用户指南</a></li>
+<li><a href="https://hawstein.com/2014/01/20/google-java-style/" target="_blank" class="external-link">Google Java编程风格指南</a></li>
+<li><a href="https://github.com/waylau/netty-4-user-guide" target="_blank" class="external-link">Netty 4.x 用户指南</a></li>
+<li><a href="https://github.com/waylau/essential-netty-in-action" target="_blank" class="external-link">Netty 实战(精髓)</a></li>
+<li><a href="https://github.com/waylau/rest-in-action" target="_blank" class="external-link">REST 实战</a></li>
+<li><a href="https://github.com/waylau/java-code-conventions" target="_blank" class="external-link">Java 编码规范</a></li>
+<li><a href="https://github.com/waylau/apache-mina-2.x-user-guide" target="_blank" class="external-link">Apache MINA 2 用户指南</a></li>
+<li><a href="https://github.com/waylau/h2-database-doc" target="_blank" class="external-link">H2 Database 教程</a></li>
+<li><a href="https://github.com/waylau/servlet-3.1-specification" target="_blank" class="external-link">Java Servlet 3.1 规范</a></li>
+<li><a href="https://github.com/waylau/jsse-reference-guide" target="_blank" class="external-link">JSSE 参考指南</a></li>
+<li><a href="https://github.com/biezhi/jb" target="_blank" class="external-link">Java开源实现及最佳实践</a></li>
+<li><a href="https://github.com/waylau/essential-java" target="_blank" class="external-link">Java 编程要点</a></li>
+<li><a href="http://www.ituring.com.cn/minibook/69" target="_blank" class="external-link">Think Java</a> 😟</li>
+<li><a href="https://github.com/wizardforcel/modern-java-zh" target="_blank" class="external-link">Java 8 简明教程</a></li>
+<li><a href="https://github.com/LingCoder/OnJava8" target="_blank" class="external-link">On Java 8 中文版</a> (翻译中)</li>
+<li><a href="https://github.com/sjsdfg/effective-java-3rd-chinese" target="_blank" class="external-link">Effective Java 第3版中文版</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="java-script" tabindex="-1">JavaScript</h2>
+<ul>
+<li><a href="https://zh.javascript.info/" target="_blank" class="external-link">现代 Javascript 教程</a></li>
+<li><a href="https://github.com/darcyliu/google-styleguide/blob/master/JSONStyleGuide.md" target="_blank" class="external-link">Google JSON 风格指南</a></li>
+<li><a href="https://github.com/adamlu/javascript-style-guide" target="_blank" class="external-link">Airbnb JavaScript 规范</a></li>
+<li><a href="http://javascript.ruanyifeng.com/" target="_blank" class="external-link">JavaScript 标准参考教程（alpha）</a></li>
+<li><a href="http://pij.robinqu.me/" target="_blank" class="external-link">Javascript编程指南</a> (<a href="https://github.com/RobinQu/Programing-In-Javascript" target="_blank" class="external-link">源码</a>)</li>
+<li><a href="https://github.com/justjavac/12-javascript-quirks" target="_blank" class="external-link">javascript 的 12 个怪癖</a></li>
+<li><a href="https://github.com/jayli/javascript-patterns" target="_blank" class="external-link">《JavaScript 模式》</a> “JavaScript patterns”中译本</li>
+<li><a href="https://github.com/qibaoguang/Study-Step-by-Step/blob/master/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/javascript_the_good_parts.md" target="_blank" class="external-link">JavaScript语言精粹</a></li>
+<li><a href="http://justjavac.com/named-function-expressions-demystified.html" target="_blank" class="external-link">命名函数表达式探秘</a> (注:原文由 <a href="http://www.cn-cuckoo.com/" target="_blank" class="external-link">为之漫笔</a> 翻译，原始地址无法打开，所以此处地址为我博客上的备份)</li>
+<li><a href="http://www.oschina.net/translate/learning-javascript-design-patterns" target="_blank" class="external-link">学用 JavaScript 设计模式</a> (开源中国)</li>
+<li><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" class="external-link">深入理解JavaScript系列</a></li>
+<li><a href="http://yanhaijing.com/es5" target="_blank" class="external-link">ECMAScript 5.1 中文版</a></li>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" class="external-link">ECMAScript 6 入门</a> (作者：阮一峰)</li>
+<li><a href="http://liubin.github.io/promises-book/" target="_blank" class="external-link">JavaScript Promise迷你书</a></li>
+<li><a href="https://github.com/getify/You-Dont-Know-JS" target="_blank" class="external-link">You-Dont-Know-JS</a> (深入JavaScript语言核心机制的系列图书)</li>
+<li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" class="external-link">JavaScript 教程</a> 廖雪峰</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" class="external-link">MDN JavaScript 中文文档</a></li>
+<li>jQuery
+<ul>
+<li><a href="http://www.nowamagic.net/librarys/books/contents/jquery" target="_blank" class="external-link">简单易懂的JQuery魔法</a> 😟
+<ul>
+<li><a href="http://i5ting.github.io/How-to-write-jQuery-plugin/build/jquery.plugin.html" target="_blank" class="external-link">How to write jQuery plugin</a></li>
+<li><a href="https://github.com/oneuijs/You-Dont-Need-jQuery/blob/master/README.zh-CN.md" target="_blank" class="external-link">You Don't Need jQuery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Node.js
+<ul>
+<li><a href="http://www.nodebeginner.org/index-zh-cn.html" target="_blank" class="external-link">Node入门</a>
+<ul>
+<li><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" class="external-link">七天学会NodeJS</a></li>
+<li><a href="https://github.com/nodejs-tw/nodejs-wiki-book" target="_blank" class="external-link">Nodejs Wiki Book</a> (繁体中文)</li>
+<li><a href="http://expressjs.jser.us/" target="_blank" class="external-link">express.js 中文文档</a></li>
+<li><a href="https://github.com/guo-yu/koa-guide" target="_blank" class="external-link">koa 中文文档</a></li>
+<li><a href="http://base-n.github.io/koa-generator-examples/" target="_blank" class="external-link">一起学koa</a></li>
+<li><a href="https://github.com/nswbmw/N-blog" target="_blank" class="external-link">使用 Express + MongoDB 搭建多人博客</a></li>
+<li><a href="http://javascript.ruanyifeng.com/nodejs/express.html" target="_blank" class="external-link">Express框架</a></li>
+<li><a href="https://github.com/alsotang/node-lessons" target="_blank" class="external-link">Node.js 包教不包会</a></li>
+<li><a href="https://www.npmjs.com/package/learnyounode-zh-cn" target="_blank" class="external-link">Learn You The Node.js For Much Win! (中文版)</a></li>
+<li><a href="http://i5ting.github.io/node-debug-tutorial/" target="_blank" class="external-link">Node debug 三法三例</a></li>
+<li><a href="https://www.gitbook.com/book/0532/nodejs/details" target="_blank" class="external-link">nodejs中文文档</a> 😟</li>
+<li><a href="https://github.com/wizardforcel/orm2-doc-zh-cn" target="_blank" class="external-link">orm2 中文文档</a></li>
+<li><a href="https://github.com/nswbmw/N-blog" target="_blank" class="external-link">一起学 Node.js</a></li>
+<li><a href="https://www.nodebeginner.org/index-zh-cn.html" target="_blank" class="external-link">Node入门：一本全面的Node.js教程</a></li>
+<li><a href="http://blog.fens.me/series-nodejs/" target="_blank" class="external-link">从零开始的Nodejs系列文章</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>underscore.js
+<ul>
+<li><a href="http://learningcn.com/underscore/" target="_blank" class="external-link">Underscore.js中文文档</a> 😟</li>
+</ul>
+</li>
+<li>backbone.js
+<ul>
+<li><a href="http://www.the5fire.com/backbone-js-tutorials-pdf-download.html" target="_blank" class="external-link">backbone.js入门教程</a> (PDF)
+<ul>
+<li><a href="https://github.com/the5fire/backbonejs-learning-note" target="_blank" class="external-link">Backbone.js入门教程第二版</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>AngularJS
+<ul>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-zh-cn.md" target="_blank" class="external-link">AngularJS最佳实践和风格指南</a>
+<ul>
+<li><a href="https://github.com/zensh/AngularjsTutorial_cn" target="_blank" class="external-link">AngularJS入门教程</a></li>
+<li><a href="https://github.com/xufei/Make-Your-Own-AngularJS/blob/master/01.md" target="_blank" class="external-link">构建自己的AngularJS</a></li>
+<li><a href="http://www.waylau.com/build-angularjs-app-with-yeoman-in-windows/" target="_blank" class="external-link">在Windows环境下用Yeoman构建AngularJS项目</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Zepto.js</li>
+<li>Sea.js
+<ul>
+<li><a href="http://island205.github.io/HelloSea.js/" target="_blank" class="external-link">Hello Sea.js</a></li>
+</ul>
+</li>
+<li>React.js
+<ul>
+<li><a href="https://github.com/the-road-to-learn-react/the-road-to-learn-react-chinese" target="_blank" class="external-link">React 学习之道</a>
+<ul>
+<li><a href="https://github.com/huzidaha/react-naive-book" target="_blank" class="external-link">React.js 小书</a></li>
+<li><a href="https://github.com/fakefish/react-webpack-cookbook" target="_blank" class="external-link">React webpack-cookbook</a></li>
+<li><a href="https://hulufei.gitbooks.io/react-tutorial/content/" target="_blank" class="external-link">React 入门教程</a> (作者：hulufei, 与上行不同作者)</li>
+<li><a href="http://wiki.jikexueyuan.com/project/react-native/" target="_blank" class="external-link">React Native 中文文档(含最新Android内容)</a></li>
+<li><a href="https://github.com/theJian/build-a-hn-front-page" target="_blank" class="external-link">Learn React &amp; Webpack by building the Hacker News front page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>impress.js
+<ul>
+<li><a href="https://github.com/kokdemo/impress.js-tutorial-in-Chinese" target="_blank" class="external-link">impress.js的中文教程</a></li>
+</ul>
+</li>
+<li>CoffeeScript
+<ul>
+<li><a href="https://github.com/geekplux/coffeescript-style-guide" target="_blank" class="external-link">CoffeeScript 编码风格指南</a></li>
+</ul>
+</li>
+<li>TypeScipt
+<ul>
+<li><a href="https://zhongsp.gitbooks.io/typescript-handbook/content/" target="_blank" class="external-link">TypeScript Handbook</a> 😟</li>
+</ul>
+</li>
+<li>ExtJS
+<ul>
+<li><a href="http://extjs-doc-cn.github.io/ext4api/" target="_blank" class="external-link">Ext4.1.0 中文文档</a></li>
+</ul>
+</li>
+<li>Meteor
+<ul>
+<li><a href="https://github.com/DiscoverMeteor/DiscoverMeteor_zh" target="_blank" class="external-link">Discover Meteor</a></li>
+</ul>
+</li>
+<li>VueJS
+<ul>
+<li><a href="https://nlrx-wjc.github.io/Learn-Vue-Source-Code/" target="_blank" class="external-link">逐行剖析 Vue.js 源码</a></li>
+</ul>
+</li>
+<li><a href="http://www.ituring.com.cn/minibook/950" target="_blank" class="external-link">Chrome扩展及应用开发</a> 😟</li>
+</ul>
+<h2 id="kotlin" tabindex="-1">Kotlin</h2>
+<ul>
+<li><a href="https://hltj.gitbooks.io/kotlin-reference-chinese/content/" target="_blank" class="external-link">Kotlin 官方参考文档 中文版</a></li>
+<li><a href="https://huanglizhuo.gitbooks.io/kotlin-in-chinese/" target="_blank" class="external-link">Kotlin 中文文档</a> <a href="https://github.com/huanglizhuo/kotlin-in-chinese" target="_blank" class="external-link">GitHub</a></li>
+<li><a href="http://www.liying-cn.net/kotlin/docs/reference/" target="_blank" class="external-link">Kotlin 参考文档</a></li>
+<li><a href="https://wangjiegulu.gitbooks.io/kotlin-for-android-developers-zh/content/" target="_blank" class="external-link">《Kotlin for android developers》中文版</a> 😟</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="la-te-x" tabindex="-1">LaTeX</h2>
+<ul>
+<li><a href="http://liam0205.me/2014/09/08/latex-introduction/" target="_blank" class="external-link">一份其实很短的 LaTeX 入门文档</a></li>
+<li><a href="http://www.mohu.org/info/lshort-cn.pdf" target="_blank" class="external-link">一份不太简短的 LATEX 2ε 介绍</a> （PDF版）</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="lisp" tabindex="-1">LISP</h2>
+<ul>
+<li>Common Lisp
+<ul>
+<li><a href="https://acl.readthedocs.io/en/latest/" target="_blank" class="external-link">ANSI Common Lisp 中文翻譯版</a>
+<ul>
+<li><a href="http://www.ituring.com.cn/minibook/862" target="_blank" class="external-link">On Lisp 中文翻译版本</a> 😟</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Scheme
+<ul>
+<li><a href="http://deathking.github.io/yast-cn/" target="_blank" class="external-link">Yet Another Scheme Tutorial Scheme入门教程</a>
+<ul>
+<li><a href="http://songjinghe.github.io/TYS-zh-translation/" target="_blank" class="external-link">Scheme语言简明教程</a></li>
+<li>Racket</li>
+<li><a href="https://github.com/tyrchen/racket-book" target="_blank" class="external-link">Racket book</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="lua" tabindex="-1">Lua</h2>
+<ul>
+<li><a href="https://github.com/andycai/luaprimer" target="_blank" class="external-link">Lua编程入门</a></li>
+<li><a href="http://www.codingnow.com/2000/download/lua_manual.html" target="_blank" class="external-link">Lua 5.1 参考手册 中文翻译</a></li>
+<li><a href="http://cloudwu.github.io/lua53doc/" target="_blank" class="external-link">Lua 5.3 参考手册 中文翻译</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="o-caml" tabindex="-1">OCaml</h2>
+<ul>
+<li><a href="https://github.com/zforget/translation/tree/master/real_world_ocaml" target="_blank" class="external-link">Real World OCaml</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="perl" tabindex="-1">Perl</h2>
+<ul>
+<li><a href="http://perl.linuxtoy.org/" target="_blank" class="external-link">Perl 程序员应该知道的事</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="php" tabindex="-1">PHP</h2>
+<ul>
+<li><a href="http://php.net/manual/zh/" target="_blank" class="external-link">PHP 官方手册</a></li>
+<li><a href="http://www.laruence.com/2010/06/21/1608.html" target="_blank" class="external-link">PHP调试技术手册</a> (PDF)</li>
+<li>PHP之道：php-the-right-way (<a href="http://wulijun.github.io/php-the-right-way/" target="_blank" class="external-link">@wulijun版</a> <a href="http://laravel-china.github.io/php-the-right-way/" target="_blank" class="external-link">PHPHub版</a>)</li>
+<li><a href="https://github.com/justjavac/PHP-Best-Practices-zh_CN" target="_blank" class="external-link">PHP 最佳实践</a></li>
+<li><a href="https://ryancao.gitbooks.io/php-developer-prepares/content/" target="_blank" class="external-link">PHP 开发者实践</a> 😟</li>
+<li><a href="https://github.com/reeze/tipi" target="_blank" class="external-link">深入理解PHP内核</a></li>
+<li><a href="https://learninglaravel.net/cheatsheet-chinese" target="_blank" class="external-link">Laravel 5.1 LTS 速查表</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/symfony-cookbook/" target="_blank" class="external-link">Symfony2 Cookbook 中文版</a> (版本 2.7.0 LTS)</li>
+<li><a href="https://symfony-docs-chs.readthedocs.io/en/latest/" target="_blank" class="external-link">Symfony2中文文档</a> (未译完)</li>
+<li><a href="http://yiibook.com//doc" target="_blank" class="external-link">YiiBook几本Yii框架的在线教程</a> 😟</li>
+<li><a href="http://www.digpage.com/" target="_blank" class="external-link">深入理解 Yii 2.0</a> 😟</li>
+<li><a href="http://www.yiichina.com/" target="_blank" class="external-link">Yii 框架中文官网</a></li>
+<li><a href="http://www.nowamagic.net/librarys/books/contents/php" target="_blank" class="external-link">简单易懂的PHP魔法</a> 😟</li>
+<li><a href="https://github.com/LinkedDestiny/swoole-doc" target="_blank" class="external-link">swoole文档及入门教程</a></li>
+<li><a href="http://www.phpcomposer.com/" target="_blank" class="external-link">Composer 中文网</a></li>
+<li><a href="https://learnku.com/docs/lumen/5.7/" target="_blank" class="external-link">Lumen 中文文档</a></li>
+<li><a href="https://www.w3cschool.cn/phpunit5/" target="_blank" class="external-link">PHPUnit 中文文档</a></li>
+<li><a href="https://github.com/wuqinqiang/leetcode-php" target="_blank" class="external-link">PHP-LeetCode</a></li>
+<li><a href="https://www.kancloud.cn/manual/thinkphp5_1" target="_blank" class="external-link">ThinkPHP5.1完全开发手册</a></li>
+<li><a href="https://www.kancloud.cn/manual/thinkphp" target="_blank" class="external-link">ThinkPHP3.2.3完全开发手册</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="prolog" tabindex="-1">Prolog</h2>
+<ul>
+<li><a href="http://fengdidi.github.io/blog/2011/11/15/qian-yan/" target="_blank" class="external-link">笨办法学Prolog</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="python" tabindex="-1">Python</h2>
+<ul>
+<li><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000" target="_blank" class="external-link">廖雪峰 Python 2.7 中文教程</a> 😟</li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" class="external-link">廖雪峰 Python 3 中文教程</a></li>
+<li><a href="https://legacy.gitbook.com/book/lenkimo/byte-of-python-chinese-edition/details" target="_blank" class="external-link">简明 Python 教程(Python 3)</a> 😟</li>
+<li><a href="http://www.kancloud.cn/kancloud/python-basic" target="_blank" class="external-link">零基础学 Python 第一版</a></li>
+<li><a href="http://www.kancloud.cn/kancloud/starter-learning-python" target="_blank" class="external-link">零基础学 Python 第二版</a></li>
+<li><a href="https://lovelypython.readthedocs.io/en/latest/" target="_blank" class="external-link">可爱的 Python</a></li>
+<li><a href="http://www.kancloud.cn/thinkphp/python-cookbook" target="_blank" class="external-link">Python Cookbook 中文版</a></li>
+<li><a href="https://github.com/yidao620c/python3-cookbook" target="_blank" class="external-link">Python3 Cookbook 中文版</a></li>
+<li><a href="https://code.google.com/p/zhong-wiki/wiki/PEP8" target="_blank" class="external-link">PEP8 Python代码风格规范</a></li>
+<li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/" target="_blank" class="external-link">Google Python 风格指南 中文版</a></li>
+<li><a href="http://liam0205.me/2013/11/02/Python-tutorial-zh_cn/" target="_blank" class="external-link">Python入门教程</a> (<a href="http://liam0205.me/attachment/Python/The_Python_Tutorial_zh-cn.pdf" target="_blank" class="external-link">PDF</a>)</li>
+<li><a href="http://liam0205.me/attachment/Python/PyHardWay/Learn_Python_The_Hard_Way_zh-cn.pdf" target="_blank" class="external-link">笨办法学 Python</a> (<a href="https://www.gitbook.com/download/epub/book/wizardforcel/lpthw" target="_blank" class="external-link">EPUB</a>)</li>
+<li><a href="http://pan.baidu.com/s/1qW4pvnY" target="_blank" class="external-link">Python自然语言处理中文版</a> （感谢陈涛同学的翻译，也谢谢 <a href="https://github.com/shwley" target="_blank" class="external-link">@shwley</a> 联系了作者） 😟</li>
+<li><a href="http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/" target="_blank" class="external-link">Python 绘图库 matplotlib 官方指南中文翻译</a></li>
+<li><a href="https://scrapy-chs.readthedocs.io/zh_CN/latest/" target="_blank" class="external-link">Scrapy 0.25 文档</a></li>
+<li><a href="https://github.com/carfly/thinkpython-cn" target="_blank" class="external-link">ThinkPython</a></li>
+<li><a href="https://github.com/bingjin/ThinkPython2-CN" target="_blank" class="external-link">ThinkPython 2ed</a></li>
+<li><a href="http://www.cnblogs.com/vamei/archive/2012/09/13/2682778.html" target="_blank" class="external-link">Python快速教程</a></li>
+<li><a href="http://wiki.ubuntu.org.cn/Python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" target="_blank" class="external-link">Python 正则表达式操作指南</a></li>
+<li><a href="http://www.crifan.com/files/doc/docbook/python_beginner_tutorial/release/html/python_beginner_tutorial.html" target="_blank" class="external-link">python初级教程：入门详解</a></li>
+<li><a href="https://www.gitbook.com/book/likebeta/twisted-intro-cn/details" target="_blank" class="external-link">Twisted 与异步编程入门</a> 😟</li>
+<li><a href="https://textgrocery.readthedocs.io/zh/latest/index.html" target="_blank" class="external-link">TextGrocery 中文 API</a> ( 基于svm算法的一个短文本分类 Python 库 )</li>
+<li><a href="https://requests-docs-cn.readthedocs.io/zh_CN/latest/" target="_blank" class="external-link">Requests: HTTP for Humans</a></li>
+<li><a href="https://pillow-docs-cn.readthedocs.io/zh_CN/latest/index.html" target="_blank" class="external-link">Pillow 中文文档</a> 😟</li>
+<li><a href="https://pymotwcn.readthedocs.io/en/latest/index.html" target="_blank" class="external-link">PyMOTW 中文版</a></li>
+<li><a href="https://fabric-chs.readthedocs.io/" target="_blank" class="external-link">Fabric 中文文档</a></li>
+<li><a href="https://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" class="external-link">Beautiful Soup 4.2.0 中文文档</a></li>
+<li><a href="https://legacy.gitbook.com/book/keelii/socket-programming-in-python-cn/details" target="_blank" class="external-link">Python 中的 Socket 编程</a> 😟</li>
+<li><a href="https://docs.huihoo.com/scipy/scipy-zh-cn/index.html" target="_blank" class="external-link">用Python做科学计算</a></li>
+<li><a href="https://github.com/cundi/Mastering.Python.Design.Patterns" target="_blank" class="external-link">精通 Python 设计模式</a></li>
+<li><a href="https://github.com/smartFlash/pySecurity" target="_blank" class="external-link">python 安全编程教程</a></li>
+<li><a href="https://www.gitbook.com/book/wizardforcel/sjtu-cs902-courseware/details" target="_blank" class="external-link">程序设计思想与方法</a> 😟</li>
+<li><a href="https://github.com/cloga/scipy-lecture-notes_cn" target="_blank" class="external-link">Scipy 讲义</a></li>
+<li><a href="https://docs.python.org/zh-cn/3/library/index.html" target="_blank" class="external-link">Python 标准库 中文版</a></li>
+<li><a href="https://www.gitbook.com/book/eastlakeside/interpy-zh/details" target="_blank" class="external-link">Python进阶</a> 😟</li>
+<li><a href="https://wizardforcel.gitbooks.io/core-python-2e/content/" target="_blank" class="external-link">Python 核心编程 第二版</a> CPyUG译 😟</li>
+<li><a href="http://pythonguidecn.readthedocs.io/zh/latest/" target="_blank" class="external-link">Python最佳实践指南</a></li>
+<li><a href="https://www.gitbook.com/book/wizardforcel/python-essential-tutorial/details" target="_blank" class="external-link">Python 精要教程</a> 😟</li>
+<li><a href="https://www.gitbook.com/book/wizardforcel/python-quant-uqer/details" target="_blank" class="external-link">Python 量化交易教程</a> 😟</li>
+<li><a href="https://magic.iswbm.com/preface.html" target="_blank" class="external-link">Python黑魔法手册</a></li>
+<li><a href="https://space.bilibili.com/245645656/channel/collectiondetail?sid=346060" target="_blank" class="external-link">不基础的Python基础</a></li>
+<li><a href="https://space.bilibili.com/245645656/channel/collectiondetail?sid=1023741" target="_blank" class="external-link">Python 魔术方法大全</a></li>
+<li>Django
+<ul>
+<li><a href="https://django-chinese-docs.readthedocs.io/en/latest/" target="_blank" class="external-link">Django 1.5 文档中文版</a> 正在翻译中
+<ul>
+<li><a href="https://docs.djangoproject.com/zh-hans/2.0/" target="_blank" class="external-link">Django 2.0 文档中文版</a></li>
+<li><a href="https://github.com/yangyubo/zh-django-best-practices" target="_blank" class="external-link">Django 最佳实践</a></li>
+<li><a href="https://github.com/stacklens/django_blog_tutorial" target="_blank" class="external-link">Django 搭建个人博客教程</a></li>
+<li><a href="https://www.gitbook.com/book/andrew-liu/django-blog/details" target="_blank" class="external-link">Django搭建简易博客教程</a></li>
+<li><a href="http://djangobook.py3k.cn/2.0/" target="_blank" class="external-link">The Django Book 中文版</a></li>
+<li><a href="https://github.com/cundi/Django-Design-Patterns-and-Best-Practices" target="_blank" class="external-link">Django 设计模式与最佳实践</a></li>
+<li><a href="https://github.com/cundi/Web.Development.with.Django.Cookbook" target="_blank" class="external-link">Django 网站开发 Cookbook</a></li>
+<li><a href="https://www.gitbook.com/book/djangogirlstaipei/django-girls-taipei-tutorial/details" target="_blank" class="external-link">Django Girls 學習指南</a> 😟</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flask
+<ul>
+<li><a href="http://docs.jinkan.org/docs/flask/" target="_blank" class="external-link">Flask 文档中文版</a>
+<ul>
+<li><a href="http://docs.jinkan.org/docs/jinja2/" target="_blank" class="external-link">Jinja2 文档中文版</a></li>
+<li><a href="https://werkzeug-docs-cn.readthedocs.io/zh_CN/latest/" target="_blank" class="external-link">Werkzeug 文档中文版</a></li>
+<li><a href="http://spacewander.github.io/explore-flask-zh/" target="_blank" class="external-link">Flask之旅</a></li>
+<li><a href="https://www.gitbook.com/book/wizardforcel/flask-extension-docs/details" target="_blank" class="external-link">Flask 扩展文档汇总</a> 😟</li>
+<li><a href="http://docs.jinkan.org/docs/flask-sqlalchemy/" target="_blank" class="external-link">SQLAlchemy 中文文档</a></li>
+<li><a href="https://read.helloflask.com/" target="_blank" class="external-link">Flask 入门教程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://web.py" target="_blank" class="external-link">web.py</a>
+<ul>
+<li><a href="http://webpy.org/cookbook/index.zh-cn" target="_blank" class="external-link">Web.py Cookbook 简体中文版</a></li>
+</ul>
+</li>
+<li>Tornado
+<ul>
+<li><a href="http://demo.pythoner.com/itt2zh/index.html" target="_blank" class="external-link">Introduction to Tornado 中文翻译</a>
+<ul>
+<li><a href="http://www.nowamagic.net/academy/detail/13321002" target="_blank" class="external-link">Tornado源码解析</a> 😟</li>
+<li><a href="https://tornado-zh.readthedocs.io/zh/latest/" target="_blank" class="external-link">Tornado 4.3 文档中文版</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="r" tabindex="-1">R</h2>
+<ul>
+<li><a href="https://github.com/yihui/r-ninja" target="_blank" class="external-link">R语言忍者秘笈</a></li>
+<li><a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html" target="_blank" class="external-link">R语言教程</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="ruby" tabindex="-1">Ruby</h2>
+<ul>
+<li><a href="https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md" target="_blank" class="external-link">Ruby 风格指南</a></li>
+<li><a href="https://github.com/JuanitoFatas/rails-style-guide/blob/master/README-zhCN.md" target="_blank" class="external-link">Rails 风格指南</a></li>
+<li><a href="http://lrthw.github.io/" target="_blank" class="external-link">笨方法學 Ruby</a></li>
+<li><a href="https://ihower.tw/rails4/index.html" target="_blank" class="external-link">Ruby on Rails 實戰聖經</a></li>
+<li><a href="http://railstutorial-china.org/" target="_blank" class="external-link">Ruby on Rails Tutorial 原书第 3 版</a> (本书网页版免费提供，电子版以 PDF、EPub 和 Mobi 格式提供购买，仅售 9.9 美元) 😟</li>
+<li><a href="https://www.gitbook.com/book/kelby/rails-beginner-s-guide/details" target="_blank" class="external-link">Rails 5 开发进阶(Beta)</a> 😟</li>
+<li><a href="https://www.gitbook.com/book/rocodev/rails-102/details" target="_blank" class="external-link">Rails 102</a> 😟</li>
+<li><a href="https://wusuopu.gitbooks.io/write-ruby-extension-with-c/content/" target="_blank" class="external-link">编写Ruby的C拓展</a> 😟</li>
+<li><a href="https://ruby-china.org/topics/22386" target="_blank" class="external-link">Ruby 源码解读</a></li>
+<li><a href="http://deathking.github.io/metaprogramming-in-ruby/" target="_blank" class="external-link">Ruby中的元编程</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="rust" tabindex="-1">Rust</h2>
+<ul>
+<li><a href="https://kaisery.github.io/trpl-zh-cn/" target="_blank" class="external-link">Rust编程语言 中文翻译</a></li>
+<li><a href="https://rustwiki.org/zh-CN/rust-by-example/" target="_blank" class="external-link">通过例子学 Rust 中文版</a></li>
+<li><a href="https://github.com/rustcc/RustPrimer" target="_blank" class="external-link">Rust Primer</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="scala" tabindex="-1">Scala</h2>
+<ul>
+<li><a href="http://twitter.github.io/scala_school/zh_cn/index.html" target="_blank" class="external-link">Scala课堂</a> (Twitter的Scala中文教程)</li>
+<li><a href="http://twitter.github.io/effectivescala/index-cn.html" target="_blank" class="external-link">Effective Scala</a> (Twitter的Scala最佳实践的中文翻译)</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="shell" tabindex="-1">Shell</h2>
+<ul>
+<li><a href="https://github.com/qinjx/30min_guides/blob/master/shell.md" target="_blank" class="external-link">Shell脚本编程30分钟入门</a></li>
+<li><a href="http://blog.sae.sina.com.cn/archives/3606" target="_blank" class="external-link">Bash脚本15分钟进阶教程</a> 😟</li>
+<li><a href="https://github.com/me115/linuxtools_rst" target="_blank" class="external-link">Linux工具快速教程</a></li>
+<li><a href="https://github.com/wzb56/13_questions_of_shell" target="_blank" class="external-link">shell十三问</a></li>
+<li><a href="https://www.gitbook.com/book/tinylab/shellbook/details" target="_blank" class="external-link">Shell编程范例</a> 😟</li>
+<li><a href="https://wangchujiang.com/linux-command/" target="_blank" class="external-link">Linux命令搜索引擎</a></li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="swift" tabindex="-1">Swift</h2>
+<ul>
+<li><a href="https://swiftggteam.github.io/the-swift-programming-language-in-chinese/" target="_blank" class="external-link">The Swift Programming Language 中文版</a></li>
+<li><a href="https://github.com/x140yu/Developing_iOS_8_Apps_With_Swift" target="_blank" class="external-link">Stanford 公开课，Developing iOS 8 Apps with Swift 字幕翻译文件</a></li>
+<li><a href="http://c4ios.swift.gg/" target="_blank" class="external-link">C4iOS - COSMOS</a> 😟</li>
+</ul>
+<p><a href="#%E7%9B%AE%E5%BD%95" target="_blank" class="external-link">返回目录</a></p>
+<h2 id="读书笔记及其它" tabindex="-1">读书笔记及其它</h2>
+<ul>
+<li><a href="https://github.com/fool2fish/dragon-book-exercise-answers" target="_blank" class="external-link">编译原理（紫龙书）中文第2版习题答案</a></li>
+<li><a href="http://hawstein.com/2013/08/11/make-thiner-programming-pearls/" target="_blank" class="external-link">把《编程珠玑》读薄</a></li>
+<li><a href="https://github.com/qyuhen/book" target="_blank" class="external-link">Golang 学习笔记、Python 学习笔记、C 学习笔记</a> (PDF)</li>
+<li><a href="https://github.com/code4craft/jsoup-learning" target="_blank" class="external-link">Jsoup 学习笔记</a></li>
+<li><a href="https://github.com/lzjun567/note" target="_blank" class="external-link">学习笔记: Vim、Python、memcached</a></li>
+<li><a href="http://www.ituring.com.cn/activity/details/2004" target="_blank" class="external-link">图灵开放书翻译计划--C++、Python、Java等</a> 😟</li>
+<li><a href="http://g.yeeyan.org/books/2095" target="_blank" class="external-link">蒂姆·奥莱利随笔</a> （由译言网翻译，电子版免费） 😟</li>
+<li><a href="https://sicp.readthedocs.io/en/latest/" target="_blank" class="external-link">SICP 解题集</a></li>
+<li><a href="https://github.com/hacke2/hacke2.github.io/issues/2" target="_blank" class="external-link">精彩博客集合</a></li>
+<li><a href="https://github.com/sparanoid/chinese-copywriting-guidelines" target="_blank" class="external-link">中文文案排版指北</a></li>
+<li><a href="http://www.chengweiyang.cn/gitbook/index.html" target="_blank" class="external-link">GitBook简明教程</a> 😟</li>
+<li><a href="http://producingoss.com/zh/" target="_blank" class="external-link">制造开源软件</a></li>
+<li><a href="http://www.dianbo.org/9238/stone/tiwendezhihui.htm" target="_blank" class="external-link">提问的智慧</a> 😟</li>
+<li><a href="https://github.com/LearnShare/Learning-Markdown" target="_blank" class="external-link">Markdown 入门参考</a></li>
+<li><a href="https://github.com/stanzgy/wiki/blob/master/markup/asciidoc-guide.asciidoc" target="_blank" class="external-link">AsciiDoc简明指南</a></li>
+<li><a href="http://love-oriented.com/pack/" target="_blank" class="external-link">背包问题九讲</a></li>
+<li><a href="https://github.com/qiwsir/ITArticles" target="_blank" class="external-link">老齐的技术资料</a></li>
+<li><a href="https://github.com/JacksonTian/fks" target="_blank" class="external-link">前端技能汇总</a></li>
+<li><a href="https://github.com/zhuangbiaowei/learn-with-open-source" target="_blank" class="external-link">借助开源项目，学习软件开发</a></li>
+<li><a href="https://www.gitbook.com/book/yuanbin/algorithm/details" target="_blank" class="external-link">leetcode/lintcode题解/算法学习笔记</a> 😟</li>
+<li><a href="https://siddontang.gitbooks.io/leetcode-solution/content/" target="_blank" class="external-link">LeetCode题解</a></li>
+<li><a href="https://leader.js.cool/#/" target="_blank" class="external-link">《不可替代的团队领袖培养计划》</a></li>
+</ul>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#免费的编程中文书籍索引">免费的编程中文书籍索引</a>
+</li>
+<li><a href="#参与交流">参与交流</a>
+</li>
+<li><a href="#目录">目录</a>
+</li>
+<li><a href="#置顶">置顶</a>
+</li>
+<li><a href="#操作系统">操作系统</a>
+</li>
+<li><a href="#ai">AI</a>
+</li>
+<li><a href="#智能系统">智能系统</a>
+</li>
+<li><a href="#分布式系统">分布式系统</a>
+</li>
+<li><a href="#编译原理">编译原理</a>
+</li>
+<li><a href="#函数式概念">函数式概念</a>
+</li>
+<li><a href="#计算机图形学">计算机图形学</a>
+</li>
+<li><a href="#web">WEB服务器</a>
+</li>
+<li><a href="#版本控制">版本控制</a>
+</li>
+<li><a href="#编辑器">编辑器</a>
+</li>
+<li><a href="#no-sql">NoSQL</a>
+</li>
+<li><a href="#postgre-sql">PostgreSQL</a>
+</li>
+<li><a href="#my-sql">MySQL</a>
+</li>
+<li><a href="#管理和监控">管理和监控</a>
+</li>
+<li><a href="#项目相关">项目相关</a>
+</li>
+<li><a href="#设计模式">设计模式</a>
+</li>
+<li><a href="#web-1">Web</a>
+</li>
+<li><a href="#大数据">大数据</a>
+</li>
+<li><a href="#编程艺术">编程艺术</a>
+</li>
+<li><a href="#游戏引擎">游戏引擎</a>
+</li>
+<li><a href="#算法">算法</a>
+</li>
+<li><a href="#其它">其它</a>
+</li>
+<li><a href="#android">Android</a>
+</li>
+<li><a href="#app">APP</a>
+</li>
+<li><a href="#awk">AWK</a>
+</li>
+<li><a href="#c-c">C/C++</a>
+</li>
+<li><a href="#c">C#</a>
+</li>
+<li><a href="#clojure">Clojure</a>
+</li>
+<li><a href="#css-html">CSS/HTML</a>
+</li>
+<li><a href="#elixir">Elixir</a>
+</li>
+<li><a href="#fortran">Fortran</a>
+</li>
+<li><a href="#go">Go</a>
+</li>
+<li><a href="#haskell">Haskell</a>
+</li>
+<li><a href="#i-os">iOS</a>
+</li>
+<li><a href="#java">Java</a>
+</li>
+<li><a href="#java-script">JavaScript</a>
+</li>
+<li><a href="#kotlin">Kotlin</a>
+</li>
+<li><a href="#la-te-x">LaTeX</a>
+</li>
+<li><a href="#lisp">LISP</a>
+</li>
+<li><a href="#lua">Lua</a>
+</li>
+<li><a href="#o-caml">OCaml</a>
+</li>
+<li><a href="#perl">Perl</a>
+</li>
+<li><a href="#php">PHP</a>
+</li>
+<li><a href="#prolog">Prolog</a>
+</li>
+<li><a href="#python">Python</a>
+</li>
+<li><a href="#r">R</a>
+</li>
+<li><a href="#ruby">Ruby</a>
+</li>
+<li><a href="#rust">Rust</a>
+</li>
+<li><a href="#scala">Scala</a>
+</li>
+<li><a href="#shell">Shell</a>
+</li>
+<li><a href="#swift">Swift</a>
+</li>
+<li><a href="#读书笔记及其它">读书笔记及其它</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
