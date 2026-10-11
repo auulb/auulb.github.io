@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Clippings/awesome/","title":"awesome/readme.md 在 main · sindresorhus/awesome --- awesome/readme.md at main","tags":["clippings"],"dg-note-properties":{"title":"awesome/readme.md 在 main · sindresorhus/awesome --- awesome/readme.md at main","source":"https://github.com/sindresorhus/awesome/blob/main/readme.md","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
+{"dg-publish":true,"permalink":"/Clippings/awesome/","title":"awesome","tags":["clippings"],"dg-note-properties":{"title":"awesome","source":"https://github.com/sindresorhus/awesome/blob/main/readme.md","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
 ---
 
 [![Awesome](https://github.com/sindresorhus/awesome/raw/main/media/logo.svg)](https://github.com/sindresorhus/awesome/blob/main/media/logo.svg)  

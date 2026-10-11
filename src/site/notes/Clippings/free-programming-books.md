@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Clippings/free-programming-books/","title":"justjavac/free-programming-books-zh_CN: :books: 免费的计算机编程类中文书籍，欢迎投稿","tags":["clippings"],"dg-note-properties":{"title":"justjavac/free-programming-books-zh_CN: :books: 免费的计算机编程类中文书籍，欢迎投稿","source":"https://github.com/justjavac/free-programming-books-zh_CN","author":null,"published":null,"created":"2026-10-12","description":null,"tags":["clippings"]}}
+{"dg-publish":true,"permalink":"/Clippings/free-programming-books/","title":"free-programming-books","tags":["clippings"],"dg-note-properties":{"title":"free-programming-books","source":"https://github.com/justjavac/free-programming-books-zh_CN","author":null,"published":null,"created":"2026-10-12","description":null,"tags":["clippings"]}}
 ---
 
 ## 免费的编程中文书籍索引

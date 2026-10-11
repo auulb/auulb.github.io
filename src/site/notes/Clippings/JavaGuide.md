@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Clippings/JavaGuide/","title":"Snailclimb/JavaGuide: Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发","tags":["clippings"],"dg-note-properties":{"title":"Snailclimb/JavaGuide: Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发","source":"https://github.com/Snailclimb/JavaGuide","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
+{"dg-publish":true,"permalink":"/Clippings/JavaGuide/","title":"JavaGuide","tags":["clippings"],"dg-note-properties":{"title":"JavaGuide","source":"https://github.com/Snailclimb/JavaGuide","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
 ---
 
 **[English](https://github.com/Snailclimb/JavaGuide/blob/main/README_EN.md)** | **[日本語](https://github.com/Snailclimb/JavaGuide/blob/main/README_JA.md)** | **简体中文**

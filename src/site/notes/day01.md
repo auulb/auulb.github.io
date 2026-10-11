@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/day01/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/day01/","tags":["gardenEntry"],"dg-note-properties":{}}
 ---
 
 # Day 01 · V1：能跑的图书管理（无登录）

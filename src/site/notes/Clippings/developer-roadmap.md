@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Clippings/developer-roadmap/","title":"nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers.","tags":["clippings"],"dg-note-properties":{"title":"nilbuild/developer-roadmap：交互式路线图、指南和其他教育内容，帮助开发人员在职业生涯中成长。 --- nilbuild/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers.","source":"https://github.com/nilbuild/developer-roadmap","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
+{"dg-publish":true,"permalink":"/Clippings/developer-roadmap/","title":"developer-roadmap","tags":["clippings"],"dg-note-properties":{"title":"developer-roadmap","source":"https://github.com/nilbuild/developer-roadmap","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
 ---
 
 [![](https://camo.githubusercontent.com/c4fd49c92829fc4861a5aae2e2a1a23587d90258199f8063caee4c849ed86257/68747470733a2f2f726f61646d61702e73682f696d672f6272616e642e706e67)](https://roadmap.sh/)

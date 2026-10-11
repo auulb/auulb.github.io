@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Clippings/学习如何设计大型系统system-design-primer/","title":"system-design-primer/README-zh-Hans.md at master","tags":["clippings"],"dg-note-properties":{"title":"system-design-primer/README-zh-Hans.md at master","source":"https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
+{"dg-publish":true,"permalink":"/Clippings/学习如何设计大型系统system-design-primer/","title":"学习如何设计大型系统system-design-primer","tags":["clippings"],"dg-note-properties":{"title":"学习如何设计大型系统system-design-primer","source":"https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
 ---
 
 > - 原文地址：  

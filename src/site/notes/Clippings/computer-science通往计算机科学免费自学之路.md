@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Clippings/computer-science通往计算机科学免费自学之路/","title":"ossu/computer-science：🎓通往计算机科学免费自学之路！ --- ossu/computer-science: 🎓 Path to a free self-taught education in Computer Science!","tags":["clippings"],"dg-note-properties":{"title":"ossu/computer-science：🎓通往计算机科学免费自学之路！ --- ossu/computer-science: 🎓 Path to a free self-taught education in Computer Science!","source":"https://github.com/ossu/computer-science","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
+{"dg-publish":true,"permalink":"/Clippings/computer-science通往计算机科学免费自学之路/","title":"computer-science通往计算机科学免费自学之路","tags":["clippings"],"dg-note-properties":{"title":"computer-science通往计算机科学免费自学之路","source":"https://github.com/ossu/computer-science","author":null,"published":null,"created":"2026-10-11","description":null,"tags":["clippings"]}}
 ---
 
 [![Open Source Society logo](https://github.com/ossu/computer-science/raw/master/images/ossu-logo.webp)](https://github.com/ossu/computer-science/blob/master/images/ossu-logo.webp)
