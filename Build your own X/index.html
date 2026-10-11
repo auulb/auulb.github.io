@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Build your own X</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('all')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">all</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/all/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Mac开发环境一键配置指南｜从零到生产力/">Mac开发环境一键配置指南｜从零到生产力 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day01/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Java全栈12周逐日计划/">Java 全栈 12 周逐日计划（每天 6 小时） </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">Build your own X</h1>
+<div class="header-meta">
+<div class="header-tags">
+</div>
+</div>
+</header>
+<p><a href="https://codecrafters.io/github-banner" target="_blank" class="external-link"><img src="https://codecrafters.io/images/new-ccgithub-banner.png" alt="Banner"></a></p>
+<h2 id="build-your-own-and-lt-insert-technology-here-and-gt" tabindex="-1">Build your own &lt;insert-technology-here&gt;</h2>
+<p>This repository is a compilation of well-written, step-by-step guides for re-creating our favorite technologies from scratch.</p>
+<blockquote>
+<p><em>What I cannot create, I do not understand — Richard Feynman.</em></p>
+</blockquote>
+<p>It's a great way to learn.</p>
+<ul>
+<li><a href="#build-your-own-3d-renderer" target="_blank" class="external-link">3D Renderer</a></li>
+<li><a href="#build-your-own-ai-model" target="_blank" class="external-link">AI Model</a></li>
+<li><a href="#build-your-own-augmented-reality" target="_blank" class="external-link">Augmented Reality</a></li>
+<li><a href="#build-your-own-bittorrent-client" target="_blank" class="external-link">BitTorrent Client</a></li>
+<li><a href="#build-your-own-blockchain--cryptocurrency" target="_blank" class="external-link">Blockchain / Cryptocurrency</a></li>
+<li><a href="#build-your-own-bot" target="_blank" class="external-link">Bot</a></li>
+<li><a href="#build-your-own-command-line-tool" target="_blank" class="external-link">Command-Line Tool</a></li>
+<li><a href="#build-your-own-database" target="_blank" class="external-link">Database</a></li>
+<li><a href="#build-your-own-docker" target="_blank" class="external-link">Docker</a></li>
+<li><a href="#build-your-own-emulator--virtual-machine" target="_blank" class="external-link">Emulator / Virtual Machine</a></li>
+<li><a href="#build-your-own-front-end-framework--library" target="_blank" class="external-link">Front-end Framework / Library</a></li>
+<li><a href="#build-your-own-game" target="_blank" class="external-link">Game</a></li>
+<li><a href="#build-your-own-git" target="_blank" class="external-link">Git</a></li>
+<li><a href="#build-your-own-memory-allocator" target="_blank" class="external-link">Memory Allocator</a></li>
+<li><a href="#build-your-own-network-stack" target="_blank" class="external-link">Network Stack</a></li>
+<li><a href="#build-your-own-neural-network" target="_blank" class="external-link">Neural Network</a></li>
+<li><a href="#build-your-own-operating-system" target="_blank" class="external-link">Operating System</a></li>
+<li><a href="#build-your-own-physics-engine" target="_blank" class="external-link">Physics Engine</a></li>
+<li><a href="#build-your-own-processor" target="_blank" class="external-link">Processor</a></li>
+<li><a href="#build-your-own-programming-language" target="_blank" class="external-link">Programming Language</a></li>
+<li><a href="#build-your-own-regex-engine" target="_blank" class="external-link">Regex Engine</a></li>
+<li><a href="#build-your-own-search-engine" target="_blank" class="external-link">Search Engine</a></li>
+<li><a href="#build-your-own-shell" target="_blank" class="external-link">Shell</a></li>
+<li><a href="#build-your-own-template-engine" target="_blank" class="external-link">Template Engine</a></li>
+<li><a href="#build-your-own-text-editor" target="_blank" class="external-link">Text Editor</a></li>
+<li><a href="#build-your-own-visual-recognition-system" target="_blank" class="external-link">Visual Recognition System</a></li>
+<li><a href="#build-your-own-voxel-engine" target="_blank" class="external-link">Voxel Engine</a></li>
+<li><a href="#build-your-own-web-browser" target="_blank" class="external-link">Web Browser</a></li>
+<li><a href="#build-your-own-web-server" target="_blank" class="external-link">Web Server</a></li>
+<li><a href="#uncategorized" target="_blank" class="external-link">Uncategorized</a></li>
+</ul>
+<h2 id="tutorials" tabindex="-1">Tutorials</h2>
+<h4 id="build-your-own-code-distributed-systems-code" tabindex="-1">Build your own <code>Distributed Systems</code></h4>
+<ul>
+<li><a href="https://github.com/buildthingsuseful/build-your-own-kafka" target="_blank" class="external-link"><strong>Java</strong>: <em>Building Your Own Kafka-like System From Scratch: A Step-by-Step Guide</em></a></li>
+</ul>
+<h4 id="build-your-own-code-3-d-renderer-code" tabindex="-1">Build your own <code>3D Renderer</code></h4>
+<ul>
+<li><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work" target="_blank" class="external-link"><strong>C++</strong>: <em>Introduction to Ray Tracing: a Simple Method for Creating 3D Images</em></a></li>
+<li><a href="https://github.com/ssloy/tinyrenderer/wiki" target="_blank" class="external-link"><strong>C++</strong>: <em>How OpenGL works: software rendering in 500 lines of code</em></a></li>
+<li><a href="http://lodev.org/cgtutor/raycasting.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Raycasting engine of Wolfenstein 3D</em></a></li>
+<li><a href="http://www.pbr-book.org/" target="_blank" class="external-link"><strong>C++</strong>: <em>Physically Based Rendering:From Theory To Implementation</em></a></li>
+<li><a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Ray Tracing in One Weekend</em></a></li>
+<li><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/overview-rasterization-algorithm" target="_blank" class="external-link"><strong>C++</strong>: <em>Rasterization: a Practical Implementation</em></a></li>
+<li><a href="https://www.davrous.com/2013/06/13/tutorial-series-learning-how-to-write-a-3d-soft-engine-from-scratch-in-c-typescript-or-javascript/" target="_blank" class="external-link"><strong>C# / TypeScript / JavaScript</strong>: <em>Learning how to write a 3D soft engine from scratch in C#, TypeScript or JavaScript</em></a></li>
+<li><a href="https://avik-das.github.io/build-your-own-raytracer/" target="_blank" class="external-link"><strong>Java / JavaScript</strong>: <em>Build your own 3D renderer</em></a></li>
+<li><a href="http://blog.rogach.org/2015/08/how-to-create-your-own-simple-3d-render.html" target="_blank" class="external-link"><strong>Java</strong>: <em>How to create your own simple 3D render engine in pure Java</em></a></li>
+<li><a href="http://www.gabrielgambetta.com/computer-graphics-from-scratch/introduction.html" target="_blank" class="external-link"><strong>JavaScript / Pseudocode</strong>: <em>Computer Graphics from scratch</em></a></li>
+<li><a href="http://aosabook.org/en/500L/a-3d-modeller.html" target="_blank" class="external-link"><strong>Python</strong>: <em>A 3D Modeller</em></a></li>
+</ul>
+<h4 id="build-your-own-code-ai-model-code" tabindex="-1">Build your own <code>AI Model</code></h4>
+<ul>
+<li><a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" class="external-link"><strong>Python</strong>: <em>A Large Language Model (LLM)</em></a></li>
+<li><a href="https://huggingface.co/learn/diffusion-course/en/unit1/3" target="_blank" class="external-link"><strong>Python</strong>: <em>Diffusion Models for Image Generation</em></a></li>
+<li><a href="https://github.com/langchain-ai/rag-from-scratch" target="_blank" class="external-link"><strong>Python</strong>: <em>RAG for Document Search</em></a></li>
+</ul>
+<h4 id="build-your-own-code-augmented-reality-code" tabindex="-1">Build your own <code>Augmented Reality</code></h4>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=uXNjNcqW4kY" target="_blank" class="external-link"><strong>C#</strong>: <em>How To: Augmented Reality App Tutorial for Beginners with Vuforia and Unity 3D</em></a> [video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PLKIKuXdn4ZMjuUAtdQfK1vwTZPQn_rgSv" target="_blank" class="external-link"><strong>C#</strong>: <em>How To Unity ARCore</em></a> [video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PLPCqNOwwN794Gz5fzUSi1p4OqLU0HTmvn" target="_blank" class="external-link"><strong>C#</strong>: <em>AR Portal Tutorial with Unity</em></a> [video]</li>
+<li><a href="https://www.youtube.com/watch?v=qTSDPkPyPqs" target="_blank" class="external-link"><strong>C#</strong>: <em>How to create a Dragon in Augmented Reality in Unity ARCore</em></a> [video]</li>
+<li><a href="https://www.youtube.com/watch?v=Z5AmqMuNi08" target="_blank" class="external-link"><strong>C#</strong>: <em>How to Augmented Reality AR Tutorial: ARKit Portal to the Upside Down</em></a> [video]</li>
+<li><a href="https://bitesofcode.wordpress.com/2017/09/12/augmented-reality-with-python-and-opencv-part-1/" target="_blank" class="external-link"><strong>Python</strong>: <em>Augmented Reality with Python and OpenCV</em></a></li>
+</ul>
+<h4 id="build-your-own-code-bit-torrent-client-code" tabindex="-1">Build your own <code>BitTorrent Client</code></h4>
+<ul>
+<li><a href="https://www.seanjoflynn.com/research/bittorrent.html" target="_blank" class="external-link"><strong>C#</strong>: <em>Building a BitTorrent client from scratch in C#</em></a></li>
+<li><a href="https://blog.jse.li/posts/torrent/" target="_blank" class="external-link"><strong>Go</strong>: <em>Building a BitTorrent client from the ground up in Go</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day02_bencode.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a Bencode Parser</em></a></li>
+<li><a href="https://allenkim67.github.io/programming/2016/05/04/how-to-make-your-own-bittorrent-client.html" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Write your own bittorrent client</em></a></li>
+<li><a href="http://markuseliasson.se/article/bittorrent-in-python/" target="_blank" class="external-link"><strong>Python</strong>: <em>A BitTorrent client in Python 3.5</em></a></li>
+</ul>
+<h4 id="build-your-own-code-blockchain-cryptocurrency-code" tabindex="-1">Build your own <code>Blockchain / Cryptocurrency</code></h4>
+<ul>
+<li><a href="https://beta.observablehq.com/@galletti94/functional-blockchain" target="_blank" class="external-link"><strong>ATS</strong>: <em>Functional Blockchain</em></a></li>
+<li><a href="https://medium.com/@bradford_hamilton/write-your-own-blockchain-and-pow-algorithm-using-crystal-d53d5d9d0c52" target="_blank" class="external-link"><strong>Crystal</strong>: <em>Write your own blockchain and PoW algorithm using Crystal</em></a></li>
+<li><a href="https://jeiwan.net/posts/building-blockchain-in-go-part-1/" target="_blank" class="external-link"><strong>Go</strong>: <em>Building Blockchain in Go</em></a></li>
+<li><a href="https://medium.com/@mycoralhealth/code-your-own-blockchain-in-less-than-200-lines-of-go-e296282bcffc" target="_blank" class="external-link"><strong>Go</strong>: <em>Code your own blockchain in less than 200 lines of Go</em></a></li>
+<li><a href="https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa" target="_blank" class="external-link"><strong>Java</strong>: <em>Creating Your First Blockchain with Java</em></a></li>
+<li><a href="https://github.com/conradoqg/naivecoin" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>A cryptocurrency implementation in less than 1500 lines of code</em></a></li>
+<li><a href="https://github.com/nambrot/blockchain-in-js" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build your own Blockchain in JavaScript</em></a></li>
+<li><a href="https://medium.com/digital-alchemy-holdings/learn-build-a-javascript-blockchain-part-1-ca61c285821e" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Learn &amp; Build a JavaScript Blockchain</em></a></li>
+<li><a href="https://github.com/SavjeeTutorials/SavjeeCoin" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Creating a blockchain with JavaScript</em></a></li>
+<li><a href="https://hackernoon.com/how-to-launch-your-own-production-ready-cryptocurrency-ab97cb773371" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How To Launch Your Own Production-Ready Cryptocurrency</em></a></li>
+<li><a href="https://www.smashingmagazine.com/2020/02/cryptocurrency-blockchain-node-js/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Writing a Blockchain in Node.js</em></a></li>
+<li><a href="https://medium.com/@vasilyf/lets-implement-a-cryptocurrency-in-kotlin-part-1-blockchain-8704069f8580" target="_blank" class="external-link"><strong>Kotlin</strong>: <em>Let’s implement a cryptocurrency in Kotlin</em></a></li>
+<li><a href="https://hackernoon.com/learn-blockchains-by-building-one-117428612f46" target="_blank" class="external-link"><strong>Python</strong>: <em>Learn Blockchains by Building One</em></a></li>
+<li><a href="http://ecomunsing.com/build-your-own-blockchain" target="_blank" class="external-link"><strong>Python</strong>: <em>Build your own blockchain: a Python tutorial</em></a></li>
+<li><a href="http://adilmoujahid.com/posts/2018/03/intro-blockchain-bitcoin-python/" target="_blank" class="external-link"><strong>Python</strong>: <em>A Practical Introduction to Blockchain with Python</em></a></li>
+<li><a href="https://medium.com/crypto-currently/lets-build-the-tiniest-blockchain-e70965a248b" target="_blank" class="external-link"><strong>Python</strong>: <em>Let’s Build the Tiniest Blockchain</em></a></li>
+<li><a href="https://github.com/yukimotopress/programming-blockchains-step-by-step" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Programming Blockchains Step-by-Step (Manuscripts Book Edition)</em></a></li>
+<li><a href="https://medium.freecodecamp.org/how-to-build-a-simple-actor-based-blockchain-aac1e996c177" target="_blank" class="external-link"><strong>Scala</strong>: <em>How to build a simple actor-based blockchain</em></a></li>
+<li><a href="https://lhartikk.github.io/" target="_blank" class="external-link"><strong>TypeScript</strong>: <em>Naivecoin: a tutorial for building a cryptocurrency</em></a></li>
+<li><a href="https://naivecoinstake.learn.uno/" target="_blank" class="external-link"><strong>TypeScript</strong>: <em>NaivecoinStake: a tutorial for building a cryptocurrency with the Proof of Stake consensus</em></a></li>
+<li><a href="https://hackernoon.com/building-a-blockchain-in-rust-and-substrate-a-step-by-step-guide-for-developers-kc223ybp" target="_blank" class="external-link"><strong>Rust</strong>: <em>Building A Blockchain in Rust &amp; Substrate</em></a></li>
+</ul>
+<h4 id="build-your-own-code-bot-code" tabindex="-1">Build your own <code>Bot</code></h4>
+<ul>
+<li><a href="https://wiki.haskell.org/Roll_your_own_IRC_bot" target="_blank" class="external-link"><strong>Haskell</strong>: <em>Roll your own IRC bot</em></a></li>
+<li><a href="https://tutorials.botsfloor.com/creating-a-simple-facebook-messenger-ai-bot-with-api-ai-in-node-js-50ae2fa5c80d" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Creating a Simple Facebook Messenger AI Bot with API.ai in Node.js</em></a></li>
+<li><a href="https://www.sohamkamani.com/blog/2016/09/21/making-a-telegram-bot/" target="_blank" class="external-link"><strong>Node.js</strong>: <em>How to make a responsive telegram bot</em></a></li>
+<li><a href="https://discordjs.guide/" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Create a Discord bot</em></a></li>
+<li><a href="https://blog.scottlogic.com/2017/05/22/gifbot-github-integration.html" target="_blank" class="external-link"><strong>Node.js</strong>: <em>gifbot - Building a GitHub App</em></a></li>
+<li><a href="https://www.smashingmagazine.com/2017/08/ai-chatbot-web-speech-api-node-js/" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Building A Simple AI Chatbot With Web Speech API And Node.js</em></a></li>
+<li><a href="https://www.fullstackpython.com/blog/build-first-slack-bot-python.html" target="_blank" class="external-link"><strong>Python</strong>: <em>How to Build Your First Slack Bot with Python</em></a></li>
+<li><a href="https://medium.com/freehunch/how-to-build-a-slack-bot-with-python-using-slack-events-api-django-under-20-minute-code-included-269c3a9bf64e" target="_blank" class="external-link"><strong>Python</strong>: <em>How to build a Slack Bot with Python using Slack Events API &amp; Django under 20 minute</em></a></li>
+<li><a href="https://pythonforengineers.com/blog/build-a-reddit-bot-part-1/" target="_blank" class="external-link"><strong>Python</strong>: <em>Build a Reddit Bot</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=krTUf7BpTc0" target="_blank" class="external-link"><strong>Python</strong>: <em>How To Make A Reddit Bot</em></a> [video]</li>
+<li><a href="https://www.freecodecamp.org/news/how-to-create-a-telegram-bot-using-python/" target="_blank" class="external-link"><strong>Python</strong>: <em>How To Create a Telegram Bot Using Python</em></a></li>
+<li><a href="https://medium.freecodecamp.org/creating-a-twitter-bot-in-python-with-tweepy-ac524157a607" target="_blank" class="external-link"><strong>Python</strong>: <em>Create a Twitter Bot in Python Using Tweepy</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLIFBTFgFpoJ9vmYYlfxRFV6U_XhG-4fpP" target="_blank" class="external-link"><strong>Python</strong>: <em>Creating Reddit Bot with Python &amp; PRAW</em></a> [video]</li>
+<li><a href="https://towardsdatascience.com/build-a-cryptocurrency-trading-bot-with-r-1445c429e1b1" target="_blank" class="external-link"><strong>R</strong>: <em>Build A Cryptocurrency Trading Bot with R</em></a></li>
+<li><a href="https://habr.com/en/post/436254/" target="_blank" class="external-link"><strong>Rust</strong>: <em>A bot for Starcraft in Rust, C or any other language</em></a></li>
+</ul>
+<h4 id="build-your-own-code-command-line-tool-code" tabindex="-1">Build your own <code>Command-Line Tool</code></h4>
+<ul>
+<li><a href="https://flaviocopes.com/go-git-contributions/" target="_blank" class="external-link"><strong>Go</strong>: <em>Visualize your local git contributions with Go</em></a></li>
+<li><a href="https://flaviocopes.com/go-tutorial-lolcat/" target="_blank" class="external-link"><strong>Go</strong>: <em>Build a command line app with Go: lolcat</em></a></li>
+<li><a href="https://flaviocopes.com/go-tutorial-cowsay/" target="_blank" class="external-link"><strong>Go</strong>: <em>Building a cli command with Go: cowsay</em></a></li>
+<li><a href="https://flaviocopes.com/go-tutorial-fortune/" target="_blank" class="external-link"><strong>Go</strong>: <em>Go CLI tutorial: fortune clone</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day06_nistow.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a stow alternative to manage dotfiles</em></a></li>
+<li><a href="https://citw.dev/tutorial/create-your-own-cli-tool" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Create a CLI tool in Javascript</em></a></li>
+<li><a href="https://rust-cli.github.io/book/index.html" target="_blank" class="external-link"><strong>Rust</strong>: <em>Command line apps in Rust</em></a></li>
+<li><a href="https://mattgathu.dev/2017/08/29/writing-cli-app-rust.html" target="_blank" class="external-link"><strong>Rust</strong>: <em>Writing a Command Line Tool in Rust</em></a></li>
+<li><a href="https://rebuild-x.github.io/docs/#/./zig/terminal/cli" target="_blank" class="external-link"><strong>Zig</strong>: <em>Build Your Own CLI App in Zig from Scratch</em></a></li>
+</ul>
+<h4 id="build-your-own-code-database-code" tabindex="-1">Build your own <code>Database</code></h4>
+<ul>
+<li><a href="https://cstack.github.io/db_tutorial/" target="_blank" class="external-link"><strong>C</strong>: <em>Let's Build a Simple Database</em></a></li>
+<li><a href="https://build-your-own.org/redis" target="_blank" class="external-link"><strong>C++</strong>: <em>Build Your Own Redis from Scratch</em></a></li>
+<li><a href="https://www.codeproject.com/Articles/1029838/Build-Your-Own-Database" target="_blank" class="external-link"><strong>C#</strong>: <em>Build Your Own Database</em></a></li>
+<li><a href="http://aosabook.org/en/500L/an-archaeology-inspired-database.html" target="_blank" class="external-link"><strong>Clojure</strong>: <em>An Archaeology-Inspired Database</em></a></li>
+<li><a href="https://medium.com/@marceloboeira/why-you-should-build-your-own-nosql-database-9bbba42039f5" target="_blank" class="external-link"><strong>Crystal</strong>: <em>Why you should build your own NoSQL Database</em></a></li>
+<li><a href="https://build-your-own.org/database/" target="_blank" class="external-link"><strong>Go</strong>: <em>Build Your Own Database from Scratch: From B+Tree To SQL in 3000 Lines</em></a></li>
+<li><a href="https://trialofcode.org/database/" target="_blank" class="external-link"><strong>Go</strong>: <em>Code a database in 45 steps: a series of test-driven small coding puzzles</em></a></li>
+<li><a href="https://www.build-redis-from-scratch.dev/" target="_blank" class="external-link"><strong>Go</strong>: <em>Build Your Own Redis from Scratch</em></a></li>
+<li><a href="http://aosabook.org/en/500L/dagoba-an-in-memory-graph-database.html" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Dagoba: an in-memory graph database</em></a></li>
+<li><a href="http://aosabook.org/en/500L/dbdb-dog-bed-database.html" target="_blank" class="external-link"><strong>Python</strong>: <em>DBDB: Dog Bed Database</em></a></li>
+<li><a href="http://charlesleifer.com/blog/building-a-simple-redis-server-with-python/" target="_blank" class="external-link"><strong>Python</strong>: <em>Write your own miniature Redis with Python</em></a></li>
+<li><a href="https://dineshgowda.com/posts/build-your-own-persistent-kv-store/" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Build your own fast, persistent KV store in Ruby</em></a></li>
+<li><a href="https://tokio.rs/tokio/tutorial/setup" target="_blank" class="external-link"><strong>Rust</strong>: <em>Build your own Redis client and server</em></a></li>
+</ul>
+<h4 id="build-your-own-code-docker-code" tabindex="-1">Build your own <code>Docker</code></h4>
+<ul>
+<li><a href="https://blog.lizzie.io/linux-containers-in-500-loc.html" target="_blank" class="external-link"><strong>C</strong>: <em>Linux containers in 500 lines of code</em></a></li>
+<li><a href="https://www.infoq.com/articles/build-a-container-golang" target="_blank" class="external-link"><strong>Go</strong>: <em>Build Your Own Container Using Less than 100 Lines of Go</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=8fi7uSYlOdc" target="_blank" class="external-link"><strong>Go</strong>: <em>Building a container from scratch in Go</em></a> [video]</li>
+<li><a href="https://github.com/Fewbytes/rubber-docker" target="_blank" class="external-link"><strong>Python</strong>: <em>A workshop on Linux containers: Rebuild Docker from Scratch</em></a></li>
+<li><a href="https://github.com/tonybaloney/mocker" target="_blank" class="external-link"><strong>Python</strong>: <em>A proof-of-concept imitation of Docker, written in 100% Python</em></a></li>
+<li><a href="https://github.com/p8952/bocker" target="_blank" class="external-link"><strong>Shell</strong>: <em>Docker implemented in around 100 lines of bash</em></a></li>
+</ul>
+<h4 id="build-your-own-code-emulator-virtual-machine-code" tabindex="-1">Build your own <code>Emulator / Virtual Machine</code></h4>
+<ul>
+<li><a href="https://medium.com/bumble-tech/home-grown-bytecode-interpreters-51e12d59b25c" target="_blank" class="external-link"><strong>C</strong>: <em>Home-grown bytecode interpreters</em></a></li>
+<li><a href="http://web.archive.org/web/20200121100942/https://blog.felixangell.com/virtual-machine-in-c/" target="_blank" class="external-link"><strong>C</strong>: <em>Virtual machine in C</em></a></li>
+<li><a href="https://justinmeiners.github.io/lc3-vm/" target="_blank" class="external-link"><strong>C</strong>: <em>Write your Own Virtual Machine</em></a></li>
+<li><a href="https://cturt.github.io/cinoop.html" target="_blank" class="external-link"><strong>C</strong>: <em>Writing a Game Boy emulator, Cinoop</em></a></li>
+<li><a href="http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/" target="_blank" class="external-link"><strong>C++</strong>: <em>How to write an emulator (CHIP-8 interpreter)</em></a></li>
+<li><a href="http://www.codeslinger.co.uk/pages/projects/chip8.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Emulation tutorial (CHIP-8 interpreter)</em></a></li>
+<li><a href="http://www.codeslinger.co.uk/pages/projects/gameboy.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Emulation tutorial (GameBoy emulator)</em></a></li>
+<li><a href="http://www.codeslinger.co.uk/pages/projects/mastersystem/memory.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Emulation tutorial (Master System emulator)</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLrOv9FMX8xJHqMvSGB_9G9nZZ_4IgteYf" target="_blank" class="external-link"><strong>C++</strong>: <em>NES Emulator From Scratch</em></a> [video]</li>
+<li><a href="http://stevelosh.com/blog/2016/12/chip8-cpu/" target="_blank" class="external-link"><strong>Common Lisp</strong>: <em>CHIP-8 in Common Lisp</em></a></li>
+<li><a href="http://imrannazar.com/GameBoy-Emulation-in-JavaScript" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>GameBoy Emulation in JavaScript</em></a></li>
+<li><a href="http://omokute.blogspot.com.br/2012/06/emulation-basics-write-your-own-chip-8.html" target="_blank" class="external-link"><strong>Python</strong>: <em>Emulation Basics: Write your own Chip 8 Emulator/Interpreter</em></a></li>
+<li><a href="https://jeremybanks.github.io/0dmg/" target="_blank" class="external-link"><strong>Rust</strong>: <em>0dmg: Learning Rust by building a partial Game Boy emulator</em></a></li>
+</ul>
+<h4 id="build-your-own-code-front-end-framework-library-code" tabindex="-1">Build your own <code>Front-end Framework / Library</code></h4>
+<ul>
+<li><a href="https://jasonformat.com/wtf-is-jsx/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>WTF is JSX (Let's Build a JSX Renderer)</em></a></li>
+<li><a href="https://github.com/hexacta/didact" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>A DIY guide to build your own React</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=_MAD4Oly9yg" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Building React From Scratch</em></a> [video]</li>
+<li><a href="https://medium.com/@sweetpalma/gooact-react-in-160-lines-of-javascript-44e0742ad60f" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Gooact: React in 160 lines of JavaScript</em></a></li>
+<li><a href="https://hackernoon.com/learn-you-some-custom-react-renderers-aed7164a4199" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Learn how React Reconciler package works by building your own lightweight React DOM</em></a></li>
+<li><a href="https://zapier.com/engineering/how-to-build-redux/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build Yourself a Redux</em></a></li>
+<li><a href="https://www.jamasoftware.com/blog/lets-write-redux/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Let’s Write Redux!</em></a></li>
+<li><a href="https://egghead.io/lessons/react-redux-implementing-store-from-scratch" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Redux: Implementing Store from Scratch</em></a> [video]</li>
+<li><a href="https://blog.mgechev.com/2015/03/09/build-learn-your-own-light-lightweight-angularjs/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build Your own Simplified AngularJS in 200 Lines of JavaScript</em></a></li>
+<li><a href="http://teropa.info/blog/2013/11/03/make-your-own-angular-part-1-scopes-and-digest.html" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Make Your Own AngularJS</em></a></li>
+<li><a href="https://medium.com/@deathmood/how-to-write-your-own-virtual-dom-ee74acc13060" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How to write your own Virtual DOM</em></a></li>
+<li><a href="https://mfrachet.github.io/create-frontend-framework/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Building a frontend framework, from scratch, with components (templating, state, VDOM)</em></a></li>
+<li><a href="https://pomb.us/build-your-own-react/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build your own React</em></a></li>
+<li><a href="https://youtu.be/CGpMlWVcHok" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Building a Custom React Renderer</em></a> [video]</li>
+</ul>
+<h4 id="build-your-own-code-game-code" tabindex="-1">Build your own <code>Game</code></h4>
+<ul>
+<li><a href="https://handmadehero.org/" target="_blank" class="external-link"><strong>C</strong>: <em>Handmade Hero</em></a></li>
+<li><a href="https://nesdoug.com/" target="_blank" class="external-link"><strong>C</strong>: <em>How to Program an NES game in C</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLZ1QII7yudbc-Ky058TEaOstZHVbT-2hg" target="_blank" class="external-link"><strong>C</strong>: <em>Chess Engine In C</em></a> [video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PLSkJey49cOgTSj465v2KbLZ7LMn10bCF9" target="_blank" class="external-link"><strong>C</strong>: <em>Let's Make: Dangerous Dave</em></a> [video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PLT6WFYYZE6uLMcPGS3qfpYm7T_gViYMMt" target="_blank" class="external-link"><strong>C</strong>: <em>Learn Video Game Programming in C</em></a><br>
+[video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PLkTXsX7igf8edTYU92nU-f5Ntzuf-RKvW" target="_blank" class="external-link"><strong>C</strong>: <em>Coding A Sudoku Solver in C</em></a> [video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PLkTXsX7igf8erbWGYT4iSAhpnJLJ0Nk5G" target="_blank" class="external-link"><strong>C</strong>: <em>Coding a Rogue/Nethack RPG in C</em></a> [video]</li>
+<li><a href="https://brennan.io/2015/06/12/tetris-reimplementation/" target="_blank" class="external-link"><strong>C</strong>: <em>On Tetris and Reimplementation</em></a></li>
+<li><a href="https://learnopengl.com/In-Practice/2D-Game/Breakout" target="_blank" class="external-link"><strong>C++</strong>: <em>Breakout</em></a></li>
+<li><a href="http://lazyfoo.net/tutorials/SDL/" target="_blank" class="external-link"><strong>C++</strong>: <em>Beginning Game Programming v2.0</em></a></li>
+<li><a href="http://javilop.com/gamedev/tetris-tutorial-in-c-platform-independent-focused-in-game-logic-for-beginners/" target="_blank" class="external-link"><strong>C++</strong>: <em>Tetris tutorial in C++ platform independent focused in game logic for beginners</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=ETvApbD5xRo&amp;list=PLNOBk_id22bw6LXhrGfhVwqQIa-M2MsLa" target="_blank" class="external-link"><strong>C++</strong>: <em>Remaking Cavestory in C++</em></a> [video]</li>
+<li><a href="https://www.youtube.com/playlist?list=PL006xsVEsbKjSKBmLu1clo85yLrwjY67X" target="_blank" class="external-link"><strong>C++</strong>: <em>Reconstructing Cave Story</em></a> [video]</li>
+<li><a href="http://nicktasios.nl/posts/space-invaders-from-scratch-part-1.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Space Invaders from Scratch</em></a></li>
+<li><a href="http://scottlilly.com/learn-c-by-building-a-simple-rpg-index/" target="_blank" class="external-link"><strong>C#</strong>: <em>Learn C# by Building a Simple RPG</em></a></li>
+<li><a href="https://roguesharp.wordpress.com/" target="_blank" class="external-link"><strong>C#</strong>: <em>Creating a Roguelike Game in C#</em></a></li>
+<li><a href="https://scottlilly.com/build-a-cwpf-rpg/" target="_blank" class="external-link"><strong>C#</strong>: <em>Build a C#/WPF RPG</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLDZujg-VgQlZUy1iCqBbe5faZLMkA3g2x" target="_blank" class="external-link"><strong>Go</strong>: <em>Games With Go</em></a> [video]</li>
+<li><a href="https://www.youtube.com/watch?v=025QFeZfeyM" target="_blank" class="external-link"><strong>Java</strong>: <em>Code a 2D Game Engine using Java - Full Course for Beginners</em></a> [video]</li>
+<li><a href="https://lwjglgamedev.gitbooks.io/3d-game-development-with-lwjgl/content/" target="_blank" class="external-link"><strong>Java</strong>: <em>3D Game Development with LWJGL 3</em></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_breakout_game_Phaser" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>2D breakout game using Phaser</em></a></li>
+<li><a href="http://www.lessmilk.com/tutorial/flappy-bird-phaser-1" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How to Make Flappy Bird in HTML5 With Phaser</em></a></li>
+<li><a href="https://auth0.com/blog/developing-games-with-react-redux-and-svg-part-1/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Developing Games with React, Redux, and SVG</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=aXwCrtAo4Wc" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build your own 8-Ball Pool game from scratch</em></a> [video]</li>
+<li><a href="https://gamedevelopment.tutsplus.com/tutorials/how-to-make-your-first-roguelike--gamedev-13677" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How to Make Your First Roguelike</em></a></li>
+<li><a href="https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Think like a programmer: How to build Snake using only JavaScript, HTML &amp; CSS</em></a></li>
+<li><a href="https://github.com/SSYGEN/blog/issues/30" target="_blank" class="external-link"><strong>Lua</strong>: <em>BYTEPATH</em></a></li>
+<li><a href="https://pythonprogramming.net/pygame-python-3-part-1-intro/" target="_blank" class="external-link"><strong>Python</strong>: <em>Developing Games With PyGame</em></a></li>
+<li><a href="https://inventwithpython.com/makinggames.pdf" target="_blank" class="external-link"><strong>Python</strong>: <em>Making Games with Python &amp; Pygame</em></a> [pdf]</li>
+<li><a href="http://rogueliketutorials.com/" target="_blank" class="external-link"><strong>Python</strong>: <em>Roguelike Tutorial Revised</em></a></li>
+<li><a href="https://leanpub.com/developing-games-with-ruby/read" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Developing Games With Ruby</em></a></li>
+<li><a href="https://www.diatomenterprises.com/gamedev-on-ruby-why-not/" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Ruby Snake</em></a></li>
+<li><a href="https://a5huynh.github.io/posts/2018/adventures-in-rust/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Adventures in Rust: A Basic 2D Game</em></a></li>
+<li><a href="https://tomassedovic.github.io/roguelike-tutorial/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Roguelike Tutorial in Rust + tcod</em></a></li>
+</ul>
+<h4 id="build-your-own-code-git-code" tabindex="-1">Build your own <code>Git</code></h4>
+<ul>
+<li><a href="http://stefan.saasen.me/articles/git-clone-in-haskell-from-the-bottom-up/" target="_blank" class="external-link"><strong>Haskell</strong>: <em>Reimplementing “git clone” in Haskell from the bottom up</em></a></li>
+<li><a href="http://gitlet.maryrosecook.com/docs/gitlet.html" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Gitlet</em></a></li>
+<li><a href="https://kushagra.dev/blog/build-git-learn-git/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build GIT - Learn GIT</em></a></li>
+<li><a href="https://benhoyt.com/writings/pygit/" target="_blank" class="external-link"><strong>Python</strong>: <em>Just enough of a Git client to create a repo, commit, and push itself to GitHub</em></a></li>
+<li><a href="https://wyag.thb.lt/" target="_blank" class="external-link"><strong>Python</strong>: <em>Write yourself a Git!</em></a></li>
+<li><a href="https://www.leshenko.net/p/ugit/" target="_blank" class="external-link"><strong>Python</strong>: <em>ugit: Learn Git Internals by Building Git Yourself</em></a></li>
+<li><a href="https://robots.thoughtbot.com/rebuilding-git-in-ruby" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Rebuilding Git in Ruby</em></a></li>
+</ul>
+<h4 id="build-your-own-code-memory-allocator-code" tabindex="-1">Build your own <code>Memory Allocator</code></h4>
+<ul>
+<li><a href="https://medium.com/p/e0354e914402" target="_blank" class="external-link"><strong>C</strong>: <em>Malloc is not magic -- Implementing your own memory allocator</em></a></li>
+</ul>
+<h4 id="build-your-own-code-network-stack-code" tabindex="-1">Build your own <code>Network Stack</code></h4>
+<ul>
+<li><a href="http://beej.us/guide/bgnet/" target="_blank" class="external-link"><strong>C</strong>: <em>Beej's Guide to Network Programming</em></a></li>
+<li><a href="http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/" target="_blank" class="external-link"><strong>C</strong>: <em>Let's code a TCP/IP stack</em></a></li>
+<li><a href="https://github.com/peiyuanix/build-your-own-zerotier" target="_blank" class="external-link"><strong>C / Python</strong>: <em>Build your own VPN/Virtual Switch</em></a></li>
+<li><a href="https://medium.com/geckoboard-under-the-hood/how-to-build-a-network-stack-in-ruby-f73aeb1b661b" target="_blank" class="external-link"><strong>Ruby</strong>: <em>How to build a network stack in Ruby</em></a></li>
+</ul>
+<h4 id="build-your-own-code-neural-network-code" tabindex="-1">Build your own <code>Neural Network</code></h4>
+<ul>
+<li><a href="https://www.codeproject.com/Articles/11285/Neural-Network-OCR" target="_blank" class="external-link"><strong>C#</strong>: <em>Neural Network OCR</em></a></li>
+<li><a href="https://medium.com/data-science/building-neural-networks-in-f-part-1-a2832ae972e6" target="_blank" class="external-link"><strong>F#</strong>: <em>Building Neural Networks in F#: Part 1</em></a></li>
+<li><a href="https://medium.com/data-science/building-neural-networks-in-f-part-2-training-evaluation-5e3a68889da6" target="_blank" class="external-link"><strong>F#</strong>: <em>Building Neural Networks in F#: Part 2</em></a></li>
+<li><a href="https://made2591.github.io/posts/neuralnetwork" target="_blank" class="external-link"><strong>Go</strong>: <em>Build a multilayer perceptron with Golang</em></a></li>
+<li><a href="https://sausheong.github.io/posts/how-to-build-a-simple-artificial-neural-network-with-go/" target="_blank" class="external-link"><strong>Go</strong>: <em>How to build a simple artificial neural network with Go</em></a></li>
+<li><a href="https://datadan.io/blog/neural-net-with-go" target="_blank" class="external-link"><strong>Go</strong>: <em>Building a Neural Net from Scratch in Go</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6aCibgK1PTWWu9by6XFdCfh" target="_blank" class="external-link"><strong>JavaScript / Java</strong>: <em>Neural Networks - The Nature of Code</em></a> [video]</li>
+<li><a href="https://hackernoon.com/neural-networks-from-scratch-for-javascript-linguists-part1-the-perceptron-632a4d1fbad2" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Neural networks from scratch for JavaScript linguists (Part1 — The Perceptron)</em></a></li>
+<li><a href="https://iamtrask.github.io/2015/07/12/basic-python-network/" target="_blank" class="external-link"><strong>Python</strong>: <em>A Neural Network in 11 lines of Python</em></a></li>
+<li><a href="https://github.com/roiamiel1/Build-Deep-Learning-From-Scratch" target="_blank" class="external-link"><strong>Python</strong>: <em>Build Deep Learning From Scratch (reimplement PyTorch internals across 34 stages)</em></a></li>
+<li><a href="https://victorzhou.com/blog/intro-to-neural-networks/" target="_blank" class="external-link"><strong>Python</strong>: <em>Implement a Neural Network from Scratch</em></a></li>
+<li><a href="http://aosabook.org/en/500L/optical-character-recognition-ocr.html" target="_blank" class="external-link"><strong>Python</strong>: <em>Optical Character Recognition (OCR)</em></a></li>
+<li><a href="https://navoshta.com/traffic-signs-classification/" target="_blank" class="external-link"><strong>Python</strong>: <em>Traffic signs classification with a convolutional network</em></a></li>
+<li><a href="https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5" target="_blank" class="external-link"><strong>Python</strong>: <em>Generate Music using LSTM Neural Network in Keras</em></a></li>
+<li><a href="https://victorzhou.com/blog/intro-to-cnns-part-1/" target="_blank" class="external-link"><strong>Python</strong>: <em>An Introduction to Convolutional Neural Networks</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" target="_blank" class="external-link"><strong>Python</strong>: <em>Neural Networks: Zero to Hero</em></a></li>
+<li><a href="https://github.com/xames3/slowtorch" target="_blank" class="external-link"><strong>Python</strong>: <em>SlowTorch: Implementation of PyTorch from the ground up in 100% pure Python</em></a></li>
+</ul>
+<h4 id="build-your-own-code-operating-system-code" tabindex="-1">Build your own <code>Operating System</code></h4>
+<ul>
+<li><a href="http://joebergeron.io/posts/post_two.html" target="_blank" class="external-link"><strong>Assembly</strong>: <em>Writing a Tiny x86 Bootloader</em></a></li>
+<li><a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/index.html" target="_blank" class="external-link"><strong>Assembly</strong>: <em>Baking Pi – Operating Systems Development</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=ZjwvMcP3Nf0&amp;list=PLU94OURih-CiP4WxKSMt3UcwMSDM3aTtX" target="_blank" class="external-link"><strong>C</strong>: <em>Building a software and hardware stack for a simple computer from scratch</em></a> [video]</li>
+<li><a href="https://tuhdo.github.io/os01/" target="_blank" class="external-link"><strong>C</strong>: <em>Operating Systems: From 0 to 1</em></a></li>
+<li><a href="https://littleosbook.github.io/" target="_blank" class="external-link"><strong>C</strong>: <em>The little book about OS development</em></a></li>
+<li><a href="http://jamesmolloy.co.uk/tutorial_html/" target="_blank" class="external-link"><strong>C</strong>: <em>Roll your own toy UNIX-clone OS</em></a></li>
+<li><a href="https://arjunsreedharan.org/post/82710718100/kernel-101-lets-write-a-kernel" target="_blank" class="external-link"><strong>C</strong>: <em>Kernel 101 – Let’s write a Kernel</em></a></li>
+<li><a href="https://arjunsreedharan.org/post/99370248137/kernel-201-lets-write-a-kernel-with-keyboard" target="_blank" class="external-link"><strong>C</strong>: <em>Kernel 201 – Let’s write a Kernel with keyboard and screen support</em></a></li>
+<li><a href="https://github.com/jserv/mini-arm-os" target="_blank" class="external-link"><strong>C</strong>: <em>Build a minimal multi-tasking kernel for ARM from scratch</em></a></li>
+<li><a href="https://github.com/cfenollosa/os-tutorial" target="_blank" class="external-link"><strong>C</strong>: <em>How to create an OS from scratch</em></a></li>
+<li><a href="https://danluu.com/malloc-tutorial/" target="_blank" class="external-link"><strong>C</strong>: <em>Malloc tutorial</em></a></li>
+<li><a href="https://blog.holbertonschool.com/hack-the-virtual-memory-c-strings-proc/" target="_blank" class="external-link"><strong>C</strong>: <em>Hack the virtual memory</em></a></li>
+<li><a href="https://github.com/s-matyukevich/raspberry-pi-os" target="_blank" class="external-link"><strong>C</strong>: <em>Learning operating system development using Linux kernel and Raspberry Pi</em></a></li>
+<li><a href="https://medium.com/@lduck11007/operating-systems-development-for-dummies-3d4d786e8ac" target="_blank" class="external-link"><strong>C</strong>: <em>Operating systems development for Dummies</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLHh55M_Kq4OApWScZyPl5HhgsTJS9MZ6M" target="_blank" class="external-link"><strong>C++</strong>: <em>Write your own Operating System</em></a> [video]</li>
+<li><a href="http://3zanders.co.uk/2017/10/13/writing-a-bootloader/" target="_blank" class="external-link"><strong>C++</strong>: <em>Writing a Bootloader</em></a></li>
+<li><a href="https://os.phil-opp.com/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Writing an OS in Rust</em></a></li>
+<li><a href="https://osblog.stephenmarz.com/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Add RISC-V Rust Operating System Tutorial</em></a></li>
+<li><a href="https://linuxfromscratch.org/lfs" target="_blank" class="external-link"><strong>(any)</strong>: <em>Linux from scratch</em></a></li>
+</ul>
+<h4 id="build-your-own-code-physics-engine-code" tabindex="-1">Build your own <code>Physics Engine</code></h4>
+<ul>
+<li><a href="https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics" target="_blank" class="external-link"><strong>C</strong>: <em>Video Game Physics Tutorial</em></a></li>
+<li><a href="http://allenchou.net/game-physics-series/" target="_blank" class="external-link"><strong>C++</strong>: <em>Game physics series by Allen Chou</em></a></li>
+<li><a href="https://gamedevelopment.tutsplus.com/series/how-to-create-a-custom-physics-engine--gamedev-12715" target="_blank" class="external-link"><strong>C++</strong>: <em>How to Create a Custom Physics Engine</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLEETnX-uPtBXm1KEr_2zQ6K_0hoGH6JJ0" target="_blank" class="external-link"><strong>C++</strong>: <em>3D Physics Engine Tutorial</em></a> [video]</li>
+<li><a href="http://buildnewgames.com/gamephysics/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How Physics Engines Work</em></a></li>
+<li><a href="http://buildnewgames.com/broad-phase-collision-detection/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Broad Phase Collision Detection Using Spatial Partitioning</em></a></li>
+<li><a href="https://developer.ibm.com/tutorials/wa-build2dphysicsengine/?mhsrc=ibmsearch_a&amp;mhq=2dphysic" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build a simple 2D physics engine for JavaScript games</em></a></li>
+</ul>
+<h4 id="build-your-own-code-processor-code" tabindex="-1">Build your own <code>Processor</code></h4>
+<ul>
+<li><a href="https://github.com/BrunoLevy/learn-fpga/tree/master/FemtoRV/TUTORIALS/FROM_BLINKER_TO_RISCV" target="_blank" class="external-link"><strong>Verilog</strong>: <em>From Blinker to RISC-V</em></a></li>
+</ul>
+<h4 id="build-your-own-code-programming-language-code" tabindex="-1">Build your own <code>Programming Language</code></h4>
+<ul>
+<li><a href="https://github.com/kanaka/mal#mal---make-a-lisp" target="_blank" class="external-link"><strong>(any)</strong>: <em>mal - Make a Lisp</em></a></li>
+<li><a href="https://github.com/nornagon/jonesforth/blob/master/jonesforth.S" target="_blank" class="external-link"><strong>Assembly</strong>: <em>Jonesforth</em></a></li>
+<li><a href="http://journal.stuffwithstuff.com/2013/12/08/babys-first-garbage-collector/" target="_blank" class="external-link"><strong>C</strong>: <em>Baby's First Garbage Collector</em></a></li>
+<li><a href="http://www.buildyourownlisp.com/" target="_blank" class="external-link"><strong>C</strong>: <em>Build Your Own Lisp: Learn C and build your own programming language in 1000 lines of code</em></a></li>
+<li><a href="http://maplant.com/gc.html" target="_blank" class="external-link"><strong>C</strong>: <em>Writing a Simple Garbage Collector in C</em></a></li>
+<li><a href="https://github.com/lotabout/write-a-C-interpreter" target="_blank" class="external-link"><strong>C</strong>: <em>C interpreter that interprets itself.</em></a></li>
+<li><a href="https://github.com/lotabout/Let-s-build-a-compiler" target="_blank" class="external-link"><strong>C</strong>: <em>A C &amp; x86 version of the &quot;Let's Build a Compiler&quot; by Jack Crenshaw</em></a></li>
+<li><a href="https://github.com/DoctorWkt/acwj" target="_blank" class="external-link"><strong>C</strong>: <em>A journey explaining how to build a compiler from scratch</em></a></li>
+<li><a href="https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/" target="_blank" class="external-link"><strong>C++</strong>: <em>Writing Your Own Toy Compiler Using Flex</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=eF9qWbuQLuw" target="_blank" class="external-link"><strong>C++</strong>: <em>How to Create a Compiler</em></a> [video]</li>
+<li><a href="https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Kaleidoscope: Implementing a Language with LLVM</em></a></li>
+<li><a href="https://fsharpforfunandprofit.com/posts/understanding-parser-combinators/" target="_blank" class="external-link"><strong>F#</strong>: <em>Understanding Parser Combinators</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=zMJYoYwOCd4" target="_blank" class="external-link"><strong>Elixir</strong>: <em>Demystifying compilers by writing your own</em></a> [video]</li>
+<li><a href="https://github.com/hazbo/the-super-tiny-compiler" target="_blank" class="external-link"><strong>Go</strong>: <em>The Super Tiny Compiler</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=HxaD_trXwRE" target="_blank" class="external-link"><strong>Go</strong>: <em>Lexical Scanning in Go</em></a> [video]</li>
+<li><a href="https://g-ford.github.io/cradle/" target="_blank" class="external-link"><strong>Haskell</strong>: <em>Let's Build a Compiler</em></a></li>
+<li><a href="http://dev.stephendiehl.com/fun/" target="_blank" class="external-link"><strong>Haskell</strong>: <em>Write You a Haskell</em></a></li>
+<li><a href="https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours" target="_blank" class="external-link"><strong>Haskell</strong>: <em>Write Yourself a Scheme in 48 Hours</em></a></li>
+<li><a href="https://www.wespiser.com/writings/wyas/home.html" target="_blank" class="external-link"><strong>Haskell</strong>: <em>Write You A Scheme</em></a></li>
+<li><a href="http://www.craftinginterpreters.com/" target="_blank" class="external-link"><strong>Java</strong>: <em>Crafting interpreters: A handbook for making programming languages</em></a></li>
+<li><a href="http://jakubdziworski.github.io/categories.html#Enkel-ref" target="_blank" class="external-link"><strong>Java</strong>: <em>Creating JVM Language</em></a></li>
+<li><a href="https://github.com/jamiebuilds/the-super-tiny-compiler" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>The Super Tiny Compiler</em></a></li>
+<li><a href="https://github.com/keyanzhang/the-super-tiny-interpreter" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>The Super Tiny Interpreter</em></a></li>
+<li><a href="https://maryrosecook.com/blog/post/little-lisp-interpreter" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Little Lisp interpreter</em></a></li>
+<li><a href="http://lisperator.net/pltut/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How to implement a programming language in JavaScript</em></a></li>
+<li><a href="https://idiocy.org/lets-go-write-a-lisp/part-1.html" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Let’s go write a Lisp</em></a></li>
+<li><a href="https://norasandler.com/2017/11/29/Write-a-Compiler.html" target="_blank" class="external-link"><strong>OCaml</strong>: <em>Writing a C Compiler</em></a></li>
+<li><a href="https://bernsteinbear.com/blog/lisp/" target="_blank" class="external-link"><strong>OCaml</strong>: <em>Writing a Lisp, the series</em></a></li>
+<li><a href="https://compilers.iecc.com/crenshaw/" target="_blank" class="external-link"><strong>Pascal</strong>: <em>Let's Build a Compiler</em></a></li>
+<li><a href="http://aosabook.org/en/500L/a-python-interpreter-written-in-python.html" target="_blank" class="external-link"><strong>Python</strong>: <em>A Python Interpreter Written in Python</em></a></li>
+<li><a href="http://khamidou.com/compilers/lisp.py/" target="_blank" class="external-link"><strong>Python</strong>: <em>lisp.py: Make your own Lisp interpreter</em></a></li>
+<li><a href="http://norvig.com/lispy.html" target="_blank" class="external-link"><strong>Python</strong>: <em>How to Write a Lisp Interpreter in Python</em></a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part1/" target="_blank" class="external-link"><strong>Python</strong>: <em>Let’s Build A Simple Interpreter</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=dj9CBS3ikGA&amp;list=PLZQftyCk7_SdoVexSmwy_tBgs7P0b97yD&amp;index=1" target="_blank" class="external-link"><strong>Python</strong>: <em>Make Your Own Simple Interpreted Programming Language</em></a> [video]</li>
+<li><a href="https://build-your-own.org/compiler/" target="_blank" class="external-link"><strong>Python</strong>: <em>From Source Code To Machine Code: Build Your Own Compiler From Scratch</em></a></li>
+<li><a href="https://beautifulracket.com/" target="_blank" class="external-link"><strong>Racket</strong>: <em>Beautiful Racket: How to make your own programming languages with Racket</em></a></li>
+<li><a href="https://www.destroyallsoftware.com/screencasts/catalog/a-compiler-from-scratch" target="_blank" class="external-link"><strong>Ruby</strong>: <em>A Compiler From Scratch</em></a></li>
+<li><a href="https://blog.beezwax.net/2017/07/07/writing-a-markdown-compiler/" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Markdown compiler from scratch in Ruby</em></a></li>
+<li><a href="https://bodil.lol/parser-combinators/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Learning Parser Combinators With Rust</em></a></li>
+<li><a href="https://www.uraimo.com/2017/02/05/building-a-lisp-from-scratch-with-swift/" target="_blank" class="external-link"><strong>Swift</strong>: <em>Building a LISP from scratch with Swift</em></a></li>
+<li><a href="https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html" target="_blank" class="external-link"><strong>TypeScript</strong>: <em>Build your own WebAssembly Compiler</em></a></li>
+</ul>
+<h4 id="build-your-own-code-regex-engine-code" tabindex="-1">Build your own <code>Regex Engine</code></h4>
+<ul>
+<li><a href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html" target="_blank" class="external-link"><strong>C</strong>: <em>A Regular Expression Matcher</em></a></li>
+<li><a href="https://swtch.com/~rsc/regexp/regexp1.html" target="_blank" class="external-link"><strong>C</strong>: <em>Regular Expression Matching Can Be Simple And Fast</em></a></li>
+<li><a href="https://rhaeguard.github.io/posts/regex" target="_blank" class="external-link"><strong>Go</strong>: <em>How to build a regex engine from scratch</em></a></li>
+<li><a href="https://nickdrane.com/build-your-own-regex/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build a Regex Engine in Less than 40 Lines of Code</em></a></li>
+<li><a href="http://dpk.io/dregs/toydregs" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>How to implement regular expressions in functional javascript using derivatives</em></a></li>
+<li><a href="https://deniskyashif.com/2019/02/17/implementing-a-regular-expression-engine/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Implementing a Regular Expression Engine</em></a></li>
+<li><a href="https://perl.plover.com/Regex/article.html" target="_blank" class="external-link"><strong>Perl</strong>: <em>How Regexes Work</em></a></li>
+<li><a href="https://build-your-own.org/b2a/r0_intro" target="_blank" class="external-link"><strong>Python</strong>: <em>Build Your Own Regular Expression Engines: Backtracking, NFA, DFA</em></a></li>
+<li><a href="https://rcoh.svbtle.com/no-magic-regular-expressions" target="_blank" class="external-link"><strong>Scala</strong>: <em>No Magic: Regular Expressions</em></a></li>
+</ul>
+<h4 id="build-your-own-code-search-engine-code" tabindex="-1">Build your own <code>Search Engine</code></h4>
+<ul>
+<li><a href="https://stories.algolia.com/a-search-engine-in-css-b5ec4e902e97" target="_blank" class="external-link"><strong>CSS</strong>: <em>A search engine in CSS</em></a></li>
+<li><a href="http://www.dr-josiah.com/2010/07/building-search-engine-using-redis-and.html" target="_blank" class="external-link"><strong>Python</strong>: <em>Building a search engine using Redis and redis-py</em></a></li>
+<li><a href="https://boyter.org/2010/08/build-vector-space-search-engine-python/" target="_blank" class="external-link"><strong>Python</strong>: <em>Building a Vector Space Indexing Engine in Python</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=cY7pE7vX6MU" target="_blank" class="external-link"><strong>Python</strong>: <em>Building A Python-Based Search Engine</em></a> [video]</li>
+<li><a href="https://medium.com/filament-ai/making-text-search-learn-from-feedback-4fe210fd87b0" target="_blank" class="external-link"><strong>Python</strong>: <em>Making text search learn from feedback</em></a></li>
+<li><a href="https://stevenloria.com/tf-idf/" target="_blank" class="external-link"><strong>Python</strong>: <em>Finding Important Words in Text Using TF-IDF</em></a></li>
+</ul>
+<h4 id="build-your-own-code-shell-code" tabindex="-1">Build your own <code>Shell</code></h4>
+<ul>
+<li><a href="https://brennan.io/2015/01/16/write-a-shell-in-c/" target="_blank" class="external-link"><strong>C</strong>: <em>Tutorial - Write a Shell in C</em></a></li>
+<li><a href="https://github.com/kamalmarhubi/shell-workshop" target="_blank" class="external-link"><strong>C</strong>: <em>Let's build a shell!</em></a></li>
+<li><a href="https://indradhanush.github.io/blog/writing-a-unix-shell-part-1/" target="_blank" class="external-link"><strong>C</strong>: <em>Writing a UNIX Shell</em></a></li>
+<li><a href="https://github.com/tokenrove/build-your-own-shell" target="_blank" class="external-link"><strong>C</strong>: <em>Build Your Own Shell</em></a></li>
+<li><a href="https://danishpraka.sh/posts/write-a-shell/" target="_blank" class="external-link"><strong>C</strong>: Write a shell in C</a></li>
+<li><a href="https://sj14.gitlab.io/post/2018-07-01-go-unix-shell/" target="_blank" class="external-link"><strong>Go</strong>: <em>Writing a simple shell in Go</em></a></li>
+<li><a href="https://www.joshmcguigan.com/blog/build-your-own-shell-rust/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Build Your Own Shell using Rust</em></a></li>
+</ul>
+<h4 id="build-your-own-code-template-engine-code" tabindex="-1">Build your own <code>Template Engine</code></h4>
+<ul>
+<li><a href="http://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>JavaScript template engine in just 20 lines</em></a></li>
+<li><a href="https://medium.com/wdstack/understanding-javascript-micro-templating-f37a37b3b40e" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Understanding JavaScript Micro-Templating</em></a></li>
+<li><a href="http://alexmic.net/building-a-template-engine/" target="_blank" class="external-link"><strong>Python</strong>: <em>Approach: Building a toy template engine in Python</em></a></li>
+<li><a href="http://aosabook.org/en/500L/a-template-engine.html" target="_blank" class="external-link"><strong>Python</strong>: <em>A Template Engine</em></a></li>
+<li><a href="http://bits.citrusbyte.com/how-to-write-a-template-library/" target="_blank" class="external-link"><strong>Ruby</strong>: <em>How to write a template engine in less than 30 lines of code</em></a></li>
+</ul>
+<h4 id="build-your-own-code-text-editor-code" tabindex="-1">Build your own <code>Text Editor</code></h4>
+<ul>
+<li><a href="https://viewsourcecode.org/snaptoken/kilo/" target="_blank" class="external-link"><strong>C</strong>: <em>Build Your Own Text Editor</em></a></li>
+<li><a href="http://www.fltk.org/doc-1.1/editor.html" target="_blank" class="external-link"><strong>C++</strong>: <em>Designing a Simple Text Editor</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=xqDonHEYPgA" target="_blank" class="external-link"><strong>Python</strong>: <em>Python Tutorial: Make Your Own Text Editor</em></a> [video]</li>
+<li><a href="http://www.instructables.com/id/Create-a-Simple-Python-Text-Editor/" target="_blank" class="external-link"><strong>Python</strong>: <em>Create a Simple Python Text Editor!</em></a></li>
+<li><a href="https://blog.aha.io/text-editor/" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Build a Collaborative Text Editor Using Rails</em></a></li>
+<li><a href="https://www.flenker.blog/hecto/" target="_blank" class="external-link"><strong>Rust</strong>: <em>Hecto: Build your own text editor in Rust</em> </a></li>
+</ul>
+<h4 id="build-your-own-code-visual-recognition-system-code" tabindex="-1">Build your own <code>Visual Recognition System</code></h4>
+<ul>
+<li><a href="https://medium.com/devcenter/developing-a-license-plate-recognition-system-with-machine-learning-in-python-787833569ccd" target="_blank" class="external-link"><strong>Python</strong>: <em>Developing a License Plate Recognition System with Machine Learning in Python</em></a></li>
+<li><a href="https://hackernoon.com/building-a-facial-recognition-pipeline-with-deep-learning-in-tensorflow-66e7645015b8" target="_blank" class="external-link"><strong>Python</strong>: <em>Building a Facial Recognition Pipeline with Deep Learning in Tensorflow</em></a></li>
+</ul>
+<h4 id="build-your-own-code-voxel-engine-code" tabindex="-1">Build your own <code>Voxel Engine</code></h4>
+<ul>
+<li><a href="https://sites.google.com/site/letsmakeavoxelengine/home" target="_blank" class="external-link"><strong>C++</strong>: <em>Let's Make a Voxel Engine</em></a></li>
+</ul>
+<h4 id="build-your-own-code-web-browser-code" tabindex="-1">Build your own <code>Web Browser</code></h4>
+<ul>
+<li><a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html" target="_blank" class="external-link"><strong>Rust</strong>: <em>Let's build a browser engine</em></a></li>
+<li><a href="https://browser.engineering" target="_blank" class="external-link"><strong>Python</strong>: <em>Browser Engineering</em></a></li>
+</ul>
+<h4 id="build-your-own-code-web-server-code" tabindex="-1">Build your own <code>Web Server</code></h4>
+<ul>
+<li><a href="https://www.codeproject.com/Articles/859108/Writing-a-Web-Server-from-Scratch" target="_blank" class="external-link"><strong>C#</strong>: <em>Writing a Web Server from Scratch</em></a></li>
+<li><a href="https://build-your-own.org/webserver/" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Build Your Own Web Server From Scratch In JavaScript</em></a></li>
+<li><a href="https://www.codementor.io/@ziad-saab/let-s-code-a-web-server-from-scratch-with-nodejs-streams-h4uc9utji" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Let's code a web server from scratch with NodeJS Streams</em></a></li>
+<li><a href="https://github.com/antoaravinth/lets-build-express" target="_blank" class="external-link"><strong>Node.js</strong>: <em>lets-build-express</em></a></li>
+<li><a href="http://station.clancats.com/writing-a-webserver-in-pure-php/" target="_blank" class="external-link"><strong>PHP</strong>: <em>Writing a webserver in pure PHP</em></a></li>
+<li><a href="http://aosabook.org/en/500L/a-simple-web-server.html" target="_blank" class="external-link"><strong>Python</strong>: <em>A Simple Web Server</em></a></li>
+<li><a href="https://ruslanspivak.com/lsbaws-part1/" target="_blank" class="external-link"><strong>Python</strong>: <em>Let’s Build A Web Server.</em></a></li>
+<li><a href="https://defn.io/2018/02/25/web-app-from-scratch-01/" target="_blank" class="external-link"><strong>Python</strong>: <em>Web application from scratch</em></a></li>
+<li><a href="http://joaoventura.net/blog/2017/python-webserver/" target="_blank" class="external-link"><strong>Python</strong>: <em>Building a basic HTTP Server from scratch in Python</em></a></li>
+<li><a href="http://blog.luisrei.com/articles/flaskrest.html" target="_blank" class="external-link"><strong>Python</strong>: <em>Implementing a RESTful Web API with Python &amp; Flask</em></a></li>
+<li><a href="http://blog.honeybadger.io/building-a-simple-websockets-server-from-scratch-in-ruby/" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Building a simple websockets server from scratch in Ruby</em></a></li>
+</ul>
+<h4 id="uncategorized" tabindex="-1">Uncategorized</h4>
+<ul>
+<li><a href="http://nand2tetris.org/" target="_blank" class="external-link"><strong>(any)</strong>: <em>From NAND to Tetris: Building a Modern Computer From First Principles</em></a></li>
+<li><a href="https://github.com/inFaaa/build-your-own-x-vibe-coding" target="_blank" class="external-link"><strong>(any)</strong>: build-your-own-x-vibe-coding: BYOX-style tutorials adapted for vibe coding</a></li>
+<li><a href="http://aosabook.org/en/500L/the-same-origin-policy.html" target="_blank" class="external-link"><strong>Alloy</strong>: <em>The Same-Origin Policy</em></a></li>
+<li><a href="http://dranger.com/ffmpeg/ffmpeg.html" target="_blank" class="external-link"><strong>C</strong>: <em>How to Write a Video Player in Less Than 1000 Lines</em></a></li>
+<li><a href="https://github.com/jamesroutley/write-a-hash-table" target="_blank" class="external-link"><strong>C</strong>: <em>Learn how to write a hash table in C</em></a></li>
+<li><a href="https://www.uninformativ.de/blog/postings/2018-02-24/0/POSTING-en.html" target="_blank" class="external-link"><strong>C</strong>: <em>The very basics of a terminal emulator</em></a></li>
+<li><a href="https://brennan.io/2016/11/14/kernel-dev-ep3/" target="_blank" class="external-link"><strong>C</strong>: <em>Write a System Call</em></a></li>
+<li><a href="https://codepr.github.io/posts/sol-mqtt-broker" target="_blank" class="external-link"><strong>C</strong>: <em>Sol - An MQTT broker from scratch</em></a></li>
+<li><a href="https://github.com/relativty/Relativ" target="_blank" class="external-link"><strong>C++</strong>: <em>Build your own VR headset for $200</em></a></li>
+<li><a href="https://seasonofcode.com/posts/how-x-window-managers-work-and-how-to-write-one-part-i.html" target="_blank" class="external-link"><strong>C++</strong>: <em>How X Window Managers work and how to write one</em></a></li>
+<li><a href="https://blog.tartanllama.xyz/writing-a-linux-debugger-setup/" target="_blank" class="external-link"><strong>C++</strong>: <em>Writing a Linux Debugger</em></a></li>
+<li><a href="http://www.lofibucket.com/articles/64k_intro.html" target="_blank" class="external-link"><strong>C++</strong>: <em>How a 64k intro is made</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT" target="_blank" class="external-link"><strong>C++</strong>: <em>Make your own Game Engine</em></a></li>
+<li><a href="https://16bpp.net/tutorials/csharp-networking" target="_blank" class="external-link"><strong>C#</strong>: <em>C# Networking: Create a TCP chater server, TCP games, UDP Pong and more</em></a></li>
+<li><a href="https://www.seanjoflynn.com/research/skeletal-animation.html" target="_blank" class="external-link"><strong>C#</strong>: <em>Loading and rendering 3D skeletal animations from scratch in C# and GLSL</em></a></li>
+<li><a href="https://bernhardwenzel.com/articles/clojure-spellchecker/" target="_blank" class="external-link"><strong>Clojure</strong>: <em>Building a spell-checker</em></a></li>
+<li><a href="https://ishuah.com/2021/03/10/build-a-terminal-emulator-in-100-lines-of-go/" target="_blank" class="external-link"><strong>Go</strong>: <em>Build A Simple Terminal Emulator In 100 Lines of Golang</em></a></li>
+<li><a href="https://kasvith.me/posts/lets-create-a-simple-lb-go/" target="_blank" class="external-link"><strong>Go</strong>: <em>Let's Create a Simple Load Balancer</em></a></li>
+<li><a href="https://github.com/kevmo314/codec-from-scratch" target="_blank" class="external-link"><strong>Go</strong>: <em>Video Encoding from Scratch</em></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLgCYzUzKIBE9HUJU-upNvl3TRVAo9W47y" target="_blank" class="external-link"><strong>Java</strong>: <em>How to Build an Android Reddit App</em></a> [video]</li>
+<li><a href="https://github.com/ronami/minipack" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build Your Own Module Bundler - Minipack</em></a></li>
+<li><a href="https://levelup.gitconnected.com/understand-javascript-promises-by-building-a-promise-from-scratch-84c0fd855720" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Learn JavaScript Promises by Building a Promise from Scratch</em></a></li>
+<li><a href="https://www.mauriciopoppe.com/notes/computer-science/computation/promises/" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Implementing promises from scratch (TDD way)</em></a></li>
+<li><a href="https://blog.usejournal.com/implement-your-own-call-apply-and-bind-method-in-javascript-42cc85dba1b" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Implement your own — call(), apply() and bind() method in JavaScript</em></a></li>
+<li><a href="https://github.com/trekhleb/javascript-algorithms" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>JavaScript Algorithms and Data Structures</em></a></li>
+<li><a href="https://pusher.com/tutorials/ride-hailing-react-native" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build a ride hailing app with React Native</em></a></li>
+<li><a href="https://levelup.gitconnected.com/building-your-own-adblocker-in-literally-10-minutes-1eec093b04cd" target="_blank" class="external-link"><strong>JavaScript</strong>: <em>Build Your Own AdBlocker in (Literally) 10 Minutes</em></a></li>
+<li><a href="https://github.com/kezhenxu94/cache-lite" target="_blank" class="external-link"><strong>Kotlin</strong>: <em>Build Your Own Cache</em></a></li>
+<li><a href="https://github.com/leandromoreira/cdn-up-and-running" target="_blank" class="external-link"><strong>Lua</strong>: <em>Building a CDN from Scratch to Learn about CDN</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day12_resp.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a Redis Protocol Parser</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day11_buildsystem.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a Build system</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day08_minitest.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a MiniTest Framework</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day01_dmidecode.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a DMIDecode Parser</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day05_iniparser.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a INI Parser</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day04_asynclinkschecker.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a Link Checker</em></a></li>
+<li><a href="https://xmonader.github.io/nimdays/day07_shorturl.html" target="_blank" class="external-link"><strong>Nim</strong>: <em>Writing a URL Shortening Service</em></a></li>
+<li><a href="https://www.webdevdrops.com/en/build-static-site-generator-nodejs-8969ebe34b22/" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Build a static site generator in 40 lines with Node.js</em></a></li>
+<li><a href="https://codeburst.io/building-a-simple-single-sign-on-sso-server-and-solution-from-scratch-in-node-js-ea6ee5fdf340" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Building A Simple Single Sign On(SSO) Server And Solution From Scratch In Node.js.</em></a></li>
+<li><a href="https://medium.freecodecamp.org/how-to-create-a-real-world-node-cli-app-with-node-391b727bbed3" target="_blank" class="external-link"><strong>Node.js</strong>: <em>How to create a real-world Node CLI app with Node</em></a></li>
+<li><a href="https://engineerhead.github.io/dns-server/" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Build a DNS Server in Node.js</em></a></li>
+<li><a href="https://greenvitriol.com/posts/sync-engine-for-everyone" target="_blank" class="external-link"><strong>Node.js</strong>: <em>Build a Synchronization Engine with Node.js and Y.js</em></a></li>
+<li><a href="https://chaitya62.github.io/2018/04/29/Writing-your-own-MVC-from-Scratch-in-PHP.html" target="_blank" class="external-link"><strong>PHP</strong>: <em>Write your own MVC from scratch in PHP</em> </a></li>
+<li><a href="https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog" target="_blank" class="external-link"><strong>PHP</strong>: <em>Make your own blog</em></a></li>
+<li><a href="https://kevinsmith.io/modern-php-without-a-framework" target="_blank" class="external-link"><strong>PHP</strong>: <em>Modern PHP Without a Framework</em></a></li>
+<li><a href="https://boyter.org/2013/01/code-for-a-search-engine-in-php-part-1/" target="_blank" class="external-link"><strong>PHP</strong>: <em>Code a Web Search Engine in PHP</em></a></li>
+<li><a href="https://www.youtube.com/watch?v=o64FV-ez6Gw" target="_blank" class="external-link"><strong>Python</strong>: <em>Build a Deep Learning Library</em></a> [video]</li>
+<li><a href="https://www.pyimagesearch.com/2014/09/01/build-kick-ass-mobile-document-scanner-just-5-minutes/" target="_blank" class="external-link"><strong>Python</strong>: <em>How to Build a Kick-Ass Mobile Document Scanner in Just 5 Minutes</em></a></li>
+<li><a href="http://aosabook.org/en/500L/a-continuous-integration-system.html" target="_blank" class="external-link"><strong>Python</strong>: <em>Continuous Integration System</em></a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/recommender-systems-python" target="_blank" class="external-link"><strong>Python</strong>: <em>Recommender Systems in Python: Beginner Tutorial</em></a></li>
+<li><a href="https://medium.com/@kopilov.vlad/detect-sms-spam-in-kaggle-with-scikit-learn-5f6afa7a3ca2" target="_blank" class="external-link"><strong>Python</strong>: <em>Write SMS-spam detector with Scikit-learn</em></a></li>
+<li><a href="http://blog.untrod.com/2016/06/simple-similar-products-recommendation-engine-in-python.html" target="_blank" class="external-link"><strong>Python</strong>: <em>A Simple Content-Based Recommendation Engine in Python</em></a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/lstm-python-stock-market" target="_blank" class="external-link"><strong>Python</strong>: <em>Stock Market Predictions with LSTM in Python</em></a></li>
+<li><a href="https://blog.paperspace.com/implementing-gans-in-tensorflow/" target="_blank" class="external-link"><strong>Python</strong>: <em>Building a simple Generative Adversarial Network (GAN) using Tensorflow</em></a></li>
+<li><a href="https://lethalbrains.com/learn-ml-algorithms-by-coding-decision-trees-439ac503c9a4" target="_blank" class="external-link"><strong>Python</strong>: <em>Learn ML Algorithms by coding: Decision Trees</em></a></li>
+<li><a href="https://github.com/cheery/json-algorithm" target="_blank" class="external-link"><strong>Python</strong>: <em>JSON Decoding Algorithm</em></a></li>
+<li><a href="https://joshburns-xyz.vercel.app/posts/build-your-own-git-plugin" target="_blank" class="external-link"><strong>Python</strong>: <em>Build your own Git plugin with python</em></a></li>
+<li><a href="http://aosabook.org/en/500L/a-pedometer-in-the-real-world.html" target="_blank" class="external-link"><strong>Ruby</strong>: <em>A Pedometer in the Real World</em></a></li>
+<li><a href="https://iridakos.com/tutorials/2018/01/25/creating-a-gtk-todo-application-with-ruby" target="_blank" class="external-link"><strong>Ruby</strong>: <em>Creating a Linux Desktop application with Ruby</em></a></li>
+<li><a href="https://github.com/EmilHernvall/dnsguide/blob/master/README.md" target="_blank" class="external-link"><strong>Rust</strong>: <em>Building a DNS server in Rust</em></a></li>
+<li><a href="https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html" target="_blank" class="external-link"><strong>Rust</strong>: <em>Writing Scalable Chat Service from Scratch</em></a></li>
+<li><a href="https://www.chinedufn.com/3d-webgl-basic-water-tutorial/" target="_blank" class="external-link"><strong>Rust</strong>: <em>WebGL + Rust: Basic Water Tutorial</em></a></li>
+<li><a href="https://github.com/g-plane/tiny-package-manager" target="_blank" class="external-link"><strong>TypeScript</strong>: <em>Tiny Package Manager: Learns how npm or Yarn works</em></a></li>
+</ul>
+<h2 id="contribute" tabindex="-1">Contribute</h2>
+<ul>
+<li>Submissions welcome, just send a PR, or <a href="https://github.com/codecrafters-io/build-your-own-x/issues/new" target="_blank" class="external-link">create an issue</a></li>
+<li>Help us review <a href="https://github.com/codecrafters-io/build-your-own-x/issues" target="_blank" class="external-link">pending submissions</a> by leaving comments and &quot;reactions&quot;</li>
+</ul>
+<h2 id="origins-and-amp-license" tabindex="-1">Origins &amp; License</h2>
+<p><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" class="external-link"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg" alt="CC0"></a></p>
+<p>This repository is the work of <a href="https://github.com/codecrafters-io/build-your-own-x/graphs/contributors" target="_blank" class="external-link">many contributors</a>. It was started by <a href="https://github.com/danistefanovic" target="_blank" class="external-link">Daniel Stefanovic</a>, and is now maintained by <a href="https://codecrafters.io" target="_blank" class="external-link">CodeCrafters, Inc.</a> To the extent possible under law, <a href="https://codecrafters.io" target="_blank" class="external-link">CodeCrafters, Inc.</a> has waived all copyright and related or neighboring rights to this work.</p>
+</main>
+<div class="sidebar">
+</div>
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+</div>
+Build your own
+<li><a href="#tutorials">Tutorials</a>
+<ol>
+<li><a href="#build-your-own-code-distributed-systems-code">Build your own Distributed Systems</a>
+</li>
+<li><a href="#build-your-own-code-3-d-renderer-code">Build your own 3D Renderer</a>
+</li>
+<li><a href="#build-your-own-code-ai-model-code">Build your own AI Model</a>
+</li>
+<li><a href="#build-your-own-code-augmented-reality-code">Build your own Augmented Reality</a>
+</li>
+<li><a href="#build-your-own-code-bit-torrent-client-code">Build your own BitTorrent Client</a>
+</li>
+<li><a href="#build-your-own-code-blockchain-cryptocurrency-code">Build your own Blockchain / Cryptocurrency</a>
+</li>
+<li><a href="#build-your-own-code-bot-code">Build your own Bot</a>
+</li>
+<li><a href="#build-your-own-code-command-line-tool-code">Build your own Command-Line Tool</a>
+</li>
+<li><a href="#build-your-own-code-database-code">Build your own Database</a>
+</li>
+<li><a href="#build-your-own-code-docker-code">Build your own Docker</a>
+</li>
+<li><a href="#build-your-own-code-emulator-virtual-machine-code">Build your own Emulator / Virtual Machine</a>
+</li>
+<li><a href="#build-your-own-code-front-end-framework-library-code">Build your own Front-end Framework / Library</a>
+</li>
+<li><a href="#build-your-own-code-game-code">Build your own Game</a>
+</li>
+<li><a href="#build-your-own-code-git-code">Build your own Git</a>
+</li>
+<li><a href="#build-your-own-code-memory-allocator-code">Build your own Memory Allocator</a>
+</li>
+<li><a href="#build-your-own-code-network-stack-code">Build your own Network Stack</a>
+</li>
+<li><a href="#build-your-own-code-neural-network-code">Build your own Neural Network</a>
+</li>
+<li><a href="#build-your-own-code-operating-system-code">Build your own Operating System</a>
+</li>
+<li><a href="#build-your-own-code-physics-engine-code">Build your own Physics Engine</a>
+</li>
+<li><a href="#build-your-own-code-processor-code">Build your own Processor</a>
+</li>
+<li><a href="#build-your-own-code-programming-language-code">Build your own Programming Language</a>
+</li>
+<li><a href="#build-your-own-code-regex-engine-code">Build your own Regex Engine</a>
+</li>
+<li><a href="#build-your-own-code-search-engine-code">Build your own Search Engine</a>
+</li>
+<li><a href="#build-your-own-code-shell-code">Build your own Shell</a>
+</li>
+<li><a href="#build-your-own-code-template-engine-code">Build your own Template Engine</a>
+</li>
+<li><a href="#build-your-own-code-text-editor-code">Build your own Text Editor</a>
+</li>
+<li><a href="#build-your-own-code-visual-recognition-system-code">Build your own Visual Recognition System</a>
+</li>
+<li><a href="#build-your-own-code-voxel-engine-code">Build your own Voxel Engine</a>
+</li>
+<li><a href="#build-your-own-code-web-browser-code">Build your own Web Browser</a>
+</li>
+<li><a href="#build-your-own-code-web-server-code">Build your own Web Server</a>
+</li>
+<li><a href="#uncategorized">Uncategorized</a>
+</li>
+</ol>
+</li>
+<li><a href="#contribute">Contribute</a>
+</li>
+<li><a href="#origins-and-amp-license">Origins & License</a>
+</li>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</html>
