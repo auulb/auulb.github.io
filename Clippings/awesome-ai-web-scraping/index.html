@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>awesome-ai-web-scraping</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-ai-web-scraping/">awesome-ai-web-scraping </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-claude-skills/">awesome-claude-skills </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science/">computer-science </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes/">CS-Notes技术面试 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">developer-roadmap </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">free-programming-books </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/freeCodeCamp/">freeCodeCamp </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/fullstackopen/">fullstackopen </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">JavaGuide </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/llm-course/">llm-course </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days/">Python-100-Days </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer/">system-design-primer </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统/">学习如何设计大型系统 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('test')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">test</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">awesome-ai-web-scraping</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<h2 id="awesome-ai-web-scraping-ai" tabindex="-1">Awesome AI Web Scraping超棒的 AI 网络爬虫</h2>
+<p>A curated list of tools, libraries, and resources for AI-powered web scraping.<br>
+一份精选的用于人工智能驱动的网络爬虫的工具、库和资源列表。</p>
+<hr>
+<p>Frameworks, hosted APIs, browser infrastructure, MCP servers, and research for turning the web into clean, structured data for LLMs, RAG pipelines, and agents.<br>
+框架、托管 API、浏览器基础设施、MCP 服务器以及将网络转化为 LLM、RAG 管道和代理所需的干净、结构化数据的研究。</p>
+<p><strong>Scope:</strong> Tools where AI or LLMs play a meaningful role in extraction, navigation, or content understanding. General-purpose scrapers (Scrapy, BeautifulSoup) belong in <a href="https://github.com/lorien/awesome-web-scraping" target="_blank" class="external-link">awesome-web-scraping</a>. Autonomous browser agents belong in <a href="https://github.com/steel-dev/awesome-web-agents" target="_blank" class="external-link">awesome-web-agents</a>.<br>
+<strong>范围：</strong> 人工智能或语言学习模型在提取、导航或内容理解方面发挥重要作用的工具。通用爬虫（例如 Scrapy、BeautifulSoup）属于 <a href="https://github.com/lorien/awesome-web-scraping" target="_blank" class="external-link">awesome-web-scraping</a> 范畴。自主浏览器代理属于 <a href="https://github.com/steel-dev/awesome-web-agents" target="_blank" class="external-link">awesome-web-agents</a> 范畴。</p>
+<h2 id="contents" tabindex="-1">Contents内容</h2>
+<h2 id="frameworks-and-amp-libraries" tabindex="-1">Frameworks &amp; Libraries框架和库</h2>
+<p>Self-hosted, open-source. Most pair a headless browser with an LLM for schema-based or prompt-based extraction.<br>
+自托管、开源。大多数方案都将无头浏览器与 LLM 结合使用，以实现基于模式或基于提示的提取。</p>
+<ul>
+<li><a href="https://github.com/unclecode/crawl4ai" target="_blank" class="external-link">Crawl4AI</a> - LLM-friendly web crawler with Markdown output and JSON-schema or LLM-based extraction. Python.<br>
+<a href="https://github.com/unclecode/crawl4ai" target="_blank" class="external-link">Crawl4AI</a> - 一款支持 LLM 的网络爬虫，支持 Markdown 输出和基于 JSON Schema 或 LLM 的数据提取。使用 Python 编写。</li>
+<li><a href="https://github.com/D4Vinci/Scrapling" target="_blank" class="external-link">Scrapling</a> - Adaptive Python framework with smart element tracking that relocates elements after site changes. Cloudflare Turnstile bypass, spider framework with pause/resume, and a built-in MCP server.<br>
+<a href="https://github.com/D4Vinci/Scrapling" target="_blank" class="external-link">Scrapling</a> - 一个自适应的 Python 框架，具有智能元素跟踪功能，可在网站更改后重新定位元素。它绕过了 Cloudflare Turnstile 限制，拥有暂停/恢复功能的爬虫框架，并内置了 MCP 服务器。</li>
+<li><a href="https://github.com/ScrapeGraphAI/Scrapegraph-ai" target="_blank" class="external-link">ScrapeGraphAI</a> - Python scraper using LLM + graph pipelines. Describe data in natural language, get typed JSON. Works with OpenAI, Anthropic, Groq, Gemini, Ollama.<br>
+<a href="https://github.com/ScrapeGraphAI/Scrapegraph-ai" target="_blank" class="external-link">ScrapeGraphAI</a> - 使用 LLM 和图管道的 Python 爬虫。用自然语言描述数据，获取类型化的 JSON。支持 OpenAI、Anthropic、Groq、Gemini 和 Ollama。</li>
+<li><a href="https://github.com/mishushakov/llm-scraper" target="_blank" class="external-link">llm-scraper</a> - TypeScript library for structured extraction with Zod schemas. Supports GPT, Claude, Gemini, Llama, Qwen.<br>
+<a href="https://github.com/mishushakov/llm-scraper" target="_blank" class="external-link">llm-scraper</a> - 用于使用 Zod schema 进行结构化数据提取的 TypeScript 库。支持 GPT、Claude、Gemini、Llama 和 Qwen。</li>
+<li><a href="https://github.com/jina-ai/reader" target="_blank" class="external-link">Reader</a> - Jina AI's URL-to-Markdown converter. Engine behind <code>r.jina.ai</code>.<br>
+<a href="https://github.com/jina-ai/reader" target="_blank" class="external-link">Reader</a> - Jina AI 的 URL 转 Markdown 转换器 <code>r.jina.ai</code> 背后的引擎。</li>
+<li><a href="https://github.com/browserbase/stagehand" target="_blank" class="external-link">Stagehand</a> - Browser automation framework with <code>act</code>, <code>extract</code>, and <code>observe</code> primitives over Playwright.<br>
+<a href="https://github.com/browserbase/stagehand" target="_blank" class="external-link">Stagehand</a> - 基于 Playwright 的浏览器自动化框架，包含 <code>act</code> 、 <code>extract</code> 和 <code>observe</code> 等基本功能。</li>
+<li><a href="https://github.com/browser-use/browser-use" target="_blank" class="external-link">Browser-Use</a> - Agent framework commonly used for scraping complex, login-walled sites.<br>
+<a href="https://github.com/browser-use/browser-use" target="_blank" class="external-link">浏览器端</a> - 代理框架，通常用于抓取复杂、需要登录才能访问的网站。</li>
+<li><a href="https://github.com/Skyvern-AI/skyvern" target="_blank" class="external-link">Skyvern</a> - Browser automation for forms, logins, and dynamic content.<br>
+<a href="https://github.com/Skyvern-AI/skyvern" target="_blank" class="external-link">Skyvern</a> - 用于表单、登录和动态内容的浏览器自动化工具。</li>
+<li><a href="https://github.com/lavague-ai/LaVague" target="_blank" class="external-link">LaVague</a> - Natural language web automation framework.<br>
+<a href="https://github.com/lavague-ai/LaVague" target="_blank" class="external-link">LaVague——</a> 自然语言 Web 自动化框架。</li>
+<li><a href="https://github.com/itsOwen/CyberScraper-2077" target="_blank" class="external-link">CyberScraper 2077</a> - LLM scraper with Streamlit UI. Supports OpenAI, Gemini, and Ollama. Tor support included.<br>
+<a href="https://github.com/itsOwen/CyberScraper-2077" target="_blank" class="external-link">CyberScraper 2077</a> - 一款基于 Streamlit UI 的 LLM 爬虫。支持 OpenAI、Gemini 和 Ollama。内置 Tor 支持。</li>
+<li><a href="https://github.com/scraperai/scraperai" target="_blank" class="external-link">ScraperAI</a> - AI scraper with auto-detection of page types, pagination, and catalog cards.<br>
+<a href="https://github.com/scraperai/scraperai" target="_blank" class="external-link">ScraperAI</a> - 一款人工智能爬虫，可自动检测页面类型、分页和目录卡片。</li>
+<li><a href="https://github.com/carlosplanchon/spidercreator" target="_blank" class="external-link">SpiderCreator</a> - Generates Playwright spiders from natural language prompts.<br>
+<a href="https://github.com/carlosplanchon/spidercreator" target="_blank" class="external-link">SpiderCreator</a> - 根据自然语言提示生成 Playwright 爬虫。</li>
+<li><a href="https://github.com/platonai/pulsarRPA" target="_blank" class="external-link">PulsarRPA</a> - AI-powered browser automation and data extraction.<br>
+<a href="https://github.com/platonai/pulsarRPA" target="_blank" class="external-link">PulsarRPA</a> - 基于人工智能的浏览器自动化和数据提取。</li>
+</ul>
+<h2 id="hosted-ap-is-api" tabindex="-1">Hosted APIs托管式 API</h2>
+<p>Managed services that turn URLs into LLM-ready Markdown or JSON. JS rendering, proxies, and anti-bot handled internally.<br>
+提供将 URL 转换为 LLM 兼容的 Markdown 或 JSON 格式的托管服务。JS 渲染、代理和反机器人功能均由内部处理。</p>
+<ul>
+<li><a href="https://firecrawl.dev/" target="_blank" class="external-link">Firecrawl</a> - Scrape, crawl, map, search, agent, and interact endpoints. LLM-ready Markdown. 500 free credits, paid plans from $16/mo.<br>
+<a href="https://firecrawl.dev/" target="_blank" class="external-link">Firecrawl</a> - 抓取、爬取、映射、搜索、代理和交互端点。支持 LLM 格式的 Markdown。提供 500 个免费积分，付费套餐每月 16 美元起。</li>
+<li><a href="https://jina.ai/reader/" target="_blank" class="external-link">Jina Reader</a> - Prepend <code>r.jina.ai/</code> to any URL for LLM-friendly text. Free tier with no API key required.<br>
+<a href="https://jina.ai/reader/" target="_blank" class="external-link">Jina Reader</a> - 在任何 URL 前添加 <code>r.jina.ai/</code> 即可生成 LLM 友好型文本。免费版无需 API 密钥。</li>
+<li><a href="https://www.diffbot.com/" target="_blank" class="external-link">Diffbot</a> - Computer vision and NLP extraction with a knowledge graph layer. Paid.<br>
+<a href="https://www.diffbot.com/" target="_blank" class="external-link">Diffbot</a> - 一款基于知识图谱层的计算机视觉和自然语言处理提取工具。付费。</li>
+<li><a href="https://apify.com/" target="_blank" class="external-link">Apify</a> - Marketplace of 10,000+ pre-built scrapers (&quot;Actors&quot;) plus a runtime for your own. Free tier and paid plans.<br>
+<a href="https://apify.com/" target="_blank" class="external-link">Apify——</a> 拥有超过 10000 个预构建爬虫（“Actor”）的市场，并提供运行时环境供您自行开发。提供免费套餐和付费方案。</li>
+<li><a href="https://brightdata.com/" target="_blank" class="external-link">Bright Data</a> - Scraping with 150M+ proxies and pre-built APIs for 120+ sites. Free tier and paid plans.<br>
+<a href="https://brightdata.com/" target="_blank" class="external-link">Bright Data</a> - 提供超过 1.5 亿个代理和预构建的 API，支持 120 多个网站的数据抓取。提供免费套餐和付费方案。</li>
+<li><a href="https://www.zyte.com/" target="_blank" class="external-link">Zyte</a> - Scraping API with AI extraction. Formerly Scrapinghub. Paid.<br>
+<a href="https://www.zyte.com/" target="_blank" class="external-link">Zyte</a> - 具备人工智能提取功能的抓取 API。前身为 Scrapinghub。付费。</li>
+<li><a href="https://www.scrapingbee.com/" target="_blank" class="external-link">ScrapingBee</a> - JS rendering, AI extraction, Markdown, and Google SERP support. Free trial and paid plans.<br>
+<a href="https://www.scrapingbee.com/" target="_blank" class="external-link">ScrapingBee——</a> 支持 JS 渲染、AI 提取、Markdown 和 Google SERP。提供免费试用和付费方案。</li>
+<li><a href="https://www.zenrows.com/" target="_blank" class="external-link">ZenRows</a> - Anti-bot focused scraping API with Markdown output. Free trial and paid plans.<br>
+<a href="https://www.zenrows.com/" target="_blank" class="external-link">ZenRows</a> - 一款专注于反机器人抓取的 API，支持 Markdown 输出。提供免费试用和付费方案。</li>
+<li><a href="https://oxylabs.io/" target="_blank" class="external-link">Oxylabs</a> - Proxies plus a Web Scraper API with adaptive parsing. Paid.<br>
+<a href="https://oxylabs.io/" target="_blank" class="external-link">Oxylabs</a> - 代理服务器以及带有自适应解析功能的网页抓取 API。付费。</li>
+<li><a href="https://spider.cloud/" target="_blank" class="external-link">Spider</a> - Concurrent crawler and scraper API with LLM-ready output. Free tier and paid plans.<br>
+<a href="https://spider.cloud/" target="_blank" class="external-link">Spider</a> - 可同时运行的爬虫和抓取 API，支持 LLM 格式的输出。提供免费套餐和付费方案。</li>
+<li><a href="https://webscraping.ai/" target="_blank" class="external-link">WebScraping.AI</a> - Scraping API with question-answering and field-extraction endpoints. Free tier and paid plans.<br>
+<a href="https://webscraping.ai/" target="_blank" class="external-link">WebScraping.AI</a> - 提供问答和字段提取接口的抓取 API。提供免费套餐和付费方案。</li>
+<li><a href="https://www.scrapeless.com/" target="_blank" class="external-link">Scrapeless</a> - Scraping API with anti-bot bypass and structured extraction. Free tier and paid plans.<br>
+<a href="https://www.scrapeless.com/" target="_blank" class="external-link">Scrapeless</a> - 具有反机器人绕过和结构化数据提取功能的抓取 API。提供免费版和付费版。</li>
+<li><a href="https://www.kadoa.com/" target="_blank" class="external-link">Kadoa</a> - Self-healing extraction that adapts when sites change. Paid.<br>
+<a href="https://www.kadoa.com/" target="_blank" class="external-link">Kadoa——</a> 一种可根据皮肤变化自动调节的自愈式提取技术。付费。</li>
+<li><a href="https://www.expand.ai/" target="_blank" class="external-link">Expand.ai</a> - Turns any website into a type-safe API. Paid.<br>
+<a href="https://www.expand.ai/" target="_blank" class="external-link">Expand.ai——</a> 将任何网站转换为类型安全的 API。付费。</li>
+<li><a href="https://reworkd.ai/" target="_blank" class="external-link">Reworkd</a> - Agentic AI for no-code structured extraction. Paid.<br>
+<a href="https://reworkd.ai/" target="_blank" class="external-link">Reworkd</a> - 用于无代码结构化数据提取的智能体人工智能。付费。</li>
+</ul>
+<h2 id="browser-infrastructure-for-ai" tabindex="-1">Browser Infrastructure for AI人工智能浏览器基础设施</h2>
+<p>Headless browsers designed for AI agents and scrapers.<br>
+专为人工智能代理和爬虫程序设计的无头浏览器。</p>
+<ul>
+<li><a href="https://steel.dev/" target="_blank" class="external-link">Steel.dev</a> - Open-source headless browser API for AI agents. Self-host or use the hosted service.<br>
+<a href="https://steel.dev/" target="_blank" class="external-link">Steel.dev</a> - 面向人工智能代理的开源无头浏览器 API。可自行托管或使用托管服务。</li>
+<li><a href="https://www.browserbase.com/" target="_blank" class="external-link">Browserbase</a> - Hosted headless browser. Powers Stagehand. Paid.<br>
+<a href="https://www.browserbase.com/" target="_blank" class="external-link">Browserbase——</a> 托管式无头浏览器。为 Stagehand 提供支持。付费。</li>
+<li><a href="https://www.hyperbrowser.ai/" target="_blank" class="external-link">Hyperbrowser</a> - Browser platform with stealth, scraping, and agent endpoints. Free tier and paid plans.<br>
+<a href="https://www.hyperbrowser.ai/" target="_blank" class="external-link">Hyperbrowser——</a> 一款浏览器平台，具备隐身、爬虫和代理端点功能。提供免费套餐和付费方案。</li>
+<li><a href="https://anchorbrowser.io/" target="_blank" class="external-link">Anchor Browser</a> - Browser API with built-in auth and session persistence. Paid.<br>
+<a href="https://anchorbrowser.io/" target="_blank" class="external-link">Anchor Browser——</a> 内置身份验证和会话持久性的浏览器 API。付费。</li>
+<li><a href="https://www.browserless.io/" target="_blank" class="external-link">Browserless</a> - Headless Chrome as a service. Free tier and paid plans.<br>
+<a href="https://www.browserless.io/" target="_blank" class="external-link">Browserless——</a> 无头 Chrome 即服务。提供免费套餐和付费方案。</li>
+<li><a href="https://github.com/h4ckf0r0day/obscura" target="_blank" class="external-link">Obscura</a> - Rust-based headless browser. CDP-compatible with Puppeteer and Playwright. Built-in stealth and tracker blocking.<br>
+<a href="https://github.com/h4ckf0r0day/obscura" target="_blank" class="external-link">Obscura</a> - 基于 Rust 的无头浏览器。兼容 CDP，支持 Puppeteer 和 Playwright。内置隐身功能和追踪器拦截。</li>
+<li><a href="https://github.com/browserable/browserable" target="_blank" class="external-link">Browserable</a> - Open-source, self-hostable browser automation library.<br>
+<a href="https://github.com/browserable/browserable" target="_blank" class="external-link">Browserable——</a> 开源、可自托管的浏览器自动化库。</li>
+</ul>
+<h2 id="no-code-ai-scrapers" tabindex="-1">No-Code AI Scrapers无代码人工智能爬虫</h2>
+<p>Visual or point-and-click tools that use AI to extract data without writing code.<br>
+利用人工智能提取数据而无需编写代码的可视化或点击式工具。</p>
+<ul>
+<li><a href="https://www.browse.ai/" target="_blank" class="external-link">Browse AI</a> - Chrome extension and SaaS for AI-assisted scraping with scheduled monitoring.<br>
+<a href="https://www.browse.ai/" target="_blank" class="external-link">浏览 AI</a> - Chrome 扩展程序和 SaaS，用于 AI 辅助抓取并进行定时监控。</li>
+<li><a href="https://bardeen.ai/" target="_blank" class="external-link">Bardeen.ai</a> - Chrome extension combining AI scraping with automation across 100+ apps.<br>
+<a href="https://bardeen.ai/" target="_blank" class="external-link">Bardeen.ai</a> - Chrome 扩展程序，将 AI 抓取与自动化相结合，支持 100 多个应用程序。</li>
+<li><a href="https://thunderbit.com/" target="_blank" class="external-link">Thunderbit</a> - Two-click Chrome extension with AI &quot;Suggest Fields&quot; for instant extraction.<br>
+<a href="https://thunderbit.com/" target="_blank" class="external-link">Thunderbit</a> - 只需点击两下即可使用 AI“建议字段”功能的 Chrome 扩展程序，实现即时提取。</li>
+<li><a href="https://www.gumloop.com/" target="_blank" class="external-link">Gumloop</a> - Visual workflow builder for scraping, LLM calls, and data transforms.<br>
+<a href="https://www.gumloop.com/" target="_blank" class="external-link">Gumloop</a> - 用于抓取、LLM 调用和数据转换的可视化工作流构建器。</li>
+<li><a href="https://www.octoparse.com/" target="_blank" class="external-link">Octoparse</a> - Visual scraper with AI-assisted field detection.<br>
+<a href="https://www.octoparse.com/" target="_blank" class="external-link">Octoparse</a> - 具有 AI 辅助字段检测功能的视觉爬虫。</li>
+<li><a href="https://www.parsehub.com/" target="_blank" class="external-link">ParseHub</a> - Visual scraper with template-based extraction.<br>
+<a href="https://www.parsehub.com/" target="_blank" class="external-link">ParseHub</a> - 基于模板提取的可视化爬虫。</li>
+</ul>
+<h2 id="mcp-servers-for-scraping-mcp" tabindex="-1">MCP Servers for Scraping用于网络爬虫的 MCP 服务器</h2>
+<p><a href="https://modelcontextprotocol.io/" target="_blank" class="external-link">Model Context Protocol</a> servers that expose scraping capabilities to Claude, Cursor, Windsurf, and other LLM clients.<br>
+<a href="https://modelcontextprotocol.io/" target="_blank" class="external-link">模型上下文协议</a> 服务器向 Claude、Cursor、Windsurf 和其他 LLM 客户端公开抓取功能。</p>
+<ul>
+<li><a href="https://github.com/mendableai/firecrawl-mcp-server" target="_blank" class="external-link">Firecrawl MCP</a> - Official MCP wrapper for Firecrawl's scrape, crawl, and extract endpoints.<br>
+<a href="https://github.com/mendableai/firecrawl-mcp-server" target="_blank" class="external-link">Firecrawl MCP</a> - Firecrawl 抓取、爬取和提取端点的官方 MCP 封装。</li>
+<li><a href="https://github.com/brightdata/brightdata-mcp" target="_blank" class="external-link">Bright Data MCP</a> - Search, scrape, and extract from 60+ sources with anti-bot bypass. 5,000 free requests/month.<br>
+<a href="https://github.com/brightdata/brightdata-mcp" target="_blank" class="external-link">Bright Data MCP</a> - 可从 60 多个数据源搜索、抓取和提取数据，并具备反机器人绕过功能。每月 5,000 次免费请求。</li>
+<li><a href="https://scrapling.readthedocs.io/en/latest/ai/mcp-server/" target="_blank" class="external-link">Scrapling MCP</a> - Built-in MCP server bundled with <a href="https://github.com/D4Vinci/Scrapling" target="_blank" class="external-link">Scrapling</a>. Install with <code>pip install &quot;scrapling[ai]&quot;</code>.<br>
+<a href="https://scrapling.readthedocs.io/en/latest/ai/mcp-server/" target="_blank" class="external-link">Scrapling MCP</a> - <a href="https://github.com/D4Vinci/Scrapling" target="_blank" class="external-link">Scrapling</a> 内置的 MCP 服务器。使用 <code>pip install &quot;scrapling[ai]&quot;</code> 安装。</li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/fetch" target="_blank" class="external-link">Fetch</a> - Anthropic's official fetch MCP server. URL-to-Markdown.<br>
+<a href="https://github.com/modelcontextprotocol/servers/tree/main/src/fetch" target="_blank" class="external-link">Fetch</a> - Anthropic 的官方 Fetch MCP 服务器。URL 转 Markdown。</li>
+<li><a href="https://github.com/browserbase/mcp-server-browserbase" target="_blank" class="external-link">Browserbase MCP</a> - MCP server exposing Browserbase sessions and Stagehand primitives.<br>
+<a href="https://github.com/browserbase/mcp-server-browserbase" target="_blank" class="external-link">Browserbase MCP</a> - MCP 服务器，公开 Browserbase 会话和 Stagehand 原语。</li>
+<li><a href="https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer" target="_blank" class="external-link">Puppeteer MCP</a> - Browser automation for scraping and interaction.<br>
+<a href="https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer" target="_blank" class="external-link">Puppeteer MCP</a> - 用于抓取和交互的浏览器自动化。</li>
+<li><a href="https://github.com/apify/actors-mcp-server" target="_blank" class="external-link">Apify MCP</a> - Run any Apify Actor as an MCP tool.<br>
+<a href="https://github.com/apify/actors-mcp-server" target="_blank" class="external-link">Apify MCP</a> - 将任何 Apify Actor 作为 MCP 工具运行。</li>
+<li><a href="https://webscraping.ai/docs/mcp" target="_blank" class="external-link">WebScraping.AI MCP</a> - MCP integration for <a href="http://WebScraping.AI" target="_blank" class="external-link">WebScraping.AI</a>'s extraction tools.<br>
+<a href="https://webscraping.ai/docs/mcp" target="_blank" class="external-link">WebScraping.AI MCP</a> - MCP 集成，用于 <a href="http://WebScraping.AI" target="_blank" class="external-link">WebScraping.AI</a> 的提取工具。</li>
+</ul>
+<h2 id="web-search-ap-is-for-ll-ms-web-api" tabindex="-1">Web Search APIs for LLMs面向法学硕士的 Web 搜索 API</h2>
+<p>Search APIs that return structured, LLM-friendly results with full-page content.<br>
+搜索 API 返回结构化的、LLM 友好的结果，并包含完整的页面内容。</p>
+<ul>
+<li><a href="https://exa.ai/" target="_blank" class="external-link">Exa</a> - Neural search API. Returns clean content alongside results.<br>
+<a href="https://exa.ai/" target="_blank" class="external-link">Exa</a> - 神经搜索 API。除了搜索结果外，还会返回干净的内容。</li>
+<li><a href="https://tavily.com/" target="_blank" class="external-link">Tavily</a> - Search API optimized for LLMs and RAG.<br>
+<a href="https://tavily.com/" target="_blank" class="external-link">Tavily</a> - 针对 LLM 和 RAG 优化的搜索 API。</li>
+<li><a href="https://www.linkup.so/" target="_blank" class="external-link">Linkup</a> - Search API with verified sources.<br>
+<a href="https://www.linkup.so/" target="_blank" class="external-link">Linkup</a> - 拥有经过验证来源的搜索 API。</li>
+<li><a href="https://docs.perplexity.ai/" target="_blank" class="external-link">Perplexity Sonar</a> - Perplexity's online search and answer API.<br>
+<a href="https://docs.perplexity.ai/" target="_blank" class="external-link">Perplexity Sonar</a> - Perplexity 的在线搜索和答案 API。</li>
+<li><a href="https://serper.dev/" target="_blank" class="external-link">Serper</a> - Fast, low-cost Google search API.<br>
+<a href="https://serper.dev/" target="_blank" class="external-link">Serper</a> - 快速、低成本的谷歌搜索 API。</li>
+<li><a href="https://serpapi.com/" target="_blank" class="external-link">SerpAPI</a> - Search engine results API.<br>
+<a href="https://serpapi.com/" target="_blank" class="external-link">SerpAPI</a> - 搜索引擎结果 API。</li>
+<li><a href="https://brave.com/search/api/" target="_blank" class="external-link">Brave Search API</a> - Independent search index.<br>
+<a href="https://brave.com/search/api/" target="_blank" class="external-link">Brave Search API</a> - 独立搜索索引。</li>
+<li><a href="https://api.you.com/" target="_blank" class="external-link">You.com API</a> - Web, news, and snippet endpoints.<br>
+<a href="https://api.you.com/" target="_blank" class="external-link">You.com API</a> - Web、新闻和摘要端点。</li>
+<li><a href="https://help.kagi.com/kagi/api/search.html" target="_blank" class="external-link">Kagi Search API</a> - Premium, ad-free search results.<br>
+<a href="https://help.kagi.com/kagi/api/search.html" target="_blank" class="external-link">Kagi 搜索 API</a> - 高级、无广告搜索结果。</li>
+</ul>
+<h2 id="proxy-and-amp-anti-bot-infrastructure" tabindex="-1">Proxy &amp; Anti-Bot Infrastructure代理和反机器人基础设施</h2>
+<ul>
+<li><a href="https://brightdata.com/" target="_blank" class="external-link">Bright Data</a> - 150M+ proxies, Web Unblocker, browser cloud.<br>
+<a href="https://brightdata.com/" target="_blank" class="external-link">Bright Data</a> - 1.5 亿+代理服务器、网页解锁器、浏览器云服务。</li>
+<li><a href="https://oxylabs.io/" target="_blank" class="external-link">Oxylabs</a> - Residential, datacenter, and ISP proxies plus Web Unblocker.<br>
+<a href="https://oxylabs.io/" target="_blank" class="external-link">Oxylabs</a> - 住宅、数据中心和 ISP 代理，以及 Web Unblocker。</li>
+<li><a href="https://decodo.com/" target="_blank" class="external-link">Decodo (Smartproxy)</a> - Residential proxies and scraping APIs.<br>
+<a href="https://decodo.com/" target="_blank" class="external-link">Decodo（Smartproxy）</a> - 住宅代理和抓取 API。</li>
+<li><a href="https://netnut.io/" target="_blank" class="external-link">NetNut</a> - ISP and residential proxy network.<br>
+<a href="https://netnut.io/" target="_blank" class="external-link">NetNut</a> - 互联网服务提供商和住宅代理网络。</li>
+<li><a href="https://www.zenrows.com/" target="_blank" class="external-link">ZenRows</a> - Anti-bot proxy and scraping API.<br>
+<a href="https://www.zenrows.com/" target="_blank" class="external-link">ZenRows</a> - 反机器人代理和爬虫 API。</li>
+<li><a href="https://www.scraperapi.com/" target="_blank" class="external-link">ScraperAPI</a> - Proxy rotation and CAPTCHA handling.<br>
+<a href="https://www.scraperapi.com/" target="_blank" class="external-link">ScraperAPI</a> - 代理轮换和验证码处理。</li>
+</ul>
+<h2 id="datasets" tabindex="-1">Datasets数据集</h2>
+<p>Pre-scraped web data for RAG, training, or benchmarking.<br>
+用于 RAG、训练或基准测试的预先抓取的网络数据。</p>
+<ul>
+<li><a href="https://commoncrawl.org/" target="_blank" class="external-link">Common Crawl</a> - The largest public web crawl. Petabytes of pages, monthly updates.<br>
+<a href="https://commoncrawl.org/" target="_blank" class="external-link">Common Crawl——</a> 规模最大的公共网络爬虫。抓取 PB 级页面，每月更新。</li>
+<li><a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb" target="_blank" class="external-link">FineWeb</a> - 15T-token deduplicated web dataset from Hugging Face.<br>
+<a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb" target="_blank" class="external-link">FineWeb</a> - 来自 Hugging Face 的 15T 标记去重网络数据集。</li>
+<li><a href="https://github.com/togethercomputer/RedPajama-Data" target="_blank" class="external-link">RedPajama-Data-v2</a> - 30T-token open web dataset.<br>
+<a href="https://github.com/togethercomputer/RedPajama-Data" target="_blank" class="external-link">RedPajama-Data-v2</a> - 30T 令牌开放网络数据集。</li>
+<li><a href="https://huggingface.co/datasets/allenai/c4" target="_blank" class="external-link">C4</a> - Colossal Clean Crawled Corpus derived from Common Crawl.<br>
+<a href="https://huggingface.co/datasets/allenai/c4" target="_blank" class="external-link">C4</a> - 源自 Common Crawl 的巨型清洁爬取语料库。</li>
+<li><a href="https://pile.eleuther.ai/" target="_blank" class="external-link">The Pile</a> - 825 GiB diverse text corpus including web data.<br>
+<a href="https://pile.eleuther.ai/" target="_blank" class="external-link">The Pile</a> - 包含网络数据的 825 GiB 多样化文本语料库。</li>
+</ul>
+<h2 id="benchmarks-and-amp-research" tabindex="-1">Benchmarks &amp; Research基准与研究</h2>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/research/publication/from-one-tree-to-a-forest-a-unified-solution-for-structured-web-data-extraction/" target="_blank" class="external-link">SWDE</a> - Structured Web Data Extraction benchmark from Microsoft Research.<br>
+<a href="https://www.microsoft.com/en-us/research/publication/from-one-tree-to-a-forest-a-unified-solution-for-structured-web-data-extraction/" target="_blank" class="external-link">SWDE</a> - 微软研究院的结构化 Web 数据提取基准测试。</li>
+<li><a href="https://x-lance.github.io/WebSRC/" target="_blank" class="external-link">WebSRC</a> - Dataset for web-based structural reading comprehension.<br>
+<a href="https://x-lance.github.io/WebSRC/" target="_blank" class="external-link">WebSRC</a> - 基于网络的结构化阅读理解数据集。</li>
+<li><a href="https://arxiv.org/abs/2406.06237" target="_blank" class="external-link">AXE</a> - Research on DOM pruning for token-efficient LLM extraction.<br>
+<a href="https://arxiv.org/abs/2406.06237" target="_blank" class="external-link">AXE</a> - 研究 DOM 修剪以实现高效的 LLM 提取。</li>
+<li><a href="https://arxiv.org/abs/2503.05036" target="_blank" class="external-link">NEXT-EVAL</a> - Benchmark comparing HTML representations for LLM extraction accuracy.<br>
+<a href="https://arxiv.org/abs/2503.05036" target="_blank" class="external-link">NEXT-EVAL</a> - 比较 HTML 表示形式在 LLM 提取准确性方面的基准测试。</li>
+</ul>
+<h2 id="tutorials-and-amp-guides" tabindex="-1">Tutorials &amp; Guides教程与指南</h2>
+<ul>
+<li><a href="https://docs.firecrawl.dev/" target="_blank" class="external-link">Firecrawl Docs</a> - Guides for RAG ingestion, structured extraction, and agent integration.<br>
+<a href="https://docs.firecrawl.dev/" target="_blank" class="external-link">Firecrawl 文档</a> - RAG 摄取、结构化提取和代理集成指南。</li>
+<li><a href="https://docs.crawl4ai.com/" target="_blank" class="external-link">Crawl4AI Documentation</a> - Walk-throughs for LLM-based extraction strategies.<br>
+<a href="https://docs.crawl4ai.com/" target="_blank" class="external-link">Crawl4AI 文档</a> - 基于 LLM 的提取策略演练。</li>
+<li><a href="https://jina.ai/reader/" target="_blank" class="external-link">Jina Reader Quickstart</a> - One-line URL conversion.<br>
+<a href="https://jina.ai/reader/" target="_blank" class="external-link">Jina Reader 快速入门</a> - 单行 URL 转换。</li>
+<li><a href="https://python.langchain.com/docs/integrations/document_loaders/" target="_blank" class="external-link">LangChain Web Loaders</a> - Document loaders for web content.<br>
+<a href="https://python.langchain.com/docs/integrations/document_loaders/" target="_blank" class="external-link">LangChain Web Loaders</a> - 用于网页内容的文档加载器。</li>
+<li><a href="https://llamahub.ai/" target="_blank" class="external-link">LlamaIndex Web Connectors</a> - Web data connectors for LlamaIndex.<br>
+<a href="https://llamahub.ai/" target="_blank" class="external-link">LlamaIndex Web Connectors</a> - LlamaIndex 的 Web 数据连接器。</li>
+</ul>
+<h2 id="contributing" tabindex="-1">Contributing贡献</h2>
+<p>Contributions welcome. Open a pull request to add a new tool or resource.<br>
+欢迎贡献代码。提交 pull request 即可添加新工具或资源。</p>
+<p>Guidelines:<br>
+指南：</p>
+<ul>
+<li>Keep entries focused on AI/LLM-powered scraping. Generic scrapers belong elsewhere.<br>
+条目应重点关注基于人工智能/LLM 的爬虫技术。通用爬虫技术应放在其他地方。</li>
+<li>Follow the format: <code>- [Name](url) - One-line description.</code><br>
+请按照以下格式操作： <code>- [Name](url) - One-line description.</code></li>
+<li>Add the GitHub stars badge for open-source projects.<br>
+为开源项目添加 GitHub 星标徽章。</li>
+<li>Mention pricing in the description if relevant (free tier, paid, etc.).<br>
+如果相关，请在描述中提及价格（免费版、付费版等）。</li>
+</ul>
+<h2 id="license" tabindex="-1">License执照</h2>
+<p>To the extent possible under law, the contributors have waived all copyright and related rights to this work.<br>
+在法律允许的范围内，贡献者已放弃对本作品的所有版权及相关权利。</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#awesome-ai-web-scraping-ai">Awesome AI Web Scraping超棒的 AI 网络爬虫</a>
+</li>
+<li><a href="#contents">Contents内容</a>
+</li>
+<li><a href="#frameworks-and-amp-libraries">Frameworks & Libraries框架和库</a>
+</li>
+<li><a href="#hosted-ap-is-api">Hosted APIs托管式 API</a>
+</li>
+<li><a href="#browser-infrastructure-for-ai">Browser Infrastructure for AI人工智能浏览器基础设施</a>
+</li>
+<li><a href="#no-code-ai-scrapers">No-Code AI Scrapers无代码人工智能爬虫</a>
+</li>
+<li><a href="#mcp-servers-for-scraping-mcp">MCP Servers for Scraping用于网络爬虫的 MCP 服务器</a>
+</li>
+<li><a href="#web-search-ap-is-for-ll-ms-web-api">Web Search APIs for LLMs面向法学硕士的 Web 搜索 API</a>
+</li>
+<li><a href="#proxy-and-amp-anti-bot-infrastructure">Proxy & Anti-Bot Infrastructure代理和反机器人基础设施</a>
+</li>
+<li><a href="#datasets">Datasets数据集</a>
+</li>
+<li><a href="#benchmarks-and-amp-research">Benchmarks & Research基准与研究</a>
+</li>
+<li><a href="#tutorials-and-amp-guides">Tutorials & Guides教程与指南</a>
+</li>
+<li><a href="#contributing">Contributing贡献</a>
+</li>
+<li><a href="#license">License执照</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
