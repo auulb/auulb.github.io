@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>fullstackopen</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-claude-skills/">awesome-claude-skills </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science/">computer-science </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes/">CS-Notes技术面试 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">developer-roadmap </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">free-programming-books </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/freeCodeCamp/">freeCodeCamp </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/fullstackopen/">fullstackopen </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">JavaGuide </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/llm-course/">llm-course </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days/">Python-100-Days </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer/">system-design-primer </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统/">学习如何设计大型系统 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('test')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">test</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">fullstackopen</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#clippings
+</a>
+</div>
+</div>
+</header>
+<p>![arrow-up](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48dGl0bGU+aWNfYXJyb3dfdXB3YXJkXzQ4cHg8L3RpdGxlPg0KICAgIDxnIGNsYXNzPSJuYy1pY29uLXdyYXBwZXIiIGZpbGw9IiMxMTExMTEiPg0KICAgICAgICA8cGF0aCBkPSJNOCAyNGwyLjgzIDIuODNMMjIgMTUuNjZWNDBoNFYxNS42NmwxMS4xNyAxMS4xN0w0MCAyNCAyNCA4IDggMjR6Ii8+DQogICAgPC9nPg0KPC9zdmc+)</p>
+<p><a href="https://fullstackopen.com/zh/part0/web_%E5%BA%94%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD" target="_blank" class="external-link">b Web 应用的基础设施</a></p>
+<p>本课程是介绍如何使用 JavaScript 进行现代 Web 应用的开发 。重点是用React实现单页应用，并用 Node.js 实现 RESTful 和 GraphQL web 服务来支撑 React 应用。该课程也包含关于TypeScript、React Native和持续集成的内容。</p>
+<p>本课程还包含其他的一些内容，包括调试应用，容器技术，配置、管理运行时环境以及数据库。</p>
+<h3 id="prerequisites" tabindex="-1">Prerequisites</h3>
+<p>学员应具备良好的编程技能，网络编程和数据库的基本知识，并掌握Git版本管理系统。还希望我们的学员有坚持不懈的精神，有独立解决问题和搜寻信息的能力。</p>
+<p>除此之外，不要求以前对 JavaScript 或其他课程的主题有了解。</p>
+<h3 id="course-material" tabindex="-1">Course material</h3>
+<p>课程教材的安排，是按顺序一个章节一个章节地学。</p>
+<p>教材中包含了一些练习，这些练习的安排，是为了让前面的教材提供足够的信息来解决每一个练习。你可以边学习课程边做练习，也可以在通读每一章节的内容后，再来完成练习。</p>
+<p>在本课程的许多章节，是通过练习构建一个较大的应用，一次构建一小块。也有些练习的应用是贯穿多个章节进行构建的。</p>
+<p>课程教材是基于逐步扩展的实例应用，这些实例应用在各个章节中都有变化。最好是跟着代码走，同时独立进行小的修改。在GitHub上可以找到每个章节每一步的示例代码。</p>
+<h3 id="taking-the-course" tabindex="-1">Taking the course</h3>
+<p>本课程包含14个章节，其中第一章节的编号为0，以便与过去的迭代一致。一个章节大概需要一个周（平均15-20小时）的学习，但完成课程的速度是十分灵活的。</p>
+<p>从第 <em>n</em> 章进入 <em>n+1</em> 章之前，最好对第 <em>n</em> 章节的主题有足够的了解。在教学方面，本课程使用 <a href="https://en.wikipedia.org/wiki/Mastery_learning" target="_blank" class="external-link">掌握学习法（Mastery Learning）</a> ，其精髓就是让你在完成上一章足够的练习之后再进入下一章节。</p>
+<p>在第 1-4 章中，你应该 <em>至少</em> 做完所有没有标有星号（*）的练习。标有星号的练习虽然计入你的最终成绩，但跳过这些练习并不妨碍你做下一章节的必修练习。第5章节没有标有星号的练习，因为与前几章节没有类似的依赖关系。</p>
+<p>完成课程的速度是灵活的。</p>
+<p>练习完成时间的统计可以通过 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen" target="_blank" class="external-link">提交系统</a> 找到。</p>
+<h3 id="parts-and-completion" tabindex="-1">Parts and completion</h3>
+<p>全栈课程的学习由核心课程和多个扩展课程组成。你可以通过完成这些内容的学习获得5到14个学分。</p>
+<h4 id="parts-0-5-core-course-full-stack-web-development-5-cr-csm-141081" tabindex="-1">Parts 0-5 (core course) - Full Stack Web Development (5 cr, CSM141081)</h4>
+<p>课程的学分和成绩是基于0-7章节提交的练习总数（包括标有星号的练习）。</p>
+<p>学分和成绩的计算方法如下。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>exercises</th>
+<th>credits</th>
+<th>grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>138</td>
+<td>7</td>
+<td>5</td>
+</tr>
+<tr>
+<td>127</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>116</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>105</td>
+<td>5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>94</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>83</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>72</td>
+<td>5</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果你想获得大学学分，你必须通过考试。考试不计入你的最终成绩，但你必须通过。你在Moodle学习环境中进行考试，一旦你 <a href="https://fullstackopen.com/en/part0/general_info#sign-up-for-the-exam" target="_blank" class="external-link">注册</a> 参加考试，就可以通过 <a href="https://studies.helsinki.fi/courses/cur/otm-dbf5a51d-2121-4110-af0f-f1e8f0b74fb9/_Full_Stack_Web_Development" target="_blank" class="external-link">开放大学课程网页</a> 进入该网页。</p>
+<p>一旦你完成了足够的练习，达到了合格的成绩，你可以从 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen" target="_blank" class="external-link">提交系统</a> 下载课程证书。</p>
+<p>最后可参加考试的日期是2023年1月10日。 <strong>注意</strong> ，你必须在2023年1月9日之前报名参加考试，这是最晚的时间。</p>
+<p>你只有在提交了足够的习题以获得5个学分后才能参加考试。在实践中，不建议提交了关键数量的练习后立即参加考试。5-14个学分的考试是一样的，不计入你的成绩。</p>
+<p><em>You do not need to attend the course exam or register to the Open University course in order to obtain the course certificate.</em></p>
+<h4 id="part-6-full-stack-web-development-extension-1-1-cr-csm-141082" tabindex="-1">Part 6 - Full Stack Web Development, extension 1 (1 cr, CSM141082)</h4>
+<p>在学习核心课程的同时，提交至少127份0-7章节的练习，你可以通过这个扩展获得额外的学分。</p>
+<ul>
+<li>提交至少127道0-7章节的练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-de83e85f-a06e-4258-ad8c-30326d76228e" target="_blank" class="external-link">通过开放大学报名学习第6章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第六章节的学分</a> 。</li>
+</ul>
+<h4 id="part-7-full-stack-web-development-extension-2-1-cr-csm-141083" tabindex="-1">Part 7 - Full Stack Web Development, extension 2 (1 cr, CSM141083)</h4>
+<p>在学习核心课程的同时，提交至少138道0-7章节的练习，你可以通过这个扩展获得一个额外的学分。</p>
+<ul>
+<li>提交至少138道0-7章节的练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-53ccca2f-8e77-47e3-931a-63f9d5c8cc2e" target="_blank" class="external-link">通过开放大学报名学习第7章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第七章节的学分</a> 。</li>
+</ul>
+<h4 id="part-8-full-stack-web-development-graph-ql-1-cr-csm-14113" tabindex="-1">Part 8 - Full Stack Web Development: GraphQL (1 cr, CSM14113)</h4>
+<p>通过提交课程第八章节GraphQL的至少22/26道练习，你可以获得一个额外的学分。第8章节可以在第5章节之后的任何时间进行，因为它的内容与第6和第7章节是独立的。</p>
+<ul>
+<li>第8章节提交至少22/26道练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-b7f5ef26-b780-45f2-962d-f8d3432cae78" target="_blank" class="external-link">通过开放大学报名参加第八章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第八章节的学分</a> 。</li>
+</ul>
+<h4 id="part-9-full-stack-web-development-type-script-1-cr-csm-14110" tabindex="-1">Part 9 - Full Stack Web Development: TypeScript (1 cr, CSM14110)</h4>
+<p>通过提交课程第九章节TypeScript的至少24/29道练习，你可以获得一个额外的学分。建议你在学习第9章节之前完成第0-7章节。</p>
+<ul>
+<li>提交至少24/29道第九章节的练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-e45a36b7-24d7-424b-9dc5-1c9b59a52a23" target="_blank" class="external-link">通过开放大学报名参加第9章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第九章节的学分</a> 。</li>
+</ul>
+<h4 id="part-10-full-stack-web-development-react-native-2-cr-csm-14111" tabindex="-1">Part 10 - Full Stack Web Development: React Native (2 cr, CSM14111)</h4>
+<p>通过提交第10章节关于React Native课程的25道练习题，你可以获得两个额外的学分。关于这章节的先决条件、练习提交和学分的更多信息可以在 <a href="https://fullstackopen.com/en/part10/introduction_to_react_native" target="_blank" class="external-link">第10章节</a> 找到。</p>
+<ul>
+<li>为第10章节提交至少25道练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-ec172afe-bc01-46ab-af23-694311f1950a" target="_blank" class="external-link">通过开放大学报名参加第10章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第十章节的学分</a> 。</li>
+</ul>
+<h4 id="part-11-full-stack-web-development-continuous-integration-continuous-delivery-1-cr-csm-14112" tabindex="-1">Part 11 - Full Stack Web Development: Continuous Integration / Continuous Delivery (1 cr, CSM14112)</h4>
+<p>通过提交持续集成/交付课程第11章节的所有练习，你可以获得一个额外的学分。关于这部分的先决条件和练习提交的更多信息可以在 <a href="https://fullstackopen.com/en/part11" target="_blank" class="external-link">第11章节</a> 中找到。</p>
+<ul>
+<li>提交第11章节的所有练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-23e79dc2-64e4-4f7e-86a4-8923a411443c" target="_blank" class="external-link">通过开放大学报名参加第11章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第11章节的学分</a> 。</li>
+</ul>
+<h4 id="part-12-full-stack-web-development-containers-1-cr-csm-141084" tabindex="-1">Part 12 - Full Stack Web Development: Containers (1 cr, CSM141084)</h4>
+<p>通过提交第12章节关于容器技术课程的所有练习，你可以获得一个额外的学分。关于这部分的先决条件和练习提交的更多信息可以在 <a href="https://fullstackopen.com/en/part12" target="_blank" class="external-link">第12章节</a> 中找到。</p>
+<ul>
+<li>提交第12章节的所有练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-bb07e139-3de0-4cb3-843d-414b1bb992cc" target="_blank" class="external-link">通过开放大学报名参加第12章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第12章节的学分</a> 。</li>
+</ul>
+<h4 id="part-13-full-stack-web-development-relational-databases-1-cr-csm-14114" tabindex="-1">Part 13 - Full Stack Web Development: relational databases (1 cr, CSM14114)</h4>
+<p>通过提交关系数据库课程第13章节的所有练习，你可以获得一个额外的学分。关于这章节的先决条件和练习提交的更多信息可以在 <a href="https://fullstackopen.com/en/part13" target="_blank" class="external-link">第13章节</a> 中找到。</p>
+<ul>
+<li>提交第13章节的所有练习。</li>
+<li><a href="https://www.avoin.helsinki.fi/palvelut/esittely.aspx?s=otm-a9204ed8-1346-4174-b27c-9e02c6136088" target="_blank" class="external-link">通过开放大学报名参加第13章节</a> 。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info/#how-to-get-your-credits" target="_blank" class="external-link">申请第13章节的学分</a> 。</li>
+</ul>
+<h3 id="studying-the-course-in-a-nutshell" tabindex="-1">Studying the course in a nutshell</h3>
+<p>如何学习该课程--简要说明(5 cr 核心课程CSM141081)</p>
+<ul>
+<li>做练习。练习是通过GitHub提交的，并在 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen" target="_blank" class="external-link">提交系统</a> 上标记为已完成。</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info#course-certificate" target="_blank" class="external-link">课程证书</a> 将在提交系统中提供。</li>
+<li>如果你想获得赫尔辛基大学的学分
+<ul>
+<li>报名参加课程。一旦你完成了足够的练习，你将通过提交系统得到注册链接。阅读 <a href="https://fullstackopen.com/en/part0/general_info#sign-up-for-the-exam" target="_blank" class="external-link">这里</a> 获取更多信息。
+<ul>
+<li>激活你的赫尔辛基大学用户账户。你可以在成功报名参加课程后激活你的用户账户。在尝试课程考试之前必须激活用户账户。阅读更多关于激活用户账户的信息，点击 <a href="https://fullstackopen.com/en/part0/general_info#sign-up-for-the-exam" target="_blank" class="external-link">这里</a> 。</li>
+<li>在Moodle中进行在线考试。你可以通过 <a href="https://moodle.helsinki.fi/course/view.php?id=46197" target="_blank" class="external-link">此</a> 链接进入Moodle。用你的赫尔辛基大学用户账户登录Moodle。</li>
+<li>保存你的学生号。课程注册后，在提交系统中保存你的赫尔辛基大学学生号。</li>
+<li>在提交系统中标记课程完成，阅读更多信息，点击 <a href="https://fullstackopen.com/en/part0/general_info#how-to-get-your-credits" target="_blank" class="external-link">这里</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>如何学习该课程 - 简要说明 (5 cr 核心课程 CSM141081)</p>
+<ul>
+<li>做练习。练习是通过GitHub提交的，并在提交系统上标记为完成。请注意，第8章节后，每个章节在提交系统中都有一个单独的实例</li>
+<li><a href="https://fullstackopen.com/en/part0/general_info#course-certificate" target="_blank" class="external-link">课程证书</a> 将在提交系统中提供。</li>
+<li>如果你想获得赫尔辛基大学的学分</li>
+<li>报名参加该课程。你可以通过教材中的链接注册每个章节（ <a href="https://fullstackopen.com/en/part0/general_info#parts-and-completion" target="_blank" class="external-link">部分和完成</a> ）。分别报名参加每个章节的学习。</li>
+<li>在提交系统中标记完成的章节，阅读更多，点击 <a href="https://fullstackopen.com/en/part0/general_info#how-to-get-your-credits" target="_blank" class="external-link">这里</a></li>
+</ul>
+<h3 id="submitting-exercises" tabindex="-1">Submitting exercises</h3>
+<p>练习是通过GitHub提交的，并在 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen" target="_blank" class="external-link">提交系统</a> 上标记为完成。</p>
+<p>如果你要将不同章节的练习提交到同一个仓库，请使用适当的系统来命名你的目录。当然，你可以为每个章节创建一个新的仓库。如果你使用的是一个私人版本库，请添加 <em>mluukkai</em> 作为合作者。</p>
+<p>练习是 <strong>一次提交一个章节的</strong> 。一旦你为一个章节提交了练习，你就不能再为该章节提交任何练习。</p>
+<p>一个检测抄袭的系统会用来检查提交到GitHub的练习。如果从模型中检测到了答案代码，或者多个学生提交了相同的代码，这种情况将根据赫尔辛基大学的 <a href="https://guide.student.helsinki.fi/en/article/what-cheating-and-plagiarism" target="_blank" class="external-link">抄袭政策</a> 来处理。</p>
+<p>许多练习都是一点一点地建立一个较大的应用。在这些情况下，只提交完成的应用就足够了。你可以在每个练习后做一个提交，但这并不强制。</p>
+<h3 id="sign-up-for-the-exam" tabindex="-1">Sign up for the exam</h3>
+<p>为了获得正式的大学学分，你需要通过在开放大学Moodle系统进行的课程考试。按照下面的说明，进入课程的Moodle空间。</p>
+<ul>
+<li>在2023年1月9日之前通过开放大学报名参加该课程。</li>
+<li>一旦你完成足够的练习，你将通过 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen/submissions" target="_blank" class="external-link">提交系统</a> 获得注册链接。<br>
+<img src="https://fullstackopen.com/static/56a5a9ad2e5a4ee7fc776a26afbc87b8/5a190/enroll.png" alt="fullstack content"></li>
+</ul>
+<p>在你完成之后，你可以通过 <a href="https://moodle.helsinki.fi/course/view.php?id=46197" target="_blank" class="external-link">这个链接</a> 进入Moodle。</p>
+<ul>
+<li>通过开放大学成功地注册了课程，并且</li>
+<li>激活你的赫尔辛基大学用户账户。</li>
+<li>你可以在成功注册课程后激活你的用户账户。用户账户必须在尝试课程考试前激活。阅读更多关于激活用户账户的信息，点击 <a href="https://studies.helsinki.fi/instructions/article/university-helsinki-user-account-open-university" target="_blank" class="external-link">这里</a> 。</li>
+</ul>
+<p>课程注册后，在 <a href="https://studies.cs.helsinki.fi/stats/myinfo" target="_blank" class="external-link">提交系统</a> 中保存你的赫尔辛基大学学生号。参见 <a href="https://fullstackopen.com/en/part0/general_info#wher-do-i-get-my-university-of-helsinki-student-number" target="_blank" class="external-link">这里</a> ，了解如何找到你的学生号。</p>
+<p>请注意。</p>
+<ul>
+<li>你只需要有Moodle权限来参加考试，而不是用来获取课程证书。</li>
+<li>该课程的学分只提供给通过开放大学成功注册该课程并按照说明完成该课程的学生。</li>
+</ul>
+<h3 id="how-to-get-your-credits" tabindex="-1">How to get your credits</h3>
+<p>如果你想获得赫尔辛基大学的学分，请将你的 <strong>赫尔辛基大学</strong> 学号保存到 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen" target="_blank" class="external-link">练习提交系统</a></p>
+<p><img src="https://fullstackopen.com/static/c932af5dbda3a8de6e4e59ad830fe4f2/5a190/28b.png" alt="fullstack content"></p>
+<p>如果你不是赫尔辛基大学的学生，你可以通过 <a href="https://fullstackopen.com/en/part0/general_info#sign-up-for-the-exam" target="_blank" class="external-link">开放大学</a> 注册课程来获得学号，更多信息见 <a href="https://fullstackopen.com/en/part0/general_info#where-do-i-get-my-university-of-helsinki-student-number" target="_blank" class="external-link">这里</a> 。</p>
+<p>当你提交了足够的练习以获得合格的成绩，通过了考试，并通过练习提交系统让我们知道你已经完成了课程，你就会收到你的学分。</p>
+<p><img src="https://fullstackopen.com/static/1b9fc5af56ea92d38ded5516c8ccb894/5a190/28a.png" alt="fullstack content"></p>
+<p>你可以在通知我们之后的大约四周，在赫尔辛基大学的Sisu和 <a href="https://opintopolku.fi/oma-opintopolku/" target="_blank" class="external-link">Opintopolku</a> 查看你的成绩。</p>
+<p><strong>请注意</strong> ，为了获得大学学分，你需要对每一个完成的章节进行注册，请参见 <a href="https://fullstackopen.com/en/part0/general_info#parts-and-completion" target="_blank" class="external-link">关于注册的更多信息</a> 。</p>
+<h3 id="where-do-i-get-my-university-of-helsinki-student-number" tabindex="-1">Where do I get my University of Helsinki Student number</h3>
+<p>当你第一次通过开放大学报名参加课程时，赫尔辛基大学的学号会自动生成。请确认你已经报名参加了课程，然后再去查询你的学号是什么。</p>
+<p>还要注意，为了获得课程证书， <strong>你不需要注册</strong> 开放大学!</p>
+<p>你可以通过下面的一个选项来了解你的学号是什么。</p>
+<h4 id="a-sisu" tabindex="-1">A) Sisu</h4>
+<p>如果你有赫尔辛基大学的用户账户，你可以在赫尔辛基大学的学习信息系统Sisu中找到你的学生号。</p>
+<ul>
+<li>用你的赫尔辛基大学用户名和密码登录Sisu。</li>
+<li>选择。我的个人资料</li>
+<li>选择:个人信息</li>
+</ul>
+<h4 id="b-enrollment-confirmation-email" tabindex="-1">B) Enrollment confirmation email</h4>
+<p>课程注册后，你会收到一封确认邮件，邮件地址是你在注册表上输入的邮箱。这封邮件或者直接有你的学生号，或者包含一个链接，把你带到一个显示你的赫尔辛基大学学号的页面。</p>
+<h4 id="c-contact-student-services" tabindex="-1">C) Contact Student Services</h4>
+<p>如果你在通过上述方式找到你的学生号时遇到困难，你可以向赫尔辛基大学学生服务处发送电子邮件</p>
+<p>在你的电子邮件中，包括以下信息</p>
+<p>-你所注册的课程名称。</p>
+<p>-你的姓名，和</p>
+<p>-你的出生日期。</p>
+<p>学生服务部的电子邮件地址：avoin-student@helsinki.fi</p>
+<h3 id="course-certificate" tabindex="-1">Course certificate</h3>
+<p>即使你没有向开放大学注册考试，一旦你完成了足够的练习，达到了合格的成绩，你仍然可以从 <a href="https://studies.cs.helsinki.fi/stats/courses/fullstackopen" target="_blank" class="external-link">提交系统</a> 下载课程证书。</p>
+<h3 id="request-a-transcript-of-studies" tabindex="-1">Request a transcript of studies</h3>
+<p>你可以在 <em>你的大学学分注册后</em> ，申请一份经过验证的学习成绩单。要申请一份正式的学习成绩单，请联系avoin-student@helsinki.fi。</p>
+<ul>
+<li>申请官方成绩单时，记得要提到</li>
+<li>课程的名称。</li>
+<li>你的全名。</li>
+<li>你的出生日期，和</li>
+<li>成绩单的语言。</li>
+</ul>
+<p>成绩单将通过电子邮件以电子版的方式交付给你。在你的学校出示这份文件，以便将学分纳入你的学位。是否承认这些学分将由你所在的学校决定。</p>
+<h3 id="expanding-on-a-previously-completed-course" tabindex="-1">Expanding on a previously completed course</h3>
+<p>如果你已经以MOOC或大学课程的形式学习过该课程，你现在可以扩展你的课程。</p>
+<h4 id="expanding-on-full-stack-open" tabindex="-1">Expanding on Full stack open</h4>
+<p>你可以直接接续你上次学到的地方！如果你想重新提交整个章节，请通过 <a href="mailto:matti.luukkainen@helsinki.fi" target="_blank" class="external-link">email</a> 或Discord 联系课程人员 <em>mluukkai</em> ，说明你的GitHub用户名和你想从提交的内容中删除哪些部分。</p>
+<h4 id="expanding-on-the-university-of-helsinki-instance-of-this-course" tabindex="-1">Expanding on the University of Helsinki instance of this course</h4>
+<p>这也是可以的，只要通过 <a href="mailto:matti.luukkainen@helsinki.fi" target="_blank" class="external-link">email</a> 或Discord 联系课程人员 <em>mluukkai</em> 。</p>
+<h3 id="full-stack-project" tabindex="-1">Full stack project</h3>
+<p>通过开放大学将提供一个价值5、7或10学分的全栈项目。</p>
+<p>对于该项目，应用是在React和/或Node中实现的，尽管在React Native中实现一个移动应用也是可以的。</p>
+<p>学分的数量是基于所做工作的时间。一个学分大约是17.5小时的工作。工作被评为合格/不合格。</p>
+<p>可以以双人或小组形式完成该项目。</p>
+<p>参见 <a href="https://github.com/fullstack-hy2020/misc/blob/master/project.md" target="_blank" class="external-link">关于项目的更多信息</a> 。</p>
+<h3 id="interview-promise" tabindex="-1">Interview promise</h3>
+<p>我们的合作者 <a href="https://www.terveystalo.com/en/" target="_blank" class="external-link">Terveystalo</a> 和 <a href="https://www.smartly.io/" target="_blank" class="external-link">Smartly.io</a> ，已经给了每个完成课程和项目工作并获得最高学分（14+10）的人一个工作面试的 <em>promise</em> 。如果你在2022年3月15日之前完成项目，那么2021年发布的第12和13章节就不需要了。</p>
+<p>这意味着，如果学生选择，报名参加合作方的工作面试。课程的老师Matti Luukkainen会给课程完成后并获得最大的学分的学生发送指引。</p>
+<p>你需要是芬兰的居民，才能参加这些面试。</p>
+<h3 id="before-you-start" tabindex="-1">Before you start</h3>
+<p>本课程推荐使用 <a href="https://www.google.com/chrome/" target="_blank" class="external-link">Chrome浏览器</a> ，因为它提供了最好的网络开发工具。另一个选择是 <a href="https://www.mozilla.org/en-US/firefox/developer/" target="_blank" class="external-link">火狐浏览器的开发者版本</a> ，它提供了同样的功能范围。</p>
+<p>课程练习提交到GitHub，所以必须安装Git，并且你应该知道如何使用它。有关说明，见 <a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners" target="_blank" class="external-link">Git和GitHub初学者教程</a> 。</p>
+<p>安装一些支持 Web 开发的趁手的文本编辑器。强烈推荐 <a href="https://code.visualstudio.com/" target="_blank" class="external-link">Visual Studio Code</a> 。</p>
+<p>不要用nano、Notepad或Gedit编码。NetBeans对于网络开发也不是很好。与Visual Studio Code相比，也是相当重的。</p>
+<p>同时安装 <a href="https://nodejs.org/en/" target="_blank" class="external-link">Node.js</a> 。教材是用16.13.2版本完成的，所以不要安装任何比这更早的版本。参见 <a href="https://nodejs.org/en/download/package-manager/" target="_blank" class="external-link">Node.js安装说明</a> 。</p>
+<p>Node软件包管理器 <a href="https://www.npmjs.com/get-npm" target="_blank" class="external-link">npm</a> 将与Node.js一起自动安装。我们将在整个课程中积极使用npm。Node还带有 <a href="https://www.npmjs.com/package/npx" target="_blank" class="external-link">npx</a> ，我们会有几次需要它。</p>
+<h3 id="typos-in-the-material" tabindex="-1">Typos in the material</h3>
+<p>如果你发现教材中有错别字，或者有些东西表达不清楚，或者只是语法不好，请向课程教材的 <a href="https://github.com/fullstack-hy2020/fullstack-hy2020.github.io" target="_blank" class="external-link">仓库</a> 中提交一个 <em>pull request</em> 。例如，本页面的markdown源代码可以在仓库中找到，地址是 <a href="https://github.com/fullstack-hy2020/fullstack-hy2020.github.io/edit/source/src/content/0/en/part0a.md" target="_blank" class="external-link">https://github.com/fullstack-hy2020/fullstack-hy2020.github.io/edit/source/src/content/0/en/part0a.md</a> 。</p>
+<p>在每一章节的教材底部都有一个链接，用于 <em>对材料提出修改意见</em> 。你可以通过点击该链接来编辑该页的源代码。</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#prerequisites">Prerequisites</a>
+</li>
+<li><a href="#course-material">Course material</a>
+</li>
+<li><a href="#taking-the-course">Taking the course</a>
+</li>
+<li><a href="#parts-and-completion">Parts and completion</a>
+<ol>
+<li><a href="#parts-0-5-core-course-full-stack-web-development-5-cr-csm-141081">Parts 0-5 (core course) - Full Stack Web Development (5 cr, CSM141081)</a>
+</li>
+<li><a href="#part-6-full-stack-web-development-extension-1-1-cr-csm-141082">Part 6 - Full Stack Web Development, extension 1 (1 cr, CSM141082)</a>
+</li>
+<li><a href="#part-7-full-stack-web-development-extension-2-1-cr-csm-141083">Part 7 - Full Stack Web Development, extension 2 (1 cr, CSM141083)</a>
+</li>
+<li><a href="#part-8-full-stack-web-development-graph-ql-1-cr-csm-14113">Part 8 - Full Stack Web Development: GraphQL (1 cr, CSM14113)</a>
+</li>
+<li><a href="#part-9-full-stack-web-development-type-script-1-cr-csm-14110">Part 9 - Full Stack Web Development: TypeScript (1 cr, CSM14110)</a>
+</li>
+<li><a href="#part-10-full-stack-web-development-react-native-2-cr-csm-14111">Part 10 - Full Stack Web Development: React Native (2 cr, CSM14111)</a>
+</li>
+<li><a href="#part-11-full-stack-web-development-continuous-integration-continuous-delivery-1-cr-csm-14112">Part 11 - Full Stack Web Development: Continuous Integration / Continuous Delivery (1 cr, CSM14112)</a>
+</li>
+<li><a href="#part-12-full-stack-web-development-containers-1-cr-csm-141084">Part 12 - Full Stack Web Development: Containers (1 cr, CSM141084)</a>
+</li>
+<li><a href="#part-13-full-stack-web-development-relational-databases-1-cr-csm-14114">Part 13 - Full Stack Web Development: relational databases (1 cr, CSM14114)</a>
+</li>
+</ol>
+</li>
+<li><a href="#studying-the-course-in-a-nutshell">Studying the course in a nutshell</a>
+</li>
+<li><a href="#submitting-exercises">Submitting exercises</a>
+</li>
+<li><a href="#sign-up-for-the-exam">Sign up for the exam</a>
+</li>
+<li><a href="#how-to-get-your-credits">How to get your credits</a>
+</li>
+<li><a href="#where-do-i-get-my-university-of-helsinki-student-number">Where do I get my University of Helsinki Student number</a>
+<ol>
+<li><a href="#a-sisu">A) Sisu</a>
+</li>
+<li><a href="#b-enrollment-confirmation-email">B) Enrollment confirmation email</a>
+</li>
+<li><a href="#c-contact-student-services">C) Contact Student Services</a>
+</li>
+</ol>
+</li>
+<li><a href="#course-certificate">Course certificate</a>
+</li>
+<li><a href="#request-a-transcript-of-studies">Request a transcript of studies</a>
+</li>
+<li><a href="#expanding-on-a-previously-completed-course">Expanding on a previously completed course</a>
+<ol>
+<li><a href="#expanding-on-full-stack-open">Expanding on Full stack open</a>
+</li>
+<li><a href="#expanding-on-the-university-of-helsinki-instance-of-this-course">Expanding on the University of Helsinki instance of this course</a>
+</li>
+</ol>
+</li>
+<li><a href="#full-stack-project">Full stack project</a>
+</li>
+<li><a href="#interview-promise">Interview promise</a>
+</li>
+<li><a href="#before-you-start">Before you start</a>
+</li>
+<li><a href="#typos-in-the-material">Typos in the material</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
