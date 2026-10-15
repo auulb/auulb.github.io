@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>求职网站汇总</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.1cb3cd00.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">Joy</h1>
+</a>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">Joy</h1>
+</a>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Clippings')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Clippings</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-ai-web-scraping/">awesome-ai-web-scraping </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome-claude-skills/">awesome-claude-skills </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/awesome/">awesome </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CodeKey Run/">CodeKey Run </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/computer-science/">computer-science </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/CS-Notes/">CS-Notes技术面试 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/developer-roadmap/">developer-roadmap </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/free-programming-books/">free-programming-books </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/freeCodeCamp/">freeCodeCamp </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/fullstackopen/">fullstackopen </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/JavaGuide/">JavaGuide </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/llm-course/">llm-course </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/Python-100-Days/">Python-100-Days </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/system-design-primer/">system-design-primer </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/学习如何设计大型系统/">学习如何设计大型系统 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Clippings/影视仓/">影视仓 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('test')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">test</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/javaplan/">javaplan </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/test/workplan/">workplan </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/awesome-mac/">awesome-mac </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/Build your own X/">Build your own X </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">day01 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day02/">day02 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/day03/">day03 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/free-programming-books-zh/">free-programming-books-zh </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/开心 10.10/">开心 10.10 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/求职网站汇总/">求职网站汇总 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">求职网站汇总</h1>
+<div class="header-meta">
+<div class="header-tags">
+</div>
+</div>
+</header>
+<h2 id="国内找工作网站" tabindex="-1">国内找工作网站</h2>
+<h3 id="一、国家级官方平台" tabindex="-1">一、国家级官方平台</h3>
+<p>这类平台由人社部、教育部、国资委等部委直管，岗位经过资质核验，全程零收费，是求职安全的基本保障。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国家大学生就业服务平台（24365）</td>
+<td><a href="https://www.ncss.cn" target="_blank" class="external-link">https://www.ncss.cn</a></td>
+<td>教育部官方平台，学信网账号可直接登录，与各地高校就业平台互联</td>
+</tr>
+<tr>
+<td>中国公共招聘网</td>
+<td><a href="http://job.mohrss.gov.cn" target="_blank" class="external-link">http://job.mohrss.gov.cn</a></td>
+<td>人社部主办，全国范围真实岗位</td>
+</tr>
+<tr>
+<td>中国国家人才网</td>
+<td><a href="https://www.newjobs.com.cn" target="_blank" class="external-link">https://www.newjobs.com.cn</a></td>
+<td>人社部主管，综合性人才服务</td>
+</tr>
+<tr>
+<td>就业在线</td>
+<td><a href="https://www.jobonline.cn" target="_blank" class="external-link">https://www.jobonline.cn</a></td>
+<td>人社部平台，覆盖全国岗位</td>
+</tr>
+<tr>
+<td>国聘网</td>
+<td><a href="https://www.iguopin.com" target="_blank" class="external-link">https://www.iguopin.com</a></td>
+<td>国资委旗下，汇聚央企、名企岗位</td>
+</tr>
+<tr>
+<td>中智招聘网</td>
+<td><a href="https://www.ciiczhaopin.com" target="_blank" class="external-link">https://www.ciiczhaopin.com</a></td>
+<td>国资委旗下，央企优质岗位</td>
+</tr>
+<tr>
+<td>中国人力资源市场网</td>
+<td><a href="http://chrm.mohrss.gov.cn" target="_blank" class="external-link">http://chrm.mohrss.gov.cn</a></td>
+<td>人社部主管，综合性人力资源服务</td>
+</tr>
+<tr>
+<td>军队人才网</td>
+<td><a href="http://81rc.81.cn" target="_blank" class="external-link">http://81rc.81.cn</a></td>
+<td>军队文职、直招军官唯一官方渠道</td>
+</tr>
+<tr>
+<td>国资央企招聘平台</td>
+<td><a href="https://cujiuye.iguopin.com" target="_blank" class="external-link">https://cujiuye.iguopin.com</a></td>
+<td>央企校招、社招集中入口</td>
+</tr>
+<tr>
+<td>中国就业网</td>
+<td><a href="http://chinajob.mohrss.gov.cn" target="_blank" class="external-link">http://chinajob.mohrss.gov.cn</a></td>
+<td>人社部就业服务信息</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="二、综合招聘平台" tabindex="-1">二、综合招聘平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOSS直聘</td>
+<td><a href="https://www.zhipin.com" target="_blank" class="external-link">https://www.zhipin.com</a></td>
+<td>直聊模式，求职者直接与HR/老板沟通</td>
+</tr>
+<tr>
+<td>智联招聘</td>
+<td><a href="https://www.zhaopin.com" target="_blank" class="external-link">https://www.zhaopin.com</a></td>
+<td>老牌综合平台，覆盖面广</td>
+</tr>
+<tr>
+<td>前程无忧（51job）</td>
+<td><a href="https://www.51job.com" target="_blank" class="external-link">https://www.51job.com</a></td>
+<td>老牌平台，行业覆盖全面</td>
+</tr>
+<tr>
+<td>猎聘网</td>
+<td><a href="https://www.liepin.com" target="_blank" class="external-link">https://www.liepin.com</a></td>
+<td>聚焦中高端人才，活跃猎头多</td>
+</tr>
+<tr>
+<td>中华英才网</td>
+<td><a href="https://www.chinahr.com" target="_blank" class="external-link">https://www.chinahr.com</a></td>
+<td>综合类招聘，企业资源丰富</td>
+</tr>
+<tr>
+<td>拉勾网</td>
+<td><a href="https://www.lagou.com" target="_blank" class="external-link">https://www.lagou.com</a></td>
+<td>互联网/科技垂直，技术、产品、运营岗集中</td>
+</tr>
+<tr>
+<td>看准网</td>
+<td><a href="https://www.kanzhun.com" target="_blank" class="external-link">https://www.kanzhun.com</a></td>
+<td>附带公司评价、薪资数据，辅助决策</td>
+</tr>
+<tr>
+<td>应届生求职网</td>
+<td><a href="https://www.yingjiesheng.com" target="_blank" class="external-link">https://www.yingjiesheng.com</a></td>
+<td>校招信息集中，应届生专用</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="三、垂直行业招聘网站" tabindex="-1">三、垂直行业招聘网站</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>覆盖行业</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>英才网联</td>
+<td><a href="https://www.800hr.com" target="_blank" class="external-link">https://www.800hr.com</a></td>
+<td>建筑、金融、医药、化工、机械、IT等15个行业</td>
+</tr>
+<tr>
+<td>百大英才网</td>
+<td>各行业子站</td>
+<td>覆盖60余个行业领域</td>
+</tr>
+<tr>
+<td>中国医疗人才网</td>
+<td>—</td>
+<td>医疗卫生领域</td>
+</tr>
+<tr>
+<td>中国建筑人才网</td>
+<td>—</td>
+<td>建筑与房地产</td>
+</tr>
+<tr>
+<td>中国教育在线教师招聘网</td>
+<td><a href="https://teacher.eol.cn" target="_blank" class="external-link">https://teacher.eol.cn</a></td>
+<td>教育行业</td>
+</tr>
+<tr>
+<td>中国卫生人才网</td>
+<td><a href="https://www.21wecan.com" target="_blank" class="external-link">https://www.21wecan.com</a></td>
+<td>医疗卫生系统</td>
+</tr>
+<tr>
+<td>齐鲁人才网</td>
+<td><a href="https://www.qlrc.com" target="_blank" class="external-link">https://www.qlrc.com</a></td>
+<td>山东区域为主</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="国外找工作网站" tabindex="-1">国外找工作网站</h2>
+<h3 id="一、全球综合招聘平台" tabindex="-1">一、全球综合招聘平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LinkedIn</td>
+<td><a href="https://www.linkedin.com/jobs/" target="_blank" class="external-link">https://www.linkedin.com/jobs/</a></td>
+<td>全球最大职业社交+招聘平台，覆盖所有国家和行业</td>
+</tr>
+<tr>
+<td>Indeed Worldwide</td>
+<td><a href="https://www.indeed.com/worldwide" target="_blank" class="external-link">https://www.indeed.com/worldwide</a></td>
+<td>全球最大职位聚合搜索，按国家分站</td>
+</tr>
+<tr>
+<td>Glassdoor</td>
+<td><a href="https://www.glassdoor.com" target="_blank" class="external-link">https://www.glassdoor.com</a></td>
+<td>职位搜索+员工匿名评价+薪资报告</td>
+</tr>
+<tr>
+<td>Monster</td>
+<td><a href="https://www.monster.com" target="_blank" class="external-link">https://www.monster.com</a></td>
+<td>老牌全球招聘平台，多国分站</td>
+</tr>
+<tr>
+<td>CareerBuilder</td>
+<td><a href="https://www.careerbuilder.com" target="_blank" class="external-link">https://www.careerbuilder.com</a></td>
+<td>美国老牌招聘网站，业务遍布全球</td>
+</tr>
+<tr>
+<td>ZipRecruiter</td>
+<td><a href="https://www.ziprecruiter.com" target="_blank" class="external-link">https://www.ziprecruiter.com</a></td>
+<td>AI匹配推荐，美国市场活跃</td>
+</tr>
+<tr>
+<td>Google for Jobs</td>
+<td><a href="https://www.google.com/search?q=jobs" target="_blank" class="external-link">https://www.google.com/search?q=jobs</a></td>
+<td>谷歌聚合各平台职位</td>
+</tr>
+<tr>
+<td>SimplyHired</td>
+<td><a href="https://www.simplyhired.com" target="_blank" class="external-link">https://www.simplyhired.com</a></td>
+<td>职位聚合搜索</td>
+</tr>
+<tr>
+<td><a href="http://Talent.com" target="_blank" class="external-link">Talent.com</a>（原Neuvoo）</td>
+<td><a href="https://www.talent.com" target="_blank" class="external-link">https://www.talent.com</a></td>
+<td>全球职位聚合，覆盖多国</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="二、区域/国别特色平台" tabindex="-1">二、区域/国别特色平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>适用区域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seek</td>
+<td><a href="https://www.seek.com" target="_blank" class="external-link">https://www.seek.com</a></td>
+<td>澳大利亚、新西兰</td>
+</tr>
+<tr>
+<td>JobStreet</td>
+<td><a href="https://www.jobstreet.com" target="_blank" class="external-link">https://www.jobstreet.com</a></td>
+<td>东南亚（马来西亚、新加坡、菲律宾等）</td>
+</tr>
+<tr>
+<td>MyCareersFuture</td>
+<td><a href="https://www.mycareersfuture.gov.sg" target="_blank" class="external-link">https://www.mycareersfuture.gov.sg</a></td>
+<td>新加坡政府平台</td>
+</tr>
+<tr>
+<td>USAJobs</td>
+<td><a href="https://www.usajobs.gov" target="_blank" class="external-link">https://www.usajobs.gov</a></td>
+<td>美国联邦政府职位</td>
+</tr>
+<tr>
+<td>InfoJobs</td>
+<td><a href="https://www.infojobs.net" target="_blank" class="external-link">https://www.infojobs.net</a></td>
+<td>西班牙</td>
+</tr>
+<tr>
+<td>EURES</td>
+<td><a href="https://ec.europa.eu/eures" target="_blank" class="external-link">https://ec.europa.eu/eures</a></td>
+<td>欧盟跨境就业服务</td>
+</tr>
+<tr>
+<td>Careerjet</td>
+<td><a href="https://www.careerjet.co.uk" target="_blank" class="external-link">https://www.careerjet.co.uk</a></td>
+<td>英国及多国分站</td>
+</tr>
+<tr>
+<td><a href="http://Dice.com" target="_blank" class="external-link">Dice.com</a></td>
+<td><a href="https://www.dice.com" target="_blank" class="external-link">https://www.dice.com</a></td>
+<td>美国科技/IT行业垂直</td>
+</tr>
+<tr>
+<td>eFinancialCareers</td>
+<td><a href="https://www.efinancialcareers.com" target="_blank" class="external-link">https://www.efinancialcareers.com</a></td>
+<td>全球金融行业垂直</td>
+</tr>
+<tr>
+<td>Handshake</td>
+<td><a href="https://joinhandshake.com" target="_blank" class="external-link">https://joinhandshake.com</a></td>
+<td>美国大学生/校招平台</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="三、远程工作专用平台" tabindex="-1">三、远程工作专用平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Remote OK</td>
+<td><a href="https://remoteok.com" target="_blank" class="external-link">https://remoteok.com</a></td>
+<td>全球最大远程职位板之一</td>
+</tr>
+<tr>
+<td>We Work Remotely</td>
+<td><a href="https://weworkremotely.com" target="_blank" class="external-link">https://weworkremotely.com</a></td>
+<td>老牌远程招聘，全球职位</td>
+</tr>
+<tr>
+<td>Remotive</td>
+<td><a href="https://remotive.com" target="_blank" class="external-link">https://remotive.com</a></td>
+<td>远程职位板+远程工作社区</td>
+</tr>
+<tr>
+<td><a href="http://Remote.co" target="_blank" class="external-link">Remote.co</a></td>
+<td><a href="https://remote.co" target="_blank" class="external-link">https://remote.co</a></td>
+<td>精选远程职位+资源</td>
+</tr>
+<tr>
+<td>FlexJobs</td>
+<td><a href="https://www.flexjobs.com" target="_blank" class="external-link">https://www.flexjobs.com</a></td>
+<td>付费订阅制，筛选骗局，远程/弹性工作</td>
+</tr>
+<tr>
+<td>Working Nomads</td>
+<td><a href="https://www.workingnomads.com" target="_blank" class="external-link">https://www.workingnomads.com</a></td>
+<td>远程职位聚合</td>
+</tr>
+<tr>
+<td>Upwork</td>
+<td><a href="https://www.upwork.com" target="_blank" class="external-link">https://www.upwork.com</a></td>
+<td>全球最大自由职业市场</td>
+</tr>
+<tr>
+<td>Fiverr</td>
+<td><a href="https://www.fiverr.com" target="_blank" class="external-link">https://www.fiverr.com</a></td>
+<td>自由职业服务市场</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="四、特定领域/非营利平台" tabindex="-1">四、特定领域/非营利平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>适用领域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idealist</td>
+<td><a href="https://www.idealist.org" target="_blank" class="external-link">https://www.idealist.org</a></td>
+<td>非营利组织、公共事务</td>
+</tr>
+<tr>
+<td>Devex</td>
+<td><a href="https://www.devex.com" target="_blank" class="external-link">https://www.devex.com</a></td>
+<td>国际发展、人道援助、全球健康</td>
+</tr>
+<tr>
+<td>GoinGlobal</td>
+<td><a href="https://www.goinglobal.com" target="_blank" class="external-link">https://www.goinglobal.com</a></td>
+<td>国际求职资源，1600万+职位</td>
+</tr>
+<tr>
+<td>Wellfound（原AngelList）</td>
+<td><a href="https://wellfound.com" target="_blank" class="external-link">https://wellfound.com</a></td>
+<td>初创公司+远程科技职位</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="web3" tabindex="-1">Web3 找工作网站</h2>
+<h3 id="web3-1" tabindex="-1">一、Web3 专属招聘平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web3.career</td>
+<td><a href="https://web3.career" target="_blank" class="external-link">https://web3.career</a></td>
+<td>全球性Web3招聘平台，职位更新快，覆盖区块链、DeFi、NFT、元宇宙</td>
+</tr>
+<tr>
+<td>Cryptocurrency Jobs</td>
+<td><a href="https://cryptocurrencyjobs.co" target="_blank" class="external-link">https://cryptocurrencyjobs.co</a></td>
+<td>数字货币与区块链行业垂直招聘，全球远程+本地职位</td>
+</tr>
+<tr>
+<td>Crypto Jobs List</td>
+<td><a href="https://cryptojobslist.com" target="_blank" class="external-link">https://cryptojobslist.com</a></td>
+<td>Web3职位板，覆盖DeFi、NFT、DAO等领域</td>
+</tr>
+<tr>
+<td>Bondex</td>
+<td><a href="https://bondex.app" target="_blank" class="external-link">https://bondex.app</a></td>
+<td>Web3专业网络+招聘平台，已收购Remote3，占Web3求职流量50%以上</td>
+</tr>
+<tr>
+<td>web3career.build</td>
+<td><a href="https://web3career.build" target="_blank" class="external-link">https://web3career.build</a></td>
+<td>Web3实习计划官方平台，适合系统参与</td>
+</tr>
+<tr>
+<td>DeJob</td>
+<td><a href="https://dejob.io" target="_blank" class="external-link">https://dejob.io</a></td>
+<td>专注Web3与远程招聘，国内项目更新快，中文用户友好</td>
+</tr>
+<tr>
+<td>SmartDeer</td>
+<td><a href="https://smartdeer.com" target="_blank" class="external-link">https://smartdeer.com</a></td>
+<td>新兴平台，注重人才与项目匹配质量</td>
+</tr>
+<tr>
+<td>remote3</td>
+<td><a href="https://remote3.co" target="_blank" class="external-link">https://remote3.co</a></td>
+<td>Web3远程职位专板（已被Bondex收购）</td>
+</tr>
+<tr>
+<td>Crypto.jobs</td>
+<td><a href="https://crypto.jobs" target="_blank" class="external-link">https://crypto.jobs</a></td>
+<td>加密货币行业职位板</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="dao" tabindex="-1">二、DAO / 赏金 / 贡献者平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址/入口</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dework</td>
+<td><a href="https://dework.xyz" target="_blank" class="external-link">https://dework.xyz</a></td>
+<td>DAO任务管理+赏金平台，通过完成任务积累声誉</td>
+</tr>
+<tr>
+<td>Layer3</td>
+<td><a href="https://layer3.xyz" target="_blank" class="external-link">https://layer3.xyz</a></td>
+<td>Web3任务与赏金平台，可参与项目并获得奖励</td>
+</tr>
+<tr>
+<td>Gitcoin</td>
+<td><a href="https://gitcoin.co" target="_blank" class="external-link">https://gitcoin.co</a></td>
+<td>开源赏金平台，赏金范围$1,500–$50,000，按PR审核后加密货币支付</td>
+</tr>
+<tr>
+<td>LXDAO</td>
+<td>社区入口</td>
+<td>DAO社区，提供招聘与Bounty岗位</td>
+</tr>
+<tr>
+<td>ETHPanda</td>
+<td>社区入口</td>
+<td>华语区与全球以太坊生态桥梁，定期发布机会</td>
+</tr>
+<tr>
+<td>Developer DAO</td>
+<td>社区入口</td>
+<td>开发者社区，活跃的职位分享</td>
+</tr>
+<tr>
+<td>Bankless DAO</td>
+<td>社区入口</td>
+<td>公开贡献者任务，可积累声誉转全职</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="web3-freelance" tabindex="-1">三、Web3 自由职业 / Freelance 平台</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>平台名称</th>
+<th>网址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upwork（Web3分类）</td>
+<td><a href="https://www.upwork.com" target="_blank" class="external-link">https://www.upwork.com</a></td>
+<td>全球最大自由职业平台，有大量Web3/区块链职位</td>
+</tr>
+<tr>
+<td><a href="http://ETHJobs.cc" target="_blank" class="external-link">ETHJobs.cc</a></td>
+<td><a href="https://ethjobs.cc" target="_blank" class="external-link">https://ethjobs.cc</a></td>
+<td>去中心化招聘平台，托管支付直到工作验证</td>
+</tr>
+<tr>
+<td>Hyve</td>
+<td>区块链自由职业市场</td>
+<td>去中心化自由职业市场，DeFi方向</td>
+</tr>
+<tr>
+<td>Ludium</td>
+<td>区块链自由职业平台</td>
+<td>基于区块链的freelancer招聘平台</td>
+</tr>
+<tr>
+<td>LaborX</td>
+<td><a href="https://laborx.com" target="_blank" class="external-link">https://laborx.com</a></td>
+<td>以自由职业为主的Web3工作平台</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="web3-2" tabindex="-1">四、Web3 信息渠道与社区（非传统招聘网站，但极其重要）</h3>
+<p>Web3 招聘很大比例发生在社区和社交平台，以下渠道值得重点关注：</p>
+<ul>
+<li><strong>Twitter (X)</strong> ：Web3招聘主战场，关注项目创始人、核心开发者、投资人，搜索标签 <code>#Web3Jobs</code>、<code>#CryptoJobs</code></li>
+<li><strong>Discord / Telegram</strong>：加入目标项目官方社区，很多职位优先在社区内发布</li>
+<li><strong>GitHub</strong>：对开发者而言，通过提交Issue或Pull Request直接展示能力，是最有效的“链上简历”</li>
+<li><strong>项目官网</strong>：直接访问感兴趣项目的官网，查看“Careers”或“Jobs”页面</li>
+<li><strong>行业媒体</strong>：CoinDesk、The Block、Messari、Nansen，可追踪行业动态和招聘趋势</li>
+<li><strong>线下活动/AMA</strong>：行业会议、Meetup、线上问答</li>
+</ul>
+<p><strong>综合建议</strong>：国内求职以“国家级官方平台打底 + BOSS直聘/猎聘主投 + 垂直行业站补充”的组合较为稳妥；国外求职建议以 LinkedIn 为核心，配合目标国家的本地平台和远程专用平台；Web3 方向则应以垂直招聘平台（Web3.career、Cryptocurrency Jobs）为主，同时高度重视 Twitter、Discord 和 DAO 社区等非传统渠道，很多核心岗位并不会出现在传统招聘网站上。</p>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#国内找工作网站">国内找工作网站</a>
+<ol>
+<li><a href="#一、国家级官方平台">一、国家级官方平台</a>
+</li>
+<li><a href="#二、综合招聘平台">二、综合招聘平台</a>
+</li>
+<li><a href="#三、垂直行业招聘网站">三、垂直行业招聘网站</a>
+</li>
+</ol>
+</li>
+<li><a href="#国外找工作网站">国外找工作网站</a>
+<ol>
+<li><a href="#一、全球综合招聘平台">一、全球综合招聘平台</a>
+</li>
+<li><a href="#二、区域/国别特色平台">二、区域/国别特色平台</a>
+</li>
+<li><a href="#三、远程工作专用平台">三、远程工作专用平台</a>
+</li>
+<li><a href="#四、特定领域/非营利平台">四、特定领域/非营利平台</a>
+</li>
+</ol>
+</li>
+<li><a href="#web3">Web3 找工作网站</a>
+<ol>
+<li><a href="#web3-1">一、Web3 专属招聘平台</a>
+</li>
+<li><a href="#dao">二、DAO / 赏金 / 贡献者平台</a>
+</li>
+<li><a href="#web3-freelance">三、Web3 自由职业 / Freelance 平台</a>
+</li>
+<li><a href="#web3-2">四、Web3 信息渠道与社区（非传统招聘网站，但极其重要）</a>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card">
+<span class="no-backlinks-message">No other pages mentions this page</span>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
